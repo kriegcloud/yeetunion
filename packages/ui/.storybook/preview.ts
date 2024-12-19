@@ -1,6 +1,6 @@
-import '@dank/assets/fonts/stylesheet.css'
-import './globals.css'
+import "@dank/assets/fonts/stylesheet.css";
+import "./globals.css";
 
-import preview from '@dank/storybook/preview'
+import preview from "@dank/storybook/preview";
 
-export default preview
+export default preview;

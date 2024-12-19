@@ -1,6 +1,6 @@
-import { buildConfig, mergeConfig, reactConfig } from '@dank/vite'
+import { buildConfig, mergeConfig, reactConfig } from "@dank/vite";
 
-import pkg from './package.json'
+import pkg from "./package.json";
 
 export default mergeConfig(
   // Vite config to support React.
@@ -10,13 +10,17 @@ export default mergeConfig(
    */
   buildConfig({
     lib: {
-      entry: ['./src/primitives/*/index.tsx', './src/utils/cn.ts'],
+      entry: [
+        "./src/shad/*/index.tsx",
+        "./src/utils/cn.ts",
+        "./src/mui/*/index.tsx",
+      ],
     },
     external: {
       externalizeDeps: Object.keys(pkg.dependencies),
     },
     dts: {
-      exclude: ['src/storybook-utils', '**/*.stories.tsx'],
+      exclude: ["src/storybook-utils", "**/*.stories.tsx"],
     },
   }),
-)
+);

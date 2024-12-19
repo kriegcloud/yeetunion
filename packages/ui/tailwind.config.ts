@@ -1,11 +1,11 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
-import { boisTailwindPreset } from '@dank/tailwind'
+import { boisTailwindPreset } from "@dank/tailwind";
 
 const config: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  darkMode: 'class',
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: "class",
   presets: [boisTailwindPreset],
-}
+};
 
-export default config
+export default config;
