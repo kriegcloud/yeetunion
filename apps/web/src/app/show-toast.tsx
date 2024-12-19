@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@dank/ui/shad/button";
-import { useToast } from "@dank/ui/shad/toast";
+import { Button } from "@dank/ui/button";
+import { useToast } from "@dank/ui/toast";
 
 export const ShowToast = () => {
   const { toast } = useToast();

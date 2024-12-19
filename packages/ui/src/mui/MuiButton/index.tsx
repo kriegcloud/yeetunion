@@ -1,7 +1,5 @@
-// import clsx from "clsx";
+import MuiButton from "@mui/material/Button";
 import * as React from "react";
-import styles from "./MuiButton.module.css";
-
 export interface ButtonProps {
   className?: string;
   onClick?: () => void;
@@ -10,20 +8,6 @@ export interface ButtonProps {
   backgroundColor?: string;
 }
 
-export const Button = ({
-  onClick,
-  HTMLAttributes,
-  backgroundColor,
-  children,
-}: ButtonProps) => {
-  return (
-    <button
-      className={styles["button"]}
-      onClick={onClick}
-      style={{ backgroundColor }}
-      {...HTMLAttributes}
-    >
-      {children}
-    </button>
-  );
+export const Button = ({ children }: ButtonProps) => {
+  return <MuiButton>{children}</MuiButton>;
 };
