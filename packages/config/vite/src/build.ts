@@ -29,7 +29,6 @@ export function buildConfig({
 }) {
   return defineConfig({
     plugins: [
-
       createExternal({
         nodeBuiltins: true,
         ...external,
