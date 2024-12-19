@@ -1,0 +1,11 @@
+{
+  "name": "@dank/assets",
+  "version": "0.4.3",
+  "private": true,
+  "description": "TheBois's assets package",
+  "license": "MIT",
+  "author": "The Bois",
+  "files": [
+    "**/*"
+  ]
+}

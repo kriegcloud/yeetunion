@@ -1,0 +1,29 @@
+{
+  "name": "@dank/utils",
+  "version": "0.4.3",
+  "private": true,
+  "description": "Common utilities for TheBois",
+  "license": "MIT",
+  "author": "The Bois",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./filesystem": {
+      "types": "./dist/filesystem.d.ts",
+      "default": "./dist/filesystem.js"
+    },
+    "./url": {
+      "types": "./dist/url.d.ts",
+      "default": "./dist/url.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -w -p tsconfig.build.json",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@dank/tsconfig": "workspace:^"
+  }
+}

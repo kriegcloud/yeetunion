@@ -1,0 +1,25 @@
+{
+  "name": "@dank/core",
+  "version": "0.4.3",
+  "private": true,
+  "description": "Core package for business logic",
+  "license": "MIT",
+  "author": "The Bois",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -w -p tsconfig.build.json",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@dank/tsconfig": "workspace:^"
+  }
+}

@@ -1,0 +1,47 @@
+name: Main CI
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  # These are needed to enable turborepo's remote task caching
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
+jobs:
+  web:
+    name: Web CI
+    runs-on: ubuntu-latest
+
+    environment: Production
+
+    env:
+
+      # Unkey
+      UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
+      UNKEY_NAMESPACE: ${{ secrets.UNKEY_NAMESPACE }}
+
+      # Posthog
+      NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.PUBLIC_POSTHOG_HOST }}
+      NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Checks
+        run: bun turbo lint typecheck build test:e2e --filter=@dank/web
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-playwright-report
+          path: apps/web/playwright-report/
+          retention-days: 30

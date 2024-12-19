@@ -1,0 +1,47 @@
+{
+  "name": "bois",
+  "private": true,
+  "description": "A comprehensive, opinionated company monorepo boilerplate",
+  "license": "MIT",
+  "author": "The Bois",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "packages/config/*"
+  ],
+  "scripts": {
+    "commit": "git-cz",
+    "prepare": "husky",
+    "release": "turbo run build lint typecheck && changeset version && changeset publish",
+    "reset:changelog": "bun run rm -rf */**/CHANGELOG.md",
+    "typecheck": "tsc",
+    "update:workspace": "bun run ./scripts/update-workspace"
+  },
+  "lint-staged": {
+    "*": [
+
+    ],
+    "**/*.{md,mdx}": [
+      "markdownlint"
+    ]
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.7",
+    "@dank/tsconfig": "workspace:^",
+    "@playwright/test": "^1.46.1",
+    "@types/bun": "latest",
+    "@types/node": "^22.5.2",
+    "@types/yargs": "^17.0.33",
+    "commitizen": "^4.3.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
+    "markdownlint": "^0.35.0",
+    "markdownlint-cli": "^0.41.0",
+    "pkg-types": "^1.2.0",
+    "turbo": "^2.1.1",
+    "typescript": "^5.5.4",
+    "yargs": "^17.7.2"
+  },
+  "packageManager": "bun@1.1.26"
+}

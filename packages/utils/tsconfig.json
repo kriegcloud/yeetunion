@@ -1,0 +1,3 @@
+{
+  "extends": ["@dank/tsconfig/dom.json"]
+}
