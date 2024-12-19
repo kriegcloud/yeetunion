@@ -1,6 +1,6 @@
-import { createEnv } from '@t3-oss/env-nextjs'
+import { createEnv } from "@t3-oss/env-nextjs";
 
-import { sharedEnv } from '../shared'
+import { sharedEnv } from "../shared";
 
 export const env = createEnv({
   extends: [sharedEnv],
@@ -9,5 +9,5 @@ export const env = createEnv({
   },
   experimental__runtimeEnv: {},
   emptyStringAsUndefined: true,
-  skipValidation: !!process.env['SKIP_ENV_VALIDATION'],
-})
+  skipValidation: !!process.env["SKIP_ENV_VALIDATION"],
+});

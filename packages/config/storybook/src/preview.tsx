@@ -1,54 +1,54 @@
-import type { Preview } from '@storybook/react'
+import type { Preview } from "@storybook/react";
 
-import type {} from '@storybook/types'
+import type {} from "@storybook/types";
 
-import { withThemeByClassName } from '@storybook/addon-themes'
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { type ReactRenderer } from '@storybook/react'
+import { withThemeByClassName } from "@storybook/addon-themes";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { type ReactRenderer } from "@storybook/react";
 
-import theme from './theme'
+import theme from "./theme";
 
 const customViewports = {
-  '720p': {
-    name: '720p',
+  "720p": {
+    name: "720p",
     styles: {
-      width: '1280px',
-      height: '720px',
+      width: "1280px",
+      height: "720px",
     },
   },
-  '1080p': {
-    name: '1080p',
+  "1080p": {
+    name: "1080p",
     styles: {
-      width: '1920px',
-      height: '1080px',
+      width: "1920px",
+      height: "1080px",
     },
   },
-  '2k': {
-    name: '2K',
+  "2k": {
+    name: "2K",
     styles: {
-      width: '2560px',
-      height: '1440px',
+      width: "2560px",
+      height: "1440px",
     },
   },
-  '4k': {
-    name: '4K',
+  "4k": {
+    name: "4K",
     styles: {
-      width: '3840px',
-      height: '2160px',
+      width: "3840px",
+      height: "2160px",
     },
   },
-  '21/9': {
-    name: '21/9',
+  "21/9": {
+    name: "21/9",
     styles: {
-      width: '2560px',
-      height: '1080px',
+      width: "2560px",
+      height: "1080px",
     },
   },
-}
+};
 
 const preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -68,12 +68,12 @@ const preview = {
   decorators: [
     withThemeByClassName<ReactRenderer>({
       themes: {
-        light: 'light',
-        dark: 'dark',
+        light: "light",
+        dark: "dark",
       },
-      defaultTheme: 'dark',
+      defaultTheme: "dark",
     }),
   ],
-} satisfies Preview
+} satisfies Preview;
 
-export default preview
+export default preview;

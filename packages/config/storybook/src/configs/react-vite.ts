@@ -1,32 +1,32 @@
-import { type StorybookConfig } from '@storybook/react-vite'
+import { type StorybookConfig } from "@storybook/react-vite";
 
-import { getAbsolutePath } from '@dank/utils/filesystem'
+import { getAbsolutePath } from "@dank/utils/filesystem";
 
 const config = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
-    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath("@storybook/addon-links"),
     {
-      name: getAbsolutePath('@storybook/addon-essentials'),
+      name: getAbsolutePath("@storybook/addon-essentials"),
       options: {
         backgrounds: false,
       },
     },
-    getAbsolutePath('@storybook/addon-onboarding'),
-    getAbsolutePath('@storybook/addon-interactions'),
-    getAbsolutePath('@storybook/addon-themes'),
-    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath("@storybook/addon-onboarding"),
+    getAbsolutePath("@storybook/addon-interactions"),
+    getAbsolutePath("@storybook/addon-themes"),
+    getAbsolutePath("@storybook/addon-a11y"),
   ],
   framework: {
-    name: getAbsolutePath('@storybook/react-vite') as '@storybook/react-vite',
+    name: getAbsolutePath("@storybook/react-vite") as "@storybook/react-vite",
     options: {
       strictMode: true,
     },
   },
-  staticDirs: [getAbsolutePath('@dank/assets')],
+  staticDirs: [getAbsolutePath("@dank/assets")],
   docs: {
-    autodocs: 'tag',
+    autodocs: "tag",
   },
-} satisfies StorybookConfig
+} satisfies StorybookConfig;
 
-export default config
+export default config;

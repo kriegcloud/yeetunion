@@ -41,9 +41,6 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"]
     },
-    "//#lint": {
-      "inputs": ["*.ts", "*.js", "tsconfig.json"]
-    },
     "typecheck": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"],

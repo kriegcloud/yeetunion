@@ -17,7 +17,8 @@
     "build": "tsc -p tsconfig.build.json",
     "clean": "bun run rm -rf dist *.tsbuildinfo",
     "dev": "tsc -w -p tsconfig.build.json",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "biome check . --write"
   },
   "devDependencies": {
     "@dank/tsconfig": "workspace:^"

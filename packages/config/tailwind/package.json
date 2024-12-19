@@ -11,7 +11,8 @@
   },
   "scripts": {
     "clean": "bun run rm -rf *.tsbuildinfo",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "biome check . --write"
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",

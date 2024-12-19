@@ -1,8 +1,8 @@
-import { createEnv } from '@t3-oss/env-nextjs'
-import { z } from 'zod'
+import { createEnv } from "@t3-oss/env-nextjs";
+import { z } from "zod";
 
-import { sharedEnv } from '../shared'
-import { env as dbEnv } from './db'
+import { sharedEnv } from "../shared";
+import { env as dbEnv } from "./db";
 
 export const env = createEnv({
   extends: [sharedEnv, dbEnv],
@@ -24,8 +24,8 @@ export const env = createEnv({
     SENTRY_AUTH_TOKEN: z.string().optional(),
   },
   experimental__runtimeEnv: {
-    PORT: process.env['PORT'],
+    PORT: process.env["PORT"],
   },
   emptyStringAsUndefined: true,
-  skipValidation: !!process.env['SKIP_ENV_VALIDATION'],
-})
+  skipValidation: !!process.env["SKIP_ENV_VALIDATION"],
+});
