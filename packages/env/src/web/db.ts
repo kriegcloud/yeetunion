@@ -1,6 +1,6 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 
-import { sharedEnv } from "../shared";
+import { sharedEnv } from "@/shared";
 
 export const env = createEnv({
   extends: [sharedEnv],
