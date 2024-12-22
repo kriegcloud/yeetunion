@@ -26,6 +26,7 @@
     }
   },
   "scripts": {
+    "execute": "tsx ./src/execute.ts",
     "build": "tsc -p tsconfig.build.json",
     "clean": "bun run rm -rf dist *.tsbuildinfo",
     "dev": "tsc -w -p tsconfig.build.json",
@@ -33,7 +34,8 @@
     "lint": "biome check . --write"
   },
   "devDependencies": {
-    "@dank/tsconfig": "workspace:^"
+    "@dank/tsconfig": "workspace:^",
+    "tsx": "^4.19.2"
   },
   "dependencies": {
     "@effect/schema": "latest",

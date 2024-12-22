@@ -1,10 +1,9 @@
 {
-  "name": "@orbitkit/db",
-  "version": "0.4.3",
+  "name": "@dank/db",
+  "version": "0.1.0",
   "private": true,
   "description": "A database package utilizing drizzle orm.",
   "license": "MIT",
-  "author": "OrbitKit",
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -29,20 +28,18 @@
     "db:studio": "drizzle-kit studio",
     "db:up": "drizzle-kit up",
     "dev": "tsc -w -p tsconfig.build.json",
-    "lint": "eslint .  --max-warnings 0",
+    "lint": "biome check . --write",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.9.4",
-    "@orbitkit/env": "workspace:^",
-    "drizzle-orm": "^0.33.0",
-    "pg": "^8.12.0",
-    "postgres": "^3.4.4",
-    "zod": "^3.23.8"
+    "@dank/env": "workspace:^",
+    "drizzle-orm": "^0.38.2",
+    "pg": "^8.13.1",
+    "@dank/auth": "workspace:*"
   },
   "devDependencies": {
-    "@orbitkit/eslint": "workspace:*",
-    "@orbitkit/tsconfig": "workspace:*",
-    "drizzle-kit": "^0.24.2"
+    "@dank/tsconfig": "workspace:*",
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.30.1"
   }
 }
