@@ -32,14 +32,13 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@dank/auth": "workspace:*",
     "@dank/env": "workspace:^",
     "drizzle-orm": "^0.38.2",
-    "pg": "^8.13.1",
-    "@dank/auth": "workspace:*"
+    "postgres": "^3.4.5"
   },
   "devDependencies": {
     "@dank/tsconfig": "workspace:*",
-    "@types/pg": "^8.11.10",
     "drizzle-kit": "^0.30.1"
   }
 }

@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { integer, text, serial, } from "drizzle-orm/pg-core";
+import { text, serial, } from "drizzle-orm/pg-core";
 import { pgPubTable } from "./_table";
 import { orgRoleTable } from "./org-role";
 import {auditTimeFields} from "./_common";

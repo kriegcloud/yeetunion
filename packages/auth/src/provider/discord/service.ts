@@ -34,7 +34,7 @@ const discordProvider = Config.map(
   },
 );
 
-export class Service extends Effect.Tag("@dank/auth/discord-service")<
+export class Service extends Effect.Tag("@cubeflair/auth/discord-service")<
   Service,
   OauthService<DiscordUser>
 >() {}
@@ -43,7 +43,6 @@ export const layer = Layer.effect(
   Service,
   Effect.gen(function* () {
     const provider = yield* discordProvider;
-
     return {
       createAuthorizationUrl: ({ state, scopes = ["identify", "email"] }) =>
         Effect.succeed(provider.createAuthorizationURL(state, scopes)).pipe(
@@ -55,35 +54,39 @@ export const layer = Layer.effect(
           "discord",
         );
       },
-      getUserDetails: (accessToken: string) => Effect.gen(function* () {
-        const client = (yield* HttpClient.HttpClient).pipe(
-          HttpClient.filterStatusOk
-        );
-        const req = HttpClientRequest.get(
-          "https://discord.com/api/v10/users/@me"
-        ).pipe(HttpClientRequest.bearerToken(accessToken));
+      getUserDetails: (accessToken: string) =>
+        Effect.gen(function* () {
+          const client = (yield* HttpClient.HttpClient).pipe(
+            HttpClient.filterStatusOk,
+          );
+          const req = HttpClientRequest.get(
+            "https://discord.com/api/v10/users/@me",
+          ).pipe(HttpClientRequest.bearerToken(accessToken));
 
-        const response = yield* client.execute(req);
+          const response = yield* client.execute(req);
 
-        const discordUserResponse = yield* HttpClientResponse.schemaBodyJson(DiscordUserResponse)(response);
+          const discordUserResponse =
+            yield* HttpClientResponse.schemaBodyJson(DiscordUserResponse)(
+              response,
+            );
 
-        return new DiscordUser({
-          id: discordUserResponse.id,
-          username: discordUserResponse.username,
-          discordTag: discordUserResponse.discriminator,
-          displayName: discordUserResponse.global_name,
-          email: discordUserResponse.email,
-          emailVerified: discordUserResponse.verified,
-          locale: discordUserResponse.locale,
-          pictureUrl: `https://cdn.discordapp.com/avatars/${discordUserResponse.id}/${discordUserResponse.avatar}.png`,
-          system: discordUserResponse.system,
-          bot: discordUserResponse.bot,
-        });
-      }).pipe(
-        Effect.scoped,
-        Effect.provide(FetchHttpClient.layer),
-        Effect.withSpan("@dank/discord-service/getUserDetails"),
-      )
-    }
-  })
-)
+          return new DiscordUser({
+            id: discordUserResponse.id,
+            username: discordUserResponse.username,
+            discordTag: discordUserResponse.discriminator,
+            displayName: discordUserResponse.global_name,
+            email: discordUserResponse.email,
+            emailVerified: discordUserResponse.verified,
+            locale: discordUserResponse.locale,
+            pictureUrl: `https://cdn.discordapp.com/avatars/${discordUserResponse.id}/${discordUserResponse.avatar}.png`,
+            system: discordUserResponse.system,
+            bot: discordUserResponse.bot,
+          });
+        }).pipe(
+          Effect.scoped,
+          Effect.provide(FetchHttpClient.layer),
+          Effect.withSpan("@dank/discord-service/getUserDetails"),
+        ),
+    };
+  }),
+);

@@ -6,7 +6,7 @@ import { orgRoleTable } from "./org-role";
 import {auditTimeFields} from "./_common";
 
 export const authAccountOrgRoleTable = pgPubTable(
-  "auth_account_team_role",
+  "auth_account_org_role",
   {
     auth_account_id: integer()
       .notNull()
@@ -14,7 +14,7 @@ export const authAccountOrgRoleTable = pgPubTable(
         onDelete: "cascade",
         onUpdate: "cascade",
       }),
-    team_role_id: integer()
+    org_role_id: integer()
       .notNull()
       .references(() => orgRoleTable.id, {
         onDelete: "cascade",
@@ -25,13 +25,13 @@ export const authAccountOrgRoleTable = pgPubTable(
   (table) => {
     return {
       primaryKey: primaryKey({
-        columns: [table.auth_account_id, table.team_role_id],
+        columns: [table.auth_account_id, table.org_role_id],
       }),
     };
   },
 );
 
-export const authAccountTeamRoleRelations = relations(
+export const authAccountorgRoleRelations = relations(
   authAccountOrgRoleTable,
   ({ one }) => {
     return {
@@ -39,8 +39,8 @@ export const authAccountTeamRoleRelations = relations(
         fields: [authAccountOrgRoleTable.auth_account_id],
         references: [authAccountTable.id],
       }),
-      teamRole: one(orgRoleTable, {
-        fields: [authAccountOrgRoleTable.team_role_id],
+      orgRole: one(orgRoleTable, {
+        fields: [authAccountOrgRoleTable.org_role_id],
         references: [orgRoleTable.id],
       }),
     };
