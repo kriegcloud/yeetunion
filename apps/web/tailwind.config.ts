@@ -1,10 +1,7 @@
-import type { Config } from "tailwindcss";
-
 import { boisTailwindPreset } from "@dank/tailwind";
 
-const config: Config = {
+const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "../../packages/ui/dist/**/*.js"],
-  darkMode: "class",
   presets: [boisTailwindPreset],
 };
 

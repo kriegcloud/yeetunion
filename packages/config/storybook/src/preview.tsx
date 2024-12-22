@@ -1,12 +1,24 @@
-import type { Preview } from "@storybook/react";
-
-import type {} from "@storybook/types";
-
+import { ThemeProvider } from "@dank/theme/ThemeProvider";
+import { ThemeSettingsProvider } from "@dank/theme/ThemeSettings";
+import { primaryColorConfig } from "@dank/theme/colorConfig";
+import { themeConfig } from "@dank/theme/themeConfig";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import type { Preview } from "@storybook/react";
 import { type ReactRenderer } from "@storybook/react";
-
+import type {} from "@storybook/types";
 import theme from "./theme";
+
+const initialSettings = {
+  mode: themeConfig.mode,
+  skin: themeConfig.skin,
+  semiDark: themeConfig.semiDark,
+  layout: themeConfig.layout,
+  navbarContentWidth: themeConfig.navbar.contentWidth,
+  contentWidth: themeConfig.contentWidth,
+  footerContentWidth: themeConfig.footer.contentWidth,
+  primaryColor: primaryColorConfig[0].main,
+};
 
 const customViewports = {
   "720p": {
@@ -66,6 +78,17 @@ const preview = {
     },
   },
   decorators: [
+    (Story) => (
+      <ThemeSettingsProvider
+        settingsCookieObj={initialSettings}
+        mode={"dark"}
+        initialSettings={initialSettings}
+      >
+        <ThemeProvider systemMode={"dark"} direction={"ltr"}>
+          <Story />
+        </ThemeProvider>
+      </ThemeSettingsProvider>
+    ),
     withThemeByClassName<ReactRenderer>({
       themes: {
         light: "light",

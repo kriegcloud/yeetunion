@@ -1,22 +1,17 @@
 {
   "name": "@dank/ui",
-    "version": "0.1.0",
+  "version": "0.4.3",
   "private": true,
-  "description": "TheBois UI Design System Components Library",
+  "description": "OrbitKit UI Design System Components Library",
   "license": "MIT",
-  "author": "The Bois",
+  "author": "OrbitKit",
   "sideEffects": false,
   "type": "module",
   "exports": {
     "./*": {
-      "types": "./dist/shad/*/index.d.ts",
-      "require": "./dist/shad/*/index.cjs",
-      "default": "./dist/shad/*/index.js"
-    },
-    "./mui/*": {
-      "types": "./dist/mui/*/index.d.ts",
-      "require": "./dist/mui/*/index.cjs",
-      "default": "./dist/mui/*/index.js"
+      "types": "./dist/primitives/*/index.d.ts",
+      "require": "./dist/primitives/*/index.cjs",
+      "default": "./dist/primitives/*/index.js"
     },
     "./cn": {
       "types": "./dist/utils/cn.d.ts",
@@ -24,27 +19,19 @@
       "default": "./dist/utils/cn.js"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build",
     "build-storybook": "storybook build",
     "clean": "bun run rm -rf dist storybook-static *.tsbuildinfo",
     "dev": "vite build -w",
+    "lint": "biome check . --write",
     "storybook": "storybook dev -p 6006 --no-open",
     "test-storybook": "test-storybook",
-    "typecheck": "tsc",
-    "lint": "biome check . --write"
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "@emotion/cache": "^11.14.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@hookform/resolvers": "^3.9.0",
-    "@mui/lab": "5.0.0-alpha.172",
-    "@mui/material": "^6.2.1",
-    "@mui/material-nextjs": "^6.2.1",
+    "@dank/theme": "workspace:^",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -96,21 +83,17 @@
     "@dank/vite": "workspace:^",
     "@storybook/react": "^8.4.7",
     "@storybook/test": "^8.4.7",
-    "@total-typescript/ts-reset": "^0.6.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "globby": "^14.0.2",
-    "playwright": "^1.46.1",
-    "postcss": "^8.4.44",
+    "playwright": "^1.49.1",
+    "postcss": "^8.4.49",
     "rollup-plugin-preserve-directives": "^0.4.0",
-    "sass": "^1.83.0",
     "storybook": "^8.4.7",
-    "tailwindcss": "^3.4.10",
-    "typescript-plugin-css-modules": "^5.1.0",
+    "tailwindcss": "^3.4.17",
     "vite": "^5.4.2",
-    "vite-plugin-dts": "^4.1.0",
-    "vite-plugin-external": "^4.3.1",
-    "vite-plugin-lib-inject-css": "^2.1.1"
+    "vite-plugin-dts": "^4.4.0",
+    "vite-plugin-external": "^4.3.1"
   }
 }

@@ -10,11 +10,7 @@ export default mergeConfig(
    */
   buildConfig({
     lib: {
-      entry: [
-        "./src/shad/*/index.tsx",
-        "./src/utils/cn.ts",
-        "./src/mui/*/index.tsx",
-      ],
+      entry: ["./src/primitives/*/index.tsx", "./src/utils/cn.ts"],
     },
     external: {
       externalizeDeps: Object.keys(pkg.dependencies),

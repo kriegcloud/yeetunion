@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 
-import { Button } from "../shad/button";
+import { Button } from "../primitives/button";
 
 /**
  * This component is used inside storybook mdx files to render a button that links to the Radix docs of the primitive.
@@ -13,7 +13,7 @@ export function RadixPrimitiveDocsButton({ name }: { name: string }) {
     <div className="dark !mb-6 flex gap-4">
       <Button variant="outline" size="sm" asChild>
         <a
-          href={`https://www.radix-ui.com/docs/shad/components/${name}`}
+          href={`https://www.radix-ui.com/docs/primitives/components/${name}`}
           className="!text-sm !text-gray-11"
         >
           <ExternalLinkIcon className="mr-2 size-3" />
@@ -22,7 +22,7 @@ export function RadixPrimitiveDocsButton({ name }: { name: string }) {
       </Button>
       <Button variant="outline" size="sm" asChild>
         <a
-          href={`https://www.radix-ui.com/docs/shad/components/${name}#api-reference`}
+          href={`https://www.radix-ui.com/docs/primitives/components/${name}#api-reference`}
           className="!text-sm !text-gray-11"
         >
           <ExternalLinkIcon className="mr-2 size-3" />

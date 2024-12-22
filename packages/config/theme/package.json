@@ -1,0 +1,61 @@
+{
+  "name": "@dank/theme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A package to share Storybook configuration preset for the workspace",
+  "license": "MIT",
+  "author": "The Bois",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/theme.d.ts",
+      "default": "./dist/theme.js"
+    },
+    "./colorConfig": {
+      "types": "./dist/colorConfig.d.ts",
+      "default": "./dist/colorConfig.js"
+    },
+    "./ThemeProvider": {
+      "types": "./dist/ThemeProvider.d.ts",
+      "default": "./dist/ThemeProvider.js"
+    },
+    "./ThemeSettings": {
+      "types": "./dist/ThemeSettings.d.ts",
+      "default": "./dist/ThemeSettings.js"
+    },
+    "./themeConfig": {
+      "types": "./dist/themeConfig.d.ts",
+      "default": "./dist/themeConfig.js"
+    },
+    "./ModeChanger": {
+      "types": "./dist/ModeChanger.d.ts",
+      "default": "./dist/ModeChanger.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -w -p tsconfig.build.json",
+    "typecheck": "tsc",
+    "lint": "biome check . --write"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@hookform/resolvers": "^3.9.0",
+    "@mui/lab": "6.0.0-beta.20",
+    "@mui/material": "^6.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-use": "^17.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.1",
+    "stylis": "^4.3.4",
+    "stylis-plugin-rtl": "^2.1.1",
+    "@dank/tsconfig": "workspace:^"
+  }
+}
