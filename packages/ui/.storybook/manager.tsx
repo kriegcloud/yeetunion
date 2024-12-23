@@ -1,5 +1,5 @@
-import "@dank/assets/fonts/stylesheet.css";
+import "@ye/assets/fonts/stylesheet.css";
 
-import { registerAddons } from "@dank/storybook/manager";
+import { registerAddons } from "@ye/storybook/manager";
 
 registerAddons();

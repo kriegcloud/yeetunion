@@ -1,4 +1,4 @@
-import { buildConfig, mergeConfig, reactConfig } from "@dank/vite";
+import { buildConfig, mergeConfig, reactConfig } from "@ye/vite";
 
 import pkg from "./package.json";
 
@@ -13,8 +13,6 @@ export default mergeConfig(
       entry: [
         "./src/primitives/*/index.tsx",
         "./src/utils/cn.ts",
-        "./src/svg/*/index.tsx",
-        "./src/atoms/*/index.tsx",
       ],
     },
     external: {

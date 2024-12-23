@@ -1,10 +1,10 @@
 import type { Config } from "tailwindcss";
 
-import { boisTailwindPreset } from "@dank/tailwind";
+import { yeetTailwindPreset } from "@ye/tailwind";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx,css}"],
-  presets: [boisTailwindPreset],
+  presets: [yeetTailwindPreset],
 };
 
 export default config;

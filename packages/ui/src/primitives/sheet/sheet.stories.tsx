@@ -56,7 +56,7 @@ export const Default: Story = {
             <Label htmlFor="username" className="text-right">
               Username
             </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
+            <Input id="username" value="@yaglebagle" className="col-span-3" />
           </div>
         </div>
         <SheetFooter>

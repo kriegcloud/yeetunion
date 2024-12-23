@@ -1,5 +1,5 @@
 import { cn } from "@/utils/cn";
-
+import type { HTMLAttributes } from "react";
 /**
  * A primitive component that renders a skeleton.
  * @param props HTML Div Element props.
@@ -9,7 +9,7 @@ import { cn } from "@/utils/cn";
 function Skeleton({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn("animate-pulse rounded-md bg-accent", className)}
