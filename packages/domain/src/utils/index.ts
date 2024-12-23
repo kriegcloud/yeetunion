@@ -6,7 +6,7 @@ import type * as Types from "effect/Types";
  * @category primitives
  * @since 0.1.0
  */
-export const EnumWithDefault = <TEnum extends S.EnumsDefinition>(
+export const createEnumWithDefault = <TEnum extends S.EnumsDefinition>(
   enums: TEnum,
 ) =>
   pipe((defaultValue: () => Types.NoInfer<TEnum[keyof TEnum]>) =>

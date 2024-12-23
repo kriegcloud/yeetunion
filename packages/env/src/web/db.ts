@@ -5,7 +5,7 @@ import { sharedEnv } from "../shared";
 export const env = createEnv({
   extends: [sharedEnv],
   server: {
-    DATABASE_URL: z.string().url().startsWith('postgres'),
+    DATABASE_URL: z.string().url().startsWith("postgres"),
   },
   experimental__runtimeEnv: {},
   emptyStringAsUndefined: true,

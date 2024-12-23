@@ -9,8 +9,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/theme.d.ts",
-      "default": "./dist/theme.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./colorConfig": {
       "types": "./dist/colorConfig.d.ts",

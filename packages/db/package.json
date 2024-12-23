@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@dank/auth": "workspace:*",
-    "@dank/env": "workspace:^",
+    "@dank/env": "workspace:*",
     "drizzle-orm": "^0.38.2",
     "postgres": "^3.4.5"
   },

@@ -17,13 +17,28 @@
       "types": "./dist/utils/cn.d.ts",
       "require": "./dist/utils/cn.cjs",
       "default": "./dist/utils/cn.js"
+    },
+    "./svg/*": {
+      "types": "./dist/svg/*/index.d.ts",
+      "require": "./dist/svg/*/index.cjs",
+      "default": "./dist/svg/*/index.js"
+    },
+    "./atoms/*": {
+      "types": "./dist/atoms/*/index.d.ts",
+      "require": "./dist/atoms/*/index.cjs",
+      "default": "./dist/atoms/*/index.js"
+    },
+    "./serverHelpers": {
+      "types": "./dist/utils/serverHelpers.d.ts",
+      "require": "./dist/utils/serverHelpers.cjs",
+      "default": "./dist/utils/serverHelpers.js"
     }
   },
   "files": ["dist"],
   "scripts": {
     "build": "vite build",
     "build-storybook": "storybook build",
-    "clean": "bun run rm -rf dist storybook-static *.tsbuildinfo",
+    "clean": "bun run rm -rf dist storybook-static *.tsbuildinfo node_modules .turbo",
     "dev": "vite build -w",
     "lint": "biome check . --write",
     "storybook": "storybook dev -p 6006 --no-open",

@@ -1,14 +1,14 @@
+import { drizzle } from "drizzle-orm/postgres-js";
+import { Effect } from "effect";
+import type { ConfigError } from "effect/ConfigError";
+import postgres from "postgres";
 import * as authAccount from "./schema/auth-account";
 import * as authAccountOrgRole from "./schema/auth-account-org-role";
 import * as org from "./schema/org";
 import * as orgRole from "./schema/org-role";
 import * as session from "./schema/session";
 import * as user from "./schema/user";
-import { Effect } from "effect";
-import type { ConfigError } from "effect/ConfigError";
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
-
+import { env } from "@dank/env/web/db";
 import * as S from "@effect/schema/Schema";
 import * as userToAuthAccount from "./schema/user-to-auth-account";
 
@@ -44,8 +44,7 @@ export type DbError = DbAcquisitionError | DbUsageError | ConfigError;
 export const acquireDb = Effect.gen(function* () {
   const client = yield* Effect.try({
     try: () =>
-      // biome-ignore lint/style/noNonNullAssertion: <explanation>
-      postgres(process.env["DATABASE_URL"]!),
+      postgres(env.DATABASE_URL),
     catch: (e) =>
       new DbAcquisitionError({
         message: `Database SQLite client creation error: ${e}`,
@@ -70,9 +69,9 @@ export const acquireDb = Effect.gen(function* () {
   });
   const db = {
     use: <A>({
-               fn,
-               spanName,
-             }: {
+      fn,
+      spanName,
+    }: {
       spanName: string;
       fn: (arg: typeof drizzleClient) => Promise<A>;
     }) => {

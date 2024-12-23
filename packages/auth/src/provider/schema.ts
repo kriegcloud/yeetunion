@@ -1,4 +1,4 @@
-import * as S from "@effect/schema/Schema";
+import { Schema as S } from "@effect/schema";
 
 export class BaseUser extends S.Class<BaseUser>("BaseUser")({
   id: S.String.annotations({

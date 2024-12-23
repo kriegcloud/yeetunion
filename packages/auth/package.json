@@ -29,7 +29,7 @@
     "@dank/env": "workspace:^",
     "@dank/utils": "workspace:^",
     "@effect/platform": "^0.68.2",
-    "@effect/schema": "^0.75.5",
+    "@effect/schema": "latest",
     "effect": "^3.9.1",
     "arctic": "^2.0.1"
   },

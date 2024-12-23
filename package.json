@@ -13,7 +13,8 @@
   "scripts": {
     "lint": "turbo lint",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "clean": "bun run rm -rf node_modules .turbo"
   },
   "devDependencies": {
     "@biomejs/biome": "latest",

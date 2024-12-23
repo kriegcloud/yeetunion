@@ -1,9 +1,9 @@
 import { relations } from "drizzle-orm";
-import { index, serial, integer, text } from "drizzle-orm/pg-core";
+import { index, integer, serial, text } from "drizzle-orm/pg-core";
+import { auditTimeFields } from "./_common";
 import { pgPubTable } from "./_table";
 import { authAccountOrgRoleTable } from "./auth-account-org-role";
 import { orgTable } from "./org";
-import {auditTimeFields} from "./_common";
 
 export const orgRoleTable = pgPubTable(
   "org_role",

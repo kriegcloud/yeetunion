@@ -3,18 +3,6 @@ import type { Skin } from "./types";
 const whiteColor = "#FFF";
 const lightColor = "58, 53, 65";
 const darkColor = "231, 227, 252";
-const e2Red = "#A51C21";
-const vaInputYellow = "#ffe066";
-const tableYellow = "#FFE066";
-const tableGreen = "#93DD5C";
-const tableRed = "#f44336";
-const tableBlue = "#149CE0";
-const reprintButton = "#ff9700";
-const textGreen = "#4CB200";
-const bkgGray = "#cfd8dc";
-const vaBkgWhite = "#FFF";
-const exception = "#38a8ff";
-const cancelRed = "#E04347";
 
 const colorSchemes = (skin: Skin): Theme["colorSchemes"] => {
   return {
@@ -167,19 +155,6 @@ const colorSchemes = (skin: Skin): Theme["colorSchemes"] => {
         TableCell: {
           border: "var(--mui-palette-divider)",
         },
-        va: {
-          inputYellow: vaInputYellow,
-          tableYellow: tableYellow,
-          tableGreen: tableGreen,
-          tableRed: tableRed,
-          tableBlue: tableBlue,
-          reprintButtonOrange: reprintButton,
-          textGreen: textGreen,
-          bkgGray: bkgGray,
-          vaBkgWhite: vaBkgWhite,
-          exception: exception,
-          cancelRed: cancelRed,
-        },
         customColors: {
           dark: `rgb(${darkColor})`,
           main: `rgb(${lightColor})`,
@@ -189,12 +164,7 @@ const colorSchemes = (skin: Skin): Theme["colorSchemes"] => {
           lightBg: whiteColor,
           trackBg: "#F0F2F8",
           avatarBg: "#F0EFF0",
-          tableHeaderBg: "#F6F7FB",
-          lineItemBg: "#BAFFC1",
-          e2Red: e2Red,
-          rocketGrey: "#eaeef9",
-          rocketRed: "#ff444c",
-          rocketBlue: "#28243d",
+          tableHeaderBg: "#F6F7FB"
         },
       },
     },
@@ -347,19 +317,6 @@ const colorSchemes = (skin: Skin): Theme["colorSchemes"] => {
         TableCell: {
           border: "var(--mui-palette-divider)",
         },
-        va: {
-          inputYellow: vaInputYellow,
-          tableYellow: tableYellow,
-          tableGreen: tableGreen,
-          tableRed: tableRed,
-          tableBlue: tableBlue,
-          reprintButtonOrange: reprintButton,
-          textGreen: textGreen,
-          bkgGray: bkgGray,
-          vaBkgWhite: vaBkgWhite,
-          exception: exception,
-          cancelRed: cancelRed,
-        },
         customColors: {
           dark: `rgb(${darkColor})`,
           main: `rgb(${darkColor})`,
@@ -370,11 +327,6 @@ const colorSchemes = (skin: Skin): Theme["colorSchemes"] => {
           trackBg: "#474360",
           avatarBg: "#3F3B59",
           tableHeaderBg: "#3D3759",
-          lineItemBg: "#FFCA64",
-          e2Red: e2Red,
-          rocketGrey: "#eaeef9",
-          rocketRed: "#ff444c",
-          rocketBlue: "#28243d",
         },
       },
     },

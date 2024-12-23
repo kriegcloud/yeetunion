@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
-import { Toaster } from "@dank/ui/toast";
+
 
 import "./globals.css";
 
@@ -27,7 +27,6 @@ export default function RootLayout({
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
         {children}
-        <Toaster />
       </body>
     </html>
   );

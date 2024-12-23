@@ -9,8 +9,8 @@ import {
   InvalidResponseError,
   NetworkError,
   OauthRequestError,
-} from "../errors";
-import type { SupportedOauthProviders } from "../supported-oauth";
+} from "@/errors";
+import type { SupportedOauthProviders } from "@/supported-oauth";
 
 export type OauthValidateCodeError =
   | NetworkError
@@ -50,8 +50,6 @@ export const validateAuthorizationCode = (
       );
     },
   }).pipe(
-    Effect.withSpan(
-      `@dank/auth/validateAuthorizationCode/${providerName}`,
-    ),
+    Effect.withSpan(`@dank/auth/validateAuthorizationCode/${providerName}`),
   );
 };

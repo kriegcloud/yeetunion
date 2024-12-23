@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo",
     "dev": "tsc -w -p tsconfig.build.json",
     "typecheck": "tsc",
     "lint": "biome check . --write"
@@ -30,6 +30,7 @@
     "@dank/tsconfig": "workspace:^",
     "globby": "^14.0.2",
     "rollup-plugin-preserve-directives": "^0.4.0",
+    "vite-css-modules": "^1.8.0",
     "vite-plugin-dts": "^4.4.0",
     "vite-plugin-external": "^4.3.1"
   }

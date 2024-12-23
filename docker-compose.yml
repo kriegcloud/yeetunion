@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: vexl-dev
+      POSTGRES_DB: bois-dev
     ports:
       - "5432:5432"
     volumes:

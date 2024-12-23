@@ -32,11 +32,6 @@ declare module "@mui/material/styles" {
       trackBg: string;
       avatarBg: string;
       tableHeaderBg: string;
-      lineItemBg: string;
-      e2Red: string;
-      rocketGrey: string;
-      rocketRed: string;
-      rocketBlue: string;
     };
 
     shape: {
@@ -121,26 +116,6 @@ declare module "@mui/material/styles" {
       trackBg: string;
       avatarBg: string;
       tableHeaderBg: string;
-      lineItemBg: string;
-      e2Red: string;
-      rocketGrey: string;
-      rocketRed: string;
-      rocketBlue: string;
-    };
-
-    va: {
-      inputYellow: string;
-      tableYellow: string;
-      tableGreen: string;
-      tableRed: string;
-      tableBlue: string;
-      reprintButtonOrange: string;
-      textGreen: string;
-      bkgGray: string;
-      vaBkgWhite: string;
-      exception: string;
-      cancelRed: string;
-      errorRed: string;
     };
   }
   interface PaletteOptions {
@@ -245,3 +220,4 @@ export * from "./custom-inputs";
 export * from "./types";
 export { default as primaryColorConfig } from "./primaryColorConfig";
 export type * from "./primaryColorConfig";
+export {themeConfig} from "./themeConfig";

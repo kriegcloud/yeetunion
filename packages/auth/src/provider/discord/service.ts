@@ -1,3 +1,6 @@
+import { validateAuthorizationCode } from "@/arctic/code-validation";
+import { makeRedirectUrl } from "@/oauth/make-redirect-url";
+import type { OauthService } from "@/oauth/service-interface";
 import {
   FetchHttpClient,
   HttpClient,
@@ -6,10 +9,7 @@ import {
 } from "@effect/platform";
 import { Discord } from "arctic";
 import { Config, Effect, Layer, Redacted } from "effect";
-import { validateAuthorizationCode } from "@/arctic/code-validation";
-import { makeRedirectUrl } from "@/oauth/make-redirect-url";
-import type { OauthService } from "@/oauth/service-interface";
-import { DiscordUser, DiscordUserResponse } from "./schema";
+import {DiscordUser, DiscordUserResponse} from "./schema";
 
 const discordProvider = Config.map(
   Config.all([
@@ -34,7 +34,7 @@ const discordProvider = Config.map(
   },
 );
 
-export class Service extends Effect.Tag("@cubeflair/auth/discord-service")<
+export class Service extends Effect.Tag("@dank/auth/discord-service")<
   Service,
   OauthService<DiscordUser>
 >() {}

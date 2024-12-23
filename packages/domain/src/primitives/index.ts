@@ -1,7 +1,6 @@
 export * from "./Bool.js";
 export * from "./Dte.js";
 export * from "./Email.js";
-export * from "./Enum.js";
 export * from "./Int.js";
 export * from "./NonEmptyStr.js";
 export * from "./Num.js";

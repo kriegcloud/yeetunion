@@ -1,3 +1,4 @@
+import { Db } from "@dank/db";
 /**
  * YOU PROBABLY DON'T NEED TO EDIT THIS FILE, UNLESS:
  * 1. You want to modify request context (see Part 1).
@@ -7,9 +8,8 @@
  * need to use are documented accordingly near the end.
  */
 import { initTRPC } from "@trpc/server";
-import superjson from "superjson";
-import { Db } from "@dank/db";
 import { Context, Effect } from "effect";
+import superjson from "superjson";
 
 /**
  * 1. CONTEXT

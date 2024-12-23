@@ -1,8 +1,8 @@
 import { relations } from "drizzle-orm";
-import { text, serial, } from "drizzle-orm/pg-core";
+import { serial, text } from "drizzle-orm/pg-core";
+import { auditTimeFields } from "./_common";
 import { pgPubTable } from "./_table";
 import { orgRoleTable } from "./org-role";
-import {auditTimeFields} from "./_common";
 
 export const orgTable = pgPubTable("org", {
   id: serial().primaryKey(),

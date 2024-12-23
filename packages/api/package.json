@@ -24,7 +24,7 @@
     "@dank/db": "workspace:^",
     "@dank/env": "workspace:^",
     "@dank/utils": "workspace:^",
-    "@effect/schema": "latest",
+    "@effect/schema": "^0.75.5",
     "effect": "latest",
     "@effect/opentelemetry": "latest",
     "@opentelemetry/exporter-trace-otlp-http": "^0.57.0",
