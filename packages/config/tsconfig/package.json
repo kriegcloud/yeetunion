@@ -1,6 +1,6 @@
 {
   "name": "@ye/tsconfig",
-    "version": "0.1.0",
+  "version": "0.1.0",
   "private": true,
   "description": "A package to share tsconfig presets around the workspace",
   "license": "MIT",
@@ -12,5 +12,9 @@
     "./react.json",
     "./build.json",
     "./dom.json"
-  ]
+  ],
+  "scripts": {
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
+  }
 }

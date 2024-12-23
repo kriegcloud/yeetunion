@@ -41,6 +41,10 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"]
     },
+    "lint:fix": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"]
+    },
     "typecheck": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"],

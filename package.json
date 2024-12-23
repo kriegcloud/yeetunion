@@ -11,10 +11,12 @@
     "packages/config/*"
   ],
   "scripts": {
-    "lint": "turbo lint",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
-    "typecheck": "tsc",
-    "clean": "turbo clean && rm -rf tsconfig.tsbuildinfo node_modules .turbo"
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo clean && rm -rf tsconfig.tsbuildinfo node_modules .turbo",
+    "build": "turbo build"
   },
   "devDependencies": {
     "@biomejs/biome": "latest",

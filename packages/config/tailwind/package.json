@@ -12,7 +12,8 @@
   "scripts": {
     "clean": "bun run rm -rf *.tsbuildinfo .turbo node_modules",
     "typecheck": "tsc",
-    "lint": "biome check . --write"
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",

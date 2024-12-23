@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@ye/theme/ThemeProvider";
-import { ThemeSettingsProvider } from "@ye/theme/ThemeSettings";
+import { ThemeSettingsProvider } from "@ye/theme/ThemeSettingsProvider";
 import { primaryColorConfig } from "@ye/theme/colorConfig";
 import { themeConfig } from "@ye/theme/themeConfig";
 import { withThemeByClassName } from "@storybook/addon-themes";

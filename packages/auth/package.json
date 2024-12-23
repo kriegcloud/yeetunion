@@ -22,7 +22,8 @@
     "build": "tsc -p tsconfig.build.json",
     "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
     "dev": "tsc -w -p tsconfig.build.json",
-    "lint": "biome check . --write",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
     "typecheck": "tsc"
   },
   "dependencies": {

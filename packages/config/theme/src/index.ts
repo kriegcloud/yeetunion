@@ -3,12 +3,12 @@ import type { ComponentsOverrides, Theme } from "@mui/material/styles";
 
 import type { Settings, Skin, SystemMode } from "./types";
 
-import colorSchemes from "./colorSchemes";
-import customShadows from "./customShadows";
+import colorSchemes from "./configs/colorSchemes";
+import customShadows from "./custom/customShadows";
 import overrides from "./overrides";
-import shadows from "./shadows";
-import spacing from "./spacing";
-import typography from "./typography";
+import shadows from "./custom/shadows";
+import spacing from "./custom/spacing";
+import typography from "./custom/typography";
 
 import type {} from "@mui/lab/themeAugmentation"; //! Do not remove this import otherwise you will get type errors while making a production build
 import type {} from "@mui/material/themeCssVarsAugmentation"; //! Do not remove this import otherwise you will get type errors while making a production build
@@ -17,7 +17,7 @@ import type {
   CustomInputHorizontalProps,
   CustomInputImgProps,
   CustomInputVerticalProps,
-} from "./custom-inputs";
+} from "./custom/custom-inputs";
 
 declare module "@mui/material/styles" {
   // Theme
@@ -216,8 +216,6 @@ export const coreTheme = (
   } as Theme;
 };
 
-export * from "./custom-inputs";
+export * from "./custom";
 export * from "./types";
-export { default as primaryColorConfig } from "./primaryColorConfig";
-export type * from "./primaryColorConfig";
-export {themeConfig} from "./themeConfig";
+export * from "./configs";

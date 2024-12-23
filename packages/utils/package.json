@@ -8,6 +8,10 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./createCtx": {
+      "types": "./dist/createCtx.d.ts",
+      "default": "./dist/createCtx.js"
+    },
     "./filesystem": {
       "types": "./dist/filesystem.d.ts",
       "default": "./dist/filesystem.js"
@@ -22,7 +26,8 @@
     "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
     "dev": "tsc -w -p tsconfig.build.json",
     "typecheck": "tsc",
-    "lint": "biome check . --write"
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
   },
   "devDependencies": {
     "@ye/tsconfig": "workspace:^"

@@ -28,7 +28,8 @@
     "db:studio": "drizzle-kit studio",
     "db:up": "drizzle-kit up",
     "dev": "tsc -w -p tsconfig.build.json",
-    "lint": "biome check . --write",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
     "typecheck": "tsc"
   },
   "dependencies": {

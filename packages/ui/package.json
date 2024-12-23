@@ -30,7 +30,8 @@
     "build-storybook": "storybook build",
     "clean": "bun run rm -rf dist storybook-static *.tsbuildinfo node_modules .turbo",
     "dev": "vite build -w",
-    "lint": "biome check . --write",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
     "storybook": "storybook dev -p 6006 --no-open",
     "test-storybook": "test-storybook",
     "typecheck": "tsc"
