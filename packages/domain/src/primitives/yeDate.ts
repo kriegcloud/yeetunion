@@ -4,43 +4,43 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const Dte = S.Date.pipe(S.brand("@ye/domain/primitives/Dte"));
-export type Dte = typeof Dte.Type;
+export const yeDate = S.Date.pipe(S.brand("@ye/domain/primitives/yeDate"));
+export type yeDate = typeof yeDate.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const DteOrNull = S.NullOr(Dte);
-export type DteOrNull = typeof DteOrNull.Type;
+export const yeDateOrNull = S.NullOr(yeDate);
+export type yeDateOrNull = typeof yeDateOrNull.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const DteOrUndefined = S.UndefinedOr(Dte);
-export type DteOrUndefined = typeof DteOrUndefined.Type;
+export const yeDateOrUndefined = S.UndefinedOr(yeDate);
+export type yeDateOrUndefined = typeof yeDateOrUndefined.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const DteOrNullish = S.NullishOr(Dte);
-export type DteOrNullish = typeof DteOrNullish.Type;
+export const yeDateOrNullish = S.NullishOr(yeDate);
+export type yeDateOrNullish = typeof yeDateOrNullish.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const DteOrOptional = S.optional(Dte);
-export type DteOrOptional = S.Schema.Type<typeof DteOrOptional>;
+export const yeDateOrOptional = S.optional(yeDate);
+export type yeDateOrOptional = S.Schema.Type<typeof yeDateOrOptional>;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const DteWithDefault = (value: Date) =>
-  Dte.pipe(
+export const yeDateWithDefault = (value: Date) =>
+  yeDate.pipe(
     S.propertySignature,
-    S.withConstructorDefault(() => Dte.make(value)),
+    S.withConstructorDefault(() => yeDate.make(value)),
   );

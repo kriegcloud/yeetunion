@@ -1,10 +1,10 @@
 {
-  "name": "@dank/assets",
+  "name": "@ye/assets",
     "version": "0.1.0",
   "private": true,
   "description": "TheBois's assets package",
   "license": "MIT",
-  "author": "The Bois",
+  "author": "Bois",
   "files": [
     "**/*"
   ]

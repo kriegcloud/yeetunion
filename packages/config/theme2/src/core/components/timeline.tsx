@@ -1,19 +1,19 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
-const MuiTimelineDot: Components<Theme>['MuiTimelineDot'] = {
+const MuiTimelineDot = {
   /** **************************************
    * STYLE
    *************************************** */
   styleOverrides: { root: { boxShadow: 'none' } },
 };
 
-const MuiTimelineConnector: Components<Theme>['MuiTimelineConnector'] = {
+const MuiTimelineConnector = {
   /** **************************************
    * STYLE
    *************************************** */
-  styleOverrides: { root: ({ theme }) => ({ backgroundColor: theme.vars.palette.divider }) },
+  styleOverrides: { root: ({ theme }: { theme: Theme}) => ({ backgroundColor: theme.vars.palette.divider }) },
 };
 
 // ----------------------------------------------------------------------

@@ -8,8 +8,8 @@
 // import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server'
 // import superjson from 'superjson'
 //
-// import { type AppRouter } from '@dank/api'
-// import { getBaseUrl } from '@dank/utils/url'
+// import { type AppRouter } from '@ye/api'
+// import { getBaseUrl } from '@ye/utils/url'
 //
 // const createQueryClient = () => new QueryClient()
 //

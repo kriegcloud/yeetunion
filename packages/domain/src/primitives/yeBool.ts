@@ -4,43 +4,46 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const Bool = S.Boolean.pipe(S.brand("@ye/domain/primitives/Bool"));
-export type Bool = typeof Bool.Type;
+export const yeBool = S.Boolean.pipe(S.brand("@ye/domain/primitives/yeBool"));
+export type Bool = typeof yeBool.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const BoolOrNull = S.NullOr(Bool);
-export type BoolOrNull = typeof BoolOrNull.Type;
+export const yeBoolOrNull = S.NullOr(yeBool);
+export type yeBoolOrNull = typeof yeBoolOrNull.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const BoolOrUndefined = S.UndefinedOr(Bool);
-export type BoolOrUndefined = typeof BoolOrUndefined.Type;
+export const yeBoolOrUndefined = S.UndefinedOr(yeBool);
+export type yeBoolOrUndefined = typeof yeBoolOrUndefined.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const BoolOrNullish = S.NullishOr(Bool);
-export type BoolOrNullish = typeof BoolOrNullish.Type;
+export const yeBoolOrNullish = S.NullishOr(yeBool);
+export type yeBoolOrNullish = typeof yeBoolOrNullish.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const BoolOrOptional = S.optional(Bool);
-export type BoolOrOptional = S.Schema.Type<typeof BoolOrOptional>;
+export const yeBoolOrOptional = S.optional(yeBool);
+export type yeBoolOrOptional = S.Schema.Type<typeof yeBoolOrOptional>;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const BoolWithDefault = (value: boolean) =>
-  Bool.pipe(
+export const yeBoolWithDefault = (value: boolean) =>
+  yeBool.pipe(
     S.propertySignature,
-    S.withConstructorDefault(() => Bool.make(value)),
+    S.withConstructorDefault(() => yeBool.make(value)),
   );
+
+
+// export const yeBoolFromStr = (str: string): Bool => S.transformOrFail()

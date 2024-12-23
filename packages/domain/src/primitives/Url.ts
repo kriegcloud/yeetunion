@@ -6,7 +6,7 @@ import * as S from "@effect/schema/Schema";
  */
 export const Url = S.NonEmptyTrimmedString.pipe(
   S.pattern(/^https?:\/\//),
-  S.brand("@dank/domain/primitives/Url"),
+  S.brand("@ye/domain/primitives/Url"),
 );
 export type Url = typeof Url.Type;
 

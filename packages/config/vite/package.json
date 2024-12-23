@@ -1,10 +1,10 @@
 {
-  "name": "@dank/vite",
+  "name": "@ye/vite",
   "version": "0.1.0",
   "private": true,
   "description": "Vite presets for the workspace",
   "license": "MIT",
-  "author": "The Bois",
+  "author": "Bois",
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -27,7 +27,7 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
-    "@dank/tsconfig": "workspace:^",
+    "@ye/tsconfig": "workspace:^",
     "globby": "^14.0.2",
     "rollup-plugin-preserve-directives": "^0.4.0",
     "vite-css-modules": "^1.8.0",

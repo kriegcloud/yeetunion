@@ -1,4 +1,4 @@
-import type { DiscordUser } from "@dank/auth/provider";
+import type { DiscordUser } from "@ye/auth/provider";
 import { relations } from "drizzle-orm";
 import { index, json, serial, text } from "drizzle-orm/pg-core";
 import { auditTimeFields } from "./_common";

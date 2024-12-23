@@ -1,10 +1,10 @@
 {
-  "name": "@dank/env",
+  "name": "@ye/env",
   "version": "0.1.0",
   "private": true,
   "description": "A package to define environment variables for apps in the workspace using t3 env",
   "license": "MIT",
-  "author": "The Bois",
+  "author": "Bois",
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -13,7 +13,7 @@
     "./web/db": "./src/web/db.ts"
   },
   "scripts": {
-    "clean": "bun run rm -rf *.tsbuildinfo",
+    "clean": "bun run rm -rf *.tsbuildinfo .turbo node_modules",
     "typecheck": "tsc",
     "lint": "biome check . --write"
   },
@@ -23,6 +23,6 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@dank/tsconfig": "workspace:^"
+    "@ye/tsconfig": "workspace:^"
   }
 }

@@ -7,7 +7,7 @@ import * as S from "@effect/schema/Schema";
 export const Email = S.NonEmptyTrimmedString.pipe(
   S.lowercased(),
   S.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
-  S.brand("@dank/domain/primitives/Email"),
+  S.brand("@ye/domain/primitives/Email"),
 );
 export type Email = typeof Email.Type;
 

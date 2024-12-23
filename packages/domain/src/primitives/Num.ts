@@ -4,7 +4,7 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const Num = S.Number.pipe(S.brand("@dank/domain/primitives/Num"));
+export const Num = S.Number.pipe(S.brand("@ye/domain/primitives/Num"));
 export type Num = typeof Num.Type;
 
 /**
@@ -51,7 +51,7 @@ export const NumWithDefault = (value: number) =>
  */
 export const PosNum = S.Number.pipe(
   S.positive(),
-  S.brand("@dank/domain/primitives/PosNum"),
+  S.brand("@ye/domain/primitives/PosNum"),
 );
 export type PosNum = typeof PosNum.Type;
 
@@ -99,7 +99,7 @@ export const PosNumWithDefault = (value: number) =>
  */
 export const NegNum = S.Number.pipe(
   S.negative(),
-  S.brand("@dank/domain/primitives/NegNum"),
+  S.brand("@ye/domain/primitives/NegNum"),
 );
 export type NegNum = typeof NegNum.Type;
 

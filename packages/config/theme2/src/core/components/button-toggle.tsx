@@ -1,9 +1,8 @@
-import type { ToggleButtonProps } from '@mui/material/ToggleButton';
-import type { Theme, CSSObject, Components } from '@mui/material/styles';
+import type {ToggleButtonProps} from '@mui/material/ToggleButton';
+import {toggleButtonClasses} from '@mui/material/ToggleButton';
+import type {Components, CSSObject, Theme} from '@mui/material/styles';
 
-import { toggleButtonClasses } from '@mui/material/ToggleButton';
-
-import { varAlpha } from '../../styles';
+import {varAlpha} from '../../styles';
 
 // ----------------------------------------------------------------------
 
@@ -12,14 +11,12 @@ const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] a
 type ColorType = (typeof COLORS)[number];
 
 function styleColors(ownerState: ToggleButtonProps, styles: (val: ColorType) => CSSObject) {
-  const outputStyle = COLORS.reduce((acc, color) => {
+  return COLORS.reduce((acc, color) => {
     if (!ownerState.disabled && ownerState.color === color) {
       acc = styles(color);
     }
     return acc;
   }, {});
-
-  return outputStyle;
 }
 
 // ----------------------------------------------------------------------

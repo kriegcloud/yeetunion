@@ -28,7 +28,7 @@ And much more!
 
 ## Documentation
 
-To get started with TheBois, head over to the [documentation](https://thebois.dev) website where you can find installation instructions and how to work with the codebase.
+To get started with TheBois, head over to the [documentation](https://yeetunion.com) website where you can find installation instructions and how to work with the codebase.
 
 ## License
 

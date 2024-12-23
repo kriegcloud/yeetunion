@@ -4,7 +4,7 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const Str = S.String.pipe(S.brand("@dank/domain/primitives/Str"));
+export const Str = S.String.pipe(S.brand("@ye/domain/primitives/Str"));
 export type Str = typeof Str.Type;
 
 /**

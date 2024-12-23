@@ -34,7 +34,7 @@ const discordProvider = Config.map(
   },
 );
 
-export class Service extends Effect.Tag("@dank/auth/discord-service")<
+export class Service extends Effect.Tag("@ye/auth/discord-service")<
   Service,
   OauthService<DiscordUser>
 >() {}
@@ -46,7 +46,7 @@ export const layer = Layer.effect(
     return {
       createAuthorizationUrl: ({ state, scopes = ["identify", "email"] }) =>
         Effect.succeed(provider.createAuthorizationURL(state, scopes)).pipe(
-          Effect.withSpan("@dank/discord-service/createAuthorizationUrl"),
+          Effect.withSpan("@ye/discord-service/createAuthorizationUrl"),
         ),
       validateAuthorizationCode: (code) => {
         return validateAuthorizationCode(
@@ -85,7 +85,7 @@ export const layer = Layer.effect(
         }).pipe(
           Effect.scoped,
           Effect.provide(FetchHttpClient.layer),
-          Effect.withSpan("@dank/discord-service/getUserDetails"),
+          Effect.withSpan("@ye/discord-service/getUserDetails"),
         ),
     };
   }),

@@ -1,16 +1,16 @@
 {
-  "name": "@dank/tailwind",
+  "name": "@ye/tailwind",
   "version": "0.1.0",
   "private": true,
   "description": "Tailwindcss preset for TheBois workspace",
   "license": "MIT",
-  "author": "The Bois",
+  "author": "Bois",
   "type": "module",
   "exports": {
     ".": "./src/preset.ts"
   },
   "scripts": {
-    "clean": "bun run rm -rf *.tsbuildinfo",
+    "clean": "bun run rm -rf *.tsbuildinfo .turbo node_modules",
     "typecheck": "tsc",
     "lint": "biome check . --write"
   },
@@ -27,6 +27,6 @@
     "windy-radix-typography": "1.0.0-beta.0"
   },
   "devDependencies": {
-    "@dank/tsconfig": "workspace:^"
+    "@ye/tsconfig": "workspace:^"
   }
 }

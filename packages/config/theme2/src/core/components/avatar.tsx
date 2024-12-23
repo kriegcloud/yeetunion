@@ -2,7 +2,7 @@ import type { Theme, Components, ComponentsVariants } from '@mui/material/styles
 
 import { avatarGroupClasses } from '@mui/material/AvatarGroup';
 
-import { varAlpha } from '../../styles';
+import { varAlpha } from '@/styles';
 
 // ----------------------------------------------------------------------
 
@@ -52,7 +52,9 @@ const MuiAvatar: Components<Theme>['MuiAvatar'] = {
   /** **************************************
    * VARIANTS
    *************************************** */
-  variants: [...[...avatarColors.defaultColor!, ...avatarColors.colors!]],
+
+// biome-ignore lint/style/noNonNullAssertion: <explanation>
+variants: [...[...avatarColors["defaultColor"]!, ...avatarColors["colors"]!]],
 
   /** **************************************
    * STYLE

@@ -1,11 +1,11 @@
-import { boisTailwindPreset } from "@dank/tailwind";
+import { yeetTailwindPreset } from "@ye/tailwind";
 
 const config = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx,css}",
     "../../packages/ui/dist/**/*.js",
   ],
-  presets: [boisTailwindPreset],
+  presets: [yeetTailwindPreset],
 };
 
 export default config;

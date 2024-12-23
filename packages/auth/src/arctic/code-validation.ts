@@ -50,6 +50,6 @@ export const validateAuthorizationCode = (
       );
     },
   }).pipe(
-    Effect.withSpan(`@dank/auth/validateAuthorizationCode/${providerName}`),
+    Effect.withSpan(`@ye/auth/validateAuthorizationCode/${providerName}`),
   );
 };

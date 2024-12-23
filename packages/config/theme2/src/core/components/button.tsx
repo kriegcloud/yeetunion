@@ -85,7 +85,9 @@ const MuiButton: Components<Theme>['MuiButton'] = {
     /**
      * @variant soft
      */
-    ...[...softVariant.base!, ...softVariant.colors!],
+
+// biome-ignore lint/style/noNonNullAssertion: <explanation>
+...[...softVariant["base"]!, ...softVariant["colors"]!],
   ],
 
   /** **************************************

@@ -1,7 +1,7 @@
-import { ThemeProvider } from "@dank/theme/ThemeProvider";
-import { ThemeSettingsProvider } from "@dank/theme/ThemeSettings";
-import { primaryColorConfig } from "@dank/theme/colorConfig";
-import { themeConfig } from "@dank/theme/themeConfig";
+import { ThemeProvider } from "@ye/theme/ThemeProvider";
+import { ThemeSettingsProvider } from "@ye/theme/ThemeSettings";
+import { primaryColorConfig } from "@ye/theme/colorConfig";
+import { themeConfig } from "@ye/theme/themeConfig";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import type { Preview } from "@storybook/react";

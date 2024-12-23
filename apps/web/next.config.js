@@ -6,8 +6,8 @@ import createJiti from "jiti";
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
-jiti("@dank/env/web/server");
-jiti("@dank/env/web/client");
+jiti("@ye/env/web/server");
+jiti("@ye/env/web/client");
 
 const withBundleAnalyzer = bundleAnalyzerPlugin({
   enabled: process.env["ANALYZE"] === "true",
@@ -16,7 +16,7 @@ const withBundleAnalyzer = bundleAnalyzerPlugin({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["@dank/env"],
+  transpilePackages: ["@ye/env"],
   typescript: {
     ignoreBuildErrors: true,
   },

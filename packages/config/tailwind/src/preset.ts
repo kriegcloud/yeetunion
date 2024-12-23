@@ -10,7 +10,7 @@ import { dankTailwindPlugin } from "./plugin";
 
 const colors = createPlugin();
 
-export const boisTailwindPreset: Config = {
+export const yeetTailwindPreset: Config = {
   content: ["./src/**/*.{js,jsx,ts,tsx,mdx,css}"],
   presets: [windyTypography],
   theme: {

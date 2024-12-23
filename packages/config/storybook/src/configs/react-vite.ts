@@ -1,6 +1,6 @@
 import { type StorybookConfig } from "@storybook/react-vite";
 
-import { getAbsolutePath } from "@dank/utils/filesystem";
+import { getAbsolutePath } from "@ye/utils/filesystem";
 
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -23,7 +23,7 @@ const config = {
       strictMode: true,
     },
   },
-  staticDirs: [getAbsolutePath("@dank/assets")],
+  staticDirs: [getAbsolutePath("@ye/assets")],
   docs: {
     autodocs: "tag",
   },

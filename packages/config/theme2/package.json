@@ -1,38 +1,12 @@
 {
-  "name": "@dank/theme",
+  "name": "@ye/theme2",
   "version": "0.1.0",
   "private": true,
   "description": "A package to share Storybook configuration preset for the workspace",
   "license": "MIT",
-  "author": "The Bois",
+  "author": "Bois",
   "sideEffects": false,
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "./colorConfig": {
-      "types": "./dist/colorConfig.d.ts",
-      "default": "./dist/colorConfig.js"
-    },
-    "./ThemeProvider": {
-      "types": "./dist/ThemeProvider.d.ts",
-      "default": "./dist/ThemeProvider.js"
-    },
-    "./ThemeSettings": {
-      "types": "./dist/ThemeSettings.d.ts",
-      "default": "./dist/ThemeSettings.js"
-    },
-    "./themeConfig": {
-      "types": "./dist/themeConfig.d.ts",
-      "default": "./dist/themeConfig.js"
-    },
-    "./ModeChanger": {
-      "types": "./dist/ModeChanger.d.ts",
-      "default": "./dist/ModeChanger.js"
-    }
-  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
@@ -44,7 +18,6 @@
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@hookform/resolvers": "^3.9.0",
     "@mui/lab": "6.0.0-beta.20",
     "@mui/material": "^6.2.1",
     "@mui/material-nextjs": "^6.2.1",
@@ -57,6 +30,6 @@
     "@types/react-dom": "^18.3.1",
     "stylis": "^4.3.4",
     "stylis-plugin-rtl": "^2.1.1",
-    "@dank/tsconfig": "workspace:^"
+    "@ye/tsconfig": "workspace:^"
   }
 }

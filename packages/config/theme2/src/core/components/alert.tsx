@@ -5,7 +5,7 @@ import type { Theme, CSSObject, Components } from '@mui/material/styles';
 import SvgIcon from '@mui/material/SvgIcon';
 import { alertClasses } from '@mui/material/Alert';
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '@/styles';
 
 // ----------------------------------------------------------------------
 

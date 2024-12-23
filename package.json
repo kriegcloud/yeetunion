@@ -1,9 +1,9 @@
 {
-  "name": "bois",
+  "name": "yeetunion",
   "private": true,
-  "description": "Bitcholed",
+  "description": "Monorepo for YeetUnion",
   "license": "MIT",
-  "author": "The Bois",
+  "author": "Bois",
   "type": "module",
   "workspaces": [
     "apps/*",
@@ -14,12 +14,12 @@
     "lint": "turbo lint",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "typecheck": "tsc",
-    "clean": "bun run rm -rf node_modules .turbo"
+    "clean": "turbo clean && rm -rf tsconfig.tsbuildinfo node_modules .turbo"
   },
   "devDependencies": {
     "@biomejs/biome": "latest",
     "@changesets/cli": "latest",
-    "@dank/tsconfig": "workspace:^",
+    "@ye/tsconfig": "workspace:^",
     "@playwright/test": "latest",
     "@types/bun": "latest",
     "@types/node": "^22.5.2",

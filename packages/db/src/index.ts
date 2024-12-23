@@ -8,7 +8,7 @@ import * as org from "./schema/org";
 import * as orgRole from "./schema/org-role";
 import * as session from "./schema/session";
 import * as user from "./schema/user";
-import { env } from "@dank/env/web/db";
+import { env } from "@ye/env/web/db";
 import * as S from "@effect/schema/Schema";
 import * as userToAuthAccount from "./schema/user-to-auth-account";
 

@@ -85,7 +85,7 @@ jobs:
           echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require" >> $GITHUB_ENV
 
       - name: Checks
-        run: bun turbo lint typecheck build test:e2e --filter=@dank/web
+        run: bun turbo lint typecheck build test:e2e --filter=@ye/web
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -119,4 +119,4 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Checks
-        run: bun turbo lint typecheck build test:e2e --filter=@dank/marketing
+        run: bun turbo lint typecheck build test:e2e --filter=@ye/marketing

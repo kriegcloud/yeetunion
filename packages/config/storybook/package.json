@@ -1,10 +1,10 @@
 {
-  "name": "@dank/storybook",
+  "name": "@ye/storybook",
   "version": "0.1.0",
   "private": true,
   "description": "A package to share Storybook configuration preset for the workspace",
   "license": "MIT",
-  "author": "The Bois",
+  "author": "Bois",
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -27,15 +27,15 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
     "dev": "tsc -w -p tsconfig.build.json",
     "typecheck": "tsc",
     "lint": "biome check . --write"
   },
   "dependencies": {
-    "@dank/assets": "workspace:^",
-    "@dank/theme": "workspace:^",
-    "@dank/utils": "workspace:^",
+    "@ye/assets": "workspace:^",
+    "@ye/theme": "workspace:^",
+    "@ye/utils": "workspace:^",
     "@radix-ui/colors": "^3.0.0",
     "@storybook/addon-a11y": "^8.4.7",
     "@storybook/addon-essentials": "^8.4.7",
@@ -55,7 +55,7 @@
     "storybook": "^8.4.7"
   },
   "devDependencies": {
-    "@dank/tsconfig": "workspace:^",
+    "@ye/tsconfig": "workspace:^",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.1"
   }
