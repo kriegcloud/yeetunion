@@ -18,6 +18,11 @@
       "require": "./dist/svg/*/index.cjs",
       "default": "./dist/svg/*/index.js"
     },
+    "./layouts/*": {
+      "types": "./dist/layouts/*/index.d.ts",
+      "require": "./dist/layouts/*/index.cjs",
+      "default": "./dist/layouts/*/index.js"
+    },
     "./cn": {
       "types": "./dist/utils/cn.d.ts",
       "require": "./dist/utils/cn.cjs",
@@ -36,11 +41,14 @@
     "test-storybook": "test-storybook",
     "typecheck": "tsc"
   },
-  "peerDependencies": {
-    "@ye/theme": "workspace:^"
-  },
   "dependencies": {
-
+    "@ye/theme": "workspace:^",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@hookform/resolvers": "^3.9.0",
+    "@mui/lab": "6.0.0-beta.20",
+    "@mui/material": "^6.2.1",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -69,6 +77,7 @@
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
     "class-variance-authority": "^0.7.0",
+    "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
