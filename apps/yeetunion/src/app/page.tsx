@@ -2,7 +2,7 @@
  * Home page which is protected by authentication
  * @returns Next.js RSC page.
  */
-import { Label } from "@ye/ui/primitives/label";
+import { Label } from "@ye/ui/label";
 export default async function Home() {
   return (
     <main className="container mx-auto p-6">

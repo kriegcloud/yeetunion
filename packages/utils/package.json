@@ -8,6 +8,10 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "default": "./dist/hooks/index.js"
+    },
     "./createCtx": {
       "types": "./dist/createCtx.d.ts",
       "default": "./dist/createCtx.js"
@@ -31,5 +35,8 @@
   },
   "devDependencies": {
     "@ye/tsconfig": "workspace:^"
+  },
+  "dependencies": {
+    "react-use": "^17.6.0"
   }
 }

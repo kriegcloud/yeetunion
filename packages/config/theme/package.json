@@ -31,6 +31,18 @@
     "./ModeChanger": {
       "types": "./dist/components/ModeChanger.d.ts",
       "default": "./dist/components/ModeChanger.js"
+    },
+    "./useLayoutInit": {
+      "types": "./dist/hooks/useLayoutInit.d.ts",
+      "default": "./dist/hooks/useLayoutInit.js"
+    },
+    "./useImageVariant": {
+      "types": "./dist/hooks/useImageVariant.d.ts",
+      "default": "./dist/hooks/useImageVariant.js"
+    },
+    "./serverHelpers": {
+      "types": "./dist/server/serverHelpers.d.ts",
+      "default": "./dist/server/serverHelpers.js"
     }
   },
   "scripts": {
@@ -41,6 +53,7 @@
     "lint": "biome check .",
     "lint:fix": "biome check . --write"
   },
+
   "dependencies": {
     "@ye/utils": "workspace:^",
     "@emotion/cache": "^11.14.0",
@@ -52,7 +65,8 @@
     "@mui/material-nextjs": "^6.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-use": "^17.6.0"
+    "react-use": "^17.6.0",
+    "server-only": "0.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",

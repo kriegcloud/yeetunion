@@ -8,20 +8,20 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./primitives/*": {
+    "./*": {
       "types": "./dist/primitives/*/index.d.ts",
       "require": "./dist/primitives/*/index.cjs",
       "default": "./dist/primitives/*/index.js"
-    },
-    "./cn": {
-      "types": "./dist/utils/cn.d.ts",
-      "require": "./dist/utils/cn.cjs",
-      "default": "./dist/utils/cn.js"
     },
     "./svg/*": {
       "types": "./dist/svg/*/index.d.ts",
       "require": "./dist/svg/*/index.cjs",
       "default": "./dist/svg/*/index.js"
+    },
+    "./cn": {
+      "types": "./dist/utils/cn.d.ts",
+      "require": "./dist/utils/cn.cjs",
+      "default": "./dist/utils/cn.js"
     }
   },
   "files": ["dist"],
@@ -36,8 +36,11 @@
     "test-storybook": "test-storybook",
     "typecheck": "tsc"
   },
+  "peerDependencies": {
+    "@ye/theme": "workspace:^"
+  },
   "dependencies": {
-    "@ye/theme": "workspace:^",
+
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",

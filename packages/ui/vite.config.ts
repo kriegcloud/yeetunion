@@ -12,6 +12,7 @@ export default mergeConfig(
     lib: {
       entry: [
         "./src/primitives/*/index.tsx",
+        "./src/svg/*/index.tsx",
         "./src/utils/cn.ts",
       ],
     },
