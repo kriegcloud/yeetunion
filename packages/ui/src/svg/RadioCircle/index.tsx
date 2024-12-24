@@ -1,6 +1,6 @@
 import type { SVGAttributes } from "react";
 
-const RadioCircle = (props: SVGAttributes<SVGElement>) => {
+export const RadioCircle = (props: SVGAttributes<SVGElement>) => {
   return (
     <svg
       role={"img"}
@@ -18,5 +18,3 @@ const RadioCircle = (props: SVGAttributes<SVGElement>) => {
     </svg>
   );
 };
-
-export default RadioCircle;

@@ -1,4 +1,4 @@
-import type { Theme } from "@mui/material/styles";
+import type { Theme } from "@mui/material";
 
 import styled from "@emotion/styled";
 import type { CSSObject } from "@emotion/styled";

@@ -6,7 +6,7 @@ import { useMedia } from "react-use";
 
 import type { SystemMode } from "@/types";
 
-import { useSettings } from "@/providers";
+import { useSettings } from "../providers";
 
 export const ModeChanger = ({ systemMode }: { systemMode: SystemMode }) => {
   const { setMode } = useColorScheme();

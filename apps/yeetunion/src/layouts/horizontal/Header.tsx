@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import type { CSSObject } from "@emotion/styled";
 import {StyledHeader} from "./styles";
 import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
 import classnames from "classnames";
 
 type Props = {

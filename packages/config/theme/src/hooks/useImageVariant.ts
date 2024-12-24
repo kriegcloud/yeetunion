@@ -2,7 +2,7 @@
 import type { Mode } from "@/types";
 import { useColorScheme } from "@mui/material";
 import { useMemo } from "react";
-import { useSettings } from "@/providers";
+import { useSettings } from "../providers";
 
 export const useImageVariant = (
   mode: Mode,

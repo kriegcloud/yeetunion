@@ -5,7 +5,7 @@ import { ManagedRuntime } from "effect";
 
 const NodeSdkLive = NodeSdk.layer(() => ({
   resource: {
-    serviceName: "effect-t3",
+    serviceName: "yeetunion",
   },
   spanProcessor: new BatchSpanProcessor(
     new OTLPTraceExporter({

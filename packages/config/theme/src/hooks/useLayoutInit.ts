@@ -6,7 +6,7 @@ import { useCookie, useMedia } from "react-use";
 
 import { useColorScheme } from "@mui/material";
 
-import { useSettings } from "@/providers";
+import { useSettings } from "../providers/ThemeSettingsProvider";
 
 export const useLayoutInit = (colorSchemeFallback: "light" | "dark") => {
   const { settings } = useSettings();

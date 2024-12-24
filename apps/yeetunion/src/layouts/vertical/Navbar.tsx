@@ -1,7 +1,7 @@
 "use client";
 
-import { useTheme } from "@mui/material/styles";
-import useScrollTrigger from "@mui/material/useScrollTrigger";
+import { useTheme } from "@mui/material";
+import {useScrollTrigger} from "@mui/material";
 
 import type { CSSObject } from "@emotion/styled";
 

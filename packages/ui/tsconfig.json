@@ -5,6 +5,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "exactOptionalPropertyTypes": false,
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", ".storybook/**/*", "**/*.d.ts"],
