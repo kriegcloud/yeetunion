@@ -9,7 +9,7 @@ import { useSettings } from "@ye/theme/ThemeSettingsProvider";
 import { useHorizontalNav } from "@/layouts/horizontal/Provider";
 
 import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
-
+import type { getDictionary } from '@/utils/getDictionary'
 type StyledDivProps = {
   isContentCompact: boolean;
   isBreakpointReached?: boolean;
@@ -31,35 +31,31 @@ const StyledDiv = styled.div<StyledDivProps>`
   `}
 `;
 
-const Navigation = () => {
-  const { settings } = useSettings();
-  const { isBreakpointReached } = useHorizontalNav();
+const Navigation = ({ dictionary }: { dictionary: Awaited<ReturnType<typeof getDictionary>> }) => {
+// Hooks
+  const { settings } = useSettings()
+  const { isBreakpointReached } = useHorizontalNav()
 
-  const headerContentCompact = settings.navbarContentWidth === "compact";
+  // Vars
+  const headerContentCompact = settings.navbarContentWidth === 'compact'
 
   return (
     <div
       {...(!isBreakpointReached && {
-        className: classnames(
-          horizontalLayoutClasses.navigation,
-          "relative flex border-bs",
-        ),
+        className: classnames(horizontalLayoutClasses.navigation, 'relative flex border-bs')
       })}
     >
       <StyledDiv
         isContentCompact={headerContentCompact}
         isBreakpointReached={isBreakpointReached}
         {...(!isBreakpointReached && {
-          className: classnames(
-            horizontalLayoutClasses.navigationContentWrapper,
-            "flex items-center is-full plb-2.5",
-          ),
+          className: classnames(horizontalLayoutClasses.navigationContentWrapper, 'flex items-center is-full plb-2.5')
         })}
       >
-        <HorizontalMenu />
+        <HorizontalMenu dictionary={dictionary} />
       </StyledDiv>
     </div>
-  );
+  )
 };
 
 export default Navigation;

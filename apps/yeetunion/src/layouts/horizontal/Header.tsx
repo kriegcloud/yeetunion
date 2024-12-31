@@ -5,11 +5,11 @@ import {Navbar} from "./Navbar";
 import NavbarContent from "./NavbarContent";
 
 import Navigation from "./Navigation";
-
+import type { getDictionary } from '@/utils/getDictionary'
 
 import { useHorizontalNav} from "@/layouts/horizontal/Provider";
 
-const Header = () => {
+const Header = ({ dictionary }: { dictionary: Awaited<ReturnType<typeof getDictionary>> }) => {
   const { isBreakpointReached } = useHorizontalNav();
 
   return (
@@ -18,9 +18,9 @@ const Header = () => {
         <Navbar>
           <NavbarContent />
         </Navbar>
-        {!isBreakpointReached && <Navigation />}
+        {!isBreakpointReached && <Navigation dictionary={dictionary} />}
       </StyledHorizontalHeader>
-      {isBreakpointReached && <Navigation />}
+      {isBreakpointReached && <Navigation dictionary={dictionary} />}
     </>
   );
 };
