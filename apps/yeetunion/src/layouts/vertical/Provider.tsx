@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
 import { createCtx } from "@ye/utils/createCtx";
+import { useCallback, useMemo, useState } from "react";
 
 import type { ReactNode } from "react";
 
@@ -30,7 +30,7 @@ const [useVerticalNav, Provider] = createCtx<VerticalNavContextProps>();
 
 type VerticalNavProviderProps = {
   children: ReactNode;
-}
+};
 
 export const VerticalNavProvider = ({ children }: VerticalNavProviderProps) => {
   const [verticalNavState, setVerticalNavState] = useState<VerticalNavState>();
@@ -91,11 +91,7 @@ export const VerticalNavProvider = ({ children }: VerticalNavProviderProps) => {
     ],
   );
 
-  return (
-    <Provider value={verticalNavProviderValue}>
-      {children}
-    </Provider>
-  );
+  return <Provider value={verticalNavProviderValue}>{children}</Provider>;
 };
 
 export { useVerticalNav };

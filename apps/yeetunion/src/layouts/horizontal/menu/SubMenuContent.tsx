@@ -5,7 +5,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 
 import type { ChildrenType, RootStylesType } from "../../types";
 
-import {StyledHorizontalSubMenuContent} from "../styles";
+import { StyledHorizontalSubMenuContent } from "../styles";
 
 import styles from "../../styles.module.css";
 

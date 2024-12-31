@@ -1,3 +1,5 @@
+import * as S from "@effect/schema/Schema";
+import { env } from "@ye/env/web/db";
 import { drizzle } from "drizzle-orm/postgres-js";
 import { Effect } from "effect";
 import type { ConfigError } from "effect/ConfigError";
@@ -8,8 +10,6 @@ import * as org from "./schema/org";
 import * as orgRole from "./schema/org-role";
 import * as session from "./schema/session";
 import * as user from "./schema/user";
-import { env } from "@ye/env/web/db";
-import * as S from "@effect/schema/Schema";
 import * as userToAuthAccount from "./schema/user-to-auth-account";
 
 const schema = {
@@ -43,8 +43,7 @@ export type DbError = DbAcquisitionError | DbUsageError | ConfigError;
 
 export const acquireDb = Effect.gen(function* () {
   const client = yield* Effect.try({
-    try: () =>
-      postgres(env.DATABASE_URL),
+    try: () => postgres(env.DATABASE_URL),
     catch: (e) =>
       new DbAcquisitionError({
         message: `Database SQLite client creation error: ${e}`,

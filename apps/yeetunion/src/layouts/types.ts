@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes, ReactElement, ReactNode } from "react";
 
-import type { ChipProps } from "@mui/material";
 import type { CSSObject } from "@emotion/styled";
+import type { ChipProps } from "@mui/material";
 import type {
   MenuItemProps as HorizontalMenuItemProps,
   SubMenuProps as HorizontalSubMenuProps,
@@ -12,19 +12,18 @@ import type {
   SubMenuProps as VerticalSubMenuProps,
 } from "./vertical/menu";
 
-
 // Vertical Menu Data
 export type VerticalMenuItemDataType = Omit<
   VerticalMenuItemProps,
   "children" | "exactMatch" | "activeUrl" | "icon" | "prefix" | "suffix"
 > &
   MenuItemExactMatchUrlProps & {
-  label: ReactNode;
-  excludeLang?: boolean;
-  icon?: string;
-  prefix?: ReactNode | ChipProps;
-  suffix?: ReactNode | ChipProps;
-};
+    label: ReactNode;
+    excludeLang?: boolean;
+    icon?: string;
+    prefix?: ReactNode | ChipProps;
+    suffix?: ReactNode | ChipProps;
+  };
 export type VerticalSubMenuDataType = Omit<
   VerticalSubMenuProps,
   "children" | "icon" | "prefix" | "suffix"
@@ -52,12 +51,12 @@ export type HorizontalMenuItemDataType = Omit<
   "children" | "exactMatch" | "activeUrl" | "icon" | "prefix" | "suffix"
 > &
   MenuItemExactMatchUrlProps & {
-  label: ReactNode;
-  excludeLang?: boolean;
-  icon?: string;
-  prefix?: ReactNode | ChipProps;
-  suffix?: ReactNode | ChipProps;
-};
+    label: ReactNode;
+    excludeLang?: boolean;
+    icon?: string;
+    prefix?: ReactNode | ChipProps;
+    suffix?: ReactNode | ChipProps;
+  };
 export type HorizontalSubMenuDataType = Omit<
   HorizontalSubMenuProps,
   "children" | "icon" | "prefix" | "suffix"
@@ -70,7 +69,6 @@ export type HorizontalSubMenuDataType = Omit<
 export type HorizontalMenuDataType =
   | HorizontalMenuItemDataType
   | HorizontalSubMenuDataType;
-
 
 export type ChildrenType = {
   children: ReactNode;
@@ -89,17 +87,17 @@ export type BreakpointType =
 // Exact match for active URL in menu item
 export type MenuItemExactMatchUrlProps =
   | {
-  exactMatch: true;
-  activeUrl?: never;
-}
+      exactMatch: true;
+      activeUrl?: never;
+    }
   | {
-  exactMatch: false;
-  activeUrl: string;
-}
+      exactMatch: false;
+      activeUrl: string;
+    }
   | {
-  exactMatch?: never;
-  activeUrl?: never;
-};
+      exactMatch?: never;
+      activeUrl?: never;
+    };
 
 // Menu Item Elements for styling
 export type MenuItemElement =
@@ -128,8 +126,8 @@ export type MenuButtonProps = Omit<
   "prefix"
 > &
   Partial<ChildrenType> & {
-  component?: string | ReactElement;
-};
+    component?: string | ReactElement;
+  };
 
 // Menu Item Styles Params Type
 export type MenuItemStylesParams = {
@@ -171,10 +169,10 @@ export type RenderExpandedMenuItemIcon = {
   icon:
     | ReactElement
     | ((params: {
-    level?: number;
-    active: boolean | undefined;
-    disabled: boolean | undefined;
-  }) => ReactElement | null)
+        level?: number;
+        active: boolean | undefined;
+        disabled: boolean | undefined;
+      }) => ReactElement | null)
     | null;
   level?: number;
 };

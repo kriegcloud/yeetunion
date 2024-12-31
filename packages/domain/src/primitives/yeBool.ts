@@ -45,5 +45,4 @@ export const yeBoolWithDefault = (value: boolean) =>
     S.withConstructorDefault(() => yeBool.make(value)),
   );
 
-
 // export const yeBoolFromStr = (str: string): Bool => S.transformOrFail()

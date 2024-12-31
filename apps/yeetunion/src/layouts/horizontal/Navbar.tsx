@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
 import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
 import classnames from "classnames";
+import type { ReactNode } from "react";
 type Props = {
   children: ReactNode;
 };

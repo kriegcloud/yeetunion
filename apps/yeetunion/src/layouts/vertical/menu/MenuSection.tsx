@@ -18,13 +18,18 @@ import type { MenuSectionStyles } from "./Menu";
 
 import useVerticalMenu from "../useVerticalMenu";
 
-import {useVerticalNav} from "../Provider";
+import { useVerticalNav } from "../Provider";
 
 import { menuClasses } from "@/layouts/menuClasses";
 
-import {StyledMenuIcon, StyledMenuPrefix, StyledMenuSectionLabel, StyledMenuSuffix} from "../../styles";
+import {
+  StyledMenuIcon,
+  StyledMenuPrefix,
+  StyledMenuSectionLabel,
+  StyledMenuSuffix,
+} from "../../styles";
 
-import {StyledVerticalMenuSection} from "../styles";
+import { StyledVerticalMenuSection } from "../styles";
 
 export type MenuSectionProps = Partial<ChildrenType> &
   RootStylesType & {

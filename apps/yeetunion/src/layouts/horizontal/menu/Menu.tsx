@@ -23,7 +23,7 @@ import type { MenuProps as VerticalMenuProps } from "../../vertical/menu";
 
 import { menuClasses } from "@/layouts/menuClasses";
 
-import {StyledHorizontalMenu} from "../styles";
+import { StyledHorizontalMenu } from "../styles";
 
 import styles from "../styles/horizontalUl.module.css";
 
@@ -33,7 +33,9 @@ export type HorizontalMenuContextProps = {
   triggerPopout?: "hover" | "click";
   browserScroll?: boolean;
   menuItemStyles?: MenuItemStyles | undefined;
-  renderExpandIcon?: (undefined | ((params: RenderExpandIconParams) => ReactElement));
+  renderExpandIcon?:
+    | undefined
+    | ((params: RenderExpandIconParams) => ReactElement);
   renderExpandedMenuItemIcon?: RenderExpandedMenuItemIcon | undefined;
   transitionDuration?: number;
   popoutMenuOffset?: {
@@ -41,17 +43,19 @@ export type HorizontalMenuContextProps = {
     alignmentAxis?: number | ((params: { level?: number }) => number);
   };
   textTruncate?: boolean;
-  verticalMenuProps?: Pick<
-    VerticalMenuProps,
-    | "transitionDuration"
-    | "menuSectionStyles"
-    | "menuItemStyles"
-    | "subMenuOpenBehavior"
-    | "renderExpandIcon"
-    | "renderExpandedMenuItemIcon"
-    | "textTruncate"
-    | "rootStyles"
-  > | undefined
+  verticalMenuProps?:
+    | Pick<
+        VerticalMenuProps,
+        | "transitionDuration"
+        | "menuSectionStyles"
+        | "menuItemStyles"
+        | "subMenuOpenBehavior"
+        | "renderExpandIcon"
+        | "renderExpandedMenuItemIcon"
+        | "textTruncate"
+        | "rootStyles"
+      >
+    | undefined;
 };
 
 export type MenuProps = HorizontalMenuContextProps &

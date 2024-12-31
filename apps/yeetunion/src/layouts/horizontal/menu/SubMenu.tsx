@@ -60,13 +60,17 @@ import useHorizontalMenu from "../useHorizontalMenu";
 import { menuClasses } from "@/layouts/menuClasses";
 import { confirmUrlInChildren, renderMenuIcon } from "@/layouts/menuUtils";
 
-import {StyledMenuLabel, StyledMenuPrefix, StyledMenuSuffix} from "../../styles";
+import {
+  StyledMenuLabel,
+  StyledMenuPrefix,
+  StyledMenuSuffix,
+} from "../../styles";
 
 import {
   StyledHorizontalNavExpandIcon,
   StyledHorizontalNavExpandIconWrapper,
 } from "../styles";
-import {StyledHorizontalSubMenuContentWrapper} from "../styles";
+import { StyledHorizontalSubMenuContentWrapper } from "../styles";
 
 import MenuButton, { menuButtonStyles } from "./MenuButton";
 
@@ -294,9 +298,9 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (
           ? styleFunction(params)
           : styleFunction;
       }
-      return undefined
+      return undefined;
     }
-    return undefined
+    return undefined;
   };
 
   // Event emitter allows you to communicate across tree components.

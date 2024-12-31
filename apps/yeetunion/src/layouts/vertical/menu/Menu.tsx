@@ -32,11 +32,11 @@ import type {
   RootStylesType,
 } from "../../types";
 
-import {useVerticalNav} from "../Provider";
+import { useVerticalNav } from "../Provider";
 
 import { menuClasses } from "@/layouts/menuClasses";
 
-import {StyledVerticalMenu} from "../styles";
+import { StyledVerticalMenu } from "../styles";
 
 import styles from "../../styles.module.css";
 

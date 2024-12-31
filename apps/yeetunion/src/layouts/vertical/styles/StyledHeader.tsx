@@ -3,7 +3,7 @@ import type { Theme } from "@mui/material";
 import styled from "@emotion/styled";
 import type { CSSObject } from "@emotion/styled";
 
-import {themeConfig} from "@ye/theme/themeConfig";
+import { themeConfig } from "@ye/theme/themeConfig";
 
 import { verticalLayoutClasses } from "@/layouts/layoutClasses";
 
@@ -124,7 +124,7 @@ export const StyledHeader = styled.header<StyledHeaderProps>`
       &:not(.${verticalLayoutClasses.headerFloating}).${verticalLayoutClasses.headerDetached}
       .${verticalLayoutClasses.navbar} {
       ${({ theme }) =>
-  `transition: ${theme.transitions.create(["box-shadow", "border-width", "padding-inline", "backdrop-filter"])}`};
+        `transition: ${theme.transitions.create(["box-shadow", "border-width", "padding-inline", "backdrop-filter"])}`};
     }
     &:not(.${verticalLayoutClasses.headerFloating}).${verticalLayoutClasses.headerAttached}
       .${verticalLayoutClasses.navbar},

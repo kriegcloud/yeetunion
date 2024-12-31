@@ -12,13 +12,13 @@ import type { VerticalNavProps } from "../../vertical/menu";
 
 import VerticalNavInHorizontal from "./VerticalNavInHorizontal";
 
-import {useHorizontalNav} from "../Provider";
+import { useHorizontalNav } from "../Provider";
 
-import {useMediaQuery} from "../../hooks";
+import { useMediaQuery } from "../../hooks";
 
 import { horizontalNavClasses } from "@/layouts/menuClasses";
 
-import {StyledHorizontalNav} from "../styles";
+import { StyledHorizontalNav } from "../styles";
 
 import { defaultBreakpoints } from "@/layouts/defaultConfigs";
 

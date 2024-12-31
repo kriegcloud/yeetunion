@@ -1,16 +1,16 @@
 import {
+  InvalidResponseError,
+  NetworkError,
+  OauthRequestError,
+} from "@/errors";
+import type { SupportedOauthProviders } from "@/supported-oauth";
+import {
   ArcticFetchError,
   OAuth2RequestError,
   type OAuth2Tokens,
 } from "arctic";
 import { Effect } from "effect";
 import { UnknownException } from "effect/Cause";
-import {
-  InvalidResponseError,
-  NetworkError,
-  OauthRequestError,
-} from "@/errors";
-import type { SupportedOauthProviders } from "@/supported-oauth";
 
 export type OauthValidateCodeError =
   | NetworkError

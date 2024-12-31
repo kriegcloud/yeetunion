@@ -164,7 +164,7 @@ const colorSchemes = (skin: Skin): Theme["colorSchemes"] => {
           lightBg: whiteColor,
           trackBg: "#F0F2F8",
           avatarBg: "#F0EFF0",
-          tableHeaderBg: "#F6F7FB"
+          tableHeaderBg: "#F6F7FB",
         },
       },
     },

@@ -7,10 +7,8 @@
  */
 const ul: string;
 
-export {
-	ul
-};
+export { ul };
 
 export default {
-	ul
-}
+  ul,
+};

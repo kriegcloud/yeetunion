@@ -8,13 +8,13 @@ import classnames from "classnames";
 
 import type { ReactNode } from "react";
 
-import {themeConfig} from "@ye/theme/themeConfig";
+import { themeConfig } from "@ye/theme/themeConfig";
 
 import { useSettings } from "@ye/theme/ThemeSettingsProvider";
 
 import { verticalLayoutClasses } from "@/layouts/layoutClasses";
 
-import {StyledFooter} from "./styles";
+import { StyledFooter } from "./styles";
 
 type Props = {
   children: ReactNode;

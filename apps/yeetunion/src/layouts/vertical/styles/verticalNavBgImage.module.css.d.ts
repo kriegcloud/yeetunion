@@ -7,10 +7,8 @@
  */
 const root: string;
 
-export {
-	root
-};
+export { root };
 
 export default {
-	root
-}
+  root,
+};

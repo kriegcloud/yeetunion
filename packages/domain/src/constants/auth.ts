@@ -1,39 +1,39 @@
 // https://w3c.github.io/webauthn/#enum-transport
-import * as S from '@effect/schema/Schema';
+import * as S from "@effect/schema/Schema";
 
 export const AuthenticatorTransportFuture = S.Literal(
-  'ble',
-  'internal',
-  'nfc',
-  'usb',
-  'cable',
-  'smart-card',
-  'hybrid'
+  "ble",
+  "internal",
+  "nfc",
+  "usb",
+  "cable",
+  "smart-card",
+  "hybrid",
 );
 
 // https://w3c.github.io/webauthn/#dom-authenticatorselectioncriteria-authenticatorattachment
-export const AuthenticatorAttachment = S.Literal('cross-platform', 'platform');
+export const AuthenticatorAttachment = S.Literal("cross-platform", "platform");
 
 // https://w3c.github.io/webauthn/#enum-residentKeyRequirement
 export const ResidentKeyRequirement = S.Literal(
-  'discouraged',
-  'preferred',
-  'required'
+  "discouraged",
+  "preferred",
+  "required",
 );
 
 // https://w3c.github.io/webauthn/#enumdef-userverificationrequirement
 export const UserVerificationRequirement = S.Literal(
-  'discouraged',
-  'preferred',
-  'required'
+  "discouraged",
+  "preferred",
+  "required",
 );
 
 // https://w3c.github.io/webauthn/#enumdef-attestationconveyancepreference
 export const AttestationConveyancePreference = S.Literal(
-  'direct',
-  'enterprise',
-  'indirect',
-  'none'
+  "direct",
+  "enterprise",
+  "indirect",
+  "none",
 );
 
 // https://w3c.github.io/webauthn/#dictdef-publickeycredentialentity
@@ -43,14 +43,14 @@ export const PublicKeyCredentialEntity = S.Struct({
 
 // https://w3c.github.io/webauthn/#dictdef-publickeycredentialparameters
 export const PublicKeyCredentialParameters = S.Struct({
-  type: S.Literal('public-key'),
+  type: S.Literal("public-key"),
   alg: S.Number,
 });
 
 // https://w3c.github.io/webauthn/#dictdef-publickeycredentialdescriptor
 export const PublicKeyCredentialDescriptor = S.Struct({
   id: S.String,
-  type: S.Literal('public-key'),
+  type: S.Literal("public-key"),
   transports: S.mutable(S.Array(AuthenticatorTransportFuture)).pipe(S.optional),
 });
 

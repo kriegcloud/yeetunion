@@ -2,7 +2,7 @@
 
 import type { HTMLAttributes, ReactElement } from "react";
 
-import {useVerticalNav} from "../Provider";
+import { useVerticalNav } from "../Provider";
 
 import { Close } from "@ye/ui/svg/Close";
 import { RadioCircle } from "@ye/ui/svg/RadioCircle";
@@ -51,7 +51,8 @@ const NavCollapseIcons = (props: NavCollapseIconsProps) => {
     <>
       {isBreakpointReached ? (
         <span
-          role="button"
+          // biome-ignore lint/a11y/useSemanticElements: <explanation>
+          role={"button"}
           tabIndex={0}
           style={{ display: "flex", cursor: "pointer" }}
           onClick={handleClose}
@@ -61,7 +62,8 @@ const NavCollapseIcons = (props: NavCollapseIconsProps) => {
         </span>
       ) : isCollapsed ? (
         <span
-          role="button"
+          // biome-ignore lint/a11y/useSemanticElements: <explanation>
+          role={"button"}
           tabIndex={0}
           style={{ display: "flex", cursor: "pointer" }}
           onClick={() => handleClick("lock")}
@@ -71,7 +73,8 @@ const NavCollapseIcons = (props: NavCollapseIconsProps) => {
         </span>
       ) : (
         <span
-          role="button"
+          // biome-ignore lint/a11y/useSemanticElements: <explanation>
+          role={"button"}
           tabIndex={0}
           style={{ display: "flex", cursor: "pointer" }}
           onClick={() => handleClick("unlock")}

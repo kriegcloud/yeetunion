@@ -1,12 +1,12 @@
-import { ThemeProvider } from "@ye/theme/ThemeProvider";
-import { ThemeSettingsProvider } from "@ye/theme/ThemeSettingsProvider";
-import { primaryColorConfig } from "@ye/theme/colorConfig";
-import { themeConfig } from "@ye/theme/themeConfig";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import type { Preview } from "@storybook/react";
 import { type ReactRenderer } from "@storybook/react";
 import type {} from "@storybook/types";
+import { ThemeProvider } from "@ye/theme/ThemeProvider";
+import { ThemeSettingsProvider } from "@ye/theme/ThemeSettingsProvider";
+import { primaryColorConfig } from "@ye/theme/colorConfig";
+import { themeConfig } from "@ye/theme/themeConfig";
 import theme from "./theme";
 
 const initialSettings = {

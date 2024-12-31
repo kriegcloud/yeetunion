@@ -35,7 +35,9 @@ export type yeNonEmptyStrOrNullish = typeof yeNonEmptyStrOrNullish.Type;
  * @since 0.1.0
  */
 export const yeNonEmptyStrOrOptional = S.optional(yeNonEmptyStr);
-export type yeNonEmptyStrOrOptional = S.Schema.Type<typeof yeNonEmptyStrOrOptional>;
+export type yeNonEmptyStrOrOptional = S.Schema.Type<
+  typeof yeNonEmptyStrOrOptional
+>;
 
 /**
  * @category primitives
@@ -46,8 +48,6 @@ export const yeNonEmptyStrWithDefault = (value: string) =>
     S.propertySignature,
     S.withConstructorDefault(() => yeNonEmptyStr.make(value)),
   );
-
-
 
 /**
  * @category primitives
@@ -70,7 +70,8 @@ export type yeNonEmptyTrimStrOrNull = typeof yeNonEmptyTrimStrOrNull.Type;
  * @since 0.1.0
  */
 export const yeNonEmptyTrimStrOrUndefined = S.UndefinedOr(yeNonEmptyTrimStr);
-export type yeNonEmptyTrimStrOrUndefined = typeof yeNonEmptyTrimStrOrUndefined.Type;
+export type yeNonEmptyTrimStrOrUndefined =
+  typeof yeNonEmptyTrimStrOrUndefined.Type;
 
 /**
  * @category primitives
@@ -84,7 +85,9 @@ export type yeNonEmptyTrimStrOrNullish = typeof yeNonEmptyTrimStrOrNullish.Type;
  * @since 0.1.0
  */
 export const yeNonEmptyTrimStrOrOptional = S.optional(yeNonEmptyTrimStr);
-export type yeNonEmptyTrimStrOrOptional = S.Schema.Type<typeof yeNonEmptyTrimStrOrOptional>;
+export type yeNonEmptyTrimStrOrOptional = S.Schema.Type<
+  typeof yeNonEmptyTrimStrOrOptional
+>;
 
 /**
  * @category primitives
@@ -95,4 +98,3 @@ export const yeNonEmptyTrimStrWithDefault = (value: string) =>
     S.propertySignature,
     S.withConstructorDefault(() => yeNonEmptyTrimStr.make(value)),
   );
-

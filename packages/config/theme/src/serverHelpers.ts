@@ -8,7 +8,7 @@ import "server-only";
 import type { Settings, SystemMode } from "./types";
 
 // Config Imports
-import {themeConfig} from "@/configs/themeConfig";
+import { themeConfig } from "@/configs/themeConfig";
 
 export const getSettingsFromCookie = (): Settings => {
   const cookieStore = cookies();

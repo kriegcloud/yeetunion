@@ -1,10 +1,10 @@
 "use client";
 
+import { createCtx } from "@ye/utils/createCtx";
 import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 import { useCookie } from "react-use";
 import type { Mode, Settings } from "../index";
-import { createCtx } from "@ye/utils/createCtx";
 
 // UpdateSettingsOptions type
 type UpdateSettingsOptions = {

@@ -26,14 +26,18 @@ import MenuButton from "./MenuButton";
 
 import useVerticalMenu from "../useVerticalMenu";
 
-import {useVerticalNav} from "../Provider";
+import { useVerticalNav } from "../Provider";
 
 import { menuClasses } from "@/layouts/menuClasses";
 
 import { renderMenuIcon } from "@/layouts/menuUtils";
 
-import {StyledMenuLabel, StyledMenuPrefix, StyledMenuSuffix} from "../../styles";
-import {StyledVerticalMenuItem} from "../styles";
+import {
+  StyledMenuLabel,
+  StyledMenuPrefix,
+  StyledMenuSuffix,
+} from "../../styles";
+import { StyledVerticalMenuItem } from "../styles";
 
 export type MenuItemProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,

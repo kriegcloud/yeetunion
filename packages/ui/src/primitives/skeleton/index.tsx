@@ -6,10 +6,7 @@ import type { HTMLAttributes } from "react";
  * @param props.className The className to apply to the skeleton.
  * @returns The skeleton component.
  */
-function Skeleton({
-  className,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
+function Skeleton({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn("animate-pulse rounded-md bg-accent", className)}

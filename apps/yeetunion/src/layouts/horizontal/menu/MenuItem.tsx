@@ -28,16 +28,20 @@ import { HorizontalSubMenuContext } from "./SubMenu";
 
 import MenuButton from "./MenuButton";
 
+import { useVerticalNav } from "../../vertical/Provider";
 import useHorizontalMenu from "../useHorizontalMenu";
-import {useVerticalNav} from "../../vertical/Provider";
 
 import { menuClasses } from "@/layouts/menuClasses";
 
 import { renderMenuIcon } from "@/layouts/menuUtils";
 
-import {StyledMenuLabel, StyledMenuPrefix, StyledMenuSuffix} from "../../styles";
+import {
+  StyledMenuLabel,
+  StyledMenuPrefix,
+  StyledMenuSuffix,
+} from "../../styles";
 
-import {StyledHorizontalMenuItem} from "../styles";
+import { StyledHorizontalMenuItem } from "../styles";
 
 import styles from "../styles/horizontalUl.module.css";
 
@@ -110,7 +114,7 @@ const MenuItem: ForwardRefRenderFunction<HTMLLIElement, MenuItemProps> = (
           ? styleFunction(params)
           : styleFunction;
       }
-      return undefined
+      return undefined;
     }
     return undefined;
   };

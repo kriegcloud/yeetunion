@@ -6,5 +6,3 @@ export const auditTimeFields = {
     .$defaultFn(() => new Date()),
   updatedAt: timestamp("updated_at").$onUpdateFn(() => new Date()),
 };
-
-

@@ -5,10 +5,10 @@ import type { Settings, Skin, SystemMode } from "./types";
 
 import colorSchemes from "./configs/colorSchemes";
 import customShadows from "./custom/customShadows";
-import overrides from "./overrides";
 import shadows from "./custom/shadows";
 import spacing from "./custom/spacing";
 import typography from "./custom/typography";
+import overrides from "./overrides";
 
 import type {} from "@mui/lab/themeAugmentation"; //! Do not remove this import otherwise you will get type errors while making a production build
 import type {} from "@mui/material/themeCssVarsAugmentation"; //! Do not remove this import otherwise you will get type errors while making a production build

@@ -1,8 +1,8 @@
+import type { OauthCodeValidationError } from "@/errors";
 import type { HttpClientError } from "@effect/platform/HttpClientError";
 import type { ParseError } from "@effect/schema/ParseResult";
 import type { OAuth2Tokens } from "arctic";
 import type { Effect } from "effect";
-import type { OauthCodeValidationError } from "@/errors";
 
 export interface OauthService<A> {
   createAuthorizationUrl: (args: {

@@ -8,7 +8,7 @@ export default async function Home() {
     <main className="container mx-auto p-6">
       <div className="flex min-h-[37.8px] items-center justify-between">
         <h1>Next.js app</h1>
-        <Label >beep</Label>
+        <Label>beep</Label>
       </div>
     </main>
   );

@@ -68,8 +68,6 @@ export const DiscordUserResponseDefinition = S.Struct({
   }),
 });
 
-
-
 export class DiscordUserResponse extends S.Class<DiscordUserResponse>(
   "DiscordUserResponse",
 )({

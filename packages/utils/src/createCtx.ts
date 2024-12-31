@@ -1,4 +1,4 @@
-import {createContext, useContext} from "react";
+import { createContext, useContext } from "react";
 
 export const createCtx = <A extends NonNullable<unknown> | null>() => {
   const ctx = createContext<A | undefined>(undefined);

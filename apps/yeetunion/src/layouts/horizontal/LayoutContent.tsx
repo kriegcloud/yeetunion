@@ -1,10 +1,10 @@
 "use client";
-import { themeConfig } from "@ye/theme/themeConfig";
-import { useSettings } from "@ye/theme/ThemeSettingsProvider";
-import type { ReactNode } from "react";
 import { StyledMain } from "@/layouts/StyledMain";
 import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
+import { useSettings } from "@ye/theme/ThemeSettingsProvider";
+import { themeConfig } from "@ye/theme/themeConfig";
 import classnames from "classnames";
+import type { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;

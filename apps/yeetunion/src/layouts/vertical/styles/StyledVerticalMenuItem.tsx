@@ -35,4 +35,3 @@ export const StyledVerticalMenuItem = styled.li<StyledVerticalMenuItemProps>`
     ${({ buttonStyles }) => buttonStyles};
   }
 `;
-

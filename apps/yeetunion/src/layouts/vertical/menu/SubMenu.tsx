@@ -71,8 +71,8 @@ import {
 } from "../../styles";
 
 import {
-  StyledVerticalNavExpandIconWrapper,
   StyledVerticalNavExpandIcon,
+  StyledVerticalNavExpandIconWrapper,
 } from "../styles";
 
 export type SubMenuProps = Omit<

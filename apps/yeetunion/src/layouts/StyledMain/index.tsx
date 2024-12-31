@@ -11,8 +11,8 @@ type StyledMainProps = {
 export const StyledMain = styled.main<StyledMainProps>`
   padding: ${themeConfig.layoutPadding}px;
   ${({ isContentCompact }) =>
-  isContentCompact &&
-  `
+    isContentCompact &&
+    `
     margin-inline: auto;
     max-inline-size: ${themeConfig.compactContentWidth}px;
   `}
@@ -22,4 +22,3 @@ export const StyledMain = styled.main<StyledMainProps>`
     overflow: hidden;
   }
 `;
-

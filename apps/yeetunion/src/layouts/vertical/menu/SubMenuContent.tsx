@@ -11,7 +11,7 @@ import type { ChildrenType, RootStylesType } from "../../types";
 
 import type { VerticalMenuContextProps } from "./Menu";
 
-import {StyledSubMenuContent} from "../../styles";
+import { StyledSubMenuContent } from "../../styles";
 
 import styles from "../../styles.module.css";
 

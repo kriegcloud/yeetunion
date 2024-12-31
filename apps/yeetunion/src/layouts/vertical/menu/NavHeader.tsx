@@ -4,7 +4,7 @@ import type { VerticalNavContextProps } from "../Provider";
 
 import type { ChildrenType } from "../../types";
 
-import {useVerticalNav} from "../Provider";
+import { useVerticalNav } from "../Provider";
 
 import { verticalNavClasses } from "@/layouts/menuClasses";
 

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
+import type { RootStylesType } from "./types";
 import type { SubMenuContentProps } from "./vertical/menu";
 import type { VerticalNavProps } from "./vertical/menu";
-import type { RootStylesType } from "./types";
 
 type StyledBackdropProps = Pick<VerticalNavProps, "backdropColor">;
 
@@ -31,8 +31,8 @@ type StyledMenuLabelProps = RootStylesType & {
 export const StyledMenuLabel = styled.span<StyledMenuLabelProps>`
   flex-grow: 1;
   ${({ textTruncate }) =>
-  textTruncate &&
-  `
+    textTruncate &&
+    `
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
@@ -60,18 +60,18 @@ type StyledMenuSectionLabelProps = RootStylesType & {
 
 export const StyledMenuSectionLabel = styled.span<StyledMenuSectionLabelProps>`
   ${({ textTruncate }) =>
-  textTruncate &&
-  `
+    textTruncate &&
+    `
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     `};
   ${({ isCollapsed, isHovered }) =>
-  !isCollapsed || (isCollapsed && isHovered)
-    ? `
+    !isCollapsed || (isCollapsed && isHovered)
+      ? `
 flex-grow: 1;
 `
-    : ""}
+      : ""}
   ${({ rootStyles }) => rootStyles};
 `;
 
@@ -95,17 +95,17 @@ export const StyledSubMenuContent = styled.div<SubMenuContentProps>`
   box-sizing: border-box;
 
   ${({ isCollapsed, level, isPopoutWhenCollapsed, isHovered }) =>
-  isCollapsed &&
-  level === 0 &&
-  !isPopoutWhenCollapsed &&
-  !isHovered &&
-  `
+    isCollapsed &&
+    level === 0 &&
+    !isPopoutWhenCollapsed &&
+    !isHovered &&
+    `
       block-size: 0 !important;
     `}
 
   ${({ isCollapsed, level, isPopoutWhenCollapsed }) =>
-  isCollapsed && level === 0 && isPopoutWhenCollapsed
-    ? `
+    isCollapsed && level === 0 && isPopoutWhenCollapsed
+      ? `
       display: block;
       padding-inline-start: 0px;
       inline-size: 260px;
@@ -115,7 +115,7 @@ export const StyledSubMenuContent = styled.div<SubMenuContentProps>`
       background-color: white;
       box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
      `
-    : `
+      : `
       position: static !important;
       transform: none !important;
       `}

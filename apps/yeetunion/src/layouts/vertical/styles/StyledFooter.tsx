@@ -3,7 +3,7 @@ import type { Theme } from "@mui/material";
 import styled from "@emotion/styled";
 import type { CSSObject } from "@emotion/styled";
 
-import {themeConfig} from "@ye/theme/themeConfig";
+import { themeConfig } from "@ye/theme/themeConfig";
 
 import { verticalLayoutClasses } from "@/layouts/layoutClasses";
 

@@ -1,3 +1,10 @@
+import { Chip } from "@mui/material";
+import type { ChipProps } from "@mui/material";
+import type { ReactNode } from "react";
+import {
+  MenuItem as HorizontalMenuItem,
+  SubMenu as HorizontalSubMenu,
+} from "./horizontal/menu";
 import type {
   HorizontalMenuDataType,
   HorizontalMenuItemDataType,
@@ -8,22 +15,15 @@ import type {
   VerticalSubMenuDataType,
 } from "./types";
 import {
-  MenuItem as HorizontalMenuItem,
-  SubMenu as HorizontalSubMenu,
-} from "./horizontal/menu";
-import {
   MenuSection,
   MenuItem as VerticalMenuItem,
   SubMenu as VerticalSubMenu,
 } from "./vertical/menu";
-import {Chip} from "@mui/material";
-import type { ChipProps } from "@mui/material";
-import type { ReactNode } from "react";
 
 // Generate a menu from the menu data array
 export const GenerateVerticalMenu = ({
-                                       menuData,
-                                     }: { menuData: VerticalMenuDataType[] }) => {
+  menuData,
+}: { menuData: VerticalMenuDataType[] }) => {
   const renderMenuItems = (data: VerticalMenuDataType[]) => {
     // Use the map method to iterate through the array of menu data
     return data.map((item: VerticalMenuDataType, index) => {
@@ -119,8 +119,8 @@ export const GenerateVerticalMenu = ({
 
 // Generate a menu from the menu data array
 export const GenerateHorizontalMenu = ({
-                                         menuData,
-                                       }: { menuData: HorizontalMenuDataType[] }) => {
+  menuData,
+}: { menuData: HorizontalMenuDataType[] }) => {
   const renderMenuItems = (data: HorizontalMenuDataType[]) => {
     // Use the map method to iterate through the array of menu data
     return data.map((item: HorizontalMenuDataType, index) => {

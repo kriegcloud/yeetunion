@@ -11,13 +11,17 @@ import type { BreakpointType } from "../../types";
 
 import type { VerticalNavState } from "../Provider";
 
-import {useMediaQuery} from "@/layouts/hooks";
-import {useVerticalNav} from "../Provider";
+import { useMediaQuery } from "@/layouts/hooks";
+import { useVerticalNav } from "../Provider";
 
 import { verticalNavClasses } from "@/layouts/menuClasses";
 
-import {StyledBackdrop} from "../../styles";
-import {StyledVerticalNav, StyledVerticalNavBgColorContainer, StyledVerticalNavContainer} from "../styles";
+import { StyledBackdrop } from "../../styles";
+import {
+  StyledVerticalNav,
+  StyledVerticalNavBgColorContainer,
+  StyledVerticalNavContainer,
+} from "../styles";
 
 import styles from "../styles/verticalNavBgImage.module.css";
 

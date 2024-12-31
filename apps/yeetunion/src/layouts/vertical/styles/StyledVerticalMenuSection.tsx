@@ -12,7 +12,7 @@ type StyledVerticalMenuSectionProps = Omit<
   menuSectionStyles?: CSSObject | undefined;
   children: ReactNode;
   rootStyles?: CSSObject | undefined;
-  label?: ReactNode
+  label?: ReactNode;
 };
 
 export const StyledVerticalMenuSection = styled.li<StyledVerticalMenuSectionProps>`

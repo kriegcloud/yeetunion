@@ -8,12 +8,9 @@
 const root: string;
 const li: string;
 
-export {
-	root,
-	li
-};
+export { root, li };
 
 export default {
-	root,
-	li
-}
+  root,
+  li,
+};

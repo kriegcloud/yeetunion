@@ -5,9 +5,9 @@ import classnames from "classnames";
 import type { SystemMode } from "@ye/theme";
 import type { ReactNode } from "react";
 
+import { blankLayoutClasses } from "@/layouts/layoutClasses";
 import { useSettings } from "@ye/theme/ThemeSettingsProvider";
 import { useLayoutInit } from "@ye/theme/useLayoutInit";
-import { blankLayoutClasses } from "@/layouts/layoutClasses";
 
 type Props = {
   children: ReactNode;

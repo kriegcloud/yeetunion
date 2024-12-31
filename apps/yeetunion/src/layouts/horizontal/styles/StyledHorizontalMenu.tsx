@@ -9,4 +9,3 @@ export const StyledHorizontalMenu = styled.nav<Pick<MenuProps, "rootStyles">>`
     ${({ rootStyles }) => rootStyles}
   }
 `;
-

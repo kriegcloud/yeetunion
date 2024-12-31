@@ -33,11 +33,7 @@ export const HorizontalNavProvider = ({
     [isBreakpointReached],
   );
 
-  return (
-    <Provider value={HorizontalNavProviderValue}>
-      {children}
-    </Provider>
-  );
+  return <Provider value={HorizontalNavProviderValue}>{children}</Provider>;
 };
 
 export { useHorizontalNav };

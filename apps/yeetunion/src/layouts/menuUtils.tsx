@@ -20,7 +20,7 @@ import {
 
 import { menuClasses } from "./menuClasses";
 
-import {StyledMenuIcon} from "./styles";
+import { StyledMenuIcon } from "./styles";
 
 type RenderMenuIconParams = {
   level?: number;
@@ -41,8 +41,8 @@ export const confirmUrlInChildren = (
   }
 
   if (Array.isArray(children)) {
-    return children.some((child: ReactNode) =>
-      confirmUrlInChildren(child, url),
+    return children.some((child) =>
+      confirmUrlInChildren(child as ReactNode, url),
     );
   }
 

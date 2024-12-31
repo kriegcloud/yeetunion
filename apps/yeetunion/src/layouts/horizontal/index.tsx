@@ -8,7 +8,7 @@ import LayoutContent from "./LayoutContent";
 
 import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
 
-import {StyledContentWrapper} from "./styles";
+import { StyledContentWrapper } from "./styles";
 
 type HorizontalLayoutProps = {
   children: ReactNode;

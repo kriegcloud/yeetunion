@@ -9,7 +9,7 @@ import {
 } from "@effect/platform";
 import { Discord } from "arctic";
 import { Config, Effect, Layer, Redacted } from "effect";
-import {DiscordUser, DiscordUserResponse} from "./schema";
+import { DiscordUser, DiscordUserResponse } from "./schema";
 
 const discordProvider = Config.map(
   Config.all([
