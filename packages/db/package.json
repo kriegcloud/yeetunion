@@ -9,11 +9,15 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "default": "./src/index.ts"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "default": "./src/client.ts"
     },
     "./schema": {
       "types": "./dist/schema/index.d.ts",
-      "default": "./dist/schema/index.js"
+      "default": "./src/schema/index.ts"
     }
   },
   "scripts": {
@@ -33,9 +37,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@vercel/postgres": "^0.10.0",
     "@ye/auth": "workspace:*",
     "@ye/env": "workspace:*",
-    "drizzle-orm": "^0.38.2",
+    "drizzle-orm": "^0.38.3",
+    "drizzle-zod": "^0.6.1",
     "postgres": "^3.4.5"
   },
   "devDependencies": {

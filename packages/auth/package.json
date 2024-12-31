@@ -5,18 +5,11 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./errors": {
-      "types": "./dist/errors.d.ts",
-      "default": "./src/errors.ts"
+    ".": {
+      "react-server": "./src/index.rsc.ts",
+      "default": "./src/index.ts"
     },
-    "./supported-oauth": {
-      "types": "./dist/supported-oauth.d.ts",
-      "default": "./src/supported-oauth.ts"
-    },
-    "./provider": {
-      "types": "./dist/provider/index.d.ts",
-      "default": "./src/provider/index.ts"
-    }
+    "./env": "./env.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -26,13 +19,16 @@
     "lint:fix": "biome check . --write",
     "typecheck": "tsc"
   },
+  "peerDependencies": {
+    "@auth/core": "^0.37.4",
+    "@auth/drizzle-adapter": "^1.7.4",
+    "next-auth": "5.0.0-beta.25",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "dependencies": {
-    "@ye/env": "workspace:^",
-    "@ye/utils": "workspace:^",
-    "@effect/platform": "^0.68.2",
-    "@effect/schema": "latest",
-    "effect": "^3.9.1",
-    "arctic": "^2.0.1"
+    "@t3-oss/env-nextjs": "^0.11.1",
+    "next": "^14.2.15"
   },
   "devDependencies": {
     "@ye/tsconfig": "workspace:^"

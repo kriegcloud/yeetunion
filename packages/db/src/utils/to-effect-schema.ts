@@ -528,12 +528,9 @@ function mapColumnToSchema(column: Drizzle.Column): S.Schema<any, any> {
   return type;
 }
 
-function isWithEnum(
+const isWithEnum = (
   column: Drizzle.Column,
-): column is typeof column & { enumValues: [string, ...string[]] } {
-  return (
-    "enumValues" in column &&
-    Array.isArray(column.enumValues) &&
-    column.enumValues.length > 0
-  );
-}
+): column is typeof column & { enumValues: [string, ...string[]] } =>
+  "enumValues" in column &&
+  Array.isArray(column.enumValues) &&
+  column.enumValues.length > 0;
