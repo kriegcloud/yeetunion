@@ -4,9 +4,9 @@ import { useColorScheme } from "@mui/material/styles";
 
 import { useMedia } from "react-use";
 
-import type { SystemMode } from "@/types";
+import type { SystemMode } from "../types";
 
-import { useSettings } from "../providers";
+import { useSettings } from "../providers/ThemeSettingsProvider";
 
 export const ModeChanger = ({ systemMode }: { systemMode: SystemMode }) => {
   const { setMode } = useColorScheme();

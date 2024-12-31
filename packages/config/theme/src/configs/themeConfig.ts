@@ -1,9 +1,9 @@
 import type { Config } from "../types";
 
 export const themeConfig: Config = {
-  templateName: "Rocket Admin",
-  homePageUrl: "/home",
-  settingsCookieName: "e2-mui",
+  templateName: "Yeet Union",
+  homePageUrl: "/",
+  settingsCookieName: "ye-mui",
   mode: "system", // 'system', 'light', 'dark'
   skin: "default", // 'default', 'bordered'
   semiDark: false, // true, false

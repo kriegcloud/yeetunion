@@ -1,44 +1,28 @@
-import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
-import type { CSSObject } from "@emotion/styled";
-import { useTheme } from "@mui/material";
-import { useSettings } from "@ye/theme/ThemeSettingsProvider";
-import { themeConfig } from "@ye/theme/themeConfig";
-import classnames from "classnames";
-import type { ReactNode } from "react";
-import { StyledHeader } from "./styles";
+"use client";
 
-type Props = {
-  children: ReactNode;
-  overrideStyles?: CSSObject;
-};
+import { StyledHorizontalHeader} from "./StyledHorizontalHeader";
+import {Navbar} from "./Navbar";
+import NavbarContent from "./NavbarContent";
 
-export const Header = (props: Props) => {
-  const { children, overrideStyles } = props;
+import Navigation from "./Navigation";
 
-  const { settings } = useSettings();
-  const theme = useTheme();
 
-  const { navbarContentWidth } = settings;
+import { useHorizontalNav} from "@/layouts/horizontal/Provider";
 
-  const headerFixed = themeConfig.navbar.type === "fixed";
-  const headerStatic = themeConfig.navbar.type === "static";
-  const headerBlur = themeConfig.navbar.blur;
-  const headerContentCompact = navbarContentWidth === "compact";
-  const headerContentWide = navbarContentWidth === "wide";
+const Header = () => {
+  const { isBreakpointReached } = useHorizontalNav();
 
   return (
-    <StyledHeader
-      theme={theme}
-      overrideStyles={overrideStyles}
-      className={classnames(horizontalLayoutClasses.header, {
-        [horizontalLayoutClasses.headerFixed]: headerFixed,
-        [horizontalLayoutClasses.headerStatic]: headerStatic,
-        [horizontalLayoutClasses.headerBlur]: headerBlur,
-        [horizontalLayoutClasses.headerContentCompact]: headerContentCompact,
-        [horizontalLayoutClasses.headerContentWide]: headerContentWide,
-      })}
-    >
-      {children}
-    </StyledHeader>
+    <>
+      <StyledHorizontalHeader>
+        <Navbar>
+          <NavbarContent />
+        </Navbar>
+        {!isBreakpointReached && <Navigation />}
+      </StyledHorizontalHeader>
+      {isBreakpointReached && <Navigation />}
+    </>
   );
 };
+
+export default Header;

@@ -1,4 +1,11 @@
 // Primary color config object
+
+export type PrimaryColorConfig = {
+  name?: string;
+  light?: string;
+  main: string;
+  dark?: string;
+};
 export const primaryColorConfig = [
   {
     name: "primary-1",

@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body,
-  .docs-story {
-    @apply bg-background text-foreground;
-    font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
-  }
-}
-
 :root {
   --border-radius: var(--mui-shape-borderRadius);
   --border-color: var(--mui-palette-divider);
@@ -47,7 +33,11 @@
   border-color: theme('borderColor.DEFAULT', currentColor);
 }
 
-
+html {
+  display: flex;
+  inline-size: 100%;
+  min-block-size: 100%;
+}
 
 a {
   color: inherit;

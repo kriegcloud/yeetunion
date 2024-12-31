@@ -15,4 +15,4 @@ export { default as NavCollapseIcons } from "./NavCollapseIcons";
 export { default as NavHeader } from "./NavHeader";
 export { default as SubMenu } from "./SubMenu";
 export { default as SubMenuContent } from "./SubMenuContent";
-export { default as VerticalNav } from "./VerticalNav";
+export * from "./VerticalNav";

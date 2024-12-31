@@ -22,7 +22,7 @@ type Props = {
   overrideStyles?: CSSObject;
 };
 
-export const Navbar = (props: Props) => {
+export const StyledNavbar = (props: Props) => {
   const { children, overrideStyles } = props;
 
   const { settings } = useSettings();
@@ -68,3 +68,26 @@ export const Navbar = (props: Props) => {
     </StyledHeader>
   );
 };
+
+const Navbar = () => {
+  return (
+    <StyledNavbar>
+      <div
+        className={classnames(
+          verticalLayoutClasses.navbarContent,
+          "flex items-center justify-between gap-4 is-full",
+        )}
+      >
+        <div className="flex items-center gap-4">
+          {/*<NavToggle />*/}
+          {/*<ModeDropdown />*/}
+        </div>
+        <div className="flex items-center">
+          {/*<UserDropdown />*/}
+        </div>
+      </div>
+    </StyledNavbar>
+  );
+};
+
+export default Navbar;

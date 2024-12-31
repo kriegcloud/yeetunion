@@ -1,45 +1,32 @@
-"use client";
+import { HorizontalLayoutFooter} from "./HorizontalLayoutFooter";
 import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
-import type { CSSObject } from "@emotion/styled";
-import { useTheme } from "@mui/material";
-import { useSettings } from "@ye/theme/ThemeSettingsProvider";
-import { themeConfig } from "@ye/theme/themeConfig";
 import classnames from "classnames";
-import type { ReactNode } from "react";
-import { StyledFooter } from "./styles";
+import Link from "next/link";
 
-type Props = {
-  children: ReactNode;
-  overrideStyles?: CSSObject;
-};
-
-export const Footer = (props: Props) => {
-  const { children, overrideStyles } = props;
-
-  const { settings } = useSettings();
-  const theme = useTheme();
-
-  const { footerContentWidth } = settings;
-
-  const footerStatic = themeConfig.footer.type === "static";
-  const footerFixed = themeConfig.footer.type === "fixed";
-  const footerContentCompact = footerContentWidth === "compact";
-  const footerContentWide = footerContentWidth === "wide";
-
+const Footer = () => {
   return (
-    <StyledFooter
-      theme={theme}
-      overrideStyles={overrideStyles}
-      className={classnames(horizontalLayoutClasses.footer, {
-        [horizontalLayoutClasses.footerStatic]: footerStatic,
-        [horizontalLayoutClasses.footerFixed]: footerFixed,
-        [horizontalLayoutClasses.footerContentCompact]: footerContentCompact,
-        [horizontalLayoutClasses.footerContentWide]: footerContentWide,
-      })}
-    >
-      <div className={horizontalLayoutClasses.footerContentWrapper}>
-        {children}
+    <HorizontalLayoutFooter>
+      <div
+        className={classnames(
+          horizontalLayoutClasses.footerContent,
+          "flex items-center justify-between flex-wrap gap-4",
+        )}
+      >
+        <p>
+          <span>{`© ${new Date().getFullYear()}`}</span>
+          <span>{`❤️`}</span>
+          <span>{` by `}</span>
+          <Link
+            href="https://e2.solutions"
+            target="_blank"
+            className="text-primary"
+          >
+            E2 Solutions
+          </Link>
+        </p>
       </div>
-    </StyledFooter>
+    </HorizontalLayoutFooter>
   );
 };
+
+export default Footer;

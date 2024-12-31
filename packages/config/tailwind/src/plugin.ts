@@ -1,6 +1,6 @@
 import plugin from "tailwindcss/plugin";
 
-export const dankTailwindPlugin = plugin(() => {}, {
+module.exports = plugin(() => {}, {
   theme: {
     borderColor: ({ theme }) => ({
       ...theme("colors"),

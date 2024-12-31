@@ -1,33 +1,26 @@
 "use client";
 
-import { createCtx } from "@ye/utils/createCtx";
+import type { Mode, Settings } from "../types";
 import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
-import { useCookie } from "react-use";
-import type { Mode, Settings } from "../index";
+import { createContext, useContext } from "react";
+import { useObjectCookie } from "@ye/utils/hooks";
 
+
+const createCtx = <A extends NonNullable<unknown> | null>() => {
+  const ctx = createContext<A | undefined>(undefined);
+  function useCtx() {
+    const c = useContext(ctx);
+    if (c === undefined)
+      throw new Error("useCtx must be inside a Provider with a value");
+    return c;
+  }
+  return [useCtx, ctx.Provider] as const; // 'as const' makes TypeScript infer a tuple
+};
 // UpdateSettingsOptions type
 type UpdateSettingsOptions = {
   updateCookie?: boolean;
 };
-
-function useObjectCookie<T>(
-  key: string,
-  fallback?: T | null,
-): [T, (newVal: T) => void] {
-  const [valStr, updateCookie] = useCookie(key);
-
-  const value = useMemo<T>(
-    () => (valStr ? JSON.parse(valStr) : fallback),
-    [valStr],
-  );
-
-  const updateValue = (newVal: T) => {
-    updateCookie(JSON.stringify(newVal));
-  };
-
-  return [value, updateValue];
-}
 
 export type ThemeSettingsCtx = {
   settings: Settings;
@@ -50,11 +43,11 @@ type ThemeSettingsProviderProps = {
 const [useSettings, Provider] = createCtx<ThemeSettingsCtx>();
 
 const ThemeSettingsProvider = ({
-  children,
-  settingsCookieObj,
-  mode,
-  initialSettings,
-}: ThemeSettingsProviderProps) => {
+                                 children,
+                                 settingsCookieObj,
+                                 mode,
+                                 initialSettings,
+                               }: ThemeSettingsProviderProps) => {
   const updatedInitialSettings = {
     ...initialSettings,
     mode: mode || "light",

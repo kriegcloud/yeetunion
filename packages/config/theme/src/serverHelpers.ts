@@ -8,7 +8,7 @@ import "server-only";
 import type { Settings, SystemMode } from "./types";
 
 // Config Imports
-import { themeConfig } from "@/configs/themeConfig";
+import { themeConfig } from "./configs/themeConfig";
 
 export const getSettingsFromCookie = (): Settings => {
   const cookieStore = cookies();
@@ -20,7 +20,8 @@ export const getSettingsFromCookie = (): Settings => {
 
 export const getMode = () => {
   const settingsCookie = getSettingsFromCookie();
-
+  console.log(settingsCookie.mode);
+  console.log(themeConfig.mode);
   // Get mode from cookie or fallback to theme config
   return settingsCookie.mode || themeConfig.mode;
 };
@@ -29,6 +30,8 @@ export const getSystemMode = (): SystemMode => {
   const cookieStore = cookies();
   const mode = getMode();
 
+  console.log(cookieStore.get("colorPref")?.value);
+  console.log(mode);
   const colorPrefCookie = (cookieStore.get("colorPref")?.value ||
     "light") as SystemMode;
 

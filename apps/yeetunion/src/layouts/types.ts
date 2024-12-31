@@ -179,5 +179,5 @@ export type RenderExpandedMenuItemIcon = {
 
 // Root Styles
 export type RootStylesType = {
-  rootStyles: CSSObject | undefined;
+  rootStyles?: CSSObject | undefined;
 };

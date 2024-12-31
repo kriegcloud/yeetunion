@@ -45,7 +45,7 @@ export type VerticalNavProps = HTMLAttributes<HTMLHtmlElement> & {
   customStyles?: CSSObject;
 };
 
-const VerticalNav = (props: VerticalNavProps) => {
+export const VerticalNav = (props: VerticalNavProps) => {
   const {
     width = 260,
     collapsedWidth = 80,
@@ -242,5 +242,3 @@ const VerticalNav = (props: VerticalNavProps) => {
     </StyledVerticalNav>
   );
 };
-
-export default VerticalNav;

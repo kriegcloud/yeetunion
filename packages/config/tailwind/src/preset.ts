@@ -6,7 +6,6 @@ import { type Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 import { createPlugin } from "windy-radix-palette";
 import windyTypography from "windy-radix-typography";
-import { dankTailwindPlugin } from "./plugin";
 
 const colors = createPlugin();
 
@@ -16,8 +15,8 @@ export const yeetTailwindPreset: Config = {
   theme: {
     extend: {
       colors: {
-        background: colors.alias("gray.1"),
-        foreground: colors.alias("gray.12"),
+        background: "var(--mui-palette-background-default)",
+        foreground: "var(--mui-palette-background-paper)",
 
         muted: {
           DEFAULT: colors.alias("gray.4"),
@@ -102,6 +101,7 @@ export const yeetTailwindPreset: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
       },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -123,8 +123,11 @@ export const yeetTailwindPreset: Config = {
       },
     },
   },
+  corePlugins: {
+    preflight: false,
+  },
+  important: "#__next",
   plugins: [
-    dankTailwindPlugin,
     animate,
     typography,
     require("tailwindcss-logical"),
@@ -138,5 +141,6 @@ export const yeetTailwindPreset: Config = {
       config: containerQueries.config ?? {},
       handler: containerQueries.handler,
     },
+    require("./plugin"),
   ],
 };

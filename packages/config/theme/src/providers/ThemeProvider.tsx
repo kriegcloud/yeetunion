@@ -1,28 +1,27 @@
 "use client";
 
 import { useMemo } from "react";
-
+import { themeConfig } from "../configs/themeConfig"
 import type {} from "@mui/lab/themeAugmentation"; //! Do not remove this import otherwise you will get type errors while making a production build
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import {
   Experimental_CssVarsProvider as CssVarsProvider,
   darken,
-  extendTheme,
+  experimental_extendTheme as extendTheme,
   lighten,
 } from "@mui/material/styles";
 import type {} from "@mui/material/themeCssVarsAugmentation"; //! Do not remove this import otherwise you will get type errors while making a production build
+import stylisRTLPlugin from "stylis-plugin-rtl";
 
 import { deepmerge } from "@mui/utils";
 
 import { useMedia } from "react-use";
-import stylisRTLPlugin from "stylis-plugin-rtl";
+// import stylisRTLPlugin from "stylis-plugin-rtl";
 
 import type { ChildrenType, Direction, SystemMode } from "../types";
 
-// import ModeChanger from "./ModeChanger";
-
-import { themeConfig } from "../configs/themeConfig";
+import { ModeChanger } from "../components/ModeChanger";
 
 import { useSettings } from "./ThemeSettingsProvider";
 
@@ -104,6 +103,7 @@ export const ThemeProvider = (props: Props) => {
         modeStorageKey={`${themeConfig.templateName.toLowerCase().split(" ").join("-")}-mui-template-mode`}
       >
         <>
+          <ModeChanger systemMode={systemMode} />
           <CssBaseline />
           {children}
         </>

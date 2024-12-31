@@ -1,6 +1,6 @@
 import type { ChangeEvent, ReactNode } from "react";
 
-import type { Grid2Props } from "@mui/material/Grid2";
+import type { GridProps } from "@mui/material/Grid";
 
 import type { ThemeColor } from "../types";
 
@@ -11,35 +11,35 @@ export type CustomInputHorizontalData = {
   isSelected?: boolean;
 } & (
   | {
-      meta: ReactNode;
-      title: ReactNode;
-    }
+  meta: ReactNode;
+  title: ReactNode;
+}
   | {
-      meta?: never;
-      title?: never;
-    }
+  meta?: never;
+  title?: never;
+}
   | {
-      title: ReactNode;
-      meta?: never;
-    }
-);
+  title: ReactNode;
+  meta?: never;
+}
+  );
 export type CustomInputHorizontalProps = {
   name: string;
   color?: ThemeColor;
-  gridProps?: Grid2Props;
+  gridProps?: GridProps;
   data: CustomInputHorizontalData;
 } & (
   | {
-      type: "checkbox";
-      selected: string[];
-      handleChange: (value: string) => void;
-    }
+  type: "checkbox";
+  selected: string[];
+  handleChange: (value: string) => void;
+}
   | {
-      type: "radio";
-      selected: string;
-      handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
-    }
-);
+  type: "radio";
+  selected: string;
+  handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
+}
+  );
 
 // Types of Vertical Custom Inputs
 export type CustomInputVerticalData = {
@@ -52,20 +52,20 @@ export type CustomInputVerticalData = {
 export type CustomInputVerticalProps = {
   name: string;
   color?: ThemeColor;
-  gridProps?: Grid2Props;
+  gridProps?: GridProps;
   data: CustomInputVerticalData;
 } & (
   | {
-      type: "checkbox";
-      selected: string[];
-      handleChange: (value: string) => void;
-    }
+  type: "checkbox";
+  selected: string[];
+  handleChange: (value: string) => void;
+}
   | {
-      type: "radio";
-      selected: string;
-      handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
-    }
-);
+  type: "radio";
+  selected: string;
+  handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
+}
+  );
 
 // Types of Custom Inputs with Images
 export type CustomInputImgData = {
@@ -77,17 +77,17 @@ export type CustomInputImgData = {
 export type CustomInputImgProps = {
   name: string;
   color?: ThemeColor;
-  gridProps: Grid2Props;
+  gridProps: GridProps;
   data: CustomInputImgData;
 } & (
   | {
-      type: "checkbox";
-      selected: string[];
-      handleChange: (value: string) => void;
-    }
+  type: "checkbox";
+  selected: string[];
+  handleChange: (value: string) => void;
+}
   | {
-      type: "radio";
-      selected: string;
-      handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
-    }
-);
+  type: "radio";
+  selected: string;
+  handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
+}
+  );

@@ -41,8 +41,8 @@
       "default": "./dist/hooks/useImageVariant.js"
     },
     "./serverHelpers": {
-      "types": "./dist/server/serverHelpers.d.ts",
-      "default": "./dist/server/serverHelpers.js"
+      "types": "./dist/serverHelpers.d.ts",
+      "default": "./dist/serverHelpers.js"
     }
   },
   "scripts": {
@@ -55,14 +55,14 @@
   },
 
   "dependencies": {
+    "@mui/material": "5.15.13",
+    "@emotion/cache": "11.13.0",
+    "@emotion/react": "11.13.0",
+    "@emotion/styled": "11.13.0",
+    "@mui/lab": "5.0.0-alpha.172",
+    "@mui/material-nextjs": "5.16.4",
     "@ye/utils": "workspace:^",
-    "@emotion/cache": "^11.14.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
     "@hookform/resolvers": "^3.9.0",
-    "@mui/lab": "6.0.0-beta.20",
-    "@mui/material": "^6.2.1",
-    "@mui/material-nextjs": "^6.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-use": "^17.6.0",

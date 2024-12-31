@@ -1,32 +1,66 @@
-import type { Metadata } from "next";
-
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
+import "react-perfect-scrollbar/dist/css/styles.css";
 import type { ReactNode } from "react";
+// import { ScrollToTop } from "@e2/ui";
+// import { headers } from "next/headers";
+import "@/app/globals.css";
+import { getMode, getSystemMode } from "@ye/theme/serverHelpers";
+// Generated Icon CSS Imports
+import "@/assets/iconify-icons/generated-icons.css";
+import Providers from "@/components/Providers";
+import HorizontalFooter from "@/layouts/horizontal/Footer";
+import Header from "@/layouts/horizontal/Header";
+import VerticalFooter from "@/layouts/vertical/Footer";
+import Navbar from "@/layouts/vertical/Navbar";
+import Navigation from "@/layouts/vertical/Navigation";
+import HorizontalLayout from "@/layouts/horizontal/HorizontalLayout";
+import {LayoutWrapper} from "@/layouts/LayoutWrapper";
+import { Customizer } from "@/components/Customizer";
+import VerticalLayout from "@/layouts/vertical/VerticalLayout";
 
-import "./globals.css";
+const RootLayout = async ({ children }: { children: ReactNode}) => {
+  const direction = "ltr";
+  const mode = getMode();
+  const systemMode = getSystemMode();
 
-export const metadata: Metadata = {
-  title: "Yee Bois",
-  description: "For the Bois",
-};
-
-/**
- * The root layout of the entire application. This is where we wrap the entire application in the necessary providers.
- * @param props The props to the layout, which will be every page in this application.
- * @param props.children The children, which is the page the user is currently on.
- * @returns The layout of the application.
- */
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
-      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
-      </body>
+    <html id="__next" lang="en" dir={direction}>
+    <body className="flex is-full min-bs-full flex-auto flex-col">
+      <Providers direction={direction}>
+        <LayoutWrapper
+          systemMode={systemMode}
+          verticalLayout={
+            <VerticalLayout
+              navigation={
+                <Navigation mode={mode} systemMode={systemMode} />
+              }
+              navbar={<Navbar />}
+              footer={<VerticalFooter />}
+            >
+              {children}
+            </VerticalLayout>
+          }
+          horizontalLayout={
+            <HorizontalLayout
+              header={<Header />}
+              footer={<HorizontalFooter />}
+            >
+              {children}
+            </HorizontalLayout>
+          }
+        />
+        {/*<ScrollToTop className="mui-fixed">*/}
+        {/*  <Button*/}
+        {/*    variant="contained"*/}
+        {/*    className="is-10 bs-10 rounded-full p-0 min-is-0 flex items-center justify-center"*/}
+        {/*  >*/}
+        {/*    <i className="ri-arrow-up-line" />*/}
+        {/*  </Button>*/}
+        {/*</ScrollToTop>*/}
+        <Customizer dir={direction} />
+      </Providers>
+    </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
