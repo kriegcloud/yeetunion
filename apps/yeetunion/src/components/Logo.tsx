@@ -1,37 +1,37 @@
-'use client'
+"use client";
 
 // React Imports
-import { useEffect, useRef } from 'react'
-import type { CSSProperties } from 'react'
+import { useEffect, useRef } from "react";
+import type { CSSProperties } from "react";
 
 // Third-party Imports
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 // Type Imports
 // import type { VerticalNavContextProps } from '@menu/contexts/verticalNavContext'
 import type { VerticalNavContextProps } from "@/layouts/vertical/Provider";
 
 // Component Imports
-import MaterioLogo from './MaterioLogo'
+import MaterioLogo from "./MaterioLogo";
 
 // Config Imports
-import {themeConfig} from '@ye/theme/themeConfig'
+import { themeConfig } from "@ye/theme/themeConfig";
 
 // Hook Imports
 
 import { useVerticalNav } from "@/layouts/vertical/Provider";
-import { useSettings } from '@ye/theme/ThemeSettingsProvider'
+import { useSettings } from "@ye/theme/ThemeSettingsProvider";
 
 type LogoTextProps = {
-  isHovered?: VerticalNavContextProps['isHovered']
-  isCollapsed?: VerticalNavContextProps['isCollapsed']
-  transitionDuration?: VerticalNavContextProps['transitionDuration']
-  isBreakpointReached?: VerticalNavContextProps['isBreakpointReached']
-  color?: CSSProperties['color']
-}
+  isHovered?: VerticalNavContextProps["isHovered"];
+  isCollapsed?: VerticalNavContextProps["isCollapsed"];
+  transitionDuration?: VerticalNavContextProps["transitionDuration"];
+  isBreakpointReached?: VerticalNavContextProps["isBreakpointReached"];
+  color?: CSSProperties["color"];
+};
 
 const LogoText = styled.span<LogoTextProps>`
-  color: ${({ color }) => color ?? 'var(--mui-palette-text-primary)'};
+  color: ${({ color }) => color ?? "var(--mui-palette-text-primary)"};
   font-size: 1.25rem;
   line-height: 1.2;
   font-weight: 600;
@@ -42,51 +42,52 @@ const LogoText = styled.span<LogoTextProps>`
 
   ${({ isHovered, isCollapsed, isBreakpointReached }) =>
     !isBreakpointReached && isCollapsed && !isHovered
-      ? 'opacity: 0; margin-inline-start: 0;'
-      : 'opacity: 1; margin-inline-start: 10px;'}
-`
+      ? "opacity: 0; margin-inline-start: 0;"
+      : "opacity: 1; margin-inline-start: 10px;"}
+`;
 
-const Logo = ({ color }: { color?: CSSProperties['color'] }) => {
+const Logo = ({ color }: { color?: CSSProperties["color"] }) => {
   // Refs
-  const logoTextRef = useRef<HTMLSpanElement>(null)
+  const logoTextRef = useRef<HTMLSpanElement>(null);
 
   // Hooks
-  const { isHovered, transitionDuration, isBreakpointReached } = useVerticalNav()
-  const { settings } = useSettings()
+  const { isHovered, transitionDuration, isBreakpointReached } =
+    useVerticalNav();
+  const { settings } = useSettings();
 
   // Vars
-  const { layout } = settings
+  const { layout } = settings;
 
   useEffect(() => {
-    if (layout !== 'collapsed') {
-      return
+    if (layout !== "collapsed") {
+      return;
     }
 
     if (logoTextRef?.current) {
-      if (!isBreakpointReached && layout === 'collapsed' && !isHovered) {
-        logoTextRef.current?.classList.add('hidden')
+      if (!isBreakpointReached && layout === "collapsed" && !isHovered) {
+        logoTextRef.current?.classList.add("hidden");
       } else {
-        logoTextRef.current.classList.remove('hidden')
+        logoTextRef.current.classList.remove("hidden");
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isHovered, layout, isBreakpointReached])
+  }, [isHovered, layout, isBreakpointReached]);
 
   return (
-    <div className='flex items-center min-bs-[24px]'>
-      <MaterioLogo className='text-[22px] text-primary' />
+    <div className="flex items-center min-bs-[24px]">
+      <MaterioLogo className="text-[22px] text-primary" />
       <LogoText
         color={color}
         ref={logoTextRef}
         isHovered={isHovered}
-        isCollapsed={layout === 'collapsed'}
+        isCollapsed={layout === "collapsed"}
         transitionDuration={transitionDuration}
         isBreakpointReached={isBreakpointReached}
       >
         {themeConfig.templateName}
       </LogoText>
     </div>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

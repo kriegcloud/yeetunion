@@ -1,7 +1,7 @@
 "use client";
+import { verticalLayoutClasses } from "@/layouts/layoutClasses";
 import ModeDropdown from "@/layouts/shared/ModeDropdown";
 import UserDropdown from "@/layouts/shared/UserDropdown";
-import { verticalLayoutClasses } from "@/layouts/layoutClasses";
 import classnames from "classnames";
 import NavToggle from "./NavToggle";
 

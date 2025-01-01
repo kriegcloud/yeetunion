@@ -1,8 +1,5 @@
-
 const Page = () => {
-  return (
-    <p> beep</p>
-  )
-}
+  return <p> beep</p>;
+};
 
 export default Page;

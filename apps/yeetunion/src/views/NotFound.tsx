@@ -8,9 +8,9 @@ import { useParams } from "next/navigation";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+import type { Locale } from "@/configs/i18n";
 // Type Imports
 import type { Mode } from "@ye/theme";
-import type { Locale } from "@/configs/i18n";
 
 // Component Imports
 import Illustrations from "@/components/Illustrations";

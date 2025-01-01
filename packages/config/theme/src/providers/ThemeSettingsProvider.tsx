@@ -1,11 +1,10 @@
 "use client";
 
-import type { Mode, Settings } from "../types";
+import { useObjectCookie } from "@ye/utils/hooks";
 import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 import { createContext, useContext } from "react";
-import { useObjectCookie } from "@ye/utils/hooks";
-
+import type { Mode, Settings } from "../types";
 
 const createCtx = <A extends NonNullable<unknown> | null>() => {
   const ctx = createContext<A | undefined>(undefined);
@@ -43,11 +42,11 @@ type ThemeSettingsProviderProps = {
 const [useSettings, Provider] = createCtx<ThemeSettingsCtx>();
 
 const ThemeSettingsProvider = ({
-                                 children,
-                                 settingsCookieObj,
-                                 mode,
-                                 initialSettings,
-                               }: ThemeSettingsProviderProps) => {
+  children,
+  settingsCookieObj,
+  mode,
+  initialSettings,
+}: ThemeSettingsProviderProps) => {
   const updatedInitialSettings = {
     ...initialSettings,
     mode: mode || "light",

@@ -9,13 +9,11 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 // import Logo from "@components/layout/shared/Logo";
 import type { ReactNode } from "react";
 
-
 import NavCollapseIcons from "@/layouts/vertical/menu/NavCollapseIcons";
 
 import NavHeader from "@/layouts/vertical/menu/NavHeader";
 
-
-import { useHorizontalNav} from "@/layouts/horizontal/Provider";
+import { useHorizontalNav } from "@/layouts/horizontal/Provider";
 
 import { mapHorizontalToVerticalMenu } from "@/layouts/menuUtils";
 
@@ -70,9 +68,7 @@ const VerticalNavContent = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <NavHeader>
-        <LinkStyled href="/">
-          {/*<Logo />*/}
-        </LinkStyled>
+        <LinkStyled href="/">{/*<Logo />*/}</LinkStyled>
         <NavCollapseIcons
           lockedIcon={<i className="ri-radio-button-line text-xl" />}
           unlockedIcon={<i className="ri-checkbox-blank-circle-line text-xl" />}

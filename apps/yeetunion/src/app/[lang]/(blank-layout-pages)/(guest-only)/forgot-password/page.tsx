@@ -1,22 +1,22 @@
 // Next Imports
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
 // Component Imports
-import ForgotPassword from '@/views/ForgotPassword'
+import ForgotPassword from "@/views/ForgotPassword";
 
 // Server Action Imports
-import { getServerMode } from '@ye/theme/serverHelpers'
+import { getServerMode } from "@ye/theme/serverHelpers";
 
 export const metadata: Metadata = {
-  title: 'Forgot Password',
-  description: 'Forgotten Password to your account'
-}
+  title: "Forgot Password",
+  description: "Forgotten Password to your account",
+};
 
 const ForgotPasswordPage = () => {
   // Vars
-  const mode = getServerMode()
+  const mode = getServerMode();
 
-  return <ForgotPassword mode={mode} />
-}
+  return <ForgotPassword mode={mode} />;
+};
 
-export default ForgotPasswordPage
+export default ForgotPasswordPage;

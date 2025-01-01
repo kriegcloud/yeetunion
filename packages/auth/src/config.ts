@@ -1,16 +1,15 @@
+import { skipCSRFCheck } from "@auth/core";
+import { DrizzleAdapter } from "@auth/drizzle-adapter";
+import { db } from "@ye/db/client";
+import * as schema from "@ye/db/schema";
 import type {
   DefaultSession,
   NextAuthConfig,
   Session as NextAuthSession,
 } from "next-auth";
-import { skipCSRFCheck } from "@auth/core";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import Discord from "next-auth/providers/discord";
 
-import * as schema from "@ye/db/schema";
-
 import { env } from "./env";
-import {dontUseMeDBClientAuthAdapterOnly} from "@ye/db/client";
 declare module "next-auth" {
   interface Session {
     user: {
@@ -19,7 +18,7 @@ declare module "next-auth" {
   }
 }
 
-const adapter = DrizzleAdapter(dontUseMeDBClientAuthAdapterOnly, {
+const adapter = DrizzleAdapter(db, {
   usersTable: schema.User,
   accountsTable: schema.Account,
   sessionsTable: schema.Session,

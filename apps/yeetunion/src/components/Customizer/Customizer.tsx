@@ -8,13 +8,9 @@ import Popper from "@mui/material/Popper";
 import Switch from "@mui/material/Switch";
 import { useTheme } from "@mui/material/styles";
 import type { Breakpoint } from "@mui/material/styles";
-import classnames from "classnames";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useRef, useState } from "react";
-import { HexColorInput, HexColorPicker } from "react-colorful";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { useDebounce, useMedia } from "react-use";
+import type { Direction, Settings } from "@ye/theme";
+import { useSettings } from "@ye/theme/ThemeSettingsProvider";
+import { PrimaryColorConfig, primaryColorConfig } from "@ye/theme/colorConfig";
 import ContentCompact from "@ye/ui/svg/ContentCompact";
 import ContentWide from "@ye/ui/svg/ContentWide";
 import DirectionLtr from "@ye/ui/svg/DirectionLtr";
@@ -24,9 +20,13 @@ import LayoutHorizontal from "@ye/ui/svg/LayoutHorizontal";
 import LayoutVertical from "@ye/ui/svg/LayoutVertical";
 import SkinBordered from "@ye/ui/svg/SkinBordered";
 import SkinDefault from "@ye/ui/svg/SkinDefault";
-import { primaryColorConfig, PrimaryColorConfig } from "@ye/theme/colorConfig";
-import type { Direction, Settings } from "@ye/theme";
-import { useSettings } from "@ye/theme/ThemeSettingsProvider";
+import classnames from "classnames";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRef, useState } from "react";
+import { HexColorInput, HexColorPicker } from "react-colorful";
+import PerfectScrollbar from "react-perfect-scrollbar";
+import { useDebounce, useMedia } from "react-use";
 import styles from "./Customizer.module.css";
 
 type CustomizerProps = {
@@ -74,7 +74,7 @@ const DebouncedColorPicker = (props: DebouncedColorPickerProps) => {
       <HexColorPicker
         color={
           !isColorFromPrimaryConfig
-            ? settings.primaryColor ?? primaryColorConfig[0].main
+            ? (settings.primaryColor ?? primaryColorConfig[0].main)
             : "#eee"
         }
         onChange={setDebouncedColor}
@@ -83,7 +83,7 @@ const DebouncedColorPicker = (props: DebouncedColorPickerProps) => {
         className={styles["colorInput"]}
         color={
           !isColorFromPrimaryConfig
-            ? settings.primaryColor ?? primaryColorConfig[0].main
+            ? (settings.primaryColor ?? primaryColorConfig[0].main)
             : "#eee"
         }
         onChange={setDebouncedColor}
@@ -95,10 +95,10 @@ const DebouncedColorPicker = (props: DebouncedColorPickerProps) => {
 };
 
 const Customizer = ({
-                      breakpoint = "lg",
-                      dir = "ltr",
-                      disableDirection = false,
-                    }: CustomizerProps) => {
+  breakpoint = "lg",
+  dir = "ltr",
+  disableDirection = false,
+}: CustomizerProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [direction, setDirection] = useState(dir);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -108,7 +108,8 @@ const Customizer = ({
   const theme = useTheme();
   const pathName = usePathname();
   const isSystemDark = useMedia("(prefers-color-scheme: dark)", false);
-  const { settings, updateSettings, resetSettings, isSettingsChanged } = useSettings()
+  const { settings, updateSettings, resetSettings, isSettingsChanged } =
+    useSettings();
   let breakpointValue: CustomizerProps["breakpoint"];
 
   switch (breakpoint) {
@@ -228,7 +229,7 @@ const Customizer = ({
                       key={item.main}
                       className={classnames(styles["primaryColorWrapper"], {
                         [styles["active"] as string]:
-                        settings.primaryColor === item.main,
+                          settings.primaryColor === item.main,
                       })}
                       onClick={() => handleChange("primaryColor", item.main)}
                     >
@@ -302,7 +303,8 @@ const Customizer = ({
                         styles["itemWrapper"],
                         styles["modeWrapper"],
                         {
-                          [styles["active"] as string]: settings.mode === "light",
+                          [styles["active"] as string]:
+                            settings.mode === "light",
                         },
                       )}
                       onClick={() => handleChange("mode", "light")}
@@ -323,7 +325,8 @@ const Customizer = ({
                         styles["itemWrapper"],
                         styles["modeWrapper"],
                         {
-                          [styles["active"] as string]: settings.mode === "dark",
+                          [styles["active"] as string]:
+                            settings.mode === "dark",
                         },
                       )}
                       onClick={() => handleChange("mode", "dark")}
@@ -344,7 +347,8 @@ const Customizer = ({
                         styles["itemWrapper"],
                         styles["modeWrapper"],
                         {
-                          [styles["active"] as string]: settings.mode === "system",
+                          [styles["active"] as string]:
+                            settings.mode === "system",
                         },
                       )}
                       onClick={() => handleChange("mode", "system")}
@@ -367,7 +371,8 @@ const Customizer = ({
                   <div className="flex flex-col items-start gap-0.5">
                     <Box
                       className={classnames(styles["itemWrapper"], {
-                        [styles["active"] as string]: settings.skin === "default",
+                        [styles["active"] as string]:
+                          settings.skin === "default",
                       })}
                       onClick={() => handleChange("skin", "default")}
                     >
@@ -384,7 +389,8 @@ const Customizer = ({
                   <div className="flex flex-col items-start gap-0.5">
                     <Box
                       className={classnames(styles["itemWrapper"], {
-                        [styles["active"] as string]: settings.skin === "bordered",
+                        [styles["active"] as string]:
+                          settings.skin === "bordered",
                       })}
                       onClick={() => handleChange("skin", "bordered")}
                     >
@@ -436,7 +442,7 @@ const Customizer = ({
                     <Box
                       className={classnames(styles["itemWrapper"], {
                         [styles["active"] as string]:
-                        settings.layout === "vertical",
+                          settings.layout === "vertical",
                       })}
                       onClick={() => handleChange("layout", "vertical")}
                     >
@@ -454,7 +460,7 @@ const Customizer = ({
                     <Box
                       className={classnames(styles["itemWrapper"], {
                         [styles["active"] as string]:
-                        settings.layout === "collapsed",
+                          settings.layout === "collapsed",
                       })}
                       onClick={() => handleChange("layout", "collapsed")}
                     >
@@ -472,7 +478,7 @@ const Customizer = ({
                     <Box
                       className={classnames(styles["itemWrapper"], {
                         [styles["active"] as string]:
-                        settings.layout === "horizontal",
+                          settings.layout === "horizontal",
                       })}
                       onClick={() => handleChange("layout", "horizontal")}
                     >
@@ -495,7 +501,7 @@ const Customizer = ({
                     <Box
                       className={classnames(styles["itemWrapper"], {
                         [styles["active"] as string]:
-                        settings.contentWidth === "compact",
+                          settings.contentWidth === "compact",
                       })}
                       onClick={() =>
                         updateSettings({
@@ -525,7 +531,7 @@ const Customizer = ({
                     <Box
                       className={classnames(styles["itemWrapper"], {
                         [styles["active"] as string]:
-                        settings.contentWidth === "wide",
+                          settings.contentWidth === "wide",
                       })}
                       onClick={() =>
                         updateSettings({

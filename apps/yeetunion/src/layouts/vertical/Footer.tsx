@@ -1,7 +1,7 @@
-import { VerticalLayoutFooter } from "./VerticalLayoutFooter";
 import { verticalLayoutClasses } from "@/layouts/layoutClasses";
 import classnames from "classnames";
 import Link from "next/link";
+import { VerticalLayoutFooter } from "./VerticalLayoutFooter";
 
 const Footer = () => {
   return (

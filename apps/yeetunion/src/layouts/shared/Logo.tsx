@@ -9,10 +9,10 @@ import type { VerticalNavContextProps } from "@/layouts/vertical/Provider";
 
 // import { Logo as RocketLogo } from "@e2/ui";
 
-import {themeConfig} from "@ye/theme/themeConfig";
+import { themeConfig } from "@ye/theme/themeConfig";
 
-import { useSettings } from "@ye/theme/ThemeSettingsProvider";
 import { useVerticalNav } from "@/layouts/vertical/Provider";
+import { useSettings } from "@ye/theme/ThemeSettingsProvider";
 
 type LogoTextProps = {
   isHovered?: VerticalNavContextProps["isHovered"];

@@ -26,9 +26,9 @@ export namespace Result {
   }
 
   export function match<T, E, Ok, Err>({
-                                         onOk,
-                                         onError,
-                                       }: {
+    onOk,
+    onError,
+  }: {
     onOk: (value: T) => Ok;
     onError: (error: E) => Err;
   }) {

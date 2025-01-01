@@ -6,13 +6,12 @@
  * TL;DR - This is where all the tRPC server stuff is created and plugged in. The pieces you will
  * need to use are documented accordingly near the end.
  */
-import {initTRPC, TRPCError} from "@trpc/server";
-import { Db } from "@ye/db/client";
+import { TRPCError, initTRPC } from "@trpc/server";
 import type { Session } from "@ye/auth";
 import { auth, validateToken } from "@ye/auth";
+import { db } from "@ye/db/client";
 import { Context, Effect } from "effect";
 import superjson from "superjson";
-
 
 /**
  * Isomorphic Session getter for API requests
@@ -49,7 +48,7 @@ export const createTRPCContext = async (opts: {
 
   return {
     session,
-    Db,
+    db,
     token: authToken,
   };
 };

@@ -6,8 +6,10 @@ export const sharedEnv = createEnv({
   extends: [vercel()],
   shared: {
     NODE_ENV: z.enum(["development", "test", "production"]).optional(),
+    PORT: z.coerce.number().default(3000),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    PORT: 3000,
   },
 });

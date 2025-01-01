@@ -82,9 +82,7 @@ const Navbar = () => {
           {/*<NavToggle />*/}
           {/*<ModeDropdown />*/}
         </div>
-        <div className="flex items-center">
-          {/*<UserDropdown />*/}
-        </div>
+        <div className="flex items-center">{/*<UserDropdown />*/}</div>
       </div>
     </StyledNavbar>
   );

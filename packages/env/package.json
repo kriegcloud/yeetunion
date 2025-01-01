@@ -10,7 +10,8 @@
   "exports": {
     "./web/server": "./src/web/server.ts",
     "./web/client": "./src/web/client.ts",
-    "./web/db": "./src/web/db.ts"
+    "./web/db": "./src/web/db.ts",
+    "./shared": "./src/shared.ts"
   },
   "scripts": {
     "clean": "bun run rm -rf *.tsbuildinfo .turbo node_modules",

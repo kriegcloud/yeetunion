@@ -1,7 +1,7 @@
+import type { MenuItemStyles } from "@/layouts/types";
+import type { VerticalNavState } from "@/layouts/vertical/Provider";
 import { lighten } from "@mui/material/styles";
 import type { Theme } from "@mui/material/styles";
-import type { VerticalNavState } from "@/layouts/vertical/Provider";
-import type { MenuItemStyles } from "@/layouts/types";
 
 import { menuClasses } from "@/layouts/menuClasses";
 
@@ -27,11 +27,11 @@ const menuItemStyles = (
       popoutExpanded ||
       (popoutCollapsed && level === 0)
         ? {
-          marginBlockStart: theme.spacing(1.5),
-        }
+            marginBlockStart: theme.spacing(1.5),
+          }
         : {
-          marginBlockStart: 0,
-        }),
+            marginBlockStart: 0,
+          }),
       [`&.${menuClasses.subMenuRoot}.${menuClasses.open} > .${menuClasses.button}, &.${menuClasses.subMenuRoot} > .${menuClasses.button}.${menuClasses.active}`]:
         {
           backgroundColor: "var(--mui-palette-action-selected) !important",
@@ -46,28 +46,28 @@ const menuItemStyles = (
         {
           ...(popoutCollapsed && level > 0
             ? {
-              backgroundColor: "var(--mui-palette-primary-lightOpacity)",
-              color: "var(--mui-palette-primary-main)",
-              [`& .${menuClasses.icon}`]: {
+                backgroundColor: "var(--mui-palette-primary-lightOpacity)",
                 color: "var(--mui-palette-primary-main)",
-              },
-            }
+                [`& .${menuClasses.icon}`]: {
+                  color: "var(--mui-palette-primary-main)",
+                },
+              }
             : {
-              color: "var(--mui-palette-primary-contrastText)",
-              background:
-                theme.direction === "ltr"
-                  ? `linear-gradient(270deg, var(--mui-palette-primary-main), ${lighten(
-                    theme.palette.primary.main,
-                    0.5,
-                  )} 100%)`
-                  : `linear-gradient(270deg, ${lighten(
-                    theme.palette.primary.main,
-                    0.5,
-                  )}, var(--mui-palette-primary-main) 100%)`,
-              [`& .${menuClasses.icon}`]: {
-                color: "inherit",
-              },
-            }),
+                color: "var(--mui-palette-primary-contrastText)",
+                background:
+                  theme.direction === "ltr"
+                    ? `linear-gradient(270deg, var(--mui-palette-primary-main), ${lighten(
+                        theme.palette.primary.main,
+                        0.5,
+                      )} 100%)`
+                    : `linear-gradient(270deg, ${lighten(
+                        theme.palette.primary.main,
+                        0.5,
+                      )}, var(--mui-palette-primary-main) 100%)`,
+                [`& .${menuClasses.icon}`]: {
+                  color: "inherit",
+                },
+              }),
         },
     }),
     button: ({ level, active }) => ({

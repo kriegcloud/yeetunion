@@ -1,7 +1,7 @@
-import { HorizontalLayoutFooter} from "./HorizontalLayoutFooter";
 import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
 import classnames from "classnames";
 import Link from "next/link";
+import { HorizontalLayoutFooter } from "./HorizontalLayoutFooter";
 
 const Footer = () => {
   return (

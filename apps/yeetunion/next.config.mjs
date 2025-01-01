@@ -23,25 +23,25 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
-        source: '/',
-        destination: '/en/dashboards/crm',
+        source: "/",
+        destination: "/en/dashboards/crm",
         permanent: true,
-        locale: false
+        locale: false,
       },
       {
-        source: '/:lang(en|fr|ar)',
-        destination: '/:lang/dashboards/crm',
+        source: "/:lang(en|fr|ar)",
+        destination: "/:lang/dashboards/crm",
         permanent: true,
-        locale: false
+        locale: false,
       },
       {
-        source: '/((?!(?:en|fr|ar|front-pages|favicon.ico)\\b)):path',
-        destination: '/en/:path',
+        source: "/((?!(?:en|fr|ar|front-pages|favicon.ico)\\b)):path",
+        destination: "/en/:path",
         permanent: true,
-        locale: false
-      }
-    ]
-  }
+        locale: false,
+      },
+    ];
+  },
 };
 
 export default withSentryConfig(withBundleAnalyzer(nextConfig), {

@@ -3,9 +3,9 @@
 // React Imports
 import type { ReactNode } from "react";
 
+import { styled, useTheme } from "@mui/material/styles";
 // MUI Components
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { styled, useTheme } from "@mui/material/styles";
 
 // Type Imports
 import type { Mode } from "@ye/theme";

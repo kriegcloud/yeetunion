@@ -1,4 +1,3 @@
-
 import { useHorizontalNav } from "@/layouts/horizontal/Provider";
 import { useVerticalNav } from "@/layouts/vertical/Provider";
 

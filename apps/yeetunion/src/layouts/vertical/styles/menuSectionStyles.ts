@@ -1,6 +1,6 @@
-import type { Theme } from "@mui/material/styles";
 import type { VerticalNavState } from "@/layouts/vertical/Provider";
 import type { MenuProps } from "@/layouts/vertical/menu";
+import type { Theme } from "@mui/material/styles";
 
 import { menuClasses } from "@/layouts/menuClasses";
 

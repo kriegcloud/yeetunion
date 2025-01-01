@@ -1,15 +1,17 @@
 "use client";
 
-import { StyledHorizontalHeader} from "./StyledHorizontalHeader";
-import {Navbar} from "./Navbar";
+import { Navbar } from "./Navbar";
 import NavbarContent from "./NavbarContent";
+import { StyledHorizontalHeader } from "./StyledHorizontalHeader";
 
+import type { getDictionary } from "@/utils/getDictionary";
 import Navigation from "./Navigation";
-import type { getDictionary } from '@/utils/getDictionary'
 
-import { useHorizontalNav} from "@/layouts/horizontal/Provider";
+import { useHorizontalNav } from "@/layouts/horizontal/Provider";
 
-const Header = ({ dictionary }: { dictionary: Awaited<ReturnType<typeof getDictionary>> }) => {
+const Header = ({
+  dictionary,
+}: { dictionary: Awaited<ReturnType<typeof getDictionary>> }) => {
   const { isBreakpointReached } = useHorizontalNav();
 
   return (

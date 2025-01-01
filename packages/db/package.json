@@ -25,7 +25,7 @@
     "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
     "db:check": "drizzle-kit check",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
+    "db:migrae": "drizzle-kit migrate",
     "db:migrate:drop": "drizzle-kit drop",
     "db:pull": "drizzle-kit introspect",
     "db:push": "drizzle-kit push",
@@ -38,8 +38,7 @@
   },
   "dependencies": {
     "@vercel/postgres": "^0.10.0",
-    "@ye/auth": "workspace:*",
-    "@ye/env": "workspace:*",
+    "@ye/env": "workspace:^",
     "drizzle-orm": "^0.38.3",
     "drizzle-zod": "^0.6.1",
     "postgres": "^3.4.5"

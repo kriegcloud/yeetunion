@@ -2,13 +2,12 @@ import type { ReactNode } from "react";
 
 import classnames from "classnames";
 
-
-import { HorizontalNavProvider } from "@/layouts/horizontal/Provider";
 import LayoutContent from "@/layouts/horizontal/LayoutContent";
+import { HorizontalNavProvider } from "@/layouts/horizontal/Provider";
 
 import { horizontalLayoutClasses } from "@/layouts/layoutClasses";
 
-import {StyledContentWrapper} from "@/layouts/horizontal/styles/StyledContentWrapper";
+import { StyledContentWrapper } from "@/layouts/horizontal/styles/StyledContentWrapper";
 
 type HorizontalLayoutProps = {
   children: ReactNode;

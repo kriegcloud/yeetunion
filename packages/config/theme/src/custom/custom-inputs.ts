@@ -11,18 +11,18 @@ export type CustomInputHorizontalData = {
   isSelected?: boolean;
 } & (
   | {
-  meta: ReactNode;
-  title: ReactNode;
-}
+      meta: ReactNode;
+      title: ReactNode;
+    }
   | {
-  meta?: never;
-  title?: never;
-}
+      meta?: never;
+      title?: never;
+    }
   | {
-  title: ReactNode;
-  meta?: never;
-}
-  );
+      title: ReactNode;
+      meta?: never;
+    }
+);
 export type CustomInputHorizontalProps = {
   name: string;
   color?: ThemeColor;
@@ -30,16 +30,16 @@ export type CustomInputHorizontalProps = {
   data: CustomInputHorizontalData;
 } & (
   | {
-  type: "checkbox";
-  selected: string[];
-  handleChange: (value: string) => void;
-}
+      type: "checkbox";
+      selected: string[];
+      handleChange: (value: string) => void;
+    }
   | {
-  type: "radio";
-  selected: string;
-  handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
-}
-  );
+      type: "radio";
+      selected: string;
+      handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
+    }
+);
 
 // Types of Vertical Custom Inputs
 export type CustomInputVerticalData = {
@@ -56,16 +56,16 @@ export type CustomInputVerticalProps = {
   data: CustomInputVerticalData;
 } & (
   | {
-  type: "checkbox";
-  selected: string[];
-  handleChange: (value: string) => void;
-}
+      type: "checkbox";
+      selected: string[];
+      handleChange: (value: string) => void;
+    }
   | {
-  type: "radio";
-  selected: string;
-  handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
-}
-  );
+      type: "radio";
+      selected: string;
+      handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
+    }
+);
 
 // Types of Custom Inputs with Images
 export type CustomInputImgData = {
@@ -81,13 +81,13 @@ export type CustomInputImgProps = {
   data: CustomInputImgData;
 } & (
   | {
-  type: "checkbox";
-  selected: string[];
-  handleChange: (value: string) => void;
-}
+      type: "checkbox";
+      selected: string[];
+      handleChange: (value: string) => void;
+    }
   | {
-  type: "radio";
-  selected: string;
-  handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
-}
-  );
+      type: "radio";
+      selected: string;
+      handleChange: (value: string | ChangeEvent<HTMLInputElement>) => void;
+    }
+);

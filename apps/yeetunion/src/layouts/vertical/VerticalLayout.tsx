@@ -2,11 +2,11 @@ import type { ReactNode } from "react";
 
 import classnames from "classnames";
 
-import {LayoutContent} from "@/layouts/vertical/LayoutContent";
+import { LayoutContent } from "@/layouts/vertical/LayoutContent";
 
 import { verticalLayoutClasses } from "@/layouts/layoutClasses";
 
-import {StyledContentWrapper} from "@/layouts/vertical/styles/StyledContentWrapper";
+import { StyledContentWrapper } from "@/layouts/vertical/styles/StyledContentWrapper";
 
 type VerticalLayoutProps = {
   navigation?: ReactNode;

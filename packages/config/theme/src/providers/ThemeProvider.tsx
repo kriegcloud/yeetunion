@@ -1,7 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-import { themeConfig } from "../configs/themeConfig"
 import type {} from "@mui/lab/themeAugmentation"; //! Do not remove this import otherwise you will get type errors while making a production build
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,7 +10,9 @@ import {
   lighten,
 } from "@mui/material/styles";
 import type {} from "@mui/material/themeCssVarsAugmentation"; //! Do not remove this import otherwise you will get type errors while making a production build
+import { useMemo } from "react";
 import stylisRTLPlugin from "stylis-plugin-rtl";
+import { themeConfig } from "../configs/themeConfig";
 
 import { deepmerge } from "@mui/utils";
 
