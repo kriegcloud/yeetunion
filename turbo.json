@@ -74,11 +74,11 @@
         ".env"
       ]
     },
-//    "db:migrate": {
-//      "dependsOn": ["db:generate"],
-//      "passThroughEnv": ["DATABASE_URL"],
-//      "inputs": ["drizzle/**"]
-//    },
+    "db:migrate": {
+      "dependsOn": ["db:generate"],
+      "passThroughEnv": ["DATABASE_URL"],
+      "inputs": ["drizzle/**"]
+    },
     "db:generate": {
       "passThroughEnv": ["DATABASE_URL"],
       "inputs": ["src/schema/**", "drizzle.config.ts"],

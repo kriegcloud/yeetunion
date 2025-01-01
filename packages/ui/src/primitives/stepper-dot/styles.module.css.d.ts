@@ -11,15 +11,15 @@ const completedStepperCustomDot: string;
 const errorColor: string;
 
 export {
-  stepperCustomDot,
-  activeStepperCustomDot,
-  completedStepperCustomDot,
-  errorColor,
+	stepperCustomDot,
+	activeStepperCustomDot,
+	completedStepperCustomDot,
+	errorColor
 };
 
 export default {
-  stepperCustomDot,
-  activeStepperCustomDot,
-  completedStepperCustomDot,
-  errorColor,
-};
+	stepperCustomDot,
+	activeStepperCustomDot,
+	completedStepperCustomDot,
+	errorColor
+}

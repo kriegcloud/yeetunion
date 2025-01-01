@@ -25,7 +25,7 @@
     "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
     "db:check": "drizzle-kit check",
     "db:generate": "drizzle-kit generate",
-    "db:migrae": "drizzle-kit migrate",
+    "db:migrate": "drizzle-kit migrate",
     "db:migrate:drop": "drizzle-kit drop",
     "db:pull": "drizzle-kit introspect",
     "db:push": "drizzle-kit push",
