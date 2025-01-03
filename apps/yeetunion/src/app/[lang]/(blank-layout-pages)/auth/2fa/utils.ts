@@ -73,7 +73,6 @@ export const arrayifyCspDirectives = (
 export const toCspContent = (csp: CspDirectives | CspDirectivesLenient) =>
   Object.entries(arrayifyCspDirectives(csp))
     .map(([attr, values]) =>
-      // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
       typeof values == "boolean"
         ? isBoolDirective(attr) && values
           ? attr
@@ -168,7 +167,9 @@ export const cspDirectiveHas = (
   patternOrValue: RegExp | string
 ) => {
   const directiveValues = arrayifyCspDirectives(directives)[directive];
-
+  if (typeof directiveValues === "boolean") {
+    return directiveValues;
+  }
   if (!directiveValues) {
     return false;
   }
