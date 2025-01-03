@@ -62,6 +62,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@ye/next-config": "workspace:^",
     "@iconify/json": "2.2.230",
     "@iconify/tools": "4.0.4",
     "@iconify/types": "2.0.0",
