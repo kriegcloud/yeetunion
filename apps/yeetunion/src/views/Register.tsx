@@ -16,40 +16,40 @@ import type { Mode } from "@ye/theme";
 // Third-party Imports
 import classnames from "classnames";
 
-import Illustrations from "@/components/Illustrations";
+// import Illustrations from "@/components/Illustrations";
 // Component Imports
 import Logo from "@/components/Logo";
 
 import { useSettings } from "@ye/theme/ThemeSettingsProvider";
 // Hook Imports
-import { useImageVariant } from "@ye/theme/useImageVariant";
+// import { useImageVariant } from "@ye/theme/useImageVariant";
 
 // Util Imports
 import { getLocalizedUrl } from "@/utils/i18n";
 
-const RegisterV2 = ({ mode }: { mode: Mode }) => {
+const RegisterV2 = ({ mode: _ }: { mode: Mode }) => {
   // Vars
-  const darkImg = "/images/pages/auth-v2-mask-dark.png";
-  const lightImg = "/images/pages/auth-v2-mask-light.png";
-  const darkIllustration = "/images/illustrations/auth/v2-register-dark.png";
-  const lightIllustration = "/images/illustrations/auth/v2-register-light.png";
-  const borderedDarkIllustration =
-    "/images/illustrations/auth/v2-register-dark-border.png";
-  const borderedLightIllustration =
-    "/images/illustrations/auth/v2-register-light-border.png";
+  // const darkImg = "/images/pages/auth-v2-mask-dark.png";
+  // const lightImg = "/images/pages/auth-v2-mask-light.png";
+  // const darkIllustration = "/images/illustrations/auth/v2-register-dark.png";
+  // const lightIllustration = "/images/illustrations/auth/v2-register-light.png";
+  // const borderedDarkIllustration =
+  //   "/images/illustrations/auth/v2-register-dark-border.png";
+  // const borderedLightIllustration =
+  //   "/images/illustrations/auth/v2-register-light-border.png";
 
   // Hooks
   const { lang: locale } = useParams();
-  const authBackground = useImageVariant(mode, lightImg, darkImg);
+  // const authBackground = useImageVariant(mode, lightImg, darkImg);
   const { settings } = useSettings();
 
-  const characterIllustration = useImageVariant(
-    mode,
-    lightIllustration,
-    darkIllustration,
-    borderedLightIllustration,
-    borderedDarkIllustration,
-  );
+  // const characterIllustration = useImageVariant(
+  //   mode,
+  //   lightIllustration,
+  //   darkIllustration,
+  //   borderedLightIllustration,
+  //   borderedDarkIllustration,
+  // );
 
   return (
     <div className="flex bs-full justify-center">
@@ -61,18 +61,18 @@ const RegisterV2 = ({ mode }: { mode: Mode }) => {
           },
         )}
       >
-        <div className="plb-12 pis-12">
-          <img
-            src={characterIllustration}
-            alt="character-illustration"
-            className="max-bs-[500px] max-is-full bs-auto"
-          />
-        </div>
-        <Illustrations
-          image1={{ src: "/images/illustrations/objects/tree-3.png" }}
-          image2={null}
-          maskImg={{ src: authBackground }}
-        />
+        {/*<div className="plb-12 pis-12">*/}
+        {/*  <img*/}
+        {/*    src={characterIllustration}*/}
+        {/*    alt="character-illustration"*/}
+        {/*    className="max-bs-[500px] max-is-full bs-auto"*/}
+        {/*  />*/}
+        {/*</div>*/}
+        {/*<Illustrations*/}
+        {/*  image1={{ src: "/images/illustrations/objects/tree-3.png" }}*/}
+        {/*  image2={null}*/}
+        {/*  maskImg={{ src: authBackground }}*/}
+        {/*/>*/}
       </div>
       <div className="flex justify-center items-center bs-full bg-backgroundPaper !min-is-full p-6 md:!min-is-[unset] md:p-12 md:is-[480px]">
         <Link

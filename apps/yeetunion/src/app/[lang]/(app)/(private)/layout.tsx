@@ -15,8 +15,6 @@ import VerticalFooter from "@/layouts/vertical/Footer";
 import Navbar from "@/layouts/vertical/Navbar";
 import Navigation from "@/layouts/vertical/Navigation";
 import VerticalLayout from "@/layouts/vertical/VerticalLayout";
-import { TRPCReactProvider } from "@/trpc/react";
-// Util Imports
 import { getDictionary } from "@/utils/getDictionary";
 import { getMode, getSystemMode } from "@ye/theme/serverHelpers";
 import type { ReactNode } from "react";
@@ -34,46 +32,43 @@ const Layout = async ({
   const systemMode = getSystemMode();
 
   return (
-    <TRPCReactProvider>
-      <Providers direction={direction}>
-        <LayoutWrapper
-          systemMode={systemMode}
-          verticalLayout={
-            <VerticalLayout
-              navigation={
-                <Navigation
-                  dictionary={dictionary}
-                  mode={mode}
-                  systemMode={systemMode}
-                />
-              }
-              navbar={<Navbar />}
-              footer={<VerticalFooter />}
-            >
-              {children}
-            </VerticalLayout>
-          }
-          horizontalLayout={
-            <HorizontalLayout
-              header={<Header dictionary={dictionary} />}
-              footer={<HorizontalFooter />}
-            >
-              {children}
-            </HorizontalLayout>
-          }
-        />
-        <ScrollToTop className="mui-fixed">
-          <Button
-            variant="contained"
-            className="is-10 bs-10 rounded-full p-0 min-is-0 flex items-center justify-center"
+    <Providers direction={direction}>
+      <LayoutWrapper
+        systemMode={systemMode}
+        verticalLayout={
+          <VerticalLayout
+            navigation={
+              <Navigation
+                dictionary={dictionary}
+                mode={mode}
+                systemMode={systemMode}
+              />
+            }
+            navbar={<Navbar />}
+            footer={<VerticalFooter />}
           >
-            <i className="ri-arrow-up-line" />
-          </Button>
-        </ScrollToTop>
-        <Customizer dir={direction} />
-        {/*</AuthGuard>*/}
-      </Providers>
-    </TRPCReactProvider>
+            {children}
+          </VerticalLayout>
+        }
+        horizontalLayout={
+          <HorizontalLayout
+            header={<Header dictionary={dictionary} />}
+            footer={<HorizontalFooter />}
+          >
+            {children}
+          </HorizontalLayout>
+        }
+      />
+      <ScrollToTop className="mui-fixed">
+        <Button
+          variant="contained"
+          className="is-10 bs-10 rounded-full p-0 min-is-0 flex items-center justify-center"
+        >
+          <i className="ri-arrow-up-line" />
+        </Button>
+      </ScrollToTop>
+      <Customizer dir={direction} />
+    </Providers>
   );
 };
 

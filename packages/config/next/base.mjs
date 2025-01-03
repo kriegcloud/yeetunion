@@ -19,6 +19,18 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    scrollRestoration: true,
+    typedRoutes: true,
+    serverActions: {
+      bodySizeLimit: "20mb",
+    },
+  },
+  logging: {
+    fetches: {
+      fullUrl: false,
+    },
+  },
   i18n: {
     locales: ["en-US", "fr-FR"],
     defaultLocale: "en-US",

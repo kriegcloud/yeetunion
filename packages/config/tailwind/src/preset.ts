@@ -1,6 +1,3 @@
-import aspectRatio from "@tailwindcss/aspect-ratio";
-import containerQueries from "@tailwindcss/container-queries";
-import typography from "@tailwindcss/typography";
 import { type Config } from "tailwindcss";
 
 export const yeetTailwindPreset: Config = {
@@ -11,13 +8,7 @@ export const yeetTailwindPreset: Config = {
   },
   important: "#__next",
   plugins: [
-    typography,
     require("tailwindcss-logical"),
-    aspectRatio,
-    {
-      config: containerQueries.config ?? {},
-      handler: containerQueries.handler,
-    },
     require("./plugin"),
   ],
 };

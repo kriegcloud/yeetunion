@@ -28,7 +28,6 @@ export default async function authMiddleware(request: NextRequest) {
   }
 
   const isPublicPath = publicMatcher(request.nextUrl.pathname);
-  console.log("isPublicPath", request.nextUrl.pathname, isPublicPath);
 
   if (isPublicPath) {
     return res;
