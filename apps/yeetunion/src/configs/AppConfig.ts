@@ -2,6 +2,7 @@ import type { LocalePrefix } from "next-intl/routing";
 const localePrefix: LocalePrefix = "always";
 export const AppConfig = {
   name: "Yeet Union",
+  description: "Yeet Union",
   locales: [
     {
       id: "en",
@@ -9,10 +10,10 @@ export const AppConfig = {
       direction: "ltr",
     },
     { id: "fr", name: "French", direction: "ltr" },
-    { id: "ar", name: "Arabic", direction: "rtl" },
   ],
   defaultLocale: "en",
-  localePrefix
+  localePrefix,
 } as const;
 
 export const AllLocales = AppConfig.locales.map((locale) => locale.id);
+export type Locale = (typeof AllLocales)[number];

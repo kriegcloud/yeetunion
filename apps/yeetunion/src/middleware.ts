@@ -1,16 +1,11 @@
+import { AllLocales, AppConfig } from "@/configs/AppConfig";
 import { betterFetch } from "@better-fetch/fetch";
 import { Session } from "better-auth";
-import {
-  NextResponse,
-  type NextRequest,
-} from "next/server";
 import createMiddleware from "next-intl/middleware";
-import { AppConfig, AllLocales } from "@/configs/AppConfig";
+import { type NextRequest, NextResponse } from "next/server";
 
 // Regex for public paths (e.g., /auth, /discover, or localized versions like /en/auth)
-const publicPaths = new RegExp(
-  `^/(?:${AllLocales.join('|')})?/auth(?:/.*)?$`
-);
+const publicPaths = new RegExp(`^/(?:${AllLocales.join("|")})?/auth(?:/.*)?$`);
 const publicMatcher = (pathname: string): boolean => {
   return publicPaths.test(pathname);
 };
@@ -21,9 +16,7 @@ const intlMiddleware = createMiddleware({
   defaultLocale: AppConfig.defaultLocale,
 });
 
-export default async function authMiddleware(
-  request: NextRequest
-) {
+export default async function authMiddleware(request: NextRequest) {
   const res = NextResponse.next();
 
   // Apply intl middleware first
@@ -35,7 +28,7 @@ export default async function authMiddleware(
   }
 
   const isPublicPath = publicMatcher(request.nextUrl.pathname);
-  console.log('isPublicPath', request.nextUrl.pathname, isPublicPath);
+  console.log("isPublicPath", request.nextUrl.pathname, isPublicPath);
 
   if (isPublicPath) {
     return res;
@@ -49,14 +42,15 @@ export default async function authMiddleware(
         // Get the cookie from the request
         cookie: request.headers.get("cookie") || "",
       },
-    }
+    },
   );
 
   if (!session) {
     // Redirect to login page with locale prefix
     const url = request.nextUrl.clone();
     const redirect = request.nextUrl.pathname;
-    const locale = intlResult?.headers.get("x-intl-locale") || AppConfig.defaultLocale;
+    const locale =
+      intlResult?.headers.get("x-intl-locale") || AppConfig.defaultLocale;
     url.pathname = `/${locale}/auth/login`;
     url.searchParams.set("redirect", redirect);
     return NextResponse.redirect(url);
@@ -67,7 +61,5 @@ export default async function authMiddleware(
 
 // Adjust the matcher to consider locale prefixes
 export const config = {
-  matcher: [
-    "/((?!api|_next|.*\\.(?:png|ico|svg|jpeg|jpg|webp|md|cer)).*)", // Match paths excluding API, _next, and static assets
-  ],
+  matcher: ["/", "/(fr|en)/:path*"], // Match all paths, with or without locale
 };

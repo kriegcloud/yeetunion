@@ -1,12 +1,12 @@
 // Config Imports
-import { i18n } from "@/configs/i18n";
+import { AllLocales } from "@/configs/AppConfig";
 
 // Util Imports
 import { ensurePrefix } from "@/utils/string";
 
 // Check if the url is missing the locale
 export const isUrlMissingLocale = (url: string) => {
-  return i18n.locales.every(
+  return AllLocales.every(
     (locale) => !(url.startsWith(`/${locale}/`) || url === `/${locale}`),
   );
 };
@@ -20,4 +20,3 @@ export const getLocalizedUrl = (url: string, languageCode: string): string => {
     ? `/${languageCode}${ensurePrefix(url, "/")}`
     : url;
 };
-

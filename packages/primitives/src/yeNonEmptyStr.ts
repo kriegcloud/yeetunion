@@ -4,7 +4,7 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const yeNonEmptyStr = S.NonEmptyTrimmedString
+export const yeNonEmptyStr = S.NonEmptyTrimmedString;
 export type yeNonEmptyStr = typeof yeNonEmptyStr.Type;
 
 /**

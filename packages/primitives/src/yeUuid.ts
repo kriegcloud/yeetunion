@@ -4,7 +4,7 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const yeUuid = S.UUID
+export const yeUuid = S.UUID;
 export type yeUuid = typeof yeUuid.Type;
 
 /**

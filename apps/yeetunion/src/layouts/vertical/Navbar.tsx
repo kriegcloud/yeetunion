@@ -1,9 +1,11 @@
 "use client";
 
+import ModeDropdown from "@/layouts/shared/ModeDropdown";
+import UserDropdown from "@/layouts/shared/UserDropdown";
+import NavToggle from "@/layouts/vertical/NavToggle";
+import type { CSSObject } from "@emotion/styled";
 import { useTheme } from "@mui/material";
 import { useScrollTrigger } from "@mui/material";
-
-import type { CSSObject } from "@emotion/styled";
 
 import classnames from "classnames";
 
@@ -79,10 +81,12 @@ const Navbar = () => {
         )}
       >
         <div className="flex items-center gap-4">
-          {/*<NavToggle />*/}
-          {/*<ModeDropdown />*/}
+          <NavToggle />
+          <ModeDropdown />
         </div>
-        <div className="flex items-center">{/*<UserDropdown />*/}</div>
+        <div className="flex items-center">
+          <UserDropdown />
+        </div>
       </div>
     </StyledNavbar>
   );

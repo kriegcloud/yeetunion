@@ -21,7 +21,7 @@ const Footer = () => {
             target="_blank"
             className="text-primary"
           >
-            E2 Solutions
+            Yeet Union
           </Link>
         </p>
       </div>

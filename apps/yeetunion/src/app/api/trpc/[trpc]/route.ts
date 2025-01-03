@@ -1,46 +1,13 @@
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
-import { appRouter, createTRPCContext } from "@ye/api";
-import {} from "@ye/auth";
+import { appRouter, createTRPCContext as createContext } from "@ye/api";
 
-export const runtime = "edge";
-
-/**
- * Configure basic CORS headers
- * You should extend this to match your needs
- */
-const setCorsHeaders = (res: Response) => {
-  res.headers.set("Access-Control-Allow-Origin", "*");
-  res.headers.set("Access-Control-Request-Method", "*");
-  res.headers.set("Access-Control-Allow-Methods", "OPTIONS, GET, POST");
-  res.headers.set("Access-Control-Allow-Headers", "*");
-};
-
-export const OPTIONS = () => {
-  const response = new Response(null, {
-    status: 204,
-  });
-  setCorsHeaders(response);
-  return response;
-};
-
-const handler = A.auth(async (req) => {
-  const response = await fetchRequestHandler({
+const handler = (req: Request) =>
+  fetchRequestHandler({
     endpoint: "/api/trpc",
-    router: appRouter,
     req,
-    createContext: () =>
-      createTRPCContext({
-        session: req.auth,
-        headers: req.headers,
-      }),
-    onError({ error, path }) {
-      console.error(`>>> tRPC Error on '${path}'`, error);
-    },
+    router: appRouter,
+    createContext: () => ({}) as ReturnType<typeof createContext>,
   });
-
-  setCorsHeaders(response);
-  return response;
-});
 
 export { handler as GET, handler as POST };

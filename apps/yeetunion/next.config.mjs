@@ -1,7 +1,6 @@
 import { fileURLToPath } from "node:url";
 
 import bundleAnalyzerPlugin from "@next/bundle-analyzer";
-import { withSentryConfig } from "@sentry/nextjs";
 import createJiti from "jiti";
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
@@ -20,15 +19,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  i18n: {
+    locales: ["en-US", "fr-FR"],
+    defaultLocale: "en-US",
+  },
 };
 
-export default withSentryConfig(withBundleAnalyzer(nextConfig), {
-  org: process.env["SENTRY_ORG"] ?? "",
-  project: process.env["SENTRY_PROJECT"] ?? "",
-  silent: !process.env["CI"],
-  widenClientFileUpload: true,
-  tunnelRoute: "/monitoring",
-  hideSourceMaps: true,
-  disableLogger: true,
-  automaticVercelMonitors: true,
-});
+export default withBundleAnalyzer(nextConfig)

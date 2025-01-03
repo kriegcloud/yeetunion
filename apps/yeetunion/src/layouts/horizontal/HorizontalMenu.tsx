@@ -1,18 +1,18 @@
-import { useTheme } from "@mui/material/styles";
-import type { VerticalMenuContextProps } from "@/layouts/vertical/menu";
-import { HorizontalNav, Menu, MenuItem, SubMenu } from "./menu";
-import VerticalNavContent from "./VerticalNavContent";
-import { useSettings } from "@ye/theme/ThemeSettingsProvider";
-import { useVerticalNav } from "@/layouts/vertical/Provider";
-import type { getDictionary } from "@/utils/getDictionary";
 import { StyledHorizontalNavExpandIcon } from "@/layouts/horizontal/styles/StyledHorizontalNavExpandIcon";
-import { StyledVerticalNavExpandIcon } from "@/layouts/vertical/styles/StyledVerticalNavExpandIcon";
 import menuItemStyles from "@/layouts/horizontal/styles/menuItemStyles";
 import menuRootStyles from "@/layouts/horizontal/styles/menuRootStyles";
+import { useVerticalNav } from "@/layouts/vertical/Provider";
+import type { VerticalMenuContextProps } from "@/layouts/vertical/menu";
+import { StyledVerticalNavExpandIcon } from "@/layouts/vertical/styles/StyledVerticalNavExpandIcon";
 import verticalMenuItemStyles from "@/layouts/vertical/styles/menuItemStyles";
 import verticalMenuSectionStyles from "@/layouts/vertical/styles/menuSectionStyles";
 import verticalNavigationCustomStyles from "@/layouts/vertical/styles/navigationCustomStyles";
+import type { getDictionary } from "@/utils/getDictionary";
+import { useTheme } from "@mui/material/styles";
+import { useSettings } from "@ye/theme/ThemeSettingsProvider";
 import { useParams } from "next/navigation";
+import VerticalNavContent from "./VerticalNavContent";
+import { HorizontalNav, Menu, MenuItem, SubMenu } from "./menu";
 
 type RenderExpandIconProps = {
   level?: number;

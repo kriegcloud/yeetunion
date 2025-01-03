@@ -1,8 +1,4 @@
 "use client";
-
-// React Imports
-import { useState } from "react";
-
 // Next Imports
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -12,17 +8,13 @@ import Checkbox from "@mui/material/Checkbox";
 import Divider from "@mui/material/Divider";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 // MUI Imports
 import Typography from "@mui/material/Typography";
 
+import type { Mode } from "@ye/theme";
 // Third-party Imports
 import classnames from "classnames";
-
-import type { Locale } from "@/configs/i18n";
-// Type Imports
-import type { Mode } from "@ye/theme";
 
 import Illustrations from "@/components/Illustrations";
 // Component Imports
@@ -36,9 +28,6 @@ import { useImageVariant } from "@ye/theme/useImageVariant";
 import { getLocalizedUrl } from "@/utils/i18n";
 
 const RegisterV2 = ({ mode }: { mode: Mode }) => {
-  // States
-  const [isPasswordShown, setIsPasswordShown] = useState(false);
-
   // Vars
   const darkImg = "/images/pages/auth-v2-mask-dark.png";
   const lightImg = "/images/pages/auth-v2-mask-light.png";
@@ -61,8 +50,6 @@ const RegisterV2 = ({ mode }: { mode: Mode }) => {
     borderedLightIllustration,
     borderedDarkIllustration,
   );
-
-  const handleClickShowPassword = () => setIsPasswordShown((show) => !show);
 
   return (
     <div className="flex bs-full justify-center">
@@ -89,7 +76,7 @@ const RegisterV2 = ({ mode }: { mode: Mode }) => {
       </div>
       <div className="flex justify-center items-center bs-full bg-backgroundPaper !min-is-full p-6 md:!min-is-[unset] md:p-12 md:is-[480px]">
         <Link
-          href={getLocalizedUrl("/", locale as Locale)}
+          href={getLocalizedUrl("/", (locale as string) ?? "en")}
           className="absolute block-start-5 sm:block-start-[38px] inline-start-6 sm:inline-start-[38px]"
         >
           <Logo />
@@ -109,30 +96,6 @@ const RegisterV2 = ({ mode }: { mode: Mode }) => {
             className="flex flex-col gap-5"
           >
             <TextField autoFocus fullWidth label="Username" />
-            <TextField fullWidth label="Email" />
-            <TextField
-              fullWidth
-              label="Password"
-              type={isPasswordShown ? "text" : "password"}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      size="small"
-                      edge="end"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={(e) => e.preventDefault()}
-                    >
-                      <i
-                        className={
-                          isPasswordShown ? "ri-eye-off-line" : "ri-eye-line"
-                        }
-                      />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
             <div className="flex justify-between items-center gap-3">
               <FormControlLabel
                 control={<Checkbox />}

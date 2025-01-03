@@ -1,33 +1,16 @@
 "use client";
-
-// Next Imports
-import Link from "next/link";
-import { useParams } from "next/navigation";
-
-// MUI Imports
+import Illustrations from "@/components/Illustrations";
+import type { Locale } from "@/configs/AppConfig";
+import { getLocalizedUrl } from "@/utils/i18n";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
-import type { Locale } from "@/configs/i18n";
-// Type Imports
 import type { Mode } from "@ye/theme";
-
-// Component Imports
-import Illustrations from "@/components/Illustrations";
-
-// Hook Imports
 import { useImageVariant } from "@ye/theme/useImageVariant";
+import Link from "next/link";
 
-// Util Imports
-import { getLocalizedUrl } from "@/utils/i18n";
-
-const NotFound = ({ mode }: { mode: Mode }) => {
-  // Vars
+const NotFound = ({ mode, locale }: { mode: Mode; locale: Locale }) => {
   const darkImg = "/images/pages/misc-mask-dark.png";
   const lightImg = "/images/pages/misc-mask-light.png";
-
-  // Hooks
-  const { lang: locale } = useParams();
   const miscBackground = useImageVariant(mode, lightImg, darkImg);
 
   return (

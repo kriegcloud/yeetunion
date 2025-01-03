@@ -46,7 +46,7 @@ const ModeDropdown = () => {
       return "ri-computer-line";
     }
     if (settings.mode === "dark") {
-      return "ri-moon-clear-line";
+      return "ri-computer-line";
     }
     return "ri-sun-line";
   };
@@ -61,6 +61,7 @@ const ModeDropdown = () => {
         PopperProps={{ className: "capitalize" }}
       >
         <IconButton
+          aria-label={"system Mode"}
           ref={anchorRef}
           onClick={handleToggle}
           className="!text-textPrimary"

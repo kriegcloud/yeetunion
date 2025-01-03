@@ -8,11 +8,10 @@
  */
 import { TRPCError, initTRPC } from "@trpc/server";
 import { auth } from "@ye/auth";
-import type { Session } from "@ye/auth/shared";
 import { db } from "@ye/db/client";
 import { Context, Effect } from "effect";
+import { headers } from "next/headers";
 import superjson from "superjson";
-
 // /**
 //  * Isomorphic Session getter for API requests
 //  * - Expo requests will have a session token in the Authorization header
@@ -36,15 +35,13 @@ import superjson from "superjson";
  *
  * @see https://trpc.io/docs/server/context
  */
-export const createTRPCContext = async (opts: {
-  headers: Headers;
-  session: Session | null;
-}) => {
+export const createTRPCContext = async () => {
+  const authHeaders = headers();
   const session = await auth.api.getSession({
-    headers: opts.headers,
-  })
+    headers: authHeaders,
+  });
 
-  const source = opts.headers.get("x-trpc-source") ?? "unknown";
+  const source = authHeaders.get("x-trpc-source") ?? "unknown";
   console.log(">>> tRPC Request from", source, "by", session?.user);
 
   return {

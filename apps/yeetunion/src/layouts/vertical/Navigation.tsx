@@ -1,5 +1,5 @@
 "use client";
-import type { Locale } from "@/configs/i18n";
+import type { Locale } from "@/configs/AppConfig";
 import { useVerticalNav } from "@/layouts/vertical/Provider";
 // import VerticalNav, { NavHeader, NavCollapseIcons } from "@/layouts/vertical/menu/vertical-menu";
 import {

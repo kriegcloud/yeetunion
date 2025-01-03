@@ -4,9 +4,7 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const yeUrl = S.NonEmptyTrimmedString.pipe(
-  S.pattern(/^https?:\/\//)
-);
+export const yeUrl = S.NonEmptyTrimmedString.pipe(S.pattern(/^https?:\/\//));
 export type yeUrl = typeof yeUrl.Type;
 
 /**

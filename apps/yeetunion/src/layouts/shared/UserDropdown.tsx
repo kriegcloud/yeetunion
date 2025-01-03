@@ -1,16 +1,14 @@
 "use client";
-
-// import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
-import type { MouseEvent } from "react";
-
 import Avatar from "@mui/material/Avatar";
 import Badge from "@mui/material/Badge";
 import Button from "@mui/material/Button";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import Divider from "@mui/material/Divider";
 import Fade from "@mui/material/Fade";
+import { authClient } from "@ye/auth/client";
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import type { MouseEvent } from "react";
 
 import MenuList from "@mui/material/MenuList";
 import Paper from "@mui/material/Paper";
@@ -33,11 +31,10 @@ const BadgeContentSpan = styled("span")({
 
 const UserDropdown = () => {
   const [open, setOpen] = useState(false);
-  // const { data: session } = useSession();
+  const { data: session } = authClient.useSession();
   const anchorRef = useRef<HTMLDivElement>(null);
 
   const router = useRouter();
-
   const { settings } = useSettings();
 
   const handleDropdownOpen = () => {
@@ -59,9 +56,13 @@ const UserDropdown = () => {
     setOpen(false);
   };
 
-  // const handleUserLogout = async () => {
-  //   void signOut();
-  // };
+  const handleUserLogout = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => router.push("/en/auth/login"),
+      },
+    });
+  };
 
   return (
     <>
@@ -78,9 +79,10 @@ const UserDropdown = () => {
           alt="User Image"
           onClick={handleDropdownOpen}
           className="cursor-pointer bs-[38px] is-[38px]"
-        >
-          <p> todo </p>
-        </Avatar>
+          {...(session?.user?.image && {
+            src: session.user.image,
+          })}
+        />
       </Badge>
       <Popper
         open={open}
@@ -120,17 +122,17 @@ const UserDropdown = () => {
                       alt="User Image"
                       onClick={handleDropdownOpen}
                       sx={{ width: 40, height: 40 }}
-                    >
-                      <p>todo</p>
-                      {/*{session?.user?.firstName?.charAt(0)}*/}
-                      {/*{session?.user?.lastName?.charAt(0)}*/}
-                    </Avatar>
+                      {...(session?.user?.image && {
+                        src: session.user.image,
+                      })}
+                    />
                     <div className="flex items-start flex-col">
                       <Typography className="font-medium" color="text.primary">
-                        {/*{session?.user.name}*/}
-                        todo
+                        {session?.user.name}
                       </Typography>
-                      <Typography variant="caption">todo</Typography>
+                      <Typography variant="caption">
+                        {session?.user.email}
+                      </Typography>
                     </div>
                   </div>
                   <Divider className="mlb-1" />
@@ -141,7 +143,7 @@ const UserDropdown = () => {
                       color="error"
                       size="small"
                       endIcon={<i className="ri-logout-box-r-line" />}
-                      // onClick={handleUserLogout}
+                      onClick={handleUserLogout}
                       sx={{
                         "& .MuiButton-endIcon": { marginInlineStart: 1.5 },
                       }}

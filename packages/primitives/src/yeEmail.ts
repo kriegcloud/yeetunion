@@ -6,7 +6,7 @@ import * as S from "@effect/schema/Schema";
  */
 export const yeEmail = S.NonEmptyTrimmedString.pipe(
   S.lowercased(),
-  S.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
+  S.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
 );
 export type yeEmail = typeof yeEmail.Type;
 

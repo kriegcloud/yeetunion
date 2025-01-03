@@ -1,4 +1,3 @@
-import type { Locale } from "@/configs/i18n";
 // Type Imports
 import type { ReactNode } from "react";
 
@@ -7,7 +6,8 @@ import Providers from "@/components/Providers";
 import { BlankLayout } from "@/layouts/BlankLayout";
 
 // Config Imports
-import { i18n } from "@/configs/i18n";
+import { AppConfig } from "@/configs/AppConfig";
+import type { Locale } from "@/configs/AppConfig";
 
 // Util Imports
 import { getSystemMode } from "@ye/theme/serverHelpers";
@@ -20,7 +20,8 @@ type Props = {
 const Layout = ({ children, params }: Props) => {
   // Vars
   const direction =
-    i18n.langDirection[params.lang as keyof typeof i18n.langDirection];
+    AppConfig.locales.find((locale) => locale.id === params.lang)?.direction ??
+    "ltr";
   const systemMode = getSystemMode();
 
   return (

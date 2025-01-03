@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 // Third-party Imports
 import classnames from "classnames";
 
-import type { Locale } from "@/configs/i18n";
+import type { Locale } from "@/configs/AppConfig";
 // Type Imports
 import type { Mode } from "@ye/theme";
 

@@ -11,9 +11,6 @@ import styled from "@emotion/styled";
 // import type { VerticalNavContextProps } from '@menu/contexts/verticalNavContext'
 import type { VerticalNavContextProps } from "@/layouts/vertical/Provider";
 
-// Component Imports
-import MaterioLogo from "./MaterioLogo";
-
 // Config Imports
 import { themeConfig } from "@ye/theme/themeConfig";
 
@@ -21,6 +18,7 @@ import { themeConfig } from "@ye/theme/themeConfig";
 
 import { useVerticalNav } from "@/layouts/vertical/Provider";
 import { useSettings } from "@ye/theme/ThemeSettingsProvider";
+import Image from "next/image";
 
 type LogoTextProps = {
   isHovered?: VerticalNavContextProps["isHovered"];
@@ -75,7 +73,12 @@ const Logo = ({ color }: { color?: CSSProperties["color"] }) => {
 
   return (
     <div className="flex items-center min-bs-[24px]">
-      <MaterioLogo className="text-[22px] text-primary" />
+      <Image
+        src={"/images/logo.svg"}
+        alt={"Yeet Union Logo"}
+        width={48}
+        height={48}
+      />
       <LogoText
         color={color}
         ref={logoTextRef}

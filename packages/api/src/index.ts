@@ -1,9 +1,9 @@
 import { inferRouterOutputs } from "@trpc/server";
+import { userRouter } from "./routers/user-router";
 import { createCallerFactory, createRouter } from "./trpc";
-import {userRouter} from "@/routers/user-router";
 
 export const appRouter = createRouter({
- users: userRouter,
+  users: userRouter,
 });
 export type AppRouter = typeof appRouter;
 

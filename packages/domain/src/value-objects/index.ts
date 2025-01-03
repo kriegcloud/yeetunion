@@ -1,1 +1,1 @@
-export const beep = "fuck"
+export const beep = "fuck";

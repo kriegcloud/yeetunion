@@ -4,8 +4,6 @@ import { cache } from "react";
 
 import type { AppRouter } from "@ye/api";
 import { createCaller, createTRPCContext } from "@ye/api";
-import { auth } from "@ye/auth";
-
 import { createQueryClient } from "./query-client";
 
 /**
@@ -16,10 +14,7 @@ const createContext = cache(async () => {
   const heads = new Headers(headers());
   heads.set("x-trpc-source", "rsc");
 
-  return createTRPCContext({
-    session: await auth(),
-    headers: heads,
-  });
+  return createTRPCContext();
 });
 
 const getQueryClient = cache(createQueryClient);

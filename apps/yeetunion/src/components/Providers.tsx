@@ -1,10 +1,8 @@
 import { VerticalNavProvider } from "@/layouts/vertical/Provider";
 import type { Direction } from "@ye/theme";
-// import { getServerAuthSession } from "@/server/auth";
 import { ThemeProvider } from "@ye/theme/ThemeProvider";
 import { ThemeSettingsProvider } from "@ye/theme/ThemeSettingsProvider";
 import { primaryColorConfig } from "@ye/theme/colorConfig";
-// Util Imports
 import {
   getMode,
   getSettingsFromCookie,

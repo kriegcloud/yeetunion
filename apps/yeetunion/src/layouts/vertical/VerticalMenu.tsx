@@ -10,11 +10,7 @@ import menuSectionStyles from "@/layouts/vertical/styles/menuSectionStyles";
 import type { getDictionary } from "@/utils/getDictionary";
 import Chip from "@mui/material/Chip";
 import { useParams } from "next/navigation";
-import {
-  Menu,
-  MenuItem,
-  SubMenu,
-} from "./menu";
+import { Menu, MenuItem, SubMenu } from "./menu";
 type RenderExpandIconProps = {
   open?: boolean;
   transitionDuration?: VerticalMenuContextProps["transitionDuration"];
