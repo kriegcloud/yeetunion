@@ -1,3 +1,6 @@
 {
-  "extends": ["@ye/tsconfig/base.json"]
+  "extends": ["@ye/tsconfig/base.json"],
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": false
+  }
 }

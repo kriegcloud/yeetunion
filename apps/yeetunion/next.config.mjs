@@ -6,8 +6,8 @@ import createJiti from "jiti";
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
-jiti("@ye/env/web/server");
-jiti("@ye/env/web/client");
+jiti("@ye/env/yeetunion/server");
+jiti("@ye/env/yeetunion/client");
 
 const withBundleAnalyzer = bundleAnalyzerPlugin({
   enabled: process.env["ANALYZE"] === "true",
@@ -20,28 +20,28 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  redirects: async () => {
-    return [
-      {
-        source: "/",
-        destination: "/en/dashboards/crm",
-        permanent: true,
-        locale: false,
-      },
-      {
-        source: "/:lang(en|fr|ar)",
-        destination: "/:lang/dashboards/crm",
-        permanent: true,
-        locale: false,
-      },
-      {
-        source: "/((?!(?:en|fr|ar|front-pages|favicon.ico)\\b)):path",
-        destination: "/en/:path",
-        permanent: true,
-        locale: false,
-      },
-    ];
-  },
+  // redirects: async () => {
+  //   return [
+  //     {
+  //       source: "/",
+  //       destination: "/en/dashboards/crm",
+  //       permanent: true,
+  //       locale: false,
+  //     },
+  //     {
+  //       source: "/:lang(en|fr|ar)",
+  //       destination: "/:lang/dashboards/crm",
+  //       permanent: true,
+  //       locale: false,
+  //     },
+  //     {
+  //       source: "/((?!(?:en|fr|ar|front-pages|favicon.ico)\\b)):path",
+  //       destination: "/en/:path",
+  //       permanent: true,
+  //       locale: false,
+  //     },
+  //   ];
+  // },
 };
 
 export default withSentryConfig(withBundleAnalyzer(nextConfig), {

@@ -2,7 +2,6 @@ import { Effect } from "effect";
 
 export type Result<T, E> = Result.Ok<T> | Result.Err<E>;
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace Result {
   export type Ok<T> = { _tag: "ok"; value: T };
   export type Err<E> = { _tag: "error"; error: E };

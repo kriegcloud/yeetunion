@@ -1,5 +1,5 @@
 {
-  "name": "@ye/domain",
+  "name": "@ye/primitives",
   "version": "0.1.0",
   "private": true,
   "description": "Core package for business logic",
@@ -8,10 +8,7 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "value-objects": {
-      "types": "./dist/value-objects/index.d.ts",
-      "default": "./dist/value-objects/index.js"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
     "execute": "tsx ./src/execute.ts",
@@ -27,7 +24,6 @@
     "tsx": "^4.19.2"
   },
   "dependencies": {
-    "@ye/primitives": "workspace:^",
     "@effect/schema": "^0.75.5",
     "effect": "^3.9.1"
   }

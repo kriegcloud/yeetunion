@@ -6,7 +6,6 @@
     "strictNullChecks": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
-    "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -32,7 +31,7 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "incremental": true,
-
+    "exactOptionalPropertyTypes": false,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

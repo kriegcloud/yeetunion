@@ -2,16 +2,11 @@
 import Button from "@mui/material/Button";
 
 import type { Locale } from "@/configs/i18n";
-// Type Imports
 import type { ReactNode } from "react";
-
-// Layout Imports
 import { LayoutWrapper } from "@/layouts/LayoutWrapper";
 import HorizontalLayout from "@/layouts/horizontal/HorizontalLayout";
 import VerticalLayout from "@/layouts/vertical/VerticalLayout";
-
 import { Customizer } from "@/components/Customizer";
-// Component Imports
 import Providers from "@/components/Providers";
 import ScrollToTop from "@/components/ScrollToTop";
 import HorizontalFooter from "@/layouts/horizontal/Footer";
@@ -19,7 +14,6 @@ import Header from "@/layouts/horizontal/Header";
 import VerticalFooter from "@/layouts/vertical/Footer";
 import Navbar from "@/layouts/vertical/Navbar";
 import Navigation from "@/layouts/vertical/Navigation";
-// import AuthGuard from '@/hocs/AuthGuard'
 
 // Config Imports
 import { i18n } from "@/configs/i18n";

@@ -1,3 +1,6 @@
 {
-  "extends": ["./tsconfig.json", "@ye/tsconfig/build.json"]
+  "extends": ["./tsconfig.json", "@ye/tsconfig/build.json"],
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": false
+  }
 }

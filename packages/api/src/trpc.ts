@@ -7,22 +7,22 @@
  * need to use are documented accordingly near the end.
  */
 import { TRPCError, initTRPC } from "@trpc/server";
-import type { Session } from "@ye/auth";
-import { auth, validateToken } from "@ye/auth";
+import { auth } from "@ye/auth";
+import type { Session } from "@ye/auth/shared";
 import { db } from "@ye/db/client";
 import { Context, Effect } from "effect";
 import superjson from "superjson";
 
-/**
- * Isomorphic Session getter for API requests
- * - Expo requests will have a session token in the Authorization header
- * - Next.js requests will have a session token in cookies
- */
-const isomorphicGetSession = async (headers: Headers) => {
-  const authToken = headers.get("Authorization") ?? null;
-  if (authToken) return validateToken(authToken);
-  return auth();
-};
+// /**
+//  * Isomorphic Session getter for API requests
+//  * - Expo requests will have a session token in the Authorization header
+//  * - Next.js requests will have a session token in cookies
+//  */
+// const isomorphicGetSession = async (headers: Headers) => {
+//   const authToken = headers.get("Authorization") ?? null;
+//   if (authToken) return validateToken(authToken);
+//   return auth();
+// };
 
 /**
  * 1. CONTEXT
@@ -40,8 +40,9 @@ export const createTRPCContext = async (opts: {
   headers: Headers;
   session: Session | null;
 }) => {
-  const authToken = opts.headers.get("Authorization") ?? null;
-  const session = await isomorphicGetSession(opts.headers);
+  const session = await auth.api.getSession({
+    headers: opts.headers,
+  })
 
   const source = opts.headers.get("x-trpc-source") ?? "unknown";
   console.log(">>> tRPC Request from", source, "by", session?.user);
@@ -49,7 +50,6 @@ export const createTRPCContext = async (opts: {
   return {
     session,
     db,
-    token: authToken,
   };
 };
 
