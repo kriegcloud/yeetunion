@@ -1,58 +1,22 @@
 "use client";
-
-// React Imports
-import { useState } from "react";
-
-// Next Imports
-import Link from "next/link";
-// import { useParams, useRouter, useSearchParams } from 'next/navigation'
-
-import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
 import Divider from "@mui/material/Divider";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
-import TextField from "@mui/material/TextField";
-// MUI Imports
 import Typography from "@mui/material/Typography";
-
-// Third-party Imports
-// import { signIn } from 'next-auth/react'
-// import { Controller, useForm } from 'react-hook-form'
-// import { valibotResolver } from '@hookform/resolvers/valibot'
-// import { object, minLength, string, email, pipe, nonEmpty } from 'valibot'
 import classnames from "classnames";
-// import type { SubmitHandler } from 'react-hook-form'
-// import type { InferInput } from 'valibot'
-
-// Type Imports
 import type { Mode } from "@ye/theme";
-// import type { Locale } from '@/configs/i18n'
-
 import Illustrations from "@/components/Illustrations";
-// Component Imports
 import Logo from "@/components/Logo";
-
-// Config Imports
 import { themeConfig } from "@ye/theme/themeConfig";
-
 import { useSettings } from "@ye/theme/ThemeSettingsProvider";
-// Hook Imports
 import { useImageVariant } from "@ye/theme/useImageVariant";
-
-// // Util Imports
-// import { getLocalizedUrl } from '@/utils/i18n'
-//
-// type ErrorType = {
-//   message: string[]
-// }
-
+import { authClient } from "@ye/auth/client";
 const Login = ({ mode }: { mode: Mode }) => {
-  // States
-  const [isPasswordShown, _setIsPasswordShown] = useState(false);
-  // const [errorState, setErrorState] = useState<ErrorType | null>(null)
+
+  const handleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "discord",
+    })
+  }
 
   // Vars
   const darkImg = "/images/pages/auth-v2-mask-dark.png";
@@ -114,69 +78,6 @@ const Login = ({ mode }: { mode: Mode }) => {
               Please sign-in to your account and start the adventure
             </Typography>
           </div>
-          <Alert icon={false} className="bg-primaryLight">
-            <Typography variant="body2" color="primary">
-              Email: <span className="font-medium">admin@materio.com</span> /
-              Pass: <span className="font-medium">admin</span>
-            </Typography>
-          </Alert>
-
-          <form
-            noValidate
-            action={() => {}}
-            autoComplete="off"
-            onSubmit={() => console.log("beep")}
-            className="flex flex-col gap-5"
-          >
-            <TextField fullWidth autoFocus type="email" label="Email" />
-            <TextField
-              fullWidth
-              label="Password"
-              id="login-password"
-              type={isPasswordShown ? "text" : "password"}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      size="small"
-                      edge="end"
-                      onMouseDown={(e) => e.preventDefault()}
-                      aria-label="toggle password visibility"
-                    >
-                      <i
-                        className={
-                          isPasswordShown ? "ri-eye-off-line" : "ri-eye-line"
-                        }
-                      />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <div className="flex justify-between items-center flex-wrap gap-x-3 gap-y-1">
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                label="Remember me"
-              />
-              <Typography
-                className="text-end"
-                color="primary"
-                component={Link}
-                href="/forgot-password"
-              >
-                Forgot password?
-              </Typography>
-            </div>
-            <Button fullWidth variant="contained" type="submit">
-              Log In
-            </Button>
-            <div className="flex justify-center items-center flex-wrap gap-2">
-              <Typography>New on our platform?</Typography>
-              <Typography component={Link} href="/register" color="primary">
-                Create an account
-              </Typography>
-            </div>
-          </form>
           <Divider className="gap-3">or</Divider>
           <Button
             color="secondary"
@@ -185,9 +86,9 @@ const Login = ({ mode }: { mode: Mode }) => {
               <img src="/images/logos/google.png" alt="Google" width={22} />
             }
             sx={{ "& .MuiButton-startIcon": { marginInlineEnd: 3 } }}
-            onClick={() => console.log("beep")}
+            onClick={() => handleSignIn()}
           >
-            Sign in with Google
+            Sign in with Discord
           </Button>
         </div>
       </div>

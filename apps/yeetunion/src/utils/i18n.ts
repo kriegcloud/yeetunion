@@ -20,3 +20,4 @@ export const getLocalizedUrl = (url: string, languageCode: string): string => {
     ? `/${languageCode}${ensurePrefix(url, "/")}`
     : url;
 };
+

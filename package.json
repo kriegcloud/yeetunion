@@ -16,7 +16,9 @@
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "typecheck": "turbo run typecheck",
     "clean": "turbo clean && rm -rf tsconfig.tsbuildinfo node_modules .turbo",
-    "build": "turbo build"
+    "build": "turbo build",
+    "db:migrate": "turbo run db:migrate",
+    "db:up": "bun run docker compose up -d && bun run db:migrate"
   },
   "devDependencies": {
     "@biomejs/biome": "latest",

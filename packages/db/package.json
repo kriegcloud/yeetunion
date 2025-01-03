@@ -30,14 +30,12 @@
     "db:pull": "drizzle-kit introspect",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:up": "drizzle-kit up",
     "dev": "tsc -w -p tsconfig.build.json",
     "lint": "biome check .",
     "lint:fix": "biome check . --write",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@vercel/postgres": "^0.10.0",
     "@ye/env": "workspace:^",
     "drizzle-orm": "^0.38.3",
     "drizzle-zod": "^0.6.1",
