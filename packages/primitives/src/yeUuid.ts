@@ -4,43 +4,43 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const yeUuid = S.UUID;
-export type yeUuid = typeof yeUuid.Type;
+export const yeUUID = S.UUID;
+export type yeUUID = typeof yeUUID.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUuidOrNull = S.NullOr(yeUuid);
-export type yeUuidOrNull = typeof yeUuidOrNull.Type;
+export const yeUUIDOrNull = S.NullOr(yeUUID);
+export type yeUUIDOrNull = typeof yeUUIDOrNull.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUuidOrUndefined = S.UndefinedOr(yeUuid);
-export type yeUuidOrUndefined = typeof yeUuidOrUndefined.Type;
+export const yeUUIDOrUndefined = S.UndefinedOr(yeUUID);
+export type yeUUIDOrUndefined = typeof yeUUIDOrUndefined.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUuidOrNullish = S.NullishOr(yeUuid);
-export type yeUuidOrNullish = typeof yeUuidOrNullish.Type;
+export const yeUUIDOrNullish = S.NullishOr(yeUUID);
+export type yeUUIDOrNullish = typeof yeUUIDOrNullish.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUuidOrOptional = S.optional(yeUuid);
-export type yeUuidOrOptional = S.Schema.Type<typeof yeUuidOrOptional>;
+export const yeUUIDOrOptional = S.optional(yeUUID);
+export type yeUUIDOrOptional = S.Schema.Type<typeof yeUUIDOrOptional>;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUuidWithDefault = (value: string) =>
-  yeUuid.pipe(
+export const yeUUIDWithDefault = (value: string) =>
+  yeUUID.pipe(
     S.propertySignature,
-    S.withConstructorDefault(() => yeUuid.make(value)),
+    S.withConstructorDefault(() => yeUUID.make(value)),
   );

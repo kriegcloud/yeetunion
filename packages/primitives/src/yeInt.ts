@@ -51,7 +51,7 @@ export const yeIntWithDefault = (value: number) =>
  */
 export const yePosInt = S.Int.pipe(
   S.positive(),
-  S.brand("@ye/domain/primitives/yePosInt"),
+  S.brand("@ye/primitives/yePosInt"),
 );
 export type yePosInt = typeof yePosInt.Type;
 
@@ -99,7 +99,7 @@ export const yePosIntWithDefault = (value: number) =>
  */
 export const yeNegInt = S.Int.pipe(
   S.negative(),
-  S.brand("@ye/domain/primitives/yeNegInt"),
+  S.brand("@ye/primitives/yeNegInt"),
 );
 export type yeNegInt = typeof yeNegInt.Type;
 

@@ -1,69 +1,37 @@
-import type { ReactNode } from "react";
+import type { DefaultColorScheme } from '@mui/material/styles/createThemeWithVars';
+import type {
+  Shadows,
+  Direction,
+  ColorSystemOptions,
+  CssVarsThemeOptions,
+  ThemeOptions as MuiThemeOptions,
+} from '@mui/material/styles';
 
-export type Layout = "vertical" | "collapsed" | "horizontal";
+import type { CustomShadows } from "./core/custom-shadows";
 
-export type Skin = "default" | "bordered";
+// ----------------------------------------------------------------------
 
-export type Mode = "system" | "light" | "dark";
+/**
+ * Theme options
+ * Extended type that includes additional properties for color schemes and CSS variables.
+ *
+ * @see https://github.com/mui/material-ui/blob/master/packages/mui-material/src/styles/createTheme.ts
+ */
 
-export type SystemMode = "light" | "dark";
+export type ThemeColorScheme = DefaultColorScheme;
+export type ThemeDirection = Direction;
+export type ThemeCssVariables = Pick<
+  CssVarsThemeOptions,
+  'colorSchemeSelector' | 'disableCssColorScheme' | 'cssVarPrefix' | 'shouldSkipGeneratingVar'
+>;
 
-export type Direction = "ltr" | "rtl";
-
-export type LayoutComponentWidth = "compact" | "wide";
-
-export type LayoutComponentPosition = "fixed" | "static";
-
-export type ChildrenType = {
-  children: ReactNode;
+type ColorSchemeOptionsExtended = ColorSystemOptions & {
+  shadows?: Shadows;
+  customShadows?: CustomShadows;
 };
 
-export type ThemeColor =
-  | "primary"
-  | "secondary"
-  | "error"
-  | "warning"
-  | "info"
-  | "success";
-
-// Settings type
-export type Settings = {
-  mode?: Mode;
-  skin?: Skin;
-  semiDark?: boolean;
-  layout?: Layout;
-  navbarContentWidth?: LayoutComponentWidth;
-  contentWidth?: LayoutComponentWidth;
-  footerContentWidth?: LayoutComponentWidth;
-  primaryColor?: string;
-};
-
-export type Navbar = {
-  type: LayoutComponentPosition;
-  contentWidth: LayoutComponentWidth;
-  floating: boolean;
-  detached: boolean;
-  blur: boolean;
-};
-
-export type Footer = {
-  type: LayoutComponentPosition;
-  contentWidth: LayoutComponentWidth;
-  detached: boolean;
-};
-
-export type Config = {
-  templateName: string;
-  homePageUrl: string;
-  settingsCookieName: string;
-  mode: Mode;
-  skin: Skin;
-  semiDark: boolean;
-  layout: Layout;
-  layoutPadding: number;
-  navbar: Navbar;
-  contentWidth: LayoutComponentWidth;
-  compactContentWidth: number;
-  footer: Footer;
-  disableRipple: boolean;
-};
+export type ThemeOptions = Omit<MuiThemeOptions, 'components'> &
+  Pick<CssVarsThemeOptions, 'defaultColorScheme' | 'components'> & {
+    colorSchemes?: Record<ThemeColorScheme, ColorSchemeOptionsExtended>;
+    cssVariables?: ThemeCssVariables;
+  };

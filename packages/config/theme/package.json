@@ -12,37 +12,9 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./colorConfig": {
-      "types": "./dist/configs/colorConfig.d.ts",
-      "default": "./dist/configs/colorConfig.js"
-    },
-    "./ThemeProvider": {
-      "types": "./dist/providers/ThemeProvider.d.ts",
-      "default": "./dist/providers/ThemeProvider.js"
-    },
-    "./ThemeSettingsProvider": {
-      "types": "./dist/providers/ThemeSettingsProvider.d.ts",
-      "default": "./dist/providers/ThemeSettingsProvider.js"
-    },
-    "./themeConfig": {
-      "types": "./dist/configs/themeConfig.d.ts",
-      "default": "./dist/configs/themeConfig.js"
-    },
-    "./ModeChanger": {
-      "types": "./dist/components/ModeChanger.d.ts",
-      "default": "./dist/components/ModeChanger.js"
-    },
-    "./useLayoutInit": {
-      "types": "./dist/hooks/useLayoutInit.d.ts",
-      "default": "./dist/hooks/useLayoutInit.js"
-    },
-    "./useImageVariant": {
-      "types": "./dist/hooks/useImageVariant.d.ts",
-      "default": "./dist/hooks/useImageVariant.js"
-    },
-    "./serverHelpers": {
-      "types": "./dist/serverHelpers.d.ts",
-      "default": "./dist/serverHelpers.js"
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.js"
     }
   },
   "scripts": {
@@ -54,24 +26,25 @@
     "lint:fix": "biome check . --write"
   },
   "dependencies": {
-    "@mui/material": "5.15.13",
-    "@emotion/cache": "11.13.0",
-    "@emotion/react": "11.13.0",
-    "@emotion/styled": "11.13.0",
-    "@mui/lab": "5.0.0-alpha.172",
-    "@mui/material-nextjs": "5.16.4",
-    "@ye/utils": "workspace:^",
-    "@hookform/resolvers": "^3.9.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-use": "^17.6.0",
-    "server-only": "0.0.1"
+    "@ye/utils": "workspace:^"
+  },
+  "peerDependencies": {
+    "@effect/schema": "latest",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/lab": "^6.0.0-beta.22",
+    "@mui/material": "^6.3.1",
+    "@mui/material-nextjs": "^6.3.1",
+    "@mui/x-tree-view": "^7.23.2",
+    "es-toolkit": "^1.31.0",
+    "@mui/system": "^6.3.1",
+    "simplebar-react": "^3.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.1",
     "stylis": "^4.3.4",
-    "stylis-plugin-rtl": "^2.1.1",
     "@ye/tsconfig": "workspace:^"
   }
 }

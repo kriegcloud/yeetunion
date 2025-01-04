@@ -1,6 +1,16 @@
-version: '3.8'
-
+# Change login and password
+#printf "login:" > mailhog.auth
+#
+#printf "$(sudo docker exec  mailhog /bin/sh -c "MailHog bcrypt password")" >> mailhog.auth
+#
+#mailhog - name of docker container mailhog
+#cat mailhog.auth
 services:
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: yeet-hog
+    ports:
+      - "8081:8025"
   postgres:
     image: postgres:13
     container_name: postgres
@@ -15,7 +25,7 @@ services:
 
   redis:
     image: redis:6
-    container_name: redis
+    container_name: yedis
     ports:
       - "6379:6379"
     volumes:

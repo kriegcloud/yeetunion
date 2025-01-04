@@ -11,7 +11,12 @@ import {
   organization,
 } from "better-auth/plugins";
 import { passkey } from "better-auth/plugins/passkey";
+
 export const auth = betterAuth({
+  emailAndPassword: {
+    enabled: true,
+    requireEmailVerification: true,
+  },
   database: drizzleAdapter(db, {
     provider: "pg",
     schema,

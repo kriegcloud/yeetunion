@@ -44,5 +44,3 @@ export const yeBoolWithDefault = (value: boolean) =>
     S.propertySignature,
     S.withConstructorDefault(() => value),
   );
-
-// export const yeBoolFromStr = (str: string): Bool => S.transformOrFail()

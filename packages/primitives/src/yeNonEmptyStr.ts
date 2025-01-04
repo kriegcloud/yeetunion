@@ -52,7 +52,7 @@ export const yeNonEmptyStrWithDefault = (value: string) =>
  * @since 0.1.0
  */
 export const yeNonEmptyTrimStr = S.NonEmptyTrimmedString.pipe(
-  S.brand("@ye/domain/primitives/yeNonEmptyTrimStr"),
+  S.brand("@ye/primitives/yeNonEmptyTrimStr"),
 );
 export type yeNonEmptyTrimStr = typeof yeNonEmptyTrimStr.Type;
 

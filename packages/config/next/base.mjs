@@ -1,12 +1,5 @@
-import { fileURLToPath } from "node:url";
-
 import bundleAnalyzerPlugin from "@next/bundle-analyzer";
-import createJiti from "jiti";
 
-const jiti = createJiti(fileURLToPath(import.meta.url));
-
-jiti("@ye/env/yeetunion/server");
-jiti("@ye/env/yeetunion/client");
 
 const CSP_DIRECTIVES = {
   "default-src": ["'self'"],
@@ -142,28 +135,6 @@ const nextConfig = {
       },
     ];
   },
-  redirects: async () => {
-    return [
-      {
-        source: '/',
-        destination: '/en/dashboard',
-        permanent: true,
-        locale: false
-      },
-      {
-        source: '/:lang(en|fr)',
-        destination: '/:lang/dashboard',
-        permanent: true,
-        locale: false
-      },
-      {
-        source: '/((?!(?:en|fr|ar|front-pages|favicon.ico)\\b)):path',
-        destination: '/en/:path',
-        permanent: true,
-        locale: false
-      }
-    ]
-  }
 };
 
 export default withBundleAnalyzer(nextConfig);

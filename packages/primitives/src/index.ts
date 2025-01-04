@@ -8,3 +8,4 @@ export * from "./yeStr.js";
 export * from "./yeUrl.js";
 export * from "./utils/index.js";
 export * from "./yeUuid.js";
+export * from "./builder/index.js";

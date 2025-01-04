@@ -4,43 +4,43 @@ import * as S from "@effect/schema/Schema";
  * @category primitives
  * @since 0.1.0
  */
-export const yeUrl = S.NonEmptyTrimmedString.pipe(S.pattern(/^https?:\/\//));
-export type yeUrl = typeof yeUrl.Type;
+export const yeURL = S.NonEmptyTrimmedString.pipe(S.pattern(/^https?:\/\//));
+export type yeURL = typeof yeURL.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUrlOrNull = S.NullOr(yeUrl);
-export type yeUrlOrNull = typeof yeUrlOrNull.Type;
+export const yeURLOrNull = S.NullOr(yeURL);
+export type yeURLOrNull = typeof yeURLOrNull.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUrlOrUndefined = S.UndefinedOr(yeUrl);
-export type yeUrlOrUndefined = typeof yeUrlOrUndefined.Type;
+export const yeURLOrUndefined = S.UndefinedOr(yeURL);
+export type yeURLOrUndefined = typeof yeURLOrUndefined.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUrlOrNullish = S.NullishOr(yeUrl);
-export type yeUrlOrNullish = typeof yeUrlOrNullish.Type;
+export const yeURLOrNullish = S.NullishOr(yeURL);
+export type yeURLOrNullish = typeof yeURLOrNullish.Type;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUrlOrOptional = S.optional(yeUrl);
-export type yeUrlOrOptional = S.Schema.Type<typeof yeUrlOrOptional>;
+export const yeURLOrOptional = S.optional(yeURL);
+export type yeURLOrOptional = S.Schema.Type<typeof yeURLOrOptional>;
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeUrlWithDefault = (value: string) =>
-  yeUrl.pipe(
+export const yeURLWithDefault = (value: string) =>
+  yeURL.pipe(
     S.propertySignature,
-    S.withConstructorDefault(() => yeUrl.make(value)),
+    S.withConstructorDefault(() => yeURL.make(value)),
   );

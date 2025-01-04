@@ -8,9 +8,33 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./object": {
+      "types": "./dist/object.d.ts",
+      "default": "./dist/object.js"
+    },
+    "./font": {
+      "types": "./dist/font.d.ts",
+      "default": "./dist/font.js"
+    },
+    "./classes": {
+      "types": "./dist/classes.d.ts",
+      "default": "./dist/classes.js"
+    },
+    "./colors": {
+      "types": "./dist/colors.d.ts",
+      "default": "./dist/colors.js"
+    },
+    "./local-storage": {
+      "types": "./dist/local-storage.d.ts",
+      "default": "./dist/local-storage.js"
+    },
     "./hooks": {
       "types": "./dist/hooks/index.d.ts",
       "default": "./dist/hooks/index.js"
+    },
+    "./cookies": {
+      "types": "./dist/cookies.d.ts",
+      "default": "./dist/cookies.js"
     },
     "./createCtx": {
       "types": "./dist/createCtx.d.ts",
