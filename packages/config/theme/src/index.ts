@@ -5,7 +5,6 @@ export * from "./settings";
 export * from "./create-classes";
 export * from './theme-config';
 export * from './theme-provider';
-
 import type {} from '@mui/lab/themeAugmentation';
 import type {} from '@mui/x-tree-view/themeAugmentation';
 import type {} from '@mui/x-data-grid/themeAugmentation';

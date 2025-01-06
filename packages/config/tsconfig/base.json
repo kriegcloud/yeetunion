@@ -13,7 +13,6 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-
     "isolatedModules": true,
 
     "allowJs": true,
@@ -45,6 +44,7 @@
     }
   },
   "include": [
+    "${configDir}/../../packages/config/theme/src/extend-theme-types.d.ts",
     "${configDir}/.storybook/**/*",
     "${configDir}/**/*.ts",
     "${configDir}/**/*.tsx",

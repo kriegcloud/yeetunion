@@ -8,6 +8,18 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./active-link": {
+      "types": "./dist/active-link.d.ts",
+      "default": "./dist/active-link.js"
+    },
+    "./dayjs": {
+      "types": "./dist/dayjs.d.ts",
+      "default": "./dist/dayjs.js"
+    },
+    "./refs": {
+      "types": "./dist/refs.d.ts",
+      "default": "./dist/refs.js"
+    },
     "./object": {
       "types": "./dist/object.d.ts",
       "default": "./dist/object.js"
@@ -61,6 +73,8 @@
     "@ye/tsconfig": "workspace:^"
   },
   "dependencies": {
+
+    "dayjs": "^1.11.13",
     "react-use": "^17.6.0"
   }
 }

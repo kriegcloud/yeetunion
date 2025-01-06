@@ -33,8 +33,5 @@
     "typescript": "latest",
     "yargs": "latest"
   },
-  "packageManager": "bun@1.1.26",
-  "dependencies": {
-    "react-colorful": "^5.6.1"
-  }
+  "packageManager": "bun@1.1.26"
 }

@@ -1,0 +1,15 @@
+export * from './social-icons';
+
+export { default as SentIcon } from './SentIcon';
+
+export { default as PasswordIcon } from './PasswordIcon';
+
+export { default as PlanFreeIcon } from './PlanFreeIcon';
+
+export { default as EmailInboxIcon } from './EmailInboxIcon';
+
+export { default as PlanStarterIcon } from './PlanStarterIcon';
+
+export { default as PlanPremiumIcon } from './PlanPremiumIcon';
+
+export { default as NewPasswordIcon } from './NewPasswordIcon';

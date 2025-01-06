@@ -1,11 +1,27 @@
 {
   "name": "@ye/assets",
-    "version": "0.1.0",
+  "version": "0.1.0",
   "private": true,
-  "description": "TheBois's assets package",
+  "description": "Common utilities for TheBois",
   "license": "MIT",
   "author": "Bois",
-  "files": [
-    "**/*"
-  ]
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./countries": {
+      "types": "./dist/countries.d.ts",
+      "default": "./dist/countries.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
+    "dev": "tsc -w -p tsconfig.build.json",
+    "typecheck": "tsc",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
+  },
+  "devDependencies": {
+    "@ye/tsconfig": "workspace:^"
+  }
 }

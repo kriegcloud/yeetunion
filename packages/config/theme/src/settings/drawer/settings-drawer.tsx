@@ -39,7 +39,6 @@ export function SettingsDrawer({ sx, defaultSettings }: SettingsDrawerProps) {
     if (mode === 'system' && systemMode) {
       settings.setState({ colorScheme: systemMode });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, systemMode]);
 
   // Visible options by default settings

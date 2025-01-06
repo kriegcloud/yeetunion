@@ -1,0 +1,57 @@
+{
+  "name": "@ye/ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Common utilities for TheBois",
+  "license": "MIT",
+  "author": "Bois",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "components": {
+      "types": "./dist/components/index.d.ts",
+      "default": "./dist/components/index.js"
+    },
+    "layouts": {
+      "types": "./dist/layouts/index.d.ts",
+      "default": "./dist/layouts/index.js"
+    },
+    "icons": {
+      "types": "./dist/icons/index.d.ts",
+      "default": "./dist/icons/index.js"
+    },
+    "illustrations": {
+      "types": "./dist/illustrations/index.d.ts",
+      "default": "./dist/illustrations/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
+    "dev": "tsc -w -p tsconfig.build.json",
+    "typecheck": "tsc",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
+  },
+  "devDependencies": {
+    "@types/autosuggest-highlight": "^3.2.3",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-map-gl": "^6.1.7",
+    "@ye/tsconfig": "workspace:^"
+  },
+  "dependencies": {
+    "@ye/i18n": "workspace:^",
+    "@ye/assets": "workspace:^",
+    "@ye/theme": "workspace:^",
+    "apexcharts": "^4.3.0",
+    "autosuggest-highlight": "^3.3.4",
+    "embla-carousel-auto-scroll": "^8.5.1",
+    "framer-motion": "^11.15.0",
+    "react": "^18.3.1",
+    "react-apexcharts": "^1.7.0",
+    "react-colorful": "^5.6.1",
+    "react-dom": "^18.3.1",
+    "react-map-gl": "^7.1.8"
+  }
+}
