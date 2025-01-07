@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
 
-import { paths } from 'src/routes/paths';
+import { paths } from '@ye/meta/app-routes';
 import RouterLink from 'next/link';
 
 import { Logo } from 'src/components/logo';
@@ -38,12 +38,12 @@ export type AuthCenteredLayoutProps = LayoutBaseProps & {
 };
 
 export function AuthCenteredLayout({
-  sx,
-  cssVars,
-  children,
-  slotProps,
-  layoutQuery = 'md',
-}: AuthCenteredLayoutProps) {
+                                     sx,
+                                     cssVars,
+                                     children,
+                                     slotProps,
+                                     layoutQuery = 'md',
+                                   }: AuthCenteredLayoutProps) {
   const renderHeader = () => {
     const headerSlotProps: HeaderSectionProps['slotProps'] = { container: { maxWidth: false } };
 

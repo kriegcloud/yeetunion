@@ -9,9 +9,9 @@ import ButtonBase from '@mui/material/ButtonBase';
 
 import { Iconify } from '@ye/theme';
 
-import { CustomPopover } from '../../custom-popover';
+import { Popover } from '../../popover';
 
-import type { CustomPopoverProps } from '../../custom-popover';
+import type { CustomPopoverProps } from '../../popover';
 
 // ----------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ export function ChartSelect({ options, value, onChange, slotProps, ...other }: C
   const { open, anchorEl, onClose, onOpen } = usePopover();
 
   const renderMenuActions = () => (
-    <CustomPopover open={open} anchorEl={anchorEl} onClose={onClose} {...slotProps?.popover}>
+    <Popover open={open} anchorEl={anchorEl} onClose={onClose} {...slotProps?.popover}>
       <MenuList>
         {options.map((option) => (
           <MenuItem
@@ -44,7 +44,7 @@ export function ChartSelect({ options, value, onChange, slotProps, ...other }: C
           </MenuItem>
         ))}
       </MenuList>
-    </CustomPopover>
+    </Popover>
   );
 
   return (

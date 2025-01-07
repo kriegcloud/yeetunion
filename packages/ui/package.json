@@ -41,6 +41,7 @@
     "@ye/tsconfig": "workspace:^"
   },
   "dependencies": {
+    "@ye/meta": "workspace:^",
     "@ye/i18n": "workspace:^",
     "@ye/assets": "workspace:^",
     "@ye/theme": "workspace:^",

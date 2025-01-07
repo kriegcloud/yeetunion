@@ -10,7 +10,7 @@ import { i18nOptions } from './locales-config';
 
 import type { LanguageValue } from './locales-config';
 
-i18next
+void i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .use(resourcesToBackend((lang: string, ns: string) => import(`./langs/${lang}/${ns}.json`)))
