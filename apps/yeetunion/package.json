@@ -48,7 +48,7 @@
     "@ye/primitives": "workspace:^",
     "@ye/ui": "workspace:^",
     "@ye/utils": "workspace:^",
-    "better-auth": "^1.1.8",
+    "better-auth": "latest",
     "classnames": "^2.5.1",
     "mapbox-gl": "^3.9.3",
     "next": "^14.2.15",

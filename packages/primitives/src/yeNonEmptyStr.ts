@@ -51,9 +51,7 @@ export const yeNonEmptyStrWithDefault = (value: string) =>
  * @category primitives
  * @since 0.1.0
  */
-export const yeNonEmptyTrimStr = S.NonEmptyTrimmedString.pipe(
-  S.brand("@ye/primitives/yeNonEmptyTrimStr"),
-);
+export const yeNonEmptyTrimStr = S.NonEmptyTrimmedString;
 export type yeNonEmptyTrimStr = typeof yeNonEmptyTrimStr.Type;
 
 /**

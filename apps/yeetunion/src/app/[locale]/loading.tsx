@@ -1,7 +1,7 @@
-import { LoadingScreen } from '@ye/ui/components';
+import { SplashScreen } from '@ye/ui/components';
 
 // ----------------------------------------------------------------------
 
 export default function Loading() {
-  return <LoadingScreen />;
+  return <SplashScreen />;
 }

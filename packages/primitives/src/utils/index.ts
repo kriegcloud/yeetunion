@@ -1,12 +1,15 @@
 import * as S from "@effect/schema/Schema";
-import { pipe } from "effect/Function";
+import {pipe} from "effect/Function";
 import type * as Types from "effect/Types";
+import type {ReadonlyRecord} from "effect/Record";
+import * as A from "effect/Array";
+import * as AST from "@effect/schema/AST";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const createEnumWithDefault = <TEnum extends S.EnumsDefinition>(
+export const EnumWithDefault = <TEnum extends S.EnumsDefinition>(
   enums: TEnum,
 ) =>
   pipe((defaultValue: () => Types.NoInfer<TEnum[keyof TEnum]>) =>
@@ -35,17 +38,28 @@ export const ReadonlySetFromArray = <A, I, R>(
     },
   );
 
-export const readonlyArrayToStruct = <T extends ReadonlyArray<string>>(
+export const StructFromReadonlyArray = <T extends A.NonEmptyReadonlyArray<AST.LiteralValue>, TSchema extends S.Schema<string>>(
   arr: T,
-  valueSchema: S.Schema.Any,
-) => S.Struct(Object.fromEntries(arr.map((key) => [key, valueSchema])));
+  valueSchema: TSchema
+) => S.Struct(Object.fromEntries(arr.map((key: T[number]) => [key, valueSchema])));
 
-export const recordValuesToUnionOfLiterals = <
-  const T extends Record<string, string>,
+export const UnionOfLiteralsFromRecordValues = <
+  TRecord extends ReadonlyRecord<string, string>,
 >(
-  record: T,
+  record: TRecord,
 ) => S.Union(...Object.values(record).map((value) => S.Literal(value)));
 
-export const readonlyArrayToEnum = <const T extends ReadonlyArray<string>>(
+export const EnumFromReadonlyArray = <
+  const T extends A.NonEmptyReadonlyArray<AST.LiteralValue>
+>(
   arr: T,
-) => S.Enums(Object.fromEntries(arr.map((key) => [key, key])));
+) => S.Enums(Object.fromEntries(arr.map((key: T[number]) => [key, key])));
+
+
+
+export const readonlyArrayToUnionOfLiterals = <const T extends A.NonEmptyReadonlyArray<AST.LiteralValue>>(arr: T) =>
+  S.Union(...arr.map((value: T[number]) => S.Literal(value)))
+
+
+export const UpperCasedLiteral = <const T extends string>(str: T) =>
+  S.Literal(str.toUpperCase() as Uppercase<T>)

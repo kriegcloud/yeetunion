@@ -1,10 +1,11 @@
 import * as S from "@effect/schema/Schema";
+import { yeNonEmptyTrimStr } from "./yeNonEmptyStr";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeEmail = S.NonEmptyTrimmedString.pipe(
+export const yeEmail = yeNonEmptyTrimStr.pipe(
   S.lowercased(),
   S.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
 );

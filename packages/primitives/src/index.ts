@@ -10,3 +10,5 @@ export * from "./yeUrl";
 export * from "./utils";
 export * from "./yeUuid";
 export * from "./builder";
+export * from "./yePath";
+export * from "./yeHex";

@@ -1,10 +1,11 @@
 import * as S from "@effect/schema/Schema";
+import { yeNonEmptyTrimStr } from "./yeNonEmptyStr";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-export const yeURL = S.NonEmptyTrimmedString.pipe(S.pattern(/^https?:\/\//));
+export const yeURL = yeNonEmptyTrimStr.pipe(S.pattern(/^https?:\/\//));
 export type yeURL = typeof yeURL.Type;
 
 /**
