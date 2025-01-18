@@ -1,7 +1,7 @@
-import { Nav, NavUl } from '../components';
-import { NavList } from './nav-desktop-list';
+import { Nav, NavUl } from "../components";
+import { NavList } from "./nav-desktop-list";
 
-import type { NavMainProps } from '../types';
+import type { NavMainProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -20,8 +20,8 @@ export function NavDesktop({ data, sx, ...other }: NavMainProps) {
         sx={{
           gap: 5,
           height: 1,
-          flexDirection: 'row',
-          alignItems: 'center',
+          flexDirection: "row",
+          alignItems: "center",
         }}
       >
         {data.map((list) => (

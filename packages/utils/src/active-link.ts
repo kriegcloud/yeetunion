@@ -1,4 +1,9 @@
-import { hasParams, removeParams, isExternalLink, removeLastSlash } from './url';
+import {
+  hasParams,
+  isExternalLink,
+  removeLastSlash,
+  removeParams,
+} from "./url";
 // ----------------------------------------------------------------------
 
 /**
@@ -18,14 +23,14 @@ import { hasParams, removeParams, isExternalLink, removeLastSlash } from './url'
 export function isActiveLink(
   pathnameProps: string,
   itemPath: string,
-  deep = true
+  deep = true,
 ): boolean {
   const pathname = removeLastSlash(pathnameProps);
 
   const pathHasParams = hasParams(itemPath);
 
   // Check if the item path is invalid (starts with '#' or is an external link)
-  const notValid = itemPath.startsWith('#') || isExternalLink(itemPath);
+  const notValid = itemPath.startsWith("#") || isExternalLink(itemPath);
 
   if (notValid) {
     return false;

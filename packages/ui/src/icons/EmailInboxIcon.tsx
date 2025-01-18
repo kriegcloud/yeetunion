@@ -1,6 +1,6 @@
 import type { SvgIconProps } from "@mui/material/SvgIcon";
 
-import { memo, forwardRef } from "react";
+import { forwardRef, memo } from "react";
 
 import SvgIcon from "@mui/material/SvgIcon";
 

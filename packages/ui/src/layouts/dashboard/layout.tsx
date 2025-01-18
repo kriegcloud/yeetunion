@@ -1,57 +1,53 @@
-'use client';
+"use client";
 
-import type { Breakpoint } from '@mui/material/styles';
-import type { NavSectionProps } from '@/components/nav-section';
+import type { Breakpoint } from "@mui/material/styles";
+import type { NavSectionProps } from "../../components/nav-section";
 
-import { merge } from 'es-toolkit';
-import { useBoolean } from '@ye/utils/hooks';
+import { useBoolean } from "@ye/utils/hooks";
+import { merge } from "es-toolkit";
 
-import Box from '@mui/material/Box';
-import Alert from '@mui/material/Alert';
-import { useTheme } from '@mui/material/styles';
-import { iconButtonClasses } from '@mui/material/IconButton';
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import { iconButtonClasses } from "@mui/material/IconButton";
+import { useTheme } from "@mui/material/styles";
 
-import { allLangs } from '@ye/i18n';
-// import { _contacts, _notifications } from 'src/_mock';
+import { Logo } from "../../components/logo";
+import { useSettingsContext } from "../../theme";
 
-import { Logo } from 'src/components/logo';
-import { useSettingsContext } from '@ye/theme';
-
-import { NavMobile } from './nav-mobile';
-import { VerticalDivider } from './content';
-import { NavVertical } from './nav-vertical';
-import { layoutClasses } from '../core/classes';
-import { NavHorizontal } from './nav-horizontal';
-import { _account } from '../nav-config-account';
-import { MainSection } from '../core/main-section';
-import { Searchbar } from '../components/searchbar';
-import { _workspaces } from '../nav-config-workspace';
-import { MenuButton } from '../components/menu-button';
-import { HeaderSection } from '../core/header-section';
-import { LayoutSection } from '../core/layout-section';
-import { AccountDrawer } from '../components/account-drawer';
-import { SettingsButton } from '../components/settings-button';
-import { LanguagePopover } from '../components/language-popover';
+import { AccountDrawer } from "../components/account-drawer";
+import { MenuButton } from "../components/menu-button";
+import { Searchbar } from "../components/searchbar";
+import { SettingsButton } from "../components/settings-button";
 // import { ContactsPopover } from '../components/contacts-popover';
-import { WorkspacesPopover } from '../components/workspaces-popover';
+import { WorkspacesPopover } from "../components/workspaces-popover";
+import { layoutClasses } from "../core/classes";
+import { HeaderSection } from "../core/header-section";
+import { LayoutSection } from "../core/layout-section";
+import { MainSection } from "../core/main-section";
+import { _account } from "../nav-config-account";
+import { _workspaces } from "../nav-config-workspace";
+import { VerticalDivider } from "./content";
 // import { navData as dashboardNavData } from '../nav-config-dashboard';
-import { dashboardLayoutVars, dashboardNavColorVars } from './css-vars';
+import { dashboardLayoutVars, dashboardNavColorVars } from "./css-vars";
+import { NavHorizontal } from "./nav-horizontal";
+import { NavMobile } from "./nav-mobile";
+import { NavVertical } from "./nav-vertical";
 // import { NotificationsDrawer } from '../components/notifications-drawer';
 
-import type { MainSectionProps } from '../core/main-section';
-import type { HeaderSectionProps } from '../core/header-section';
-import type { LayoutSectionProps } from '../core/layout-section';
+import type { HeaderSectionProps } from "../core/header-section";
+import type { LayoutSectionProps } from "../core/layout-section";
+import type { MainSectionProps } from "../core/main-section";
 
 // ----------------------------------------------------------------------
 
-type LayoutBaseProps = Pick<LayoutSectionProps, 'sx' | 'children' | 'cssVars'>;
+type LayoutBaseProps = Pick<LayoutSectionProps, "sx" | "children" | "cssVars">;
 
 export type DashboardLayoutProps = LayoutBaseProps & {
   layoutQuery?: Breakpoint;
   slotProps?: {
     header?: HeaderSectionProps;
-    nav?: {
-      data?: NavSectionProps['data'];
+    nav: {
+      data: NavSectionProps["data"];
     };
     main?: MainSectionProps;
   };
@@ -62,84 +58,108 @@ export function DashboardLayout({
   cssVars,
   children,
   slotProps,
-  layoutQuery = 'lg',
+  layoutQuery = "lg",
 }: DashboardLayoutProps) {
   const theme = useTheme();
 
   const settings = useSettingsContext();
 
-  const navVars = dashboardNavColorVars(theme, settings.state.navColor, settings.state.navLayout);
+  const navVars = dashboardNavColorVars(
+    theme,
+    settings.state.navColor,
+    settings.state.navLayout,
+  );
 
   const { value: open, onFalse: onClose, onTrue: onOpen } = useBoolean();
 
-  const navData = slotProps?.nav?.data  // ?? dashboardNavData;
+  const navData = slotProps?.nav?.data; // ?? dashboardNavData;
 
-  const isNavMini = settings.state.navLayout === 'mini';
-  const isNavHorizontal = settings.state.navLayout === 'horizontal';
-  const isNavVertical = isNavMini || settings.state.navLayout === 'vertical';
+  const isNavMini = settings.state.navLayout === "mini";
+  const isNavHorizontal = settings.state.navLayout === "horizontal";
+  const isNavVertical = isNavMini || settings.state.navLayout === "vertical";
 
   const renderHeader = () => {
-    const headerSlotProps: HeaderSectionProps['slotProps'] = {
+    const headerSlotProps: HeaderSectionProps["slotProps"] = {
       container: {
         maxWidth: false,
         sx: {
           ...(isNavVertical && { px: { [layoutQuery]: 5 } }),
           ...(isNavHorizontal && {
-            bgcolor: 'var(--layout-nav-bg)',
-            height: { [layoutQuery]: 'var(--layout-nav-horizontal-height)' },
-            [`& .${iconButtonClasses.root}`]: { color: 'var(--layout-nav-text-secondary-color)' },
+            bgcolor: "var(--layout-nav-bg)",
+            height: { [layoutQuery]: "var(--layout-nav-horizontal-height)" },
+            [`& .${iconButtonClasses.root}`]: {
+              color: "var(--layout-nav-text-secondary-color)",
+            },
           }),
         },
       },
     };
 
-    const headerSlots: HeaderSectionProps['slots'] = {
+    const headerSlots: HeaderSectionProps["slots"] = {
       topArea: (
-        <Alert severity="info" sx={{ display: 'none', borderRadius: 0 }}>
+        <Alert severity="info" sx={{ display: "none", borderRadius: 0 }}>
           This is an info Alert.
         </Alert>
       ),
       bottomArea: isNavHorizontal ? (
-        <NavHorizontal data={navData} layoutQuery={layoutQuery} cssVars={navVars.section} />
+        <NavHorizontal
+          data={navData}
+          layoutQuery={layoutQuery}
+          cssVars={navVars.section}
+        />
       ) : null,
       leftArea: (
         <>
           {/** @slot Nav mobile */}
           <MenuButton
             onClick={onOpen}
-            sx={{ mr: 1, ml: -1, [theme.breakpoints.up(layoutQuery)]: { display: 'none' } }}
+            sx={{
+              mr: 1,
+              ml: -1,
+              [theme.breakpoints.up(layoutQuery)]: { display: "none" },
+            }}
           />
-          <NavMobile data={navData} open={open} onClose={onClose} cssVars={navVars.section} />
+          <NavMobile
+            data={navData}
+            open={open}
+            onClose={onClose}
+            cssVars={navVars.section}
+          />
 
           {/** @slot Logo */}
           {isNavHorizontal && (
             <Logo
               sx={{
-                display: 'none',
-                [theme.breakpoints.up(layoutQuery)]: { display: 'inline-flex' },
+                display: "none",
+                [theme.breakpoints.up(layoutQuery)]: { display: "inline-flex" },
               }}
             />
           )}
 
           {/** @slot Divider */}
           {isNavHorizontal && (
-            <VerticalDivider sx={{ [theme.breakpoints.up(layoutQuery)]: { display: 'flex' } }} />
+            <VerticalDivider
+              sx={{ [theme.breakpoints.up(layoutQuery)]: { display: "flex" } }}
+            />
           )}
 
           {/** @slot Workspace popover */}
           <WorkspacesPopover
             data={_workspaces}
-            sx={{ color: 'var(--layout-nav-text-primary-color)' }}
+            sx={{ color: "var(--layout-nav-text-primary-color)" }}
           />
         </>
       ),
       rightArea: (
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0, sm: 0.75 } }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: 0, sm: 0.75 },
+          }}
+        >
           {/** @slot Searchbar */}
           <Searchbar data={navData} />
-
-          {/** @slot Language popover */}
-          <LanguagePopover data={allLangs} />
 
           {/** @slot Notifications popover */}
           {/*<NotificationsDrawer data={_notifications} />*/}
@@ -176,8 +196,8 @@ export function DashboardLayout({
       cssVars={navVars.section}
       onToggleNav={() =>
         settings.setField(
-          'navLayout',
-          settings.state.navLayout === 'vertical' ? 'mini' : 'vertical'
+          "navLayout",
+          settings.state.navLayout === "vertical" ? "mini" : "vertical",
         )
       }
     />
@@ -185,7 +205,9 @@ export function DashboardLayout({
 
   const renderFooter = () => null;
 
-  const renderMain = () => <MainSection {...slotProps?.main}>{children}</MainSection>;
+  const renderMain = () => (
+    <MainSection {...slotProps?.main}>{children}</MainSection>
+  );
 
   return (
     <LayoutSection
@@ -209,10 +231,12 @@ export function DashboardLayout({
         {
           [`& .${layoutClasses.sidebarContainer}`]: {
             [theme.breakpoints.up(layoutQuery)]: {
-              pl: isNavMini ? 'var(--layout-nav-mini-width)' : 'var(--layout-nav-vertical-width)',
-              transition: theme.transitions.create(['padding-left'], {
-                easing: 'var(--layout-transition-easing)',
-                duration: 'var(--layout-transition-duration)',
+              pl: isNavMini
+                ? "var(--layout-nav-mini-width)"
+                : "var(--layout-nav-vertical-width)",
+              transition: theme.transitions.create(["padding-left"], {
+                easing: "var(--layout-transition-easing)",
+                duration: "var(--layout-transition-duration)",
               }),
             },
           },

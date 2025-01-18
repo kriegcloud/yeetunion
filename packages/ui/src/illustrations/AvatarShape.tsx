@@ -1,8 +1,8 @@
-import type { SvgIconProps } from '@mui/material/SvgIcon';
+import type { SvgIconProps } from "@mui/material/SvgIcon";
 
-import { memo, forwardRef } from 'react';
+import { forwardRef, memo } from "react";
 
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon from "@mui/material/SvgIcon";
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ const AvatarShape = forwardRef<SVGSVGElement, SvgIconProps>((props, ref) => {
         () => ({
           width: 144,
           height: 62,
-          color: 'background.paper',
+          color: "background.paper",
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

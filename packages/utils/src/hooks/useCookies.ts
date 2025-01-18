@@ -1,7 +1,8 @@
-import {useCallback, useEffect, useMemo, useState} from 'react';
+"use client";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
-import type {CookieOptions} from '../cookies';
-import {getCookie, removeCookie, setCookie} from '../cookies';
+import type { CookieOptions } from "../cookies";
+import { getCookie, removeCookie, setCookie } from "../cookies";
 
 // ----------------------------------------------------------------------
 
@@ -45,10 +46,10 @@ export type UseCookiesReturn<T> = {
 export function useCookies<T>(
   key: string,
   initialState?: T,
-  options?: UseCookiesOptions
+  options?: UseCookiesOptions,
 ): UseCookiesReturn<T> {
   const { initializeWithValue = true, ...cookieOptions } = options ?? {};
-  const isObjectState = initialState && typeof initialState === 'object';
+  const isObjectState = initialState && typeof initialState === "object";
 
   const [state, setState] = useState<T | undefined>(initialState);
 
@@ -81,7 +82,7 @@ export function useCookies<T>(
         setState(newState as T);
       }
     },
-    [cookieOptions, isObjectState, key]
+    [cookieOptions, isObjectState, key],
   );
 
   const updateField = useCallback(
@@ -90,7 +91,7 @@ export function useCookies<T>(
         updateState({ [fieldName]: updateValue } as Partial<T>);
       }
     },
-    [isObjectState, updateState]
+    [isObjectState, updateState],
   );
 
   const resetState = useCallback(
@@ -98,7 +99,7 @@ export function useCookies<T>(
       setState(defaultState ?? initialState);
       removeCookie(key);
     },
-    [initialState, key]
+    [initialState, key],
   );
 
   return useMemo(
@@ -108,6 +109,6 @@ export function useCookies<T>(
       setField: updateField,
       resetState,
     }),
-    [resetState, updateField, updateState, state]
+    [resetState, updateField, updateState, state],
   );
 }

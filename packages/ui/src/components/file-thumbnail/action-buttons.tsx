@@ -1,12 +1,12 @@
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { ButtonBaseProps } from "@mui/material/ButtonBase";
+import type { IconButtonProps } from "@mui/material/IconButton";
 
-import { varAlpha } from '@ye/utils/colors';
+import { varAlpha } from "@ye/utils/colors";
 
-import ButtonBase from '@mui/material/ButtonBase';
-import IconButton from '@mui/material/IconButton';
+import ButtonBase from "@mui/material/ButtonBase";
+import IconButton from "@mui/material/IconButton";
 
-import { Iconify } from '@ye/theme';
+import { Iconify } from "../iconify";
 
 // ----------------------------------------------------------------------
 
@@ -22,13 +22,13 @@ export function DownloadButton({ sx, ...other }: ButtonBaseProps) {
           height: 1,
           zIndex: 9,
           opacity: 0,
-          position: 'absolute',
-          color: 'common.white',
-          borderRadius: 'inherit',
-          transition: theme.transitions.create(['opacity']),
-          '&:hover': {
+          position: "absolute",
+          color: "common.white",
+          borderRadius: "inherit",
+          transition: theme.transitions.create(["opacity"]),
+          "&:hover": {
             ...theme.mixins.bgBlur({
-              color: varAlpha(theme.vars.palette.grey['900Channel'], 0.64),
+              color: varAlpha(theme.vars.palette.grey["900Channel"], 0.64),
             }),
             opacity: 1,
           },
@@ -53,10 +53,12 @@ export function RemoveButton({ sx, ...other }: IconButtonProps) {
           p: 0.35,
           top: 4,
           right: 4,
-          position: 'absolute',
-          color: 'common.white',
-          bgcolor: varAlpha(theme.vars.palette.grey['900Channel'], 0.48),
-          '&:hover': { bgcolor: varAlpha(theme.vars.palette.grey['900Channel'], 0.72) },
+          position: "absolute",
+          color: "common.white",
+          bgcolor: varAlpha(theme.vars.palette.grey["900Channel"], 0.48),
+          "&:hover": {
+            bgcolor: varAlpha(theme.vars.palette.grey["900Channel"], 0.72),
+          },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

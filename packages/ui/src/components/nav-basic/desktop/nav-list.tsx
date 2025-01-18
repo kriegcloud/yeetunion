@@ -1,18 +1,18 @@
-import { useEffect, useCallback } from 'react';
-import { usePopoverHover } from '@ye/utils/hooks';
-import { isExternalLink } from '@ye/utils/url';
-import { isActiveLink } from '@ye/utils/active-link';
+import { isActiveLink } from "@ye/utils/active-link";
+import { usePopoverHover } from "@ye/utils/hooks";
+import { isExternalLink } from "@ye/utils/url";
+import { useCallback, useEffect } from "react";
 
-import { useTheme } from '@mui/material/styles';
-import { popoverClasses } from '@mui/material/Popover';
+import { popoverClasses } from "@mui/material/Popover";
+import { useTheme } from "@mui/material/styles";
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
-import { NavItem } from './nav-item';
-import { navBasicClasses } from '../styles';
-import { NavUl, NavLi, NavDropdown, NavDropdownPaper } from '../components';
+import { NavDropdown, NavDropdownPaper, NavLi, NavUl } from "../components";
+import { navBasicClasses } from "../styles";
+import { NavItem } from "./nav-item";
 
-import type { NavListProps, NavSubListProps } from '../types';
+import type { NavListProps, NavSubListProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -38,7 +38,7 @@ export function NavList({
     elementRef: navItemRef,
   } = usePopoverHover<HTMLButtonElement>();
 
-  const isRtl = theme.direction === 'rtl';
+  const isRtl = theme.direction === "rtl";
   const id = open ? `${data.title}-popover` : undefined;
 
   useEffect(() => {
@@ -92,13 +92,13 @@ export function NavList({
         anchorEl={anchorEl}
         anchorOrigin={
           depth === 1
-            ? { vertical: 'bottom', horizontal: isRtl ? 'right' : 'left' }
-            : { vertical: 'center', horizontal: isRtl ? 'left' : 'right' }
+            ? { vertical: "bottom", horizontal: isRtl ? "right" : "left" }
+            : { vertical: "center", horizontal: isRtl ? "left" : "right" }
         }
         transformOrigin={
           depth === 1
-            ? { vertical: 'top', horizontal: isRtl ? 'right' : 'left' }
-            : { vertical: 'center', horizontal: isRtl ? 'right' : 'left' }
+            ? { vertical: "top", horizontal: isRtl ? "right" : "left" }
+            : { vertical: "center", horizontal: isRtl ? "right" : "left" }
         }
         slotProps={{
           paper: {
@@ -109,7 +109,9 @@ export function NavList({
         }}
         sx={{
           ...cssVars,
-          [`& .${popoverClasses.paper}`]: { ...(depth === 1 && { pt: 1, ml: -0.75 }) },
+          [`& .${popoverClasses.paper}`]: {
+            ...(depth === 1 && { pt: 1, ml: -0.75 }),
+          },
         }}
       >
         <NavDropdownPaper

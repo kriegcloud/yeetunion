@@ -22,8 +22,11 @@
  * console.log(hasKeys(settings, ['test'])); // false
  */
 
-export function hasKeys<T>(obj: T | null | undefined, keys: (keyof T | string)[]): boolean {
-  if (!obj || !keys.length || typeof obj !== 'object') {
+export function hasKeys<T>(
+  obj: T | null | undefined,
+  keys: (keyof T | string)[],
+): boolean {
+  if (!obj || !keys.length || typeof obj !== "object") {
     return false;
   }
 

@@ -1,10 +1,10 @@
-import type { LinkProps } from '@mui/material/Link';
+import type { LinkProps } from "@mui/material/Link";
 
-import {Link as MuiLink} from '@mui/material';
+import { Link as MuiLink } from "@mui/material";
 
 import Link from "next/link";
 
-import { Iconify, iconifyClasses } from '@ye/theme';
+import { Iconify, iconifyClasses } from "../iconify";
 
 // ----------------------------------------------------------------------
 
@@ -20,20 +20,20 @@ export function BackLink({ sx, label, ...other }: BackLinkProps) {
       underline="none"
       sx={[
         (theme) => ({
-          verticalAlign: 'middle',
+          verticalAlign: "middle",
           [`& .${iconifyClasses.root}`]: {
-            verticalAlign: 'inherit',
-            transform: 'translateY(-2px)',
+            verticalAlign: "inherit",
+            transform: "translateY(-2px)",
             ml: {
-              xs: '-14px',
-              md: '-18px',
+              xs: "-14px",
+              md: "-18px",
             },
-            transition: theme.transitions.create(['opacity'], {
+            transition: theme.transitions.create(["opacity"], {
               duration: theme.transitions.duration.shorter,
               easing: theme.transitions.easing.sharp,
             }),
           },
-          '&:hover': {
+          "&:hover": {
             [`& .${iconifyClasses.root}`]: {
               opacity: 0.48,
             },

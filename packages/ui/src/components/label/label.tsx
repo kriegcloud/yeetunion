@@ -1,11 +1,11 @@
-import { forwardRef } from 'react';
-import { upperFirst } from 'es-toolkit';
-import { mergeClasses } from '@ye/utils/classes';
+import { mergeClasses } from "@ye/utils/classes";
+import { upperFirst } from "es-toolkit";
+import { forwardRef } from "react";
 
-import { labelClasses } from './classes';
-import { LabelRoot, LabelIcon } from './styles';
+import { labelClasses } from "./classes";
+import { LabelIcon, LabelRoot } from "./styles";
 
-import type { LabelProps } from './types';
+import type { LabelProps } from "./types";
 
 // ----------------------------------------------------------------------
 
@@ -16,8 +16,8 @@ export const Label = forwardRef<HTMLSpanElement, LabelProps>((props, ref) => {
     startIcon,
     className,
     disabled,
-    variant = 'soft',
-    color = 'default',
+    variant = "soft",
+    color = "default",
     sx,
     ...other
   } = props;
@@ -32,11 +32,15 @@ export const Label = forwardRef<HTMLSpanElement, LabelProps>((props, ref) => {
       sx={sx}
       {...other}
     >
-      {startIcon && <LabelIcon className={labelClasses.icon}>{startIcon}</LabelIcon>}
+      {startIcon && (
+        <LabelIcon className={labelClasses.icon}>{startIcon}</LabelIcon>
+      )}
 
-      {typeof children === 'string' ? upperFirst(children) : children}
+      {typeof children === "string" ? upperFirst(children) : children}
 
-      {endIcon && <LabelIcon className={labelClasses.icon}>{endIcon}</LabelIcon>}
+      {endIcon && (
+        <LabelIcon className={labelClasses.icon}>{endIcon}</LabelIcon>
+      )}
     </LabelRoot>
   );
 });

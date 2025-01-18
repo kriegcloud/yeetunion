@@ -1,9 +1,9 @@
-import type { BoxProps } from '@mui/material/Box';
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { TypographyProps } from '@mui/material/Typography';
+import type { BoxProps } from "@mui/material/Box";
+import type { TypographyProps } from "@mui/material/Typography";
+import type { SxProps, Theme } from "@mui/material/styles";
 
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 // ----------------------------------------------------------------------
 
@@ -16,7 +16,12 @@ type SearchNotFoundProps = BoxProps & {
   };
 };
 
-export function SearchNotFound({ query, sx, slotProps, ...other }: SearchNotFoundProps) {
+export function SearchNotFound({
+  query,
+  sx,
+  slotProps,
+  ...other
+}: SearchNotFoundProps) {
   if (!query) {
     return (
       <Typography variant="body2" {...slotProps?.description}>
@@ -30,10 +35,10 @@ export function SearchNotFound({ query, sx, slotProps, ...other }: SearchNotFoun
       sx={[
         {
           gap: 1,
-          display: 'flex',
+          display: "flex",
           borderRadius: 1.5,
-          textAlign: 'center',
-          flexDirection: 'column',
+          textAlign: "center",
+          flexDirection: "column",
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -43,7 +48,7 @@ export function SearchNotFound({ query, sx, slotProps, ...other }: SearchNotFoun
         variant="h6"
         {...slotProps?.title}
         sx={[
-          { color: 'text.primary' },
+          { color: "text.primary" },
           ...(Array.isArray(slotProps?.title?.sx)
             ? (slotProps?.title?.sx ?? [])
             : [slotProps?.title?.sx]),

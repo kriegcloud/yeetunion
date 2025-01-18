@@ -1,4 +1,4 @@
-import type { Transition } from 'framer-motion';
+import type { Transition } from "framer-motion";
 
 // ----------------------------------------------------------------------
 
@@ -11,7 +11,7 @@ export const varTap = (value = 0.9) => ({
 });
 
 export const transitionTap = (props?: Transition): Transition => ({
-  type: 'spring',
+  type: "spring",
   stiffness: 400,
   damping: 18,
   ...props,

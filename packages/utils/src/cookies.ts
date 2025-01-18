@@ -1,7 +1,7 @@
 export type CookieOptions = {
   secure?: boolean;
   daysUntilExpiration?: number;
-  sameSite?: 'Strict' | 'Lax' | 'None';
+  sameSite?: "Strict" | "Lax" | "None";
   domain?: string;
   path?: string;
 };
@@ -17,17 +17,19 @@ export type CookieOptions = {
  * console.log(user); // { name: 'John', age: 30 }
  */
 export function getCookie<T>(key: string): T | null {
-  if (!key || typeof key !== 'string') {
-    console.warn('Invalid cookie key provided');
+  if (!key || typeof key !== "string") {
+    console.warn("Invalid cookie key provided");
     return null;
   }
 
   try {
     const keyName = `${key}=`;
     const decodedCookie = decodeURIComponent(document.cookie);
-    const cookieArray = decodedCookie.split('; ');
+    const cookieArray = decodedCookie.split("; ");
 
-    const matchedCookie = cookieArray.find((cookie) => cookie.startsWith(keyName));
+    const matchedCookie = cookieArray.find((cookie) =>
+      cookie.startsWith(keyName),
+    );
     if (!matchedCookie) return null;
 
     const cookieValue = matchedCookie.substring(keyName.length);
@@ -38,7 +40,7 @@ export function getCookie<T>(key: string): T | null {
       return cookieValue as T;
     }
   } catch (error) {
-    console.error('Error retrieving cookie:', error);
+    console.error("Error retrieving cookie:", error);
     return null;
   }
 }
@@ -56,41 +58,47 @@ export function getCookie<T>(key: string): T | null {
  * @example
  * setCookie('user', { name: 'John', age: 30 }, { daysUntilExpiration: 7, sameSite: 'Lax', secure: true });
  */
-export function setCookie<T>(key: string, value: T, options?: CookieOptions): void {
-  if (!key || typeof key !== 'string') {
-    console.error('Invalid cookie key provided');
+export function setCookie<T>(
+  key: string,
+  value: T,
+  options?: CookieOptions,
+): void {
+  if (!key || typeof key !== "string") {
+    console.error("Invalid cookie key provided");
     return;
   }
 
   const {
     daysUntilExpiration = 0,
-    sameSite = 'Strict',
+    sameSite = "Strict",
     secure = false,
-    path = '/',
+    path = "/",
     domain,
   } = options ?? {};
 
   try {
     const serializedValue = encodeURIComponent(
-      typeof value === 'string' ? value : JSON.stringify(value)
+      typeof value === "string" ? value : JSON.stringify(value),
     );
 
     const cookieParts = [
       `${key}=${serializedValue}`,
       `path=${path}`,
       sameSite && `SameSite=${sameSite}`,
-      secure && 'Secure',
+      secure && "Secure",
       domain && `domain=${domain}`,
     ];
 
     if (daysUntilExpiration > 0) {
-      const expirationDate = new Date(Date.now() + daysUntilExpiration * 24 * 60 * 60 * 1000);
+      const expirationDate = new Date(
+        Date.now() + daysUntilExpiration * 24 * 60 * 60 * 1000,
+      );
       cookieParts.push(`expires=${expirationDate.toUTCString()}`);
     }
 
-    document.cookie = cookieParts.filter(Boolean).join('; ');
+    document.cookie = cookieParts.filter(Boolean).join("; ");
   } catch (error) {
-    console.error('Error setting cookie:', error);
+    console.error("Error setting cookie:", error);
   }
 }
 
@@ -105,25 +113,28 @@ export function setCookie<T>(key: string, value: T, options?: CookieOptions): vo
  * @example
  * removeCookie('user');
  */
-export function removeCookie(key: string, options?: Pick<CookieOptions, 'path' | 'domain'>): void {
-  if (!key || typeof key !== 'string') {
-    console.error('Invalid cookie key provided');
+export function removeCookie(
+  key: string,
+  options?: Pick<CookieOptions, "path" | "domain">,
+): void {
+  if (!key || typeof key !== "string") {
+    console.error("Invalid cookie key provided");
     return;
   }
 
-  const { path = '/', domain } = options ?? {};
+  const { path = "/", domain } = options ?? {};
 
   try {
     const cookieParts = [
       `${key}=`,
-      'expires=Thu, 01 Jan 1970 00:00:00 GMT',
+      "expires=Thu, 01 Jan 1970 00:00:00 GMT",
       `path=${path}`,
       domain && `domain=${domain}`,
-      'Secure',
+      "Secure",
     ];
 
-    document.cookie = cookieParts.filter(Boolean).join('; ');
+    document.cookie = cookieParts.filter(Boolean).join("; ");
   } catch (error) {
-    console.error('Error removing cookie:', error);
+    console.error("Error removing cookie:", error);
   }
 }

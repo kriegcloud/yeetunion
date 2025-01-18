@@ -1,17 +1,22 @@
-'use client';
+"use client";
 
-import type { AppBarProps } from '@mui/material/AppBar';
-import type { ContainerProps } from '@mui/material/Container';
-import type { Theme, SxProps, CSSObject, Breakpoint } from '@mui/material/styles';
+import type { AppBarProps } from "@mui/material/AppBar";
+import type { ContainerProps } from "@mui/material/Container";
+import type {
+  Breakpoint,
+  CSSObject,
+  SxProps,
+  Theme,
+} from "@mui/material/styles";
 
-import { useScrollOffsetTop } from '@ye/utils/hooks';
-import { varAlpha,  } from '@ye/utils/colors';
-import { mergeClasses } from "@ye/utils/classes"
-import AppBar from '@mui/material/AppBar';
-import { styled } from '@mui/material/styles';
-import Container from '@mui/material/Container';
+import AppBar from "@mui/material/AppBar";
+import Container from "@mui/material/Container";
+import { styled } from "@mui/material/styles";
+import { mergeClasses } from "@ye/utils/classes";
+import { varAlpha } from "@ye/utils/colors";
+import { useScrollOffsetTop } from "@ye/utils/hooks";
 
-import { layoutClasses } from './classes';
+import { layoutClasses } from "./classes";
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +33,7 @@ export type HeaderSectionProps = AppBarProps & {
   };
   slotProps?: {
     container?: ContainerProps;
-    centerArea?: React.ComponentProps<'div'> & { sx?: SxProps<Theme> };
+    centerArea?: React.ComponentProps<"div"> & { sx?: SxProps<Theme> };
   };
 };
 
@@ -39,7 +44,7 @@ export function HeaderSection({
   className,
   disableOffset,
   disableElevation,
-  layoutQuery = 'md',
+  layoutQuery = "md",
   ...other
 }: HeaderSectionProps) {
   const { offsetTop: isOffset } = useScrollOffsetTop();
@@ -55,7 +60,7 @@ export function HeaderSection({
       sx={[
         (theme) => ({
           ...(isOffset && {
-            '--color': `var(--offset-color, ${theme.vars.palette.text.primary})`,
+            "--color": `var(--offset-color, ${theme.vars.palette.text.primary})`,
           }),
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
@@ -67,7 +72,9 @@ export function HeaderSection({
       <HeaderContainer layoutQuery={layoutQuery} {...slotProps?.container}>
         {slots?.leftArea}
 
-        <HeaderCenterArea {...slotProps?.centerArea}>{slots?.centerArea}</HeaderCenterArea>
+        <HeaderCenterArea {...slotProps?.centerArea}>
+          {slots?.centerArea}
+        </HeaderCenterArea>
 
         {slots?.rightArea}
       </HeaderContainer>
@@ -79,22 +86,25 @@ export function HeaderSection({
 
 // ----------------------------------------------------------------------
 
-type HeaderRootProps = Pick<HeaderSectionProps, 'disableOffset' | 'disableElevation'> & {
+type HeaderRootProps = Pick<
+  HeaderSectionProps,
+  "disableOffset" | "disableElevation"
+> & {
   isOffset: boolean;
 };
 
 const HeaderRoot = styled(AppBar, {
   shouldForwardProp: (prop: string) =>
-    !['isOffset', 'disableOffset', 'disableElevation', 'sx'].includes(prop),
+    !["isOffset", "disableOffset", "disableElevation", "sx"].includes(prop),
 })<HeaderRootProps>(({ isOffset, disableOffset, disableElevation, theme }) => {
   const pauseZindex = { top: -1, bottom: -2 };
 
   const pauseStyles: CSSObject = {
     opacity: 0,
     content: '""',
-    visibility: 'hidden',
-    position: 'absolute',
-    transition: theme.transitions.create(['opacity', 'visibility'], {
+    visibility: "hidden",
+    position: "absolute",
+    transition: theme.transitions.create(["opacity", "visibility"], {
       easing: theme.transitions.easing.easeInOut,
       duration: theme.transitions.duration.shorter,
     }),
@@ -107,10 +117,10 @@ const HeaderRoot = styled(AppBar, {
     ...pauseStyles,
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     zIndex: pauseZindex.top,
-    ...(isOffset && { opacity: 1, visibility: 'visible' }),
+    ...(isOffset && { opacity: 1, visibility: "visible" }),
   };
 
   const shadowStyles: CSSObject = {
@@ -119,33 +129,37 @@ const HeaderRoot = styled(AppBar, {
     right: 0,
     bottom: 0,
     height: 24,
-    margin: 'auto',
-    borderRadius: '50%',
+    margin: "auto",
+    borderRadius: "50%",
     width: `calc(100% - 48px)`,
     zIndex: pauseZindex.bottom,
     boxShadow: theme.vars.customShadows.z8,
-    ...(isOffset && { opacity: 0.48, visibility: 'visible' }),
+    ...(isOffset && { opacity: 0.48, visibility: "visible" }),
   };
 
   return {
-    zIndex: 'var(--layout-header-zIndex)',
-    ...(!disableOffset && { '&::before': bgStyles }),
-    ...(!disableElevation && { '&::after': shadowStyles }),
+    zIndex: "var(--layout-header-zIndex)",
+    ...(!disableOffset && { "&::before": bgStyles }),
+    ...(!disableElevation && { "&::after": shadowStyles }),
   };
 });
 
 const HeaderContainer = styled(Container, {
-  shouldForwardProp: (prop: string) => !['layoutQuery', 'sx'].includes(prop),
-})<Pick<HeaderSectionProps, 'layoutQuery'>>(({ layoutQuery = 'md', theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  color: 'var(--color)',
-  height: 'var(--layout-header-mobile-height)',
-  [theme.breakpoints.up(layoutQuery)]: { height: 'var(--layout-header-desktop-height)' },
-}));
+  shouldForwardProp: (prop: string) => !["layoutQuery", "sx"].includes(prop),
+})<Pick<HeaderSectionProps, "layoutQuery">>(
+  ({ layoutQuery = "md", theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    color: "var(--color)",
+    height: "var(--layout-header-mobile-height)",
+    [theme.breakpoints.up(layoutQuery)]: {
+      height: "var(--layout-header-desktop-height)",
+    },
+  }),
+);
 
-const HeaderCenterArea = styled('div')(() => ({
-  display: 'flex',
-  flex: '1 1 auto',
-  justifyContent: 'center',
+const HeaderCenterArea = styled("div")(() => ({
+  display: "flex",
+  flex: "1 1 auto",
+  justifyContent: "center",
 }));

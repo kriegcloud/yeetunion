@@ -1,34 +1,34 @@
-'use client';
+"use client";
 
-import type { Breakpoint } from '@mui/material/styles';
+import type { Breakpoint } from "@mui/material/styles";
 
-import { merge } from 'es-toolkit';
+import { merge } from "es-toolkit";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Alert from '@mui/material/Alert';
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 
-import { paths } from 'src/routes/paths';
+import { paths } from "@ye/apps/yeetunion";
 import RouterLink from "next/link";
 
-import { Logo } from 'src/components/logo';
+import { Logo } from "../../components";
 
-import { AuthSplitSection } from './section';
-import { AuthSplitContent } from './content';
-import { MainSection } from '../core/main-section';
-import { LayoutSection } from '../core/layout-section';
-import { HeaderSection } from '../core/header-section';
-import { SettingsButton } from '../components/settings-button';
+import { SettingsButton } from "../components/settings-button";
+import { HeaderSection } from "../core/header-section";
+import { LayoutSection } from "../core/layout-section";
+import { MainSection } from "../core/main-section";
+import { AuthSplitContent } from "./content";
+import { AuthSplitSection } from "./section";
 
-import type { AuthSplitSectionProps } from './section';
-import type { AuthSplitContentProps } from './content';
-import type { MainSectionProps } from '../core/main-section';
-import type { HeaderSectionProps } from '../core/header-section';
-import type { LayoutSectionProps } from '../core/layout-section';
+import type { HeaderSectionProps } from "../core/header-section";
+import type { LayoutSectionProps } from "../core/layout-section";
+import type { MainSectionProps } from "../core/main-section";
+import type { AuthSplitContentProps } from "./content";
+import type { AuthSplitSectionProps } from "./section";
 
 // ----------------------------------------------------------------------
 
-type LayoutBaseProps = Pick<LayoutSectionProps, 'sx' | 'children' | 'cssVars'>;
+type LayoutBaseProps = Pick<LayoutSectionProps, "sx" | "children" | "cssVars">;
 
 export type AuthSplitLayoutProps = LayoutBaseProps & {
   layoutQuery?: Breakpoint;
@@ -45,16 +45,16 @@ export function AuthSplitLayout({
   cssVars,
   children,
   slotProps,
-  layoutQuery = 'md',
+  layoutQuery = "md",
 }: AuthSplitLayoutProps) {
   const renderHeader = () => {
-    const headerSlotProps: HeaderSectionProps['slotProps'] = {
+    const headerSlotProps: HeaderSectionProps["slotProps"] = {
       container: { maxWidth: false },
     };
 
-    const headerSlots: HeaderSectionProps['slots'] = {
+    const headerSlots: HeaderSectionProps["slots"] = {
       topArea: (
-        <Alert severity="info" sx={{ display: 'none', borderRadius: 0 }}>
+        <Alert severity="info" sx={{ display: "none", borderRadius: 0 }}>
           This is an info Alert.
         </Alert>
       ),
@@ -65,13 +65,19 @@ export function AuthSplitLayout({
         </>
       ),
       rightArea: (
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1, sm: 1.5 } }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: 1, sm: 1.5 },
+          }}
+        >
           {/** @slot Help link */}
           <Link
             href={paths.faqs}
             component={RouterLink}
             color="inherit"
-            sx={{ typography: 'subtitle2' }}
+            sx={{ typography: "subtitle2" }}
           >
             Need help?
           </Link>
@@ -90,7 +96,7 @@ export function AuthSplitLayout({
         slots={{ ...headerSlots, ...slotProps?.header?.slots }}
         slotProps={merge(headerSlotProps, slotProps?.header?.slotProps ?? {})}
         sx={[
-          { position: { [layoutQuery]: 'fixed' } },
+          { position: { [layoutQuery]: "fixed" } },
           ...(Array.isArray(slotProps?.header?.sx)
             ? (slotProps?.header?.sx ?? [])
             : [slotProps?.header?.sx]),
@@ -105,7 +111,9 @@ export function AuthSplitLayout({
     <MainSection
       {...slotProps?.main}
       sx={[
-        (theme) => ({ [theme.breakpoints.up(layoutQuery)]: { flexDirection: 'row' } }),
+        (theme) => ({
+          [theme.breakpoints.up(layoutQuery)]: { flexDirection: "row" },
+        }),
         ...(Array.isArray(slotProps?.main?.sx)
           ? (slotProps?.main?.sx ?? [])
           : [slotProps?.main?.sx]),
@@ -115,33 +123,7 @@ export function AuthSplitLayout({
         layoutQuery={layoutQuery}
         method={"Jwt"}
         {...slotProps?.section}
-        methods={[
-          {
-            label: 'Jwt',
-            path: paths.auth.jwt.signIn,
-            icon: `/assets/icons/platforms/ic-jwt.svg`,
-          },
-          {
-            label: 'Firebase',
-            path: paths.auth.firebase.signIn,
-            icon: `/assets/icons/platforms/ic-firebase.svg`,
-          },
-          {
-            label: 'Amplify',
-            path: paths.auth.amplify.signIn,
-            icon: `/assets/icons/platforms/ic-amplify.svg`,
-          },
-          {
-            label: 'Auth0',
-            path: paths.auth.auth0.signIn,
-            icon: `/assets/icons/platforms/ic-auth0.svg`,
-          },
-          {
-            label: 'Supabase',
-            path: paths.auth.supabase.signIn,
-            icon: `/assets/icons/platforms/ic-supabase.svg`,
-          },
-        ]}
+        methods={[]}
       />
       <AuthSplitContent layoutQuery={layoutQuery} {...slotProps?.content}>
         {children}
@@ -162,7 +144,7 @@ export function AuthSplitLayout({
       /** **************************************
        * @Styles
        *************************************** */
-      cssVars={{ '--layout-auth-content-width': '420px', ...cssVars }}
+      cssVars={{ "--layout-auth-content-width": "420px", ...cssVars }}
       sx={sx}
     >
       {renderMain()}

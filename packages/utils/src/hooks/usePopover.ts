@@ -1,6 +1,7 @@
-import type { Dispatch, MouseEvent, SetStateAction } from 'react';
+"use client";
+import type { Dispatch, MouseEvent, SetStateAction } from "react";
 
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from "react";
 
 // ----------------------------------------------------------------------
 

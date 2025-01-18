@@ -1,6 +1,5 @@
 import bundleAnalyzerPlugin from "@next/bundle-analyzer";
 
-
 const CSP_DIRECTIVES = {
   "default-src": ["'self'"],
   "base-uri": ["'self'"],
@@ -35,18 +34,10 @@ const CSP_DIRECTIVES = {
     "https://vercel.live",
     "'unsafe-inline'",
   ],
-  "connect-src": [
-    "'self'",
-    "https://vercel.live/",
-    "https://vercel.com",
-  ],
+  "connect-src": ["'self'", "https://vercel.live/", "https://vercel.com"],
   "media-src": ["'self'", "data:"],
   "frame-ancestors": ["'self'", "https://vercel.live", "https://vercel.com"],
-  "img-src": [
-    "'self'",
-    "https://www.google-analytics.com",
-    "data:",
-  ],
+  "img-src": ["'self'", "https://www.google-analytics.com", "data:"],
   "frame-src": [
     "'self'",
     "https://google-analytics.com",
@@ -56,8 +47,8 @@ const CSP_DIRECTIVES = {
 };
 
 const ENABLE_CSP =
-  process.env.VERCEL_ENV === "preview" ||
-  process.env.VERCEL_ENV === "production";
+  process.env["VERCEL_ENV"] === "preview" ||
+  process.env["VERCEL_ENV"] === "production";
 
 const genCSP = () => {
   let csp = "";
@@ -93,8 +84,8 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: ENABLE_CSP
       ? genCSP()
-        .replace(/\s{2,}/g, " ")
-        .trim()
+          .replace(/\s{2,}/g, " ")
+          .trim()
       : "",
   },
 ];

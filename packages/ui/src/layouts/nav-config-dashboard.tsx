@@ -5,8 +5,8 @@
 // // import { CONFIG } from 'src/global-config';
 //
 // import { Label } from 'src/components/label';
-// import { Iconify } from "@ye/theme";
-// import { SvgColor } from '@ye/theme';
+// import { Iconify } from "@/components";
+// import { SvgColor } from '@/theme';
 
 // ----------------------------------------------------------------------
 

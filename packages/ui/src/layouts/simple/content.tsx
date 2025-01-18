@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import type { BoxProps } from '@mui/material/Box';
-import type { Breakpoint } from '@mui/material/styles';
+import type { BoxProps } from "@mui/material/Box";
+import type { Breakpoint } from "@mui/material/styles";
 
 import { mergeClasses } from "@ye/utils/classes";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
-import { layoutClasses } from '../core/classes';
+import { layoutClasses } from "../core/classes";
 
 // ----------------------------------------------------------------------
 
@@ -17,7 +17,7 @@ export function SimpleCompactContent({
   sx,
   children,
   className,
-  layoutQuery = 'md',
+  layoutQuery = "md",
   ...other
 }: SimpleCompactContentProps) {
   return (
@@ -26,15 +26,15 @@ export function SimpleCompactContent({
       sx={[
         (theme) => ({
           width: 1,
-          mx: 'auto',
-          display: 'flex',
-          flex: '1 1 auto',
-          textAlign: 'center',
-          flexDirection: 'column',
+          mx: "auto",
+          display: "flex",
+          flex: "1 1 auto",
+          textAlign: "center",
+          flexDirection: "column",
           p: theme.spacing(3, 2, 10, 2),
-          maxWidth: 'var(--layout-simple-content-compact-width)',
+          maxWidth: "var(--layout-simple-content-compact-width)",
           [theme.breakpoints.up(layoutQuery)]: {
-            justifyContent: 'center',
+            justifyContent: "center",
             p: theme.spacing(10, 0, 10, 0),
           },
         }),

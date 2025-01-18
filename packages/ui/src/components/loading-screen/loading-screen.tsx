@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { SxProps, Theme } from "@mui/material/styles";
 
-import { Fragment } from 'react';
+import { Fragment } from "react";
 
-import Portal from '@mui/material/Portal';
-import { styled } from '@mui/material/styles';
-import LinearProgress from '@mui/material/LinearProgress';
+import LinearProgress from "@mui/material/LinearProgress";
+import Portal from "@mui/material/Portal";
+import { styled } from "@mui/material/styles";
 import type { ComponentProps } from "react";
 // ----------------------------------------------------------------------
 
-export type LoadingScreenProps = ComponentProps<'div'> & {
+export type LoadingScreenProps = ComponentProps<"div"> & {
   portal?: boolean;
   sx?: SxProps<Theme>;
 };
@@ -29,13 +29,13 @@ export function LoadingScreen({ portal, sx, ...other }: LoadingScreenProps) {
 
 // ----------------------------------------------------------------------
 
-const LoadingContent = styled('div')(({ theme }) => ({
+const LoadingContent = styled("div")(({ theme }) => ({
   flexGrow: 1,
-  width: '100%',
-  display: 'flex',
-  minHeight: '100%',
-  alignItems: 'center',
-  justifyContent: 'center',
+  width: "100%",
+  display: "flex",
+  minHeight: "100%",
+  alignItems: "center",
+  justifyContent: "center",
   paddingLeft: theme.spacing(5),
   paddingRight: theme.spacing(5),
 }));

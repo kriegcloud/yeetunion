@@ -1,6 +1,6 @@
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { Props as SimplebarProps } from 'simplebar-react';
-import type { ReactNode } from 'react';
+import type { SxProps, Theme } from "@mui/material/styles";
+import type { ReactNode } from "react";
+import type { Props as SimplebarProps } from "simplebar-react";
 // ----------------------------------------------------------------------
 
 export type ScrollbarProps = SimplebarProps & {

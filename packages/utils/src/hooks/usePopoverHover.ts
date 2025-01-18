@@ -1,6 +1,7 @@
-import type { Dispatch, RefObject, SetStateAction } from 'react';
+"use client";
+import type { Dispatch, RefObject, SetStateAction } from "react";
 
-import { useRef, useState, useCallback } from 'react';
+import { useCallback, useRef, useState } from "react";
 
 // ----------------------------------------------------------------------
 
@@ -43,7 +44,7 @@ type UsePopoverHoverReturn<T> = {
 };
 
 export function usePopoverHover<T extends HTMLElement>(
-  inputRef?: RefObject<T>
+  inputRef?: RefObject<T>,
 ): UsePopoverHoverReturn<T> {
   const initialRef = useRef<T | null>(null);
   const elementRef = inputRef || initialRef;

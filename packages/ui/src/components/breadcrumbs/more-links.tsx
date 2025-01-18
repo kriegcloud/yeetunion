@@ -1,6 +1,6 @@
-import Link from '@mui/material/Link';
-import { styled } from '@mui/material/styles';
-import type { ComponentProps } from 'react';
+import Link from "@mui/material/Link";
+import { styled } from "@mui/material/styles";
+import type { ComponentProps } from "react";
 // ----------------------------------------------------------------------
 
 export type MoreLinksProps = ComponentProps<typeof MoreLinksRoot> & {
@@ -23,8 +23,8 @@ export function MoreLinks({ links, sx, ...other }: MoreLinksProps) {
 
 // ----------------------------------------------------------------------
 
-const MoreLinksRoot = styled('ul')(() => ({
-  display: 'flex',
-  flexDirection: 'column',
-  '& > li': { display: 'flex' },
+const MoreLinksRoot = styled("ul")(() => ({
+  display: "flex",
+  flexDirection: "column",
+  "& > li": { display: "flex" },
 }));

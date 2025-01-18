@@ -8,21 +8,29 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "components": {
+    "./components": {
       "types": "./dist/components/index.d.ts",
       "default": "./dist/components/index.js"
     },
-    "layouts": {
+    "./layouts": {
       "types": "./dist/layouts/index.d.ts",
       "default": "./dist/layouts/index.js"
     },
-    "icons": {
+    "./icons": {
       "types": "./dist/icons/index.d.ts",
       "default": "./dist/icons/index.js"
     },
-    "illustrations": {
+    "./illustrations": {
       "types": "./dist/illustrations/index.d.ts",
       "default": "./dist/illustrations/index.js"
+    },
+    "./theme": {
+      "types": "./dist/theme/index.d.ts",
+      "default": "./dist/theme/index.js"
+    },
+    "./server-theme": {
+      "types": "./dist/theme/server.d.ts",
+      "default": "./dist/theme/server.js"
     }
   },
   "scripts": {
@@ -35,24 +43,43 @@
   },
   "devDependencies": {
     "@types/autosuggest-highlight": "^3.2.3",
+    "@types/nprogress": "^0.2.3",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "@types/react-map-gl": "^6.1.7",
     "@ye/tsconfig": "workspace:^"
   },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@iconify/react": "^5.2.0",
+    "@mui/lab": "^6.0.0-beta.23",
+    "@mui/material": "^6.4.0",
+    "@mui/material-nextjs": "^6.3.1",
+    "@mui/x-date-pickers": "^7.24.0",
+    "@mui/x-tree-view": "^7.24.0"
+  },
   "dependencies": {
-    "@ye/meta": "workspace:^",
-    "@ye/i18n": "workspace:^",
+    "@ye/apps": "workspace:^",
     "@ye/assets": "workspace:^",
-    "@ye/theme": "workspace:^",
+    "@ye/i18n": "workspace:^",
+    "@ye/utils": "workspace:^",
     "apexcharts": "^4.3.0",
     "autosuggest-highlight": "^3.3.4",
     "embla-carousel-auto-scroll": "^8.5.1",
+    "es-toolkit": "^1.31.0",
     "framer-motion": "^11.15.0",
+    "nprogress": "^0.2.0",
     "react": "^18.3.1",
     "react-apexcharts": "^1.7.0",
     "react-colorful": "^5.6.1",
     "react-dom": "^18.3.1",
-    "react-map-gl": "^7.1.8"
+    "react-map-gl": "^7.1.8",
+    "simplebar-react": "^3.3.0",
+    "sonner": "^1.7.2",
+    "stylis-plugin-rtl": "^2.1.1"
   }
 }

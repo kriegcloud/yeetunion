@@ -1,17 +1,17 @@
-import type { ChipProps } from '@mui/material/Chip';
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { ChipProps } from "@mui/material/Chip";
+import type { SxProps, Theme } from "@mui/material/styles";
 
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
+import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
 
-import { Iconify } from '@ye/theme';
 import type { ComponentProps } from "react";
+import { Iconify } from "../iconify";
 
 // ----------------------------------------------------------------------
 
-export const chipProps: ChipProps = { size: 'small', variant: 'soft' };
+export const chipProps: ChipProps = { size: "small", variant: "soft" };
 
-export type FiltersResultProps = ComponentProps<'div'> & {
+export type FiltersResultProps = ComponentProps<"div"> & {
   totalResults: number;
   onReset?: () => void;
   sx?: SxProps<Theme>;
@@ -48,18 +48,18 @@ export function FiltersResult({
 
 // ----------------------------------------------------------------------
 
-const ResultRoot = styled('div')``;
+const ResultRoot = styled("div")``;
 
-const ResultLabel = styled('div')(({ theme }) => ({
+const ResultLabel = styled("div")(({ theme }) => ({
   ...theme.typography.body2,
   marginBottom: theme.spacing(1.5),
-  '& span': { color: theme.vars.palette.text.secondary },
+  "& span": { color: theme.vars.palette.text.secondary },
 }));
 
-const ResultContent = styled('div')(({ theme }) => ({
+const ResultContent = styled("div")(({ theme }) => ({
   flexGrow: 1,
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignItems: 'center',
+  display: "flex",
+  flexWrap: "wrap",
+  alignItems: "center",
   gap: theme.spacing(1),
 }));

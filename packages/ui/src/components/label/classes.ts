@@ -1,8 +1,8 @@
-import { createClasses } from '@ye/theme';
+import { createClasses } from "../../theme";
 
 // ----------------------------------------------------------------------
 
 export const labelClasses = {
-  root: createClasses('label__root'),
-  icon: createClasses('label__icon'),
+  root: createClasses("label__root"),
+  icon: createClasses("label__icon"),
 };

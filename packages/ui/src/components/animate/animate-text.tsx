@@ -1,48 +1,49 @@
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { TypographyProps } from '@mui/material/Typography';
-import type { Variants, UseInViewOptions } from 'framer-motion';
+"use client";
+import type { TypographyProps } from "@mui/material/Typography";
+import type { SxProps, Theme } from "@mui/material/styles";
+import type { UseInViewOptions, Variants } from "framer-motion";
 
-import { useRef, useMemo, useEffect } from 'react';
 import { mergeClasses } from "@ye/utils/classes";
-import { m, useInView, useAnimation } from 'framer-motion';
+import { m, useAnimation, useInView } from "framer-motion";
+import { useEffect, useMemo, useRef } from "react";
 
-import { styled } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
+import { styled } from "@mui/material/styles";
 
-import { createClasses } from "@ye/theme";
+import { createClasses } from "../../theme";
 
-import { varFade, varContainer } from './variants';
+import { varContainer, varFade } from "./variants";
 
 // ----------------------------------------------------------------------
 
 export const animateTextClasses = {
-  root: createClasses('animate__text__root'),
-  lines: createClasses('animate__text__lines'),
-  line: createClasses('animate__text__line'),
-  word: createClasses('animate__text__word'),
-  char: createClasses('animate__text__char'),
-  space: createClasses('animate__text__space'),
-  srOnly: 'sr-only',
+  root: createClasses("animate__text__root"),
+  lines: createClasses("animate__text__lines"),
+  line: createClasses("animate__text__line"),
+  word: createClasses("animate__text__word"),
+  char: createClasses("animate__text__char"),
+  space: createClasses("animate__text__space"),
+  srOnly: "sr-only",
 };
 
 const srOnlyStyles: SxProps<Theme> = {
   p: 0,
-  width: '1px',
-  height: '1px',
-  margin: '-1px',
+  width: "1px",
+  height: "1px",
+  margin: "-1px",
   borderWidth: 0,
-  overflow: 'hidden',
-  position: 'absolute',
-  whiteSpace: 'nowrap',
-  clip: 'rect(0, 0, 0, 0)',
+  overflow: "hidden",
+  position: "absolute",
+  whiteSpace: "nowrap",
+  clip: "rect(0, 0, 0, 0)",
 };
 
 export type AnimateTextProps = TypographyProps & {
   variants?: Variants;
   repeatDelayMs?: number;
   textContent: string | string[];
-  once?: UseInViewOptions['once'];
-  amount?: UseInViewOptions['amount'];
+  once?: UseInViewOptions["once"];
+  amount?: UseInViewOptions["amount"];
 };
 
 export function AnimateText({
@@ -52,7 +53,7 @@ export function AnimateText({
   textContent,
   once = true,
   amount = 1 / 3,
-  component = 'p',
+  component = "p",
   repeatDelayMs = 100, // 1000 = 1s
   ...other
 }: AnimateTextProps) {
@@ -62,7 +63,7 @@ export function AnimateText({
 
   const textArray = useMemo(
     () => (Array.isArray(textContent) ? textContent : [textContent]),
-    [textContent]
+    [textContent],
   );
 
   const isInView = useInView(textRef, { once, amount });
@@ -73,18 +74,18 @@ export function AnimateText({
     const triggerAnimation = () => {
       if (repeatDelayMs) {
         timeout = setTimeout(async () => {
-          await animationControls.start('initial');
-          animationControls.start('animate');
+          await animationControls.start("initial");
+          animationControls.start("animate");
         }, repeatDelayMs);
       } else {
-        animationControls.start('animate');
+        animationControls.start("animate");
       }
     };
 
     if (isInView) {
       triggerAnimation();
     } else {
-      animationControls.start('initial');
+      animationControls.start("initial");
     }
 
     return () => clearTimeout(timeout);
@@ -108,7 +109,7 @@ export function AnimateText({
       ]}
       {...other}
     >
-      <span className={animateTextClasses.srOnly}>{textArray.join(' ')}</span>
+      <span className={animateTextClasses.srOnly}>{textArray.join(" ")}</span>
 
       <AnimatedTextContainer
         ref={textRef}
@@ -124,32 +125,36 @@ export function AnimateText({
             key={`${line}-${lineIndex}`}
             data-index={lineIndex}
             className={animateTextClasses.line}
-            sx={{ display: 'block' }}
+            sx={{ display: "block" }}
           >
-            {line.split(' ').map((word, wordIndex) => {
-              const lastWordInline = line.split(' ')[line.split(' ').length - 1];
+            {line.split(" ").map((word, wordIndex) => {
+              const lastWordInline =
+                line.split(" ")[line.split(" ").length - 1];
 
               return (
                 <TextWord
                   key={`${word}-${wordIndex}`}
                   data-index={wordIndex}
                   className={animateTextClasses.word}
-                  sx={{ display: 'inline-block' }}
+                  sx={{ display: "inline-block" }}
                 >
-                  {word.split('').map((char, charIndex) => (
+                  {word.split("").map((char, charIndex) => (
                     <AnimatedTextChar
                       key={`${char}-${charIndex}`}
-                      variants={variants ?? varFade('in')}
+                      variants={variants ?? varFade("in")}
                       data-index={charIndex}
                       className={animateTextClasses.char}
-                      sx={{ display: 'inline-block' }}
+                      sx={{ display: "inline-block" }}
                     >
                       {char}
                     </AnimatedTextChar>
                   ))}
 
                   {lastWordInline !== word && (
-                    <TextWord className={animateTextClasses.space} sx={{ display: 'inline-block' }}>
+                    <TextWord
+                      className={animateTextClasses.space}
+                      sx={{ display: "inline-block" }}
+                    >
                       &nbsp;
                     </TextWord>
                   )}
@@ -165,9 +170,9 @@ export function AnimateText({
 
 // ----------------------------------------------------------------------
 
-const TextLine = styled('span')``;
+const TextLine = styled("span")``;
 
-const TextWord = styled('span')``;
+const TextWord = styled("span")``;
 
 const AnimatedTextContainer = styled(m.span)``;
 

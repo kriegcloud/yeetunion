@@ -1,14 +1,14 @@
-import { useBoolean } from '@ye/utils/hooks';
-import { useRef, useEffect, useCallback } from 'react';
-import { isActiveLink,  } from '@ye/utils/active-link';
+import { isActiveLink } from "@ye/utils/active-link";
+import { useBoolean } from "@ye/utils/hooks";
 import { isEqualPath, isExternalLink } from "@ye/utils/url";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef } from "react";
 
-import { NavItem } from './nav-desktop-item';
-import { Nav, NavLi, NavUl, NavDropdown } from '../components';
-import { NavItemDashboard } from './nav-desktop-item-dashboard';
+import { Nav, NavDropdown, NavLi, NavUl } from "../components";
+import { NavItem } from "./nav-desktop-item";
+import { NavItemDashboard } from "./nav-desktop-item-dashboard";
 
-import type { NavListProps, NavSubListProps } from '../types';
+import type { NavListProps, NavSubListProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -52,11 +52,19 @@ export function NavList({ data, sx, ...other }: NavListProps) {
 
   const renderDropdown = () =>
     !!data.children && (
-      <NavDropdown open={open} onMouseEnter={handleOpenMenu} onMouseLeave={onClose}>
+      <NavDropdown
+        open={open}
+        onMouseEnter={handleOpenMenu}
+        onMouseLeave={onClose}
+      >
         <Nav>
-          <NavUl sx={{ gap: 3, flexDirection: 'row' }}>
+          <NavUl sx={{ gap: 3, flexDirection: "row" }}>
             {data.children.map((list) => (
-              <NavSubList key={list.subheader} subheader={list.subheader} data={list.items} />
+              <NavSubList
+                key={list.subheader}
+                subheader={list.subheader}
+                data={list.items}
+              />
             ))}
           </NavUl>
         </Nav>
@@ -76,14 +84,14 @@ export function NavList({ data, sx, ...other }: NavListProps) {
 function NavSubList({ data, subheader, sx, ...other }: NavSubListProps) {
   const pathname = usePathname();
 
-  const isDashboard = subheader === 'Dashboard';
+  const isDashboard = subheader === "Dashboard";
 
   return (
     <NavLi
       sx={[
         () => ({
           flexGrow: 1,
-          flexBasis: 'auto',
+          flexBasis: "auto",
           flexShrink: isDashboard ? 1 : 0,
           ...(isDashboard && { maxWidth: 560 }),
         }),
@@ -95,7 +103,7 @@ function NavSubList({ data, subheader, sx, ...other }: NavSubListProps) {
         <NavLi
           sx={(theme) => ({
             mb: 0.75,
-            typography: 'overline',
+            typography: "overline",
             fontSize: theme.typography.pxToRem(11),
           })}
         >
@@ -116,7 +124,7 @@ function NavSubList({ data, subheader, sx, ...other }: NavSubListProps) {
                 active={isEqualPath(item.path, pathname)}
               />
             </NavLi>
-          )
+          ),
         )}
       </NavUl>
     </NavLi>

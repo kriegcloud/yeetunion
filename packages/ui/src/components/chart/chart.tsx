@@ -1,18 +1,18 @@
-import { lazy, Suspense, forwardRef } from 'react';
-import { useIsClient } from '@ye/utils/hooks';
 import { mergeClasses } from "@ye/utils/classes";
+import { useIsClient } from "@ye/utils/hooks";
+import { Suspense, forwardRef, lazy } from "react";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-import { chartClasses } from './classes';
-import { ChartLoading } from './components';
+import { chartClasses } from "./classes";
+import { ChartLoading } from "./components";
 
-import type { ChartProps } from './types';
+import type { ChartProps } from "./types";
 
 // ----------------------------------------------------------------------
 
 const LazyChart = lazy(() =>
-  import('react-apexcharts').then((module) => ({ default: module.default }))
+  import("react-apexcharts").then((module) => ({ default: module.default })),
 );
 
 export const Chart = forwardRef<HTMLDivElement, ChartProps>((props, ref) => {
@@ -20,7 +20,9 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>((props, ref) => {
 
   const isClient = useIsClient();
 
-  const renderFallback = () => <ChartLoading type={type} sx={slotProps?.loading} />;
+  const renderFallback = () => (
+    <ChartLoading type={type} sx={slotProps?.loading} />
+  );
 
   return (
     <ChartRoot
@@ -32,7 +34,13 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>((props, ref) => {
     >
       {isClient ? (
         <Suspense fallback={renderFallback()}>
-          <LazyChart type={type} series={series} options={options} width="100%" height="100%" />
+          <LazyChart
+            type={type}
+            series={series}
+            options={options}
+            width="100%"
+            height="100%"
+          />
         </Suspense>
       ) : (
         renderFallback()
@@ -43,9 +51,9 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>((props, ref) => {
 
 // ----------------------------------------------------------------------
 
-const ChartRoot = styled('div')(({ theme }) => ({
-  width: '100%',
+const ChartRoot = styled("div")(({ theme }) => ({
+  width: "100%",
   flexShrink: 0,
-  position: 'relative',
+  position: "relative",
   borderRadius: theme.shape.borderRadius * 1.5,
 }));

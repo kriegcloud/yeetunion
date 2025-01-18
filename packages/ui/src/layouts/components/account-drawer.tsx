@@ -1,36 +1,28 @@
-'use client';
+"use client";
 
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { IconButtonProps } from "@mui/material/IconButton";
 
 import { varAlpha } from "@ye/utils/colors";
-import { useBoolean } from '@ye/utils/hooks';
+import { useBoolean } from "@ye/utils/hooks";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Avatar from '@mui/material/Avatar';
-import Drawer from '@mui/material/Drawer';
-import Tooltip from '@mui/material/Tooltip';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import Link from "@mui/material/Link";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
 
-// import { paths } from 'src/routes/paths';
-import { usePathname } from 'next/navigation';
 import RouterLink from "next/link";
+import { usePathname } from "next/navigation";
 
-// import { _mock } from 'src/_mock';
+import { AnimateBorder, Iconify, Label, Scrollbar } from "../../components";
 
-import { Label } from 'src/components/label';
-import { Iconify } from "@ye/theme";
-import { Scrollbar } from 'src/components/scrollbar';
-import { AnimateBorder } from 'src/components/animate';
-
-// import { useMockedUser } from 'src/auth/hooks';
-
-import { UpgradeBlock } from './nav-upgrade';
-import { AccountButton } from './account-button';
-import { SignOutButton } from './sign-out-button';
+import { AccountButton } from "./account-button";
+import { UpgradeBlock } from "./nav-upgrade";
+import { SignOutButton } from "./sign-out-button";
 
 // ----------------------------------------------------------------------
 
@@ -52,13 +44,13 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
 
   const renderAvatar = () => (
     <AnimateBorder
-      sx={{ mb: 2, p: '6px', width: 96, height: 96, borderRadius: '50%' }}
+      sx={{ mb: 2, p: "6px", width: 96, height: 96, borderRadius: "50%" }}
       slotProps={{
-        primaryBorder: { size: 120, sx: { color: 'primary.main' } },
+        primaryBorder: { size: 120, sx: { color: "primary.main" } },
       }}
     >
       <Avatar src={"TODO"} alt={"TODO"} sx={{ width: 1, height: 1 }}>
-        {("TODO")?.charAt(0).toUpperCase()}
+        {"TODO"?.charAt(0).toUpperCase()}
       </Avatar>
     </AnimateBorder>
   );
@@ -72,37 +64,39 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
           px: 2.5,
           borderTop: `dashed 1px ${theme.vars.palette.divider}`,
           borderBottom: `dashed 1px ${theme.vars.palette.divider}`,
-          '& li': { p: 0 },
+          "& li": { p: 0 },
         }),
       ]}
     >
       {data.map((option) => {
-        const rootLabel = pathname.includes('/dashboard') ? 'Home' : 'Dashboard';
-        const rootHref = pathname.includes('/dashboard') ? '/' : "/dashboard";
+        const rootLabel = pathname.includes("/dashboard")
+          ? "Home"
+          : "Dashboard";
+        const rootHref = pathname.includes("/dashboard") ? "/" : "/dashboard";
 
         return (
           <MenuItem key={option.label}>
             <Link
               component={RouterLink}
-              href={option.label === 'Home' ? rootHref : option.href}
+              href={option.label === "Home" ? rootHref : option.href}
               color="inherit"
               underline="none"
               onClick={onClose}
               sx={{
                 p: 1,
                 width: 1,
-                display: 'flex',
-                typography: 'body2',
-                alignItems: 'center',
-                color: 'text.secondary',
-                '& svg': { width: 24, height: 24 },
-                '&:hover': { color: 'text.primary' },
+                display: "flex",
+                typography: "body2",
+                alignItems: "center",
+                color: "text.secondary",
+                "& svg": { width: 24, height: 24 },
+                "&:hover": { color: "text.primary" },
               }}
             >
               {option.icon}
 
               <Box component="span" sx={{ ml: 2 }}>
-                {option.label === 'Home' ? rootLabel : option.label}
+                {option.label === "Home" ? rootLabel : option.label}
               </Box>
 
               {option.info && (
@@ -140,7 +134,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
             top: 12,
             left: 12,
             zIndex: 9,
-            position: 'absolute',
+            position: "absolute",
           }}
         >
           <Iconify icon="mingcute:close-line" />
@@ -150,18 +144,22 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
           <Box
             sx={{
               pt: 8,
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: 'column',
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
             }}
           >
             {renderAvatar()}
 
             <Typography variant="subtitle1" noWrap sx={{ mt: 2 }}>
-             TODO
+              TODO
             </Typography>
 
-            <Typography variant="body2" sx={{ color: 'text.secondary', mt: 0.5 }} noWrap>
+            <Typography
+              variant="body2"
+              sx={{ color: "text.secondary", mt: 0.5 }}
+              noWrap
+            >
               TODO EMAIL
             </Typography>
           </Box>
@@ -170,9 +168,9 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
             sx={{
               p: 3,
               gap: 1,
-              flexWrap: 'wrap',
-              display: 'flex',
-              justifyContent: 'center',
+              flexWrap: "wrap",
+              display: "flex",
+              justifyContent: "center",
             }}
           >
             {/*{Array.from({ length: 3 }, (_, index) => (*/}
@@ -192,8 +190,11 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
               <IconButton
                 sx={[
                   (theme) => ({
-                    bgcolor: varAlpha(theme.vars.palette.grey['500Channel'], 0.08),
-                    border: `dashed 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.32)}`,
+                    bgcolor: varAlpha(
+                      theme.vars.palette.grey["500Channel"],
+                      0.08,
+                    ),
+                    border: `dashed 1px ${varAlpha(theme.vars.palette.grey["500Channel"], 0.32)}`,
                   }),
                 ]}
               >
@@ -210,7 +211,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
         </Scrollbar>
 
         <Box sx={{ p: 2.5 }}>
-          <SignOutButton onClose={onClose} />
+          <SignOutButton />
         </Box>
       </Drawer>
     </>

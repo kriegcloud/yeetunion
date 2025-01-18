@@ -1,6 +1,11 @@
-import { useState, useCallback } from 'react';
+"use client";
+import { useCallback, useState } from "react";
 
-import { fIsAfter, fDateRangeShortLabel, IDatePickerControl } from '@ye/utils/dayjs';
+import {
+  IDatePickerControl,
+  fDateRangeShortLabel,
+  fIsAfter,
+} from "@ye/utils/dayjs";
 
 // ----------------------------------------------------------------------
 
@@ -22,7 +27,7 @@ export type UseDateRangePickerReturn = {
   shortLabel?: string;
   /********/
   title?: string;
-  variant?: 'calendar' | 'input';
+  variant?: "calendar" | "input";
   /********/
   setStartDate?: React.Dispatch<React.SetStateAction<IDatePickerControl>>;
   setEndDate?: React.Dispatch<React.SetStateAction<IDatePickerControl>>;
@@ -30,7 +35,7 @@ export type UseDateRangePickerReturn = {
 
 export function useDateRangePicker(
   start: IDatePickerControl,
-  end: IDatePickerControl
+  end: IDatePickerControl,
 ): UseDateRangePickerReturn {
   const [open, setOpen] = useState(false);
 
@@ -58,7 +63,7 @@ export function useDateRangePicker(
       }
       setEndDate(newValue);
     },
-    [error]
+    [error],
   );
 
   const onReset = useCallback(() => {

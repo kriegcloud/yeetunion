@@ -24,19 +24,23 @@ export type StateProps = {
 
 export function mergeClasses(
   className?: string | (string | undefined)[] | null,
-  state?: StateProps
+  state?: StateProps,
 ): string {
-  const classList = className ? (Array.isArray(className) ? className : [className]) : [];
+  const classList = className
+    ? Array.isArray(className)
+      ? className
+      : [className]
+    : [];
 
   const dynamicStateClassesArray = Object.entries(state || {})
     .filter(([_, value]) => value !== undefined && value !== false)
     .map(([key, value]) => {
       if (Array.isArray(value)) {
-        return value[0] ? value[1] : '';
+        return value[0] ? value[1] : "";
       }
-      return value ? key : '';
+      return value ? key : "";
     })
     .filter(Boolean);
 
-  return [...classList.filter(Boolean), ...dynamicStateClassesArray].join(' ');
+  return [...classList.filter(Boolean), ...dynamicStateClassesArray].join(" ");
 }

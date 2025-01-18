@@ -1,22 +1,22 @@
-import type { TextFieldProps } from '@mui/material/TextField';
 import type {
   AutocompleteProps,
-  AutocompleteRenderInputParams,
   AutocompleteRenderGetTagProps,
-} from '@mui/material/Autocomplete';
+  AutocompleteRenderInputParams,
+} from "@mui/material/Autocomplete";
+import type { TextFieldProps } from "@mui/material/TextField";
 
-import { useMemo, useCallback } from 'react';
+import { useCallback, useMemo } from "react";
 
-import Chip from '@mui/material/Chip';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import InputAdornment from '@mui/material/InputAdornment';
-import { filledInputClasses } from '@mui/material/FilledInput';
-import { outlinedInputClasses } from '@mui/material/OutlinedInput';
+import Autocomplete from "@mui/material/Autocomplete";
+import Chip from "@mui/material/Chip";
+import { filledInputClasses } from "@mui/material/FilledInput";
+import InputAdornment from "@mui/material/InputAdornment";
+import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+import TextField from "@mui/material/TextField";
 
-import { countries } from '@ye/assets/countries';
+import { countries } from "@ye/assets/countries";
 
-import { FlagIcon, flagIconClasses } from '../flag-icon';
+import { FlagIcon, flagIconClasses } from "../flag-icon";
 
 // ----------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ type Value = string;
 
 export type AutocompleteBaseProps = Omit<
   AutocompleteProps<any, boolean, boolean, boolean>,
-  'options' | 'renderOption' | 'renderInput' | 'renderTags' | 'getOptionLabel'
+  "options" | "renderOption" | "renderInput" | "renderTags" | "getOptionLabel"
 >;
 
 export type CountrySelectProps = AutocompleteBaseProps & {
@@ -32,9 +32,9 @@ export type CountrySelectProps = AutocompleteBaseProps & {
   error?: boolean;
   placeholder?: string;
   hiddenLabel?: boolean;
-  getValue?: 'label' | 'code';
+  getValue?: "label" | "code";
   helperText?: React.ReactNode;
-  variant?: TextFieldProps['variant'];
+  variant?: TextFieldProps["variant"];
 };
 
 export function CountrySelect({
@@ -46,22 +46,28 @@ export function CountrySelect({
   helperText,
   hiddenLabel,
   placeholder,
-  getValue = 'label',
+  getValue = "label",
   ...other
 }: CountrySelectProps) {
   const options = useMemo(
-    () => countries.map((country) => (getValue === 'label' ? country.label : country.code)),
-    [getValue]
+    () =>
+      countries.map((country) =>
+        getValue === "label" ? country.label : country.code,
+      ),
+    [getValue],
   );
 
   const getCountry = useCallback((inputValue: string) => {
     const country = countries.find(
-      (op) => op.label === inputValue || op.code === inputValue || op.phone === inputValue
+      (op) =>
+        op.label === inputValue ||
+        op.code === inputValue ||
+        op.phone === inputValue,
     );
     return {
-      code: country?.code || '',
-      label: country?.label || '',
-      phone: country?.phone || '',
+      code: country?.code || "",
+      label: country?.label || "",
+      phone: country?.phone || "",
     };
   }, []);
 
@@ -78,14 +84,14 @@ export function CountrySelect({
               mr: 1,
               width: 22,
               height: 22,
-              borderRadius: '50%',
+              borderRadius: "50%",
             }}
           />
           {country.label} ({country.code}) +{country.phone}
         </li>
       );
     },
-    [getCountry]
+    [getCountry],
   );
 
   const renderInput = useCallback(
@@ -100,7 +106,7 @@ export function CountrySelect({
         helperText,
         hiddenLabel,
         error: !!error,
-        inputProps: { ...params.inputProps, autoComplete: 'new-password' },
+        inputProps: { ...params.inputProps, autoComplete: "new-password" },
       };
 
       if (multiple) {
@@ -114,11 +120,14 @@ export function CountrySelect({
             input: {
               ...params.InputProps,
               startAdornment: (
-                <InputAdornment position="start" sx={{ ...(!country.code && { display: 'none' }) }}>
+                <InputAdornment
+                  position="start"
+                  sx={{ ...(!country.code && { display: "none" }) }}
+                >
                   <FlagIcon
                     key={country.label}
                     code={country.code}
-                    sx={{ width: 22, height: 22, borderRadius: '50%' }}
+                    sx={{ width: 22, height: 22, borderRadius: "50%" }}
                   />
                 </InputAdornment>
               ),
@@ -129,13 +138,26 @@ export function CountrySelect({
               [`& .${flagIconClasses.root}`]: { ml: 0.5, mr: -0.5 },
             },
             [`& .${filledInputClasses.root}`]: {
-              [`& .${flagIconClasses.root}`]: { ml: 0.5, mr: -0.5, mt: hiddenLabel ? 0 : -2 },
+              [`& .${flagIconClasses.root}`]: {
+                ml: 0.5,
+                mr: -0.5,
+                mt: hiddenLabel ? 0 : -2,
+              },
             },
           }}
         />
       );
     },
-    [getCountry, label, variant, placeholder, helperText, hiddenLabel, error, multiple]
+    [
+      getCountry,
+      label,
+      variant,
+      placeholder,
+      helperText,
+      hiddenLabel,
+      error,
+      multiple,
+    ],
   );
 
   const renderTags = useCallback(
@@ -154,24 +176,24 @@ export function CountrySelect({
               <FlagIcon
                 key={country.label}
                 code={country.code}
-                sx={{ width: 16, height: 16, borderRadius: '50%' }}
+                sx={{ width: 16, height: 16, borderRadius: "50%" }}
               />
             }
           />
         );
       }),
-    [getCountry]
+    [getCountry],
   );
 
   const getOptionLabel = useCallback(
     (option: Value) => {
-      if (getValue === 'code') {
+      if (getValue === "code") {
         const country = countries.find((op) => op.code === option);
-        return country?.label ?? '';
+        return country?.label ?? "";
       }
       return option;
     },
-    [getValue]
+    [getValue],
   );
 
   return (

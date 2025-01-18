@@ -1,19 +1,25 @@
-import { useBoolean } from '@ye/utils/hooks';
-import { isExternalLink } from '@ye/utils/url';
 import { isActiveLink } from "@ye/utils/active-link";
-import { useRef, useEffect, useCallback } from 'react';
+import { useBoolean } from "@ye/utils/hooks";
+import { isExternalLink } from "@ye/utils/url";
+import { useCallback, useEffect, useRef } from "react";
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
-import { NavItem } from './nav-item';
-import { navBasicClasses } from '../styles';
-import { NavLi, NavUl, NavCollapse } from '../components';
+import { NavCollapse, NavLi, NavUl } from "../components";
+import { navBasicClasses } from "../styles";
+import { NavItem } from "./nav-item";
 
-import type { NavListProps, NavSubListProps } from '../types';
+import type { NavListProps, NavSubListProps } from "../types";
 
 // ----------------------------------------------------------------------
 
-export function NavList({ data, depth, render, slotProps, enabledRootRedirect }: NavListProps) {
+export function NavList({
+  data,
+  depth,
+  render,
+  slotProps,
+  enabledRootRedirect,
+}: NavListProps) {
   const pathname = usePathname();
   const navItemRef = useRef<HTMLButtonElement | null>(null);
 
@@ -61,7 +67,13 @@ export function NavList({ data, depth, render, slotProps, enabledRootRedirect }:
 
   const renderCollapse = () =>
     !!data.children && (
-      <NavCollapse mountOnEnter unmountOnExit depth={depth} in={open} data-group={data.title}>
+      <NavCollapse
+        mountOnEnter
+        unmountOnExit
+        depth={depth}
+        in={open}
+        data-group={data.title}
+      >
         <NavSubList
           data={data.children}
           depth={depth}
@@ -77,7 +89,9 @@ export function NavList({ data, depth, render, slotProps, enabledRootRedirect }:
       disabled={data.disabled}
       sx={{
         ...(!!data.children && {
-          [`& .${navBasicClasses.li}`]: { '&:first-of-type': { mt: 'var(--nav-item-gap)' } },
+          [`& .${navBasicClasses.li}`]: {
+            "&:first-of-type": { mt: "var(--nav-item-gap)" },
+          },
         }),
       }}
     >
@@ -89,9 +103,15 @@ export function NavList({ data, depth, render, slotProps, enabledRootRedirect }:
 
 // ----------------------------------------------------------------------
 
-function NavSubList({ data, render, depth = 0, slotProps, enabledRootRedirect }: NavSubListProps) {
+function NavSubList({
+  data,
+  render,
+  depth = 0,
+  slotProps,
+  enabledRootRedirect,
+}: NavSubListProps) {
   return (
-    <NavUl sx={{ gap: 'var(--nav-item-gap)' }}>
+    <NavUl sx={{ gap: "var(--nav-item-gap)" }}>
       {data.map((list) => (
         <NavList
           key={list.title}

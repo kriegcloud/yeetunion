@@ -1,14 +1,14 @@
 import type { ListItemButtonProps } from "@mui/material/ListItemButton";
 
+import Box from "@mui/material/Box";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import { varAlpha } from "@ye/utils/colors";
 import { isExternalLink } from "@ye/utils/url";
-import Box from "@mui/material/Box";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemButton from "@mui/material/ListItemButton";
 
 import RouterLink from "next/link";
 
-import { Label } from "src/components/label";
+import { Label } from "../../../components";
 
 // ----------------------------------------------------------------------
 

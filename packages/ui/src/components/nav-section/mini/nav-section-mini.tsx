@@ -1,12 +1,12 @@
-import { mergeClasses } from '@ye/utils/classes';
+import { mergeClasses } from "@ye/utils/classes";
 
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 
-import { NavList } from './nav-list';
-import { Nav, NavUl, NavLi } from '../components';
-import { navSectionClasses, navSectionCssVars } from '../styles';
+import { Nav, NavLi, NavUl } from "../components";
+import { navSectionClasses, navSectionCssVars } from "../styles";
+import { NavList } from "./nav-list";
 
-import type { NavGroupProps, NavSectionProps } from '../types';
+import type { NavGroupProps, NavSectionProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -31,8 +31,8 @@ export function NavSectionMini({
       sx={[{ ...cssVars }, ...(Array.isArray(sx) ? sx : [sx])]}
       {...other}
     >
-      <NavUl sx={{ flex: '1 1 auto', gap: 'var(--nav-item-gap)' }}>
-        {data.map((group) => (
+      <NavUl sx={{ flex: "1 1 auto", gap: "var(--nav-item-gap)" }}>
+        {data?.map((group) => (
           <Group
             key={group.subheader ?? group.items[0]?.title}
             render={render}
@@ -60,7 +60,7 @@ function Group({
 }: NavGroupProps) {
   return (
     <NavLi>
-      <NavUl sx={{ gap: 'var(--nav-item-gap)' }}>
+      <NavUl sx={{ gap: "var(--nav-item-gap)" }}>
         {items.map((list) => (
           <NavList
             key={list.title}

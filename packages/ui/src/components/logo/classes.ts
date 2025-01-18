@@ -1,7 +1,7 @@
-import { createClasses } from '@ye/theme';
+import { createClasses } from "../../theme";
 
 // ----------------------------------------------------------------------
 
 export const logoClasses = {
-  root: createClasses('logo__root'),
+  root: createClasses("logo__root"),
 };

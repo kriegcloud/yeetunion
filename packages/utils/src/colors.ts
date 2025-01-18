@@ -11,7 +11,7 @@
  */
 export function hexToRgbChannel(hexColor: string): string {
   if (!hexColor) {
-    throw new Error('Hex color is undefined!');
+    throw new Error("Hex color is undefined!");
   }
 
   if (!/^#[0-9A-F]{6}$/i.test(hexColor)) {
@@ -65,7 +65,9 @@ export type ChannelPalette<T extends InputPalette> = T & {
   [K in keyof T as `${string & K}Channel`]: string;
 };
 
-export function createPaletteChannel<T extends InputPalette>(hexPalette: T): ChannelPalette<T> {
+export function createPaletteChannel<T extends InputPalette>(
+  hexPalette: T,
+): ChannelPalette<T> {
   const channelPalette: Record<string, string | undefined> = {};
 
   Object.entries(hexPalette).forEach(([key, value]) => {
@@ -96,27 +98,27 @@ export function createPaletteChannel<T extends InputPalette>(hexPalette: T): Cha
  */
 export function varAlpha(color: string, opacity = 1): string {
   if (!color) {
-    throw new Error('[Alpha]: Color is undefined!');
+    throw new Error("[Alpha]: Color is undefined!");
   }
 
   const unsupported =
-    color.startsWith('#') ||
-    color.startsWith('rgb') ||
-    color.startsWith('rgba') ||
-    (!color.includes('var') && color.includes('Channel'));
+    color.startsWith("#") ||
+    color.startsWith("rgb") ||
+    color.startsWith("rgba") ||
+    (!color.includes("var") && color.includes("Channel"));
 
   if (unsupported) {
     throw new Error(
       [
         `[Alpha]: Unsupported color format "${color}"`,
-        'Supported formats are:',
+        "Supported formats are:",
         '- RGB channels: "0 184 217"',
         '- CSS variables with "Channel" prefix: "var(--palette-common-blackChannel, #000000)"',
-        'Unsupported formats are:',
+        "Unsupported formats are:",
         '- Hex: "#00B8D9"',
         '- RGB: "rgb(0, 184, 217)"',
         '- RGBA: "rgba(0, 184, 217, 1)"',
-      ].join('\n')
+      ].join("\n"),
     );
   }
 

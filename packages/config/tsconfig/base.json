@@ -14,10 +14,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "isolatedModules": true,
-
     "allowJs": true,
     "checkJs": true,
-
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -44,7 +42,6 @@
     }
   },
   "include": [
-    "${configDir}/../../packages/config/theme/src/extend-theme-types.d.ts",
     "${configDir}/.storybook/**/*",
     "${configDir}/**/*.ts",
     "${configDir}/**/*.tsx",

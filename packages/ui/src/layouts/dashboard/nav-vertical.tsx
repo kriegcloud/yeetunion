@@ -1,23 +1,25 @@
-import type { NavSectionProps } from "@/components/nav-section";
 import type {
-  Theme,
-  SxProps,
-  CSSObject,
   Breakpoint,
+  CSSObject,
+  SxProps,
+  Theme,
 } from "@mui/material/styles";
+import type { NavSectionProps } from "../../components/nav-section";
 
-import { varAlpha } from "@ye/utils/colors";
-import { mergeClasses } from "@ye/utils/classes";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
+import { mergeClasses } from "@ye/utils/classes";
+import { varAlpha } from "@ye/utils/colors";
 
-import { Logo } from "@/components/logo";
-import { Scrollbar } from "@/components/scrollbar";
-import { NavSectionMini, NavSectionVertical } from "@/components/nav-section";
+import { Logo, Scrollbar } from "../../components";
 
-import { layoutClasses } from "../core/classes";
-import { NavUpgrade } from "../components/nav-upgrade";
+import {
+  NavSectionMini,
+  NavSectionVertical,
+} from "../../components/nav-section";
 import { NavToggleButton } from "../components/nav-toggle-button";
+import { NavUpgrade } from "../components/nav-upgrade";
+import { layoutClasses } from "../core/classes";
 
 // ----------------------------------------------------------------------
 

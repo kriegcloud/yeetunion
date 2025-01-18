@@ -1,19 +1,17 @@
-import type { NavSectionProps } from '@/components/nav-section';
+import type { NavSectionProps } from "../../components/nav-section";
 
-import { useEffect } from 'react';
 import { mergeClasses } from "@ye/utils/classes";
+import { useEffect } from "react";
 
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
-import { Logo } from 'src/components/logo';
-import { Scrollbar } from 'src/components/scrollbar';
-import { NavSectionVertical } from '@/components/nav-section';
+import { Logo, NavSectionVertical, Scrollbar } from "../../components";
 
-import { layoutClasses } from '../core/classes';
-import { NavUpgrade } from '../components/nav-upgrade';
+import { NavUpgrade } from "../components/nav-upgrade";
+import { layoutClasses } from "../core/classes";
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +24,15 @@ type NavMobileProps = NavSectionProps & {
   };
 };
 
-export function NavMobile({ data, open, onClose, slots, sx, className, ...other }: NavMobileProps) {
+export function NavMobile({
+  data,
+  open,
+  onClose,
+  slots,
+  sx,
+  className,
+  ...other
+}: NavMobileProps) {
   const pathname = usePathname();
 
   useEffect(() => {
@@ -41,12 +47,16 @@ export function NavMobile({ data, open, onClose, slots, sx, className, ...other 
       open={open}
       onClose={onClose}
       PaperProps={{
-        className: mergeClasses([layoutClasses.nav.root, layoutClasses.nav.vertical, className]),
+        className: mergeClasses([
+          layoutClasses.nav.root,
+          layoutClasses.nav.vertical,
+          className,
+        ]),
         sx: [
           () => ({
-            overflow: 'unset',
-            bgcolor: 'var(--layout-nav-bg)',
-            width: 'var(--layout-nav-mobile-width)',
+            overflow: "unset",
+            bgcolor: "var(--layout-nav-bg)",
+            width: "var(--layout-nav-mobile-width)",
           }),
           ...(Array.isArray(sx) ? sx : [sx]),
         ],
@@ -59,7 +69,11 @@ export function NavMobile({ data, open, onClose, slots, sx, className, ...other 
       )}
 
       <Scrollbar fillContent>
-        <NavSectionVertical data={data} sx={{ px: 2, flex: '1 1 auto' }} {...other} />
+        <NavSectionVertical
+          data={data}
+          sx={{ px: 2, flex: "1 1 auto" }}
+          {...other}
+        />
         <NavUpgrade />
       </Scrollbar>
 

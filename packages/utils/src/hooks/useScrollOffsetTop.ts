@@ -1,6 +1,7 @@
-import type { RefObject } from 'react';
+"use client";
+import type { RefObject } from "react";
 
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from "react";
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +31,7 @@ export type UseScrollOffsetTopReturn<T> = {
 };
 
 export function useScrollOffsetTop<T extends HTMLElement>(
-  defaultValue = 0
+  defaultValue = 0,
 ): UseScrollOffsetTopReturn<T> {
   const elementRef = useRef<T | null>(null);
 
@@ -52,10 +53,10 @@ export function useScrollOffsetTop<T extends HTMLElement>(
   useEffect(() => {
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
 

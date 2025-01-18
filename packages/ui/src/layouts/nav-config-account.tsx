@@ -1,16 +1,20 @@
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon from "@mui/material/SvgIcon";
 
-import { Iconify } from "@ye/theme";
+import { Iconify } from "../components";
 
-import type { AccountDrawerProps } from './components/account-drawer';
+import type { AccountDrawerProps } from "./components/account-drawer";
 
 // ----------------------------------------------------------------------
 
-export const _account: AccountDrawerProps['data'] = [
-  { label: 'Home', href: '/', icon: <Iconify icon="solar:home-angle-bold-duotone" /> },
+export const _account: AccountDrawerProps["data"] = [
   {
-    label: 'Profile',
-    href: '#',
+    label: "Home",
+    href: "/",
+    icon: <Iconify icon="solar:home-angle-bold-duotone" />,
+  },
+  {
+    label: "Profile",
+    href: "#",
     icon: (
       <SvgIcon>
         <path
@@ -26,14 +30,14 @@ export const _account: AccountDrawerProps['data'] = [
     ),
   },
   {
-    label: 'Projects',
-    href: '#',
+    label: "Projects",
+    href: "#",
     icon: <Iconify icon="solar:notes-bold-duotone" />,
-    info: '3',
+    info: "3",
   },
   {
-    label: 'Subscription',
-    href: '#',
+    label: "Subscription",
+    href: "#",
     icon: (
       <SvgIcon>
         <path
@@ -54,6 +58,14 @@ export const _account: AccountDrawerProps['data'] = [
       </SvgIcon>
     ),
   },
-  { label: 'Security', href: '#', icon: <Iconify icon="solar:shield-keyhole-bold-duotone" /> },
-  { label: 'Account settings', href: '#', icon: <Iconify icon="solar:settings-bold-duotone" /> },
+  {
+    label: "Security",
+    href: "#",
+    icon: <Iconify icon="solar:shield-keyhole-bold-duotone" />,
+  },
+  {
+    label: "Account settings",
+    href: "#",
+    icon: <Iconify icon="solar:settings-bold-duotone" />,
+  },
 ];

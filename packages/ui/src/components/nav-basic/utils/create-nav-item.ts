@@ -1,8 +1,8 @@
-import { cloneElement } from 'react';
+import { cloneElement } from "react";
 
-import RouterLink from 'next/link';
+import RouterLink from "next/link";
 
-import type { NavItemDataProps, NavItemOptionsProps } from '../types';
+import type { NavItemDataProps, NavItemOptionsProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -15,8 +15,8 @@ type CreateNavItemReturn = {
   renderInfo: React.ReactNode;
 };
 
-type CreateNavItemProps = Pick<NavItemDataProps, 'path' | 'icon' | 'info'> &
-  Omit<NavItemOptionsProps, 'slotProps'>;
+type CreateNavItemProps = Pick<NavItemDataProps, "path" | "icon" | "info"> &
+  Omit<NavItemOptionsProps, "slotProps">;
 
 export function createNavItem({
   path,
@@ -33,17 +33,18 @@ export function createNavItem({
   const subDeepItem = Number(depth) > 2;
 
   const linkProps = externalLink
-    ? { href: path, target: '_blank', rel: 'noopener' }
+    ? { href: path, target: "_blank", rel: "noopener" }
     : { component: RouterLink, href: path };
 
-  const baseProps = hasChild && !enabledRootRedirect ? { component: 'div' } : linkProps;
+  const baseProps =
+    hasChild && !enabledRootRedirect ? { component: "div" } : linkProps;
 
   /**
    * Render @icon
    */
   let renderIcon = null;
 
-  if (icon && render?.navIcon && typeof icon === 'string') {
+  if (icon && render?.navIcon && typeof icon === "string") {
     renderIcon = render?.navIcon[icon];
   } else {
     renderIcon = icon;

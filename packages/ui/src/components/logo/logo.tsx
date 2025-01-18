@@ -1,14 +1,14 @@
-import type { LinkProps } from '@mui/material/Link';
+import type { LinkProps } from "@mui/material/Link";
 
-import { useId, forwardRef } from 'react';
-import { mergeClasses } from '@ye/utils/classes';
+import { mergeClasses } from "@ye/utils/classes";
+import { forwardRef, useId } from "react";
 
-import {Link as MuiLink} from '@mui/material';
-import { styled, useTheme } from '@mui/material/styles';
+import { Link as MuiLink } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import { logoClasses } from './classes';
+import { logoClasses } from "./classes";
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +18,14 @@ export type LogoProps = LinkProps & {
 };
 
 export const Logo = forwardRef<HTMLAnchorElement, LogoProps>((props, ref) => {
-  const { className, href = '/', isSingle = true, disabled, sx, ...other } = props;
+  const {
+    className,
+    href = "/",
+    isSingle = true,
+    disabled,
+    sx,
+    ...other
+  } = props;
 
   const theme = useTheme();
 
@@ -197,7 +204,7 @@ export const Logo = forwardRef<HTMLAnchorElement, LogoProps>((props, ref) => {
           width: 40,
           height: 40,
           ...(!isSingle && { width: 102, height: 36 }),
-          ...(disabled && { pointerEvents: 'none' }),
+          ...(disabled && { pointerEvents: "none" }),
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -212,7 +219,7 @@ export const Logo = forwardRef<HTMLAnchorElement, LogoProps>((props, ref) => {
 
 const LogoRoot = styled(MuiLink)(() => ({
   flexShrink: 0,
-  color: 'transparent',
-  display: 'inline-flex',
-  verticalAlign: 'middle',
+  color: "transparent",
+  display: "inline-flex",
+  verticalAlign: "middle",
 }));

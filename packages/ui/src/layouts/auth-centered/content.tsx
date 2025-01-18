@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from "@mui/material/Box";
 
 import { mergeClasses } from "@ye/utils/classes";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
-import { layoutClasses } from '../core/classes';
+import { layoutClasses } from "../core/classes";
 
 // ----------------------------------------------------------------------
 
@@ -28,9 +28,9 @@ export function AuthCenteredContent({
           width: 1,
           zIndex: 2,
           borderRadius: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          maxWidth: 'var(--layout-auth-content-width)',
+          display: "flex",
+          flexDirection: "column",
+          maxWidth: "var(--layout-auth-content-width)",
           bgcolor: theme.vars.palette.background.default,
         }),
         ...(Array.isArray(sx) ? sx : [sx]),

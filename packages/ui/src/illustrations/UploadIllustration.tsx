@@ -1,10 +1,10 @@
-import type { SvgIconProps } from '@mui/material/SvgIcon';
+import type { SvgIconProps } from "@mui/material/SvgIcon";
 
-import { memo, forwardRef } from 'react';
+import { forwardRef, memo } from "react";
 
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon from "@mui/material/SvgIcon";
 
-import { BackgroundShape } from './BackgroundShape';
+import { BackgroundShape } from "./BackgroundShape";
 
 // ----------------------------------------------------------------------
 
@@ -20,13 +20,13 @@ const UploadIllustration = forwardRef<SVGSVGElement, SvgProps>((props, ref) => {
       xmlns="http://www.w3.org/2000/svg"
       sx={[
         (theme) => ({
-          '--primary-main': theme.vars.palette.primary.main,
-          '--primary-dark': theme.vars.palette.primary.dark,
-          '--primary-darker': theme.vars.palette.primary.darker,
+          "--primary-main": theme.vars.palette.primary.main,
+          "--primary-dark": theme.vars.palette.primary.dark,
+          "--primary-darker": theme.vars.palette.primary.darker,
           width: 320,
           maxWidth: 1,
           flexShrink: 0,
-          height: 'auto',
+          height: "auto",
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -35,7 +35,13 @@ const UploadIllustration = forwardRef<SVGSVGElement, SvgProps>((props, ref) => {
       {!hideBackground && <BackgroundShape />}
 
       <defs>
-        <linearGradient id="linearGradient-2" x1="30.113%" x2="30.113%" y1="0%" y2="100%">
+        <linearGradient
+          id="linearGradient-2"
+          x1="30.113%"
+          x2="30.113%"
+          y1="0%"
+          y2="100%"
+        >
           <stop offset="0%" stopOpacity="0" />
           <stop offset="100%" />
         </linearGradient>

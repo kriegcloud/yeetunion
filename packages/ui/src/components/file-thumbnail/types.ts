@@ -1,7 +1,7 @@
-import type { TooltipProps } from '@mui/material/Tooltip';
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { ButtonBaseProps } from "@mui/material/ButtonBase";
+import type { IconButtonProps } from "@mui/material/IconButton";
+import type { TooltipProps } from "@mui/material/Tooltip";
+import type { SxProps, Theme } from "@mui/material/styles";
 import type { ComponentProps } from "react";
 // ----------------------------------------------------------------------
 
@@ -11,7 +11,7 @@ export interface ExtendFile extends File {
   lastModifiedDate?: Date;
 }
 
-export type FileThumbnailProps = ComponentProps<'div'> & {
+export type FileThumbnailProps = ComponentProps<"div"> & {
   tooltip?: boolean;
   file: File | string;
   imageView?: boolean;
@@ -22,7 +22,7 @@ export type FileThumbnailProps = ComponentProps<'div'> & {
     tooltip?: TooltipProps;
     removeBtn?: IconButtonProps;
     downloadBtn?: ButtonBaseProps;
-    img?: ComponentProps<'img'> & { sx?: SxProps<Theme> };
-    icon?: ComponentProps<'img'> & { sx?: SxProps<Theme> };
+    img?: ComponentProps<"img"> & { sx?: SxProps<Theme> };
+    icon?: ComponentProps<"img"> & { sx?: SxProps<Theme> };
   };
 };

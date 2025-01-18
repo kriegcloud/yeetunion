@@ -1,12 +1,12 @@
-import type { BoxProps } from '@mui/material/Box';
-import type { Breakpoint } from '@mui/material/styles';
+import type { BoxProps } from "@mui/material/Box";
+import type { Breakpoint } from "@mui/material/styles";
 
 import { varAlpha } from "@ye/utils/colors";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
 
 import RouterLink from "next/link";
 
@@ -29,10 +29,10 @@ export function AuthSplitSection({
   sx,
   method,
   methods,
-  layoutQuery = 'md',
-  title = 'Manage the job',
+  layoutQuery = "md",
+  title = "Manage the job",
   imgUrl = `/assets/illustrations/illustration-dashboard.webp`,
-  subtitle = 'More effectively with optimized workflows.',
+  subtitle = "More effectively with optimized workflows.",
   ...other
 }: AuthSplitSectionProps) {
   return (
@@ -49,15 +49,15 @@ export function AuthSplitSection({
           pb: 3,
           width: 1,
           maxWidth: 480,
-          display: 'none',
-          position: 'relative',
-          pt: 'var(--layout-header-desktop-height)',
+          display: "none",
+          position: "relative",
+          pt: "var(--layout-header-desktop-height)",
           [theme.breakpoints.up(layoutQuery)]: {
             gap: 8,
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'column',
-            justifyContent: 'center',
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            justifyContent: "center",
           },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
@@ -65,12 +65,14 @@ export function AuthSplitSection({
       {...other}
     >
       <div>
-        <Typography variant="h3" sx={{ textAlign: 'center' }}>
+        <Typography variant="h3" sx={{ textAlign: "center" }}>
           {title}
         </Typography>
 
         {subtitle && (
-          <Typography sx={{ color: 'text.secondary', textAlign: 'center', mt: 2 }}>
+          <Typography
+            sx={{ color: "text.secondary", textAlign: "center", mt: 2 }}
+          >
             {subtitle}
           </Typography>
         )}
@@ -80,11 +82,11 @@ export function AuthSplitSection({
         component="img"
         alt="Dashboard illustration"
         src={imgUrl}
-        sx={{ width: 1, aspectRatio: '4/3', objectFit: 'cover' }}
+        sx={{ width: 1, aspectRatio: "4/3", objectFit: "cover" }}
       />
 
       {!!methods?.length && method && (
-        <Box component="ul" sx={{ gap: 2, display: 'flex' }}>
+        <Box component="ul" sx={{ gap: 2, display: "flex" }}>
           {methods.map((option) => {
             const selected = method === option.label.toLowerCase();
 
@@ -94,8 +96,8 @@ export function AuthSplitSection({
                 component="li"
                 sx={{
                   ...(!selected && {
-                    cursor: 'not-allowed',
-                    filter: 'grayscale(1)',
+                    cursor: "not-allowed",
+                    filter: "grayscale(1)",
                   }),
                 }}
               >
@@ -103,7 +105,7 @@ export function AuthSplitSection({
                   <Link
                     component={RouterLink}
                     href={option.path}
-                    sx={{ ...(!selected && { pointerEvents: 'none' }) }}
+                    sx={{ ...(!selected && { pointerEvents: "none" }) }}
                   >
                     <Box
                       component="img"

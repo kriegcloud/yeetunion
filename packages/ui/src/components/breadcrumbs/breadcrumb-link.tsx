@@ -1,13 +1,13 @@
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { SxProps, Theme } from "@mui/material/styles";
 
-import MuiLink from '@mui/material/Link';
-import { styled } from '@mui/material/styles';
-import type { ReactNode, ComponentProps } from "react";
-import Link from 'next/link';
+import MuiLink from "@mui/material/Link";
+import { styled } from "@mui/material/styles";
+import Link from "next/link";
+import type { ComponentProps, ReactNode } from "react";
 
 // ----------------------------------------------------------------------
 
-export type BreadcrumbsLinkProps = ComponentProps<'div'> & {
+export type BreadcrumbsLinkProps = ComponentProps<"div"> & {
   name?: string;
   href?: string;
   disabled?: boolean;
@@ -15,7 +15,13 @@ export type BreadcrumbsLinkProps = ComponentProps<'div'> & {
   sx?: SxProps<Theme>;
 };
 
-export function BreadcrumbsLink({ href, icon, name, disabled, ...other }: BreadcrumbsLinkProps) {
+export function BreadcrumbsLink({
+  href,
+  icon,
+  name,
+  disabled,
+  ...other
+}: BreadcrumbsLinkProps) {
   const renderContent = () => (
     <ItemRoot disabled={disabled} {...other}>
       {icon && <ItemIcon>{icon}</ItemIcon>}
@@ -30,8 +36,8 @@ export function BreadcrumbsLink({ href, icon, name, disabled, ...other }: Breadc
         href={href}
         color="inherit"
         sx={{
-          display: 'inline-flex',
-          ...(disabled && { pointerEvents: 'none' }),
+          display: "inline-flex",
+          ...(disabled && { pointerEvents: "none" }),
         }}
       >
         {renderContent()}
@@ -44,26 +50,29 @@ export function BreadcrumbsLink({ href, icon, name, disabled, ...other }: Breadc
 
 // ----------------------------------------------------------------------
 
-const ItemRoot = styled('div', {
-  shouldForwardProp: (prop: string) => !['disabled', 'sx'].includes(prop),
-})<Pick<BreadcrumbsLinkProps, 'disabled'>>(({ disabled, theme }) => ({
+const ItemRoot = styled("div", {
+  shouldForwardProp: (prop: string) => !["disabled", "sx"].includes(prop),
+})<Pick<BreadcrumbsLinkProps, "disabled">>(({ disabled, theme }) => ({
   ...theme.typography.body2,
-  alignItems: 'center',
+  alignItems: "center",
   gap: theme.spacing(1),
-  display: 'inline-flex',
+  display: "inline-flex",
   color: theme.vars.palette.text.primary,
   ...(disabled && {
-    cursor: 'default',
-    pointerEvents: 'none',
+    cursor: "default",
+    pointerEvents: "none",
     color: theme.vars.palette.text.disabled,
   }),
 }));
 
-const ItemIcon = styled('span')(() => ({
-  display: 'inherit',
+const ItemIcon = styled("span")(() => ({
+  display: "inherit",
   /**
    * As ':first-child' for ssr
    * https://github.com/emotion-js/emotion/issues/1105#issuecomment-1126025608
    */
-  '& > :first-of-type:not(style):not(:first-of-type ~ *), & > style + *': { width: 20, height: 20 },
+  "& > :first-of-type:not(style):not(:first-of-type ~ *), & > style + *": {
+    width: 20,
+    height: 20,
+  },
 }));

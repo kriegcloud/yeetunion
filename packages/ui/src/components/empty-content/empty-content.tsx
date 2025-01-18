@@ -1,16 +1,16 @@
-import type { BoxProps } from '@mui/material/Box';
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { TypographyProps } from '@mui/material/Typography';
+import type { BoxProps } from "@mui/material/Box";
+import type { TypographyProps } from "@mui/material/Typography";
+import type { SxProps, Theme } from "@mui/material/styles";
 
-import { varAlpha } from '@ye/utils/colors';
+import { varAlpha } from "@ye/utils/colors";
 
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import type { ReactNode, ComponentProps } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { styled } from "@mui/material/styles";
+import type { ComponentProps, ReactNode } from "react";
 // ----------------------------------------------------------------------
 
-export type EmptyContentProps = ComponentProps<'div'> & {
+export type EmptyContentProps = ComponentProps<"div"> & {
   title?: string;
   imgUrl?: string;
   filled?: boolean;
@@ -18,7 +18,7 @@ export type EmptyContentProps = ComponentProps<'div'> & {
   description?: string;
   action?: ReactNode;
   slotProps?: {
-    img?: BoxProps<'img'>;
+    img?: BoxProps<"img">;
     title?: TypographyProps;
     description?: TypographyProps;
   };
@@ -31,7 +31,7 @@ export function EmptyContent({
   filled,
   slotProps,
   description,
-  title = 'No data',
+  title = "No data",
   ...other
 }: EmptyContentProps) {
   return (
@@ -59,8 +59,8 @@ export function EmptyContent({
           sx={[
             {
               mt: 1,
-              textAlign: 'center',
-              color: 'text.disabled',
+              textAlign: "center",
+              color: "text.disabled",
             },
             ...(Array.isArray(slotProps?.title?.sx)
               ? (slotProps?.title?.sx ?? [])
@@ -78,8 +78,8 @@ export function EmptyContent({
           sx={[
             {
               mt: 1,
-              textAlign: 'center',
-              color: 'text.disabled',
+              textAlign: "center",
+              color: "text.disabled",
             },
             ...(Array.isArray(slotProps?.description?.sx)
               ? (slotProps?.description?.sx ?? [])
@@ -97,19 +97,19 @@ export function EmptyContent({
 
 // ----------------------------------------------------------------------
 
-const ContentRoot = styled('div', {
-  shouldForwardProp: (prop: string) => !['filled', 'sx'].includes(prop),
-})<Pick<EmptyContentProps, 'filled'>>(({ filled, theme }) => ({
+const ContentRoot = styled("div", {
+  shouldForwardProp: (prop: string) => !["filled", "sx"].includes(prop),
+})<Pick<EmptyContentProps, "filled">>(({ filled, theme }) => ({
   flexGrow: 1,
-  height: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column',
-  justifyContent: 'center',
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  flexDirection: "column",
+  justifyContent: "center",
   padding: theme.spacing(0, 3),
   ...(filled && {
     borderRadius: theme.shape.borderRadius * 2,
-    backgroundColor: varAlpha(theme.vars.palette.grey['500Channel'], 0.04),
-    border: `dashed 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.08)}`,
+    backgroundColor: varAlpha(theme.vars.palette.grey["500Channel"], 0.04),
+    border: `dashed 1px ${varAlpha(theme.vars.palette.grey["500Channel"], 0.08)}`,
   }),
 }));

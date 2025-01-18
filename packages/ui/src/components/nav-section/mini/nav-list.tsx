@@ -1,16 +1,17 @@
-import { useEffect, useCallback } from 'react';
-import { usePopoverHover } from '@ye/utils/hooks';
-import { isExternalLink } from '@ye/utils/url';
+"use client";
+import { useTheme } from "@mui/material/styles";
 import { isActiveLink } from "@ye/utils/active-link";
-import { useTheme } from '@mui/material/styles';
+import { usePopoverHover } from "@ye/utils/hooks";
+import { isExternalLink } from "@ye/utils/url";
+import { useCallback, useEffect } from "react";
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
-import { NavItem } from './nav-item';
-import { navSectionClasses } from '../styles';
-import { NavUl, NavLi, NavDropdown, NavDropdownPaper } from '../components';
+import { NavDropdown, NavDropdownPaper, NavLi, NavUl } from "../components";
+import { navSectionClasses } from "../styles";
+import { NavItem } from "./nav-item";
 
-import type { NavListProps, NavSubListProps } from '../types';
+import type { NavListProps, NavSubListProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -37,7 +38,7 @@ export function NavList({
     elementRef: navItemRef,
   } = usePopoverHover<HTMLButtonElement>();
 
-  const isRtl = theme.direction === 'rtl';
+  const isRtl = theme.direction === "rtl";
   const id = open ? `${data.title}-popover` : undefined;
 
   useEffect(() => {
@@ -89,8 +90,14 @@ export function NavList({
         id={id}
         open={open}
         anchorEl={anchorEl}
-        anchorOrigin={{ vertical: 'center', horizontal: isRtl ? 'left' : 'right' }}
-        transformOrigin={{ vertical: 'center', horizontal: isRtl ? 'right' : 'left' }}
+        anchorOrigin={{
+          vertical: "center",
+          horizontal: isRtl ? "left" : "right",
+        }}
+        transformOrigin={{
+          vertical: "center",
+          horizontal: isRtl ? "right" : "left",
+        }}
         slotProps={{
           paper: {
             onMouseEnter: handleOpenMenu,

@@ -11,10 +11,6 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    },
-    "./server": {
-      "types": "./dist/server.d.ts",
-      "default": "./dist/server.js"
     }
   },
   "scripts": {
@@ -23,18 +19,15 @@
     "dev": "tsc -w -p tsconfig.build.json",
     "typecheck": "tsc",
     "lint": "biome check .",
-    "lint:fix": "biome check . --write"
+    "lint:fix": "biome check . --write",
+    "postinstall": "tsx ./bin/generate.ts"
   },
   "dependencies": {
-    "@mui/x-data-grid": "^7.23.5",
-    "@mui/x-date-pickers": "^7.23.3",
-    "dayjs": "^1.11.13",
-    "i18next": "^24.2.0",
-    "i18next-browser-languagedetector": "^8.0.2",
-    "i18next-resources-to-backend": "^1.2.1",
-    "react-i18next": "^15.4.0"
+    "@ye/primitives": "workspace:^",
+    "next-intl": "^3.26.3"
   },
   "devDependencies": {
+    "tsx": "latest",
     "@ye/tsconfig": "workspace:^"
   }
 }

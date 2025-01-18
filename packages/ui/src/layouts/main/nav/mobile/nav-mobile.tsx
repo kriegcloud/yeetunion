@@ -1,19 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Drawer from '@mui/material/Drawer';
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Drawer from "@mui/material/Drawer";
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
-import { Logo } from 'src/components/logo';
-import { Scrollbar } from 'src/components/scrollbar';
+import { Logo, Scrollbar } from "../../../../components";
 
-import { Nav, NavUl } from '../components';
-import { NavList } from './nav-mobile-list';
-import { SignInButton } from '../../../components/sign-in-button';
+import { SignInButton } from "../../../components/sign-in-button";
+import { Nav, NavUl } from "../components";
+import { NavList } from "./nav-mobile-list";
 
-import type { NavMainProps } from '../types';
+import type { NavMainProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -42,7 +41,11 @@ export function NavMobile({ data, open, onClose, slots, sx }: NavMobileProps) {
       onClose={onClose}
       PaperProps={{
         sx: [
-          { display: 'flex', flexDirection: 'column', width: 'var(--layout-nav-mobile-width)' },
+          {
+            display: "flex",
+            flexDirection: "column",
+            width: "var(--layout-nav-mobile-width)",
+          },
           ...(Array.isArray(sx) ? sx : [sx]),
         ],
       }}
@@ -50,7 +53,7 @@ export function NavMobile({ data, open, onClose, slots, sx }: NavMobileProps) {
       {slots?.topArea ?? (
         <Box
           sx={{
-            display: 'flex',
+            display: "flex",
             pt: 3,
             pb: 2,
             pl: 2.5,
@@ -64,9 +67,9 @@ export function NavMobile({ data, open, onClose, slots, sx }: NavMobileProps) {
         <Nav
           sx={{
             pb: 3,
-            display: 'flex',
-            flex: '1 1 auto',
-            flexDirection: 'column',
+            display: "flex",
+            flex: "1 1 auto",
+            flexDirection: "column",
           }}
         >
           <NavUl>
@@ -83,7 +86,7 @@ export function NavMobile({ data, open, onClose, slots, sx }: NavMobileProps) {
             py: 3,
             px: 2.5,
             gap: 1.5,
-            display: 'flex',
+            display: "flex",
           }}
         >
           <SignInButton fullWidth />

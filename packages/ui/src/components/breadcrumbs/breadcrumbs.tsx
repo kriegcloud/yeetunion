@@ -1,27 +1,27 @@
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { BreadcrumbsProps } from '@mui/material/Breadcrumbs';
+import type { BreadcrumbsProps } from "@mui/material/Breadcrumbs";
+import type { SxProps, Theme } from "@mui/material/styles";
 
-import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
+import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
 
-import { BackLink } from './back-link';
-import { MoreLinks } from './more-links';
-import { BreadcrumbsLink } from './breadcrumb-link';
+import { BackLink } from "./back-link";
+import { BreadcrumbsLink } from "./breadcrumb-link";
+import { MoreLinks } from "./more-links";
 import {
-  BreadcrumbsRoot,
-  BreadcrumbsHeading,
-  BreadcrumbsContent,
   BreadcrumbsContainer,
+  BreadcrumbsContent,
+  BreadcrumbsHeading,
+  BreadcrumbsRoot,
   BreadcrumbsSeparator,
-} from './styles';
+} from "./styles";
 
-import type { MoreLinksProps } from './more-links';
-import type { BreadcrumbsLinkProps } from './breadcrumb-link';
 import type { ComponentProps, ReactNode } from "react";
+import type { BreadcrumbsLinkProps } from "./breadcrumb-link";
+import type { MoreLinksProps } from "./more-links";
 // ----------------------------------------------------------------------
 
 export type CustomBreadcrumbsSlotProps = {
   breadcrumbs: BreadcrumbsProps;
-  moreLinks: Omit<MoreLinksProps, 'links'>;
+  moreLinks: Omit<MoreLinksProps, "links">;
   heading: ComponentProps<typeof BreadcrumbsHeading>;
   content: ComponentProps<typeof BreadcrumbsContent>;
   container: ComponentProps<typeof BreadcrumbsContainer>;
@@ -31,14 +31,14 @@ export type CustomBreadcrumbsSlots = {
   breadcrumbs?: ReactNode;
 };
 
-export type CustomBreadcrumbsProps = ComponentProps<'div'> & {
+export type CustomBreadcrumbsProps = ComponentProps<"div"> & {
   sx?: SxProps<Theme>;
   heading?: string;
   activeLast?: boolean;
   backHref?: string;
   action?: ReactNode;
   links?: BreadcrumbsLinkProps[];
-  moreLinks?: MoreLinksProps['links'];
+  moreLinks?: MoreLinksProps["links"];
   slots?: CustomBreadcrumbsSlots;
   slotProps?: Partial<CustomBreadcrumbsSlotProps>;
 };
@@ -65,7 +65,10 @@ export function Breadcrumbs({
 
   const renderLinks = () =>
     slots?.breadcrumbs ?? (
-      <MuiBreadcrumbs separator={<BreadcrumbsSeparator />} {...slotProps?.breadcrumbs}>
+      <MuiBreadcrumbs
+        separator={<BreadcrumbsSeparator />}
+        {...slotProps?.breadcrumbs}
+      >
         {links.map((link, index) => (
           <BreadcrumbsLink
             key={link.name ?? index}
@@ -78,7 +81,9 @@ export function Breadcrumbs({
       </MuiBreadcrumbs>
     );
 
-  const renderMoreLinks = () => <MoreLinks links={moreLinks} {...slotProps?.moreLinks} />;
+  const renderMoreLinks = () => (
+    <MoreLinks links={moreLinks} {...slotProps?.moreLinks} />
+  );
 
   return (
     <BreadcrumbsRoot sx={sx} {...other}>

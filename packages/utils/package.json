@@ -73,7 +73,6 @@
     "@ye/tsconfig": "workspace:^"
   },
   "dependencies": {
-
     "dayjs": "^1.11.13",
     "react-use": "^17.6.0"
   }

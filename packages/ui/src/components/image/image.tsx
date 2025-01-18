@@ -1,19 +1,20 @@
-import type { UseInViewOptions } from "framer-motion";
+"use client";
 import type { Breakpoint } from "@mui/material/styles";
+import type { UseInViewOptions } from "framer-motion";
 
-import { useInView } from "framer-motion";
-import { mergeRefs } from "@ye/utils/refs";
 import { mergeClasses } from "@ye/utils/classes";
+import { mergeRefs } from "@ye/utils/refs";
+import { useInView } from "framer-motion";
 import {
+  forwardRef,
+  startTransition,
+  useCallback,
   useRef,
   useState,
-  forwardRef,
-  useCallback,
-  startTransition,
 } from "react";
 
 import { imageClasses } from "./classes";
-import { ImageImg, ImageRoot, ImageOverlay, ImagePlaceholder } from "./styles";
+import { ImageImg, ImageOverlay, ImagePlaceholder, ImageRoot } from "./styles";
 
 import type { EffectsType } from "./styles";
 

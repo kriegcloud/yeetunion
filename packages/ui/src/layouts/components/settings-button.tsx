@@ -1,13 +1,13 @@
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { IconButtonProps } from "@mui/material/IconButton";
 
-import { m } from 'framer-motion';
+import { m } from "framer-motion";
 
-import Badge from '@mui/material/Badge';
-import SvgIcon from '@mui/material/SvgIcon';
-import IconButton from '@mui/material/IconButton';
+import Badge from "@mui/material/Badge";
+import IconButton from "@mui/material/IconButton";
+import SvgIcon from "@mui/material/SvgIcon";
 
-import { useSettingsContext } from '@ye/theme';
-import { varTap, varHover, transitionTap } from 'src/components/animate';
+import { transitionTap, varHover, varTap } from "../../components";
+import { useSettingsContext } from "../../theme";
 
 // ----------------------------------------------------------------------
 
@@ -29,7 +29,11 @@ export function SettingsButton({ sx, ...other }: IconButtonProps) {
         <SvgIcon
           component={m.svg}
           animate={{ rotate: 360 }}
-          transition={{ duration: 8, ease: 'linear', repeat: Number.POSITIVE_INFINITY }}
+          transition={{
+            duration: 8,
+            ease: "linear",
+            repeat: Number.POSITIVE_INFINITY,
+          }}
         >
           {/* https://icon-sets.iconify.design/solar/settings-bold-duotone/ */}
           <path

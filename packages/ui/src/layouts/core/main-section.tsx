@@ -1,18 +1,27 @@
-'use client';
+"use client";
 
 import { mergeClasses } from "@ye/utils/classes";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-import { layoutClasses } from '../core/classes';
+import { layoutClasses } from "../core/classes";
 
 // ----------------------------------------------------------------------
 
 export type MainSectionProps = React.ComponentProps<typeof MainRoot>;
 
-export function MainSection({ children, className, sx, ...other }: MainSectionProps) {
+export function MainSection({
+  children,
+  className,
+  sx,
+  ...other
+}: MainSectionProps) {
   return (
-    <MainRoot className={mergeClasses([layoutClasses.main, className])} sx={sx} {...other}>
+    <MainRoot
+      className={mergeClasses([layoutClasses.main, className])}
+      sx={sx}
+      {...other}
+    >
       {children}
     </MainRoot>
   );
@@ -20,8 +29,8 @@ export function MainSection({ children, className, sx, ...other }: MainSectionPr
 
 // ----------------------------------------------------------------------
 
-const MainRoot = styled('main')({
-  display: 'flex',
-  flex: '1 1 auto',
-  flexDirection: 'column',
+const MainRoot = styled("main")({
+  display: "flex",
+  flex: "1 1 auto",
+  flexDirection: "column",
 });

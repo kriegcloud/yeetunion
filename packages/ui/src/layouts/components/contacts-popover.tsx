@@ -1,24 +1,28 @@
-'use client';
+"use client";
 
-import type { BadgeProps } from '@mui/material/Badge';
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { BadgeProps } from "@mui/material/Badge";
+import type { IconButtonProps } from "@mui/material/IconButton";
 
-import { m } from 'framer-motion';
-import { usePopover } from '@ye/utils/hooks';
+import { usePopover } from "@ye/utils/hooks";
+import { m } from "framer-motion";
 
-import Badge from '@mui/material/Badge';
-import Avatar from '@mui/material/Avatar';
-import SvgIcon from '@mui/material/SvgIcon';
-import MenuItem from '@mui/material/MenuItem';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import ListItemText from '@mui/material/ListItemText';
+import Avatar from "@mui/material/Avatar";
+import Badge from "@mui/material/Badge";
+import IconButton from "@mui/material/IconButton";
+import ListItemText from "@mui/material/ListItemText";
+import MenuItem from "@mui/material/MenuItem";
+import SvgIcon from "@mui/material/SvgIcon";
+import Typography from "@mui/material/Typography";
 
-import { fToNow } from '@ye/utils/dayjs';
+import { fToNow } from "@ye/utils/dayjs";
 
-import { Scrollbar } from 'src/components/scrollbar';
-import { Popover } from "../../components";
-import { varTap, varHover, transitionTap } from 'src/components/animate';
+import {
+  Popover,
+  Scrollbar,
+  transitionTap,
+  varHover,
+  varTap,
+} from "../../components";
 
 // ----------------------------------------------------------------------
 
@@ -36,7 +40,11 @@ export type ContactsPopoverProps = IconButtonProps & {
   }[];
 };
 
-export function ContactsPopover({ data = [], sx, ...other }: ContactsPopoverProps) {
+export function ContactsPopover({
+  data = [],
+  sx,
+  ...other
+}: ContactsPopoverProps) {
   const { open, anchorEl, onClose, onOpen } = usePopover();
 
   const renderMenuList = () => (
@@ -53,16 +61,21 @@ export function ContactsPopover({ data = [], sx, ...other }: ContactsPopoverProp
       <Scrollbar sx={{ height: 320, width: 320 }}>
         {data.map((contact) => (
           <MenuItem key={contact.id} sx={{ p: 1 }}>
-            <Badge variant={contact.status as BadgeProps['variant']} badgeContent="">
+            <Badge
+              variant={contact.status as BadgeProps["variant"]}
+              badgeContent=""
+            >
               <Avatar alt={contact.name} src={contact.avatarUrl} />
             </Badge>
 
             <ListItemText
               primary={contact.name}
-              secondary={contact.status === 'offline' ? fToNow(contact.lastActivity) : ''}
+              secondary={
+                contact.status === "offline" ? fToNow(contact.lastActivity) : ""
+              }
               slotProps={{
                 secondary: {
-                  sx: { typography: 'caption', color: 'text.disabled' },
+                  sx: { typography: "caption", color: "text.disabled" },
                 },
               }}
             />
@@ -82,7 +95,9 @@ export function ContactsPopover({ data = [], sx, ...other }: ContactsPopoverProp
         aria-label="Contacts button"
         onClick={onOpen}
         sx={[
-          (theme) => ({ ...(open && { bgcolor: theme.vars.palette.action.selected }) }),
+          (theme) => ({
+            ...(open && { bgcolor: theme.vars.palette.action.selected }),
+          }),
           ...(Array.isArray(sx) ? sx : [sx]),
         ]}
         {...other}
@@ -90,7 +105,14 @@ export function ContactsPopover({ data = [], sx, ...other }: ContactsPopoverProp
         <SvgIcon>
           {/* https://icon-sets.iconify.design/solar/users-group-rounded-bold-duotone/  */}
           <circle cx="15" cy="6" r="3" fill="currentColor" opacity="0.4" />
-          <ellipse cx="16" cy="17" fill="currentColor" opacity="0.4" rx="5" ry="3" />
+          <ellipse
+            cx="16"
+            cy="17"
+            fill="currentColor"
+            opacity="0.4"
+            rx="5"
+            ry="3"
+          />
           <circle cx="9.001" cy="6" r="4" fill="currentColor" />
           <ellipse cx="9.001" cy="17.001" fill="currentColor" rx="7" ry="4" />
         </SvgIcon>

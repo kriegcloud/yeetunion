@@ -1,21 +1,21 @@
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
+import type { ButtonBaseProps } from "@mui/material/ButtonBase";
 
 import { varAlpha } from "@ye/utils/colors";
-import { usePopover } from '@ye/utils/hooks';
+import { usePopover } from "@ye/utils/hooks";
 
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ButtonBase from '@mui/material/ButtonBase';
+import ButtonBase from "@mui/material/ButtonBase";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
 
-import { Iconify } from '@ye/theme';
+import { Iconify } from "../../iconify";
 
-import { Popover } from '../../popover';
+import { Popover } from "../../popover";
 
-import type { CustomPopoverProps } from '../../popover';
+import type { CustomPopoverProps } from "../../popover";
 
 // ----------------------------------------------------------------------
 
-type ChartSelectProps = Omit<ButtonBaseProps, 'onChange'> & {
+type ChartSelectProps = Omit<ButtonBaseProps, "onChange"> & {
   options: string[];
   value: string;
   onChange: (newValue: string) => void;
@@ -25,11 +25,22 @@ type ChartSelectProps = Omit<ButtonBaseProps, 'onChange'> & {
   };
 };
 
-export function ChartSelect({ options, value, onChange, slotProps, ...other }: ChartSelectProps) {
+export function ChartSelect({
+  options,
+  value,
+  onChange,
+  slotProps,
+  ...other
+}: ChartSelectProps) {
   const { open, anchorEl, onClose, onOpen } = usePopover();
 
   const renderMenuActions = () => (
-    <Popover open={open} anchorEl={anchorEl} onClose={onClose} {...slotProps?.popover}>
+    <Popover
+      open={open}
+      anchorEl={anchorEl}
+      onClose={onClose}
+      {...slotProps?.popover}
+    >
       <MenuList>
         {options.map((option) => (
           <MenuItem
@@ -59,8 +70,8 @@ export function ChartSelect({ options, value, onChange, slotProps, ...other }: C
             gap: 1.5,
             height: 34,
             borderRadius: 1,
-            typography: 'subtitle2',
-            border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)}`,
+            typography: "subtitle2",
+            border: `solid 1px ${varAlpha(theme.vars.palette.grey["500Channel"], 0.24)}`,
           }),
           ...(Array.isArray(slotProps?.button?.sx)
             ? (slotProps?.button?.sx ?? [])
@@ -72,7 +83,9 @@ export function ChartSelect({ options, value, onChange, slotProps, ...other }: C
 
         <Iconify
           width={16}
-          icon={open ? 'eva:arrow-ios-upward-fill' : 'eva:arrow-ios-downward-fill'}
+          icon={
+            open ? "eva:arrow-ios-upward-fill" : "eva:arrow-ios-downward-fill"
+          }
         />
       </ButtonBase>
 

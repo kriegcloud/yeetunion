@@ -1,15 +1,16 @@
-import { useRef, useEffect, useCallback } from 'react';
-import { useBoolean } from '@ye/utils/hooks';
-import { isExternalLink } from '@ye/utils/url';
+"use client";
 import { isActiveLink } from "@ye/utils/active-link";
+import { useBoolean } from "@ye/utils/hooks";
+import { isExternalLink } from "@ye/utils/url";
+import { useCallback, useEffect, useRef } from "react";
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
-import { NavItem } from './nav-item';
-import { navSectionClasses } from '../styles';
-import { NavUl, NavLi, NavCollapse } from '../components';
+import { NavCollapse, NavLi, NavUl } from "../components";
+import { navSectionClasses } from "../styles";
+import { NavItem } from "./nav-item";
 
-import type { NavListProps, NavSubListProps } from '../types';
+import type { NavListProps, NavSubListProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -69,7 +70,13 @@ export function NavList({
 
   const renderCollapse = () =>
     !!data.children && (
-      <NavCollapse mountOnEnter unmountOnExit depth={depth} in={open} data-group={data.title}>
+      <NavCollapse
+        mountOnEnter
+        unmountOnExit
+        depth={depth}
+        in={open}
+        data-group={data.title}
+      >
         <NavSubList
           data={data.children}
           render={render}
@@ -91,7 +98,9 @@ export function NavList({
       disabled={data.disabled}
       sx={{
         ...(!!data.children && {
-          [`& .${navSectionClasses.li}`]: { '&:first-of-type': { mt: 'var(--nav-item-gap)' } },
+          [`& .${navSectionClasses.li}`]: {
+            "&:first-of-type": { mt: "var(--nav-item-gap)" },
+          },
         }),
       }}
     >
@@ -112,7 +121,7 @@ function NavSubList({
   enabledRootRedirect,
 }: NavSubListProps) {
   return (
-    <NavUl sx={{ gap: 'var(--nav-item-gap)' }}>
+    <NavUl sx={{ gap: "var(--nav-item-gap)" }}>
       {data.map((list) => (
         <NavList
           key={list.title}

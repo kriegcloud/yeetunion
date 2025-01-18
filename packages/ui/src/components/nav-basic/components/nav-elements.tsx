@@ -1,36 +1,42 @@
-import { mergeClasses } from '@ye/utils/classes';
+import { mergeClasses } from "@ye/utils/classes";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-import { navBasicClasses } from '../styles';
-
-// ----------------------------------------------------------------------
-
-export const Nav = styled('nav')``;
+import { navBasicClasses } from "../styles";
 
 // ----------------------------------------------------------------------
 
-type NavLiProps = React.ComponentProps<'li'> & { disabled?: boolean };
+export const Nav = styled("nav")``;
+
+// ----------------------------------------------------------------------
+
+type NavLiProps = React.ComponentProps<"li"> & { disabled?: boolean };
 
 export const NavLi = styled(
   (props: NavLiProps) => (
-    <li {...props} className={mergeClasses([navBasicClasses.li, props.className])} />
+    <li
+      {...props}
+      className={mergeClasses([navBasicClasses.li, props.className])}
+    />
   ),
-  { shouldForwardProp: (prop: string) => !['disabled', 'sx'].includes(prop) }
+  { shouldForwardProp: (prop: string) => !["disabled", "sx"].includes(prop) },
 )(() => ({
-  display: 'inline-block',
+  display: "inline-block",
   variants: [
     {
       props: { disabled: true },
-      style: { cursor: 'not-allowed' },
+      style: { cursor: "not-allowed" },
     },
   ],
 }));
 
 // ----------------------------------------------------------------------
 
-type NavUlProps = React.ComponentProps<'ul'>;
+type NavUlProps = React.ComponentProps<"ul">;
 
 export const NavUl = styled((props: NavUlProps) => (
-  <ul {...props} className={mergeClasses([navBasicClasses.ul, props.className])} />
-))(() => ({ display: 'flex', flexDirection: 'column' }));
+  <ul
+    {...props}
+    className={mergeClasses([navBasicClasses.ul, props.className])}
+  />
+))(() => ({ display: "flex", flexDirection: "column" }));

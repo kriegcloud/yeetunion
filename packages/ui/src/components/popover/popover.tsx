@@ -1,11 +1,11 @@
-import MuiPopover from '@mui/material/Popover';
-import { listClasses } from '@mui/material/List';
-import { menuItemClasses } from '@mui/material/MenuItem';
+import { listClasses } from "@mui/material/List";
+import { menuItemClasses } from "@mui/material/MenuItem";
+import MuiPopover from "@mui/material/Popover";
 
-import { Arrow } from './styles';
-import { calculateAnchorOrigin } from './utils';
+import { Arrow } from "./styles";
+import { calculateAnchorOrigin } from "./utils";
 
-import type { CustomPopoverProps } from './types';
+import type { CustomPopoverProps } from "./types";
 
 // ----------------------------------------------------------------------
 
@@ -17,13 +17,18 @@ export function Popover({
   slotProps,
   ...other
 }: CustomPopoverProps) {
-  const { arrow: arrowProps, paper: paperProps, ...otherSlotProps } = slotProps ?? {};
+  const {
+    arrow: arrowProps,
+    paper: paperProps,
+    ...otherSlotProps
+  } = slotProps ?? {};
 
   const arrowSize = arrowProps?.size ?? 14;
   const arrowOffset = arrowProps?.offset ?? 17;
-  const arrowPlacement = arrowProps?.placement ?? 'top-right';
+  const arrowPlacement = arrowProps?.placement ?? "top-right";
 
-  const { paperStyles, anchorOrigin, transformOrigin } = calculateAnchorOrigin(arrowPlacement);
+  const { paperStyles, anchorOrigin, transformOrigin } =
+    calculateAnchorOrigin(arrowPlacement);
 
   return (
     <MuiPopover
@@ -39,11 +44,13 @@ export function Popover({
           sx: [
             paperStyles,
             {
-              overflow: 'inherit',
+              overflow: "inherit",
               [`& .${listClasses.root}`]: { minWidth: 140 },
               [`& .${menuItemClasses.root}`]: { gap: 2 },
             },
-            ...(Array.isArray(paperProps?.sx) ? (paperProps?.sx ?? []) : [paperProps?.sx]),
+            ...(Array.isArray(paperProps?.sx)
+              ? (paperProps?.sx ?? [])
+              : [paperProps?.sx]),
           ],
         },
       }}

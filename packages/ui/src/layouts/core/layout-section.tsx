@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import type { Theme, SxProps, CSSObject } from '@mui/material/styles';
+import type { CSSObject, SxProps, Theme } from "@mui/material/styles";
 
 import { mergeClasses } from "@ye/utils/classes";
 
-import { styled } from '@mui/material/styles';
-import GlobalStyles from '@mui/material/GlobalStyles';
+import GlobalStyles from "@mui/material/GlobalStyles";
+import { styled } from "@mui/material/styles";
 
-import { layoutClasses } from './classes';
-import { layoutSectionVars } from './css-vars';
+import { layoutClasses } from "./classes";
+import { layoutSectionVars } from "./css-vars";
 
 // ----------------------------------------------------------------------
 
-export type LayoutSectionProps = React.ComponentProps<'div'> & {
+export type LayoutSectionProps = React.ComponentProps<"div"> & {
   sx?: SxProps<Theme>;
   cssVars?: CSSObject;
   children?: React.ReactNode;
@@ -32,7 +32,11 @@ export function LayoutSection({
   ...other
 }: LayoutSectionProps) {
   const inputGlobalStyles = (
-    <GlobalStyles styles={(theme) => ({ body: { ...layoutSectionVars(theme), ...cssVars } })} />
+    <GlobalStyles
+      styles={(theme) => ({
+        body: { ...layoutSectionVars(theme), ...cssVars },
+      })}
+    />
   );
 
   return (
@@ -68,10 +72,10 @@ export function LayoutSection({
 
 // ----------------------------------------------------------------------
 
-const LayoutRoot = styled('div')``;
+const LayoutRoot = styled("div")``;
 
-const LayoutSidebarContainer = styled('div')(() => ({
-  display: 'flex',
-  flex: '1 1 auto',
-  flexDirection: 'column',
+const LayoutSidebarContainer = styled("div")(() => ({
+  display: "flex",
+  flex: "1 1 auto",
+  flexDirection: "column",
 }));
