@@ -1,14 +1,10 @@
-import * as S from "@effect/schema/Schema";
-import { pipe } from "effect/Function";
 import { getRequestConfig } from "next-intl/server";
-import { SupportedLocalesEnumSchema } from "./constants";
+
 import { routing } from "./routing";
 export default getRequestConfig(async ({ requestLocale }) => {
-  let locale = await requestLocale.then(
-    pipe(S.decodeUnknownSync(SupportedLocalesEnumSchema)),
-  );
+  let locale = await requestLocale
 
-  if (!locale || !routing.locales.includes(locale)) {
+  if (!locale || !routing.locales.includes(locale as any)) {
     locale = routing.defaultLocale;
   }
 

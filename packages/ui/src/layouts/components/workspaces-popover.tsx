@@ -146,9 +146,6 @@ export function WorkspacesPopover({
               {option.name}
             </Box>
 
-            <Label color={option.plan === "Free" ? "default" : "info"}>
-              {option.plan}
-            </Label>
           </MenuItem>
         ))}
       </MenuList>

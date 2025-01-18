@@ -21,7 +21,6 @@ import { usePathname } from "next/navigation";
 import { AnimateBorder, Iconify, Label, Scrollbar } from "../../components";
 
 import { AccountButton } from "./account-button";
-import { UpgradeBlock } from "./nav-upgrade";
 import { SignOutButton } from "./sign-out-button";
 
 // ----------------------------------------------------------------------
@@ -205,9 +204,6 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
 
           {renderList()}
 
-          <Box sx={{ px: 2.5, py: 3 }}>
-            <UpgradeBlock />
-          </Box>
         </Scrollbar>
 
         <Box sx={{ p: 2.5 }}>

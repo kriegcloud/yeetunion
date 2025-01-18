@@ -8,6 +8,10 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./views": {
+      "types": "./dist/views/index.d.ts",
+      "default": "./dist/views/index.js"
+    },
     "./components": {
       "types": "./dist/components/index.d.ts",
       "default": "./dist/components/index.js"

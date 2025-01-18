@@ -1,5 +1,5 @@
 export * from "./constants";
 export * from "./layout";
-export * from "./request";
+export { default as getRequestConfig} from "./request";
 export * from "./routing";
 export * from "./types";

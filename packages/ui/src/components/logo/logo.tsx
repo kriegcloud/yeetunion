@@ -1,3 +1,4 @@
+"use client";
 import type { LinkProps } from "@mui/material/Link";
 
 import { mergeClasses } from "@ye/utils/classes";

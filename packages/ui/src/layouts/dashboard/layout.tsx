@@ -18,7 +18,6 @@ import { AccountDrawer } from "../components/account-drawer";
 import { MenuButton } from "../components/menu-button";
 import { Searchbar } from "../components/searchbar";
 import { SettingsButton } from "../components/settings-button";
-// import { ContactsPopover } from '../components/contacts-popover';
 import { WorkspacesPopover } from "../components/workspaces-popover";
 import { layoutClasses } from "../core/classes";
 import { HeaderSection } from "../core/header-section";
@@ -27,12 +26,10 @@ import { MainSection } from "../core/main-section";
 import { _account } from "../nav-config-account";
 import { _workspaces } from "../nav-config-workspace";
 import { VerticalDivider } from "./content";
-// import { navData as dashboardNavData } from '../nav-config-dashboard';
 import { dashboardLayoutVars, dashboardNavColorVars } from "./css-vars";
 import { NavHorizontal } from "./nav-horizontal";
 import { NavMobile } from "./nav-mobile";
 import { NavVertical } from "./nav-vertical";
-// import { NotificationsDrawer } from '../components/notifications-drawer';
 
 import type { HeaderSectionProps } from "../core/header-section";
 import type { LayoutSectionProps } from "../core/layout-section";
@@ -165,7 +162,6 @@ export function DashboardLayout({
           {/*<NotificationsDrawer data={_notifications} />*/}
 
           {/** @slot Contacts popover */}
-          {/*<ContactsPopover data={_contacts} />*/}
 
           {/** @slot Settings button */}
           <SettingsButton />

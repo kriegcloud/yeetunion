@@ -5,11 +5,10 @@
   "description": "The web application of TheBois",
   "license": "MIT",
   "author": "Bois",
-  "type": "commonjs",
   "scripts": {
     "build": "next build",
     "clean": "bun run rm -rf .next *.tsbuildinfo playwright-report test-results node_modules .turbo",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "start": "next start",
     "test:e2e": "playwright test",
     "typecheck": "tsc",

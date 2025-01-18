@@ -18,7 +18,6 @@ import {
   NavSectionVertical,
 } from "../../components/nav-section";
 import { NavToggleButton } from "../components/nav-toggle-button";
-import { NavUpgrade } from "../components/nav-upgrade";
 import { layoutClasses } from "../core/classes";
 
 // ----------------------------------------------------------------------
@@ -62,7 +61,7 @@ export function NavVertical({
           sx={{ px: 2, flex: "1 1 auto" }}
         />
 
-        {slots?.bottomArea ?? <NavUpgrade />}
+        {slots?.bottomArea ?? <div>beep</div>}
       </Scrollbar>
     </>
   );
