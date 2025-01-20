@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { CONFIG } from '@ye/apps/yeetunion';
+import { CONFIG } from '@ye/core/yeetunion';
 
 import { NotFound } from '@ye/ui/views';
 

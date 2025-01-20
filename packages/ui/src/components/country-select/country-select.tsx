@@ -14,7 +14,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import TextField from "@mui/material/TextField";
 
-import { countries } from "@ye/constants/countries";
+import { countries } from "@ye/data/countries";
 
 import { FlagIcon, flagIconClasses } from "../flag-icon";
 

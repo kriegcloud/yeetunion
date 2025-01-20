@@ -8,7 +8,7 @@ import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 
-import { paths } from "@ye/apps/yeetunion";
+import { paths } from "@ye/core/yeetunion";
 import RouterLink from "next/link";
 
 import { Logo } from "../../components";

@@ -1,4 +1,4 @@
-import * as S from "@effect/schema/Schema";
+import { Schema as S } from "effect";
 import * as Drizzle from "drizzle-orm";
 import * as DrizzleMysql from "drizzle-orm/mysql-core";
 import * as DrizzlePg from "drizzle-orm/pg-core";

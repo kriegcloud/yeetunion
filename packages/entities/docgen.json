@@ -1,0 +1,29 @@
+{
+  "exclude": ["src/internal/**/*.ts"],
+  "parseCompilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "paths": {
+      "@ye/primitives": ["./src/index.js"],
+      "@ye/primitives/test/*": ["./test/*.js"],
+      "@ye/primitives/*": ["./src/*.js"]
+    }
+  },
+  "examplesCompilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "paths": {
+      "@ye/primitives": ["../../src/index.js"],
+      "@ye/primitives/test/*": ["../../test/*.js"],
+      "@ye/primitives/*": ["../../src/*.js"]
+    }
+  }
+}

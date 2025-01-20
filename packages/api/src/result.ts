@@ -9,6 +9,7 @@ export namespace Result {
   export function ok<T>(value: T): Ok<T> {
     return { _tag: "ok", value };
   }
+
   export function error<E>(error: E): Err<E> {
     return { _tag: "error", error };
   }
@@ -20,6 +21,7 @@ export namespace Result {
   export function isOk<T>(result: Result<T, unknown>): result is Ok<T> {
     return result._tag === "ok";
   }
+
   export function isErr<E>(result: Result<unknown, E>): result is Err<E> {
     return result._tag === "error";
   }

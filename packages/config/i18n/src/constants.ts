@@ -1,5 +1,6 @@
-import * as S from "@effect/schema/Schema";
-import * as P from "@ye/primitives";
+import { Schema as S } from "effect";
+import * as ye from "@ye/primitives";
+
 
 export const COUNTRY_CODES = [
   { name: "Afghanistan", code: "AF" },
@@ -249,9 +250,9 @@ export const COUNTRY_CODES = [
 export const CountryCodeUnion = S.Union(
   ...COUNTRY_CODES.map((c) => S.Literal(c.code)),
 );
-export const CountryCodeEnum = P.readonlyArrayToEnum(
-  COUNTRY_CODES.map((c) => c.code),
-);
+// export const CountryCodeEnum = ye.Utils.EnumFromReadonlyArray(
+//   COUNTRY_CODES.map((c) => ),
+// );
 
 export const DATA_TABLE_MESSAGES = [
   "actions",
@@ -414,9 +415,9 @@ export enum CurrenciesEnum {
 export const Currencies = S.Enums(CurrenciesEnum);
 export type Currencies = typeof Currencies.Type;
 
-export const DataTableMessages = P.readonlyArrayToStruct(
+export const DataTableMessages = ye.Utils.StructFromReadonlyArray(
   DATA_TABLE_MESSAGES,
-  P.yeNonEmptyStr,
+  ye.NonEmptyStr,
 );
 
 export const CURRENCIES = {
@@ -442,15 +443,15 @@ export const LocaleNumberFormatUnion = S.Union(
 );
 
 export const LangOption = S.Struct({
-  value: P.yeNonEmptyStr,
-  label: P.yeNonEmptyStr,
-  countryCode: CountryCodeEnum,
+  value: ye.NonEmptyStr,
+  label: ye.NonEmptyStr,
+  // countryCode: CountryCodeEnum,
   adapterLocale: SupportedLocales,
   numberFormat: LocaleNumberFormatUnion,
 });
 
 export const NavOption = S.Struct({
-  title: P.yeNonEmptyStr,
+  title: ye.NonEmptyStr,
 });
 export type LangOption = typeof LangOption.Type;
 

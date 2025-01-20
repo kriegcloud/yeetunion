@@ -1,0 +1,30 @@
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+import ye from "@ye/primitives";
+import { Model } from "@effect/sql";
+import { baseFields } from "./lib/utils.js";
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+export const UserId = ye.NonEmptyTrimStr.pipe(ye.Brand("@ye/entities/UserId"));
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+export class User extends Model.Class("User")({
+    id: Model.GeneratedByApp(UserId),
+    name: ye.NonEmptyTrimStr,
+    email: ye.Email,
+    emailVerified: ye.Bool,
+    image: ye.NonEmptyTrimStrOrNull,
+    role: ye.NonEmptyTrimStrOrNull,
+    banned: ye.BoolOrNull,
+    banReason: ye.StrOrNull,
+    banExpires: ye.DateTimeOrNull,
+    ...baseFields,
+}) {
+}
+//# sourceMappingURL=User.js.map

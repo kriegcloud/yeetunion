@@ -3,7 +3,6 @@
     "LangOption": {
       "value": "en",
       "label": "English",
-      "countryCode": "US",
       "adapterLocale": "en",
       "numberFormat": {
         "code": "en-US",

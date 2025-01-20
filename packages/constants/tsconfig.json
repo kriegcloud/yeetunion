@@ -1,3 +1,0 @@
-{
-  "extends": ["@ye/tsconfig/dom.json"]
-}

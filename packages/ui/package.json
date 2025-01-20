@@ -67,8 +67,8 @@
     "@mui/x-tree-view": "^7.24.0"
   },
   "dependencies": {
-    "@ye/apps": "workspace:^",
-    "@ye/constants": "workspace:^",
+    "@ye/core": "workspace:^",
+    "@ye/data": "workspace:^",
     "@ye/i18n": "workspace:^",
     "@ye/utils": "workspace:^",
     "apexcharts": "^4.3.0",
