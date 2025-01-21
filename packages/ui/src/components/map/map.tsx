@@ -17,8 +17,10 @@ export type MapProps = ReactMapProps & { sx?: SxProps<Theme> };
 export const Map = forwardRef<MapRef, MapProps>((props, ref) => {
   const {
     sx,
-  //  ...other
+   // ...rest,
   } = props;
+
+
 
   const isClient = useIsClient();
 
@@ -42,7 +44,6 @@ export const Map = forwardRef<MapRef, MapProps>((props, ref) => {
           <LazyMap
             ref={ref}
             mapboxAccessToken={"TODO"}
-            /*{...other}*/
           />
         </Suspense>
       ) : (

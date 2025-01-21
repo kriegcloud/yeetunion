@@ -8,6 +8,10 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./format-number": {
+      "types": "./dist/format-number.d.ts",
+      "default": "./dist/format-number.js"
+    },
     "./transform-number": {
       "types": "./dist/transform-number.d.ts",
       "default": "./dist/transform-number.js"

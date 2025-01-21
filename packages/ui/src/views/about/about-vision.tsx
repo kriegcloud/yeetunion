@@ -8,9 +8,9 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { Image } from 'src/components/image';
-import { Iconify } from 'src/components/iconify';
-import { varFade, MotionViewport } from 'src/components/animate';
+import { Image } from '../../components/image';
+import { Iconify } from '../../components/iconify';
+import { varFade, MotionViewport } from '../../components/animate';
 
 // ----------------------------------------------------------------------
 

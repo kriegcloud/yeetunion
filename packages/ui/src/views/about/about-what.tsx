@@ -10,11 +10,11 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import LinearProgress from '@mui/material/LinearProgress';
 
-import { fPercent } from 'src/utils/format-number';
+import { fPercent } from '@ye/utils/format-number';
 
-import { Image } from 'src/components/image';
-import { Iconify } from 'src/components/iconify';
-import { varFade, MotionViewport } from 'src/components/animate';
+import { Image } from '../../components/image';
+import { Iconify } from '../../components/iconify';
+import { varFade, MotionViewport } from '../../components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -39,7 +39,7 @@ export function AboutWhat({ sx, ...other }: BoxProps) {
               <m.div variants={varFade('inUp')}>
                 <Image
                   alt="Our office small"
-                  src={`${CONFIG.assetsDir}/assets/images/about/what-small.webp`}
+                  src={`/assets/images/about/what-small.webp`}
                   ratio="1/1"
                   sx={(theme) => ({
                     borderRadius: 3,

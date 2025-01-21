@@ -2,7 +2,6 @@ import {SignUp} from "@ye/ui/views";
 
 const Page = () => {
   return (
-
     <SignUp />
   )
 }

@@ -1,8 +1,8 @@
-import {Login} from "@ye/ui/views";
-
 const Page = () => {
   return (
-    <Login/>
+    <div>
+      beep
+    </div>
   )
 }
 

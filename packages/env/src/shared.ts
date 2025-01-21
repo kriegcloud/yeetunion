@@ -7,9 +7,11 @@ export const sharedEnv = createEnv({
   shared: {
     NODE_ENV: z.enum(["development", "test", "production"]).optional(),
     PORT: z.coerce.number().default(3000),
+    NEXT_PUBLIC_MAPBOX_API_KEY: z.string(),
   },
   runtimeEnv: {
-    NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_MAPBOX_API_KEY: process.env["NEXT_PUBLIC_MAPBOX_API_KEY"],
+    NODE_ENV: process.env["NODE_ENV"],
     PORT: 3000,
   },
 });

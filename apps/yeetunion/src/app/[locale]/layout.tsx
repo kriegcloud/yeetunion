@@ -8,7 +8,6 @@ import type { Metadata, Viewport } from "next";
 import { primary } from "@ye/ui/theme";
 import { ThemeProvider, themeConfig } from "@ye/ui/theme";
 
-// import { routing } from "@ye/i18n";
 import type { LocaleProp } from "@ye/i18n";
 import { MotionLazy, ProgressBar, Snackbar } from "@ye/ui/components";
 import { detectSettings } from "@ye/ui/server-theme";
@@ -17,9 +16,8 @@ import {
   SettingsProvider,
   defaultSettings,
 } from "@ye/ui/theme";
-// import { NextIntlClientProvider } from "next-intl";
-// import { getMessages } from "next-intl/server";
-// import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import type { ReactNode } from "react";
 // ----------------------------------------------------------------------
 
@@ -56,11 +54,10 @@ async function getAppConfig() {
 
 export default async function RootLayout({
   children,
-  // params,
 }: RootLayoutProps) {
   const appConfig = await getAppConfig();
 
-  // const messages = await getMessages();
+  const messages = await getMessages();
   return (
     <html
       id="__next"
@@ -70,7 +67,7 @@ export default async function RootLayout({
     >
       <body>
         <TRPCReactProvider>
-          {/*<NextIntlClientProvider messages={messages}>*/}
+          <NextIntlClientProvider messages={messages}>
             <InitColorSchemeScript
               defaultMode={themeConfig.defaultMode}
               modeStorageKey={themeConfig.modeStorageKey}
@@ -96,7 +93,7 @@ export default async function RootLayout({
                 </ThemeProvider>
               </AppRouterCacheProvider>
             </SettingsProvider>
-          {/*</NextIntlClientProvider>*/}
+          </NextIntlClientProvider>
         </TRPCReactProvider>
       </body>
     </html>

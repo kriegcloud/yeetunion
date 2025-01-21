@@ -1,11 +1,7 @@
-
+import {HydrateClient} from "@/trpc/server";
 
 const Page = () => {
-  return (
-    <div>
-      <h1>Admin Dashboard</h1>
-    </div>
-  )
-}
+  return <HydrateClient>yee</HydrateClient>;
+};
 
 export default Page;
