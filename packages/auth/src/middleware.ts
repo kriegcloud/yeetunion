@@ -2,7 +2,10 @@ import { betterFetch } from '@better-fetch/fetch';
 import { Session, User } from "@ye/entities"
 import { NextResponse, type NextRequest } from 'next/server';
 
-export const privateRoutes = ['/dashboard', '/profile'];
+export const privateRoutes = [
+  '/dashboard',
+  '/profile'
+];
 
 export async function authMiddleware(
   request: NextRequest,

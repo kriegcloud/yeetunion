@@ -7,6 +7,8 @@ type Props = {
 
 export default function Layout({children}: Props) {
   return (
-    <AuthCenteredLayout>{children}</AuthCenteredLayout>
+    <AuthCenteredLayout>
+        {children}
+    </AuthCenteredLayout>
   )
 }
