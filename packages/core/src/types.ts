@@ -20,10 +20,5 @@ export type ThemeCssVar = typeof ThemeCssVar.Type;
 
 export const AppConfig = S.Struct({
   name: ye.NonEmptyTrimStr,
-  // cookies: S.Struct({
-  //   settingsKey: ye.NonEmptyTrimStr,
-  //   modeKey: ye.NonEmptyTrimStr,
-  // }),
-  // description: ye.NonEmptyTrimStr,
 });
 export type AppConfig = typeof AppConfig.Type;

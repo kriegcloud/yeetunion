@@ -17,6 +17,13 @@
   "module": "./build/esm/index.js",
   "types": "./build/dts/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./build/esm/index.js",
+      "require": "./build/cjs/index.js",
+      "types": "./build/dts/index.d.ts"
+    }
+  },
   "scripts": {
     "codegen": "build-utils prepare-v2",
     "build": "pnpm build:esm && pnpm build:annotate && pnpm build:cjs && build-utils pack-v2",

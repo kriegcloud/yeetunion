@@ -8,6 +8,10 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./transform-number": {
+      "types": "./dist/transform-number.d.ts",
+      "default": "./dist/transform-number.js"
+    },
     "./active-link": {
       "types": "./dist/active-link.d.ts",
       "default": "./dist/active-link.js"

@@ -6,7 +6,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./client": "./src/client.ts",
-    "./shared": "./src/shared.ts"
+    "./shared": "./src/shared.ts",
+    "./middleware": "./src/middleware.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -18,6 +19,7 @@
     "generate": "bunx @better-auth/cli@latest generate --output '../db/src/schema/auth-schema.ts' --y"
   },
   "dependencies": {
+    "@ye/entities": "workspace:^",
     "@effect/schema": "latest",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@ye/db": "workspace:^",

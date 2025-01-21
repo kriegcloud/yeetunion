@@ -69,4 +69,26 @@ Object.keys(_Passkey).forEach(function (key) {
     }
   });
 });
+var _Session = require("./Session.js");
+Object.keys(_Session).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _Session[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _Session[key];
+    }
+  });
+});
+var _User = require("./User.js");
+Object.keys(_User).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _User[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _User[key];
+    }
+  });
+});
 //# sourceMappingURL=index.js.map

@@ -13,6 +13,15 @@ jiti("@ye/env/yeetunion/client");
 const config = {
   ...baseConfig,
   transpilePackages: ["@ye/ui"],
+  redirects: async () => {
+    return [
+      {
+        source: "/",
+        destination: "/dashboard",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(config);

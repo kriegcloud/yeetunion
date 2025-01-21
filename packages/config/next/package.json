@@ -21,7 +21,7 @@
     "@ye/env": "workspace:^"
   },
   "devDependencies": {
-    "@ye/tsconfig": "workspace:^",
+    "@ye/typescript-config": "workspace:^",
     "typescript": "latest"
   }
 }

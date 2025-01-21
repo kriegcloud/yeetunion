@@ -22,7 +22,7 @@ import { FlagIcon, flagIconClasses } from "../flag-icon";
 
 type Value = string;
 
-export type AutocompleteBaseProps = Omit<
+type AutocompleteBaseProps = Omit<
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   AutocompleteProps<any, boolean, boolean, boolean>,
   "options" | "renderOption" | "renderInput" | "renderTags" | "getOptionLabel"

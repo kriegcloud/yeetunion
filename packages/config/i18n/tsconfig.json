@@ -1,4 +1,0 @@
-{
-  "extends": ["@ye/tsconfig/react.json"],
-  "include": ["./bin/*.ts"]
-}

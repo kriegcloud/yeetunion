@@ -28,4 +28,14 @@ export * from "./OrgMember.js";
  * @category entities
  */
 export * from "./Passkey.js";
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+export * from "./Session.js";
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+export * from "./User.js";
 //# sourceMappingURL=index.js.map

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.IPv6 = exports.IPOrNull = exports.IP = void 0;
 var _effect = require("effect");
-var _NonEmptyStr = require("./NonEmptyStr");
+var _NonEmptyStr = require("./NonEmptyStr.js");
 /**
  * @category primitives
  * @since 0.1.0

@@ -305,3 +305,8 @@ export function fSub({
     )
     .format();
 }
+
+
+export function formatTime(value: number): string {
+  return String(value).length === 1 ? `0${value}` : `${value}`;
+}
