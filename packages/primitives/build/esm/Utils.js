@@ -1,8 +1,10 @@
+import * as AST from "@effect/schema/AST";
 /**
  * @category primitives
  * @since 0.1.0
  */
 import { Schema as S } from "effect";
+import * as A from "effect/Array";
 import { pipe } from "effect/Function";
 /**
  * @category primitives

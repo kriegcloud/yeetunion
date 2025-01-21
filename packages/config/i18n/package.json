@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsx ./bin/generate && tsc -p tsconfig.build.json",
     "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
     "dev": "tsc -w -p tsconfig.build.json",
     "typecheck": "tsc",

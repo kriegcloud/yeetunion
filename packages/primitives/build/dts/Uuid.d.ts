@@ -57,22 +57,18 @@ export type UUIDOptional = S.Schema.Type<typeof UUIDOptional>;
  * @category primitives
  * @since 0.1.0
  */
-export declare const UUIDWithDefault: (
-  value: string,
-) => S.PropertySignature<":", string, never, ":", string, true, never>;
+export declare const UUIDWithDefault: (value: string) => S.PropertySignature<":", string, never, ":", string, true, never>;
 /**
  * @since 0.1.0
  * @category primitives
  */
 declare const _default: {
-  UUID: typeof S.UUID;
-  UUIDOrNull: S.NullOr<typeof S.UUID>;
-  UUIDOrUndefined: S.UndefinedOr<typeof S.UUID>;
-  UUIDOrNullish: S.NullishOr<typeof S.UUID>;
-  UUIDOptional: S.optional<typeof S.UUID>;
-  UUIDWithDefault: (
-    value: string,
-  ) => S.PropertySignature<":", string, never, ":", string, true, never>;
+    UUID: typeof S.UUID;
+    UUIDOrNull: S.NullOr<typeof S.UUID>;
+    UUIDOrUndefined: S.UndefinedOr<typeof S.UUID>;
+    UUIDOrNullish: S.NullishOr<typeof S.UUID>;
+    UUIDOptional: S.optional<typeof S.UUID>;
+    UUIDWithDefault: (value: string) => S.PropertySignature<":", string, never, ":", string, true, never>;
 };
 export default _default;
 //# sourceMappingURL=Uuid.d.ts.map

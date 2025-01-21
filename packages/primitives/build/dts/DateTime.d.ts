@@ -57,7 +57,5 @@ export type DateTimeOptional = S.Schema.Type<typeof DateTimeOptional>;
  * @category primitives
  * @since 0.1.0
  */
-export declare const DateTimeWithDefault: (
-  value: Date,
-) => S.PropertySignature<":", Date, never, ":", string, true, never>;
+export declare const DateTimeWithDefault: (value: Date) => S.PropertySignature<":", Date, never, ":", string, true, never>;
 //# sourceMappingURL=DateTime.d.ts.map

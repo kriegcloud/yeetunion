@@ -247,6 +247,8 @@ export const COUNTRY_CODES = [
   { name: "Zimbabwe", code: "ZW" },
 ] as const;
 
+
+
 export const COUNTRIES = [
   { code: "AD", label: "Andorra", phone: "376" },
   { code: "AE", label: "United Arab Emirates", phone: "971" },
@@ -506,9 +508,6 @@ export const COUNTRIES = [
   { code: "ZW", label: "Zimbabwe", phone: "263" },
 ] as const;
 
-export const CountryCodeUnion = S.Union(
-  ...COUNTRY_CODES.map((c) => S.Literal(c.code)),
-);
 // export const CountryCodeEnum = ye.Utils.EnumFromReadonlyArray(
 //   COUNTRY_CODES.map((c) => ),
 // );
@@ -700,11 +699,11 @@ export const LocaleNumberFormatUnion = S.Union(
 
   // Additional Locales here
 );
-
+const CountryCodeUnion = S.Union(...COUNTRY_CODES.map((c) => S.Literal(c.code)))
 export const LangOption = S.Struct({
   value: ye.NonEmptyStr,
   label: ye.NonEmptyStr,
-  // countryCode: CountryCodeEnum,
+  countryCode: CountryCodeUnion,
   adapterLocale: SupportedLocales,
   numberFormat: LocaleNumberFormatUnion,
 });

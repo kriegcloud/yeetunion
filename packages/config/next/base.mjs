@@ -101,13 +101,13 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // experimental: {
-  //   scrollRestoration: true,
-  //   typedRoutes: true,
-  //   serverActions: {
-  //     bodySizeLimit: "20mb",
-  //   },
-  // },
+  experimental: {
+    scrollRestoration: true,
+    // typedRoutes: true,
+    serverActions: {
+      bodySizeLimit: "20mb",
+    },
+  },
   logging: {
     fetches: {
       fullUrl: false,

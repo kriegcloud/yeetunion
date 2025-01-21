@@ -33,12 +33,11 @@ export type IP = typeof IP.Type;
  * @category primitives
  * @since 0.1.0
  */
-export declare const IPOrNull: S.NullOr<
-  S.filter<S.Schema<string, string, never>>
->;
+export declare const IPOrNull: S.NullOr<S.filter<S.Schema<string, string, never>>>;
 /**
  * @category primitives
  * @since 0.1.0
  */
 export type IPOrNull = typeof IP.Type;
+export {};
 //# sourceMappingURL=IP.d.ts.map

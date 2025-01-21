@@ -1,0 +1,1 @@
+{"version":3,"file":"filesystem.js","names":["dirname","join","getAbsolutePath","value","require","resolve"],"sources":["../../src/filesystem.ts"],"sourcesContent":[null],"mappings":"AAAA,SAASA,OAAO,EAAEC,IAAI,QAAQ,WAAW;AAEzC;;;;;;AAMA,OAAM,SAAUC,eAAeA,CAACC,KAAa;EAC3C,OAAOH,OAAO,CAACI,OAAO,CAACC,OAAO,CAACJ,IAAI,CAACE,KAAK,EAAE,cAAc,CAAC,CAAC,CAAC;AAC9D","ignoreList":[]}
