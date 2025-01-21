@@ -32,7 +32,7 @@ const LINKS = [
   },
   {
     headline: "Contact",
-    children: [{ name: "support@minimals.cc", href: "#" }],
+    children: [{ name: "support@yeetunion.com", href: "#" }],
   },
 ];
 
@@ -85,9 +85,7 @@ export function Footer({
                 [theme.breakpoints.up(layoutQuery)]: { mx: "unset" },
               })}
             >
-              The starting point for your next project with Minimal UI Kit,
-              built on the newest version of Material-UI ©, ready to be
-              customized to your style.
+              Yeet Union ©
             </Typography>
 
             <Box
@@ -184,7 +182,7 @@ export function HomeFooter({ sx, ...other }: FooterProps) {
         <Box sx={{ mt: 1, typography: "caption" }}>
           © All rights reserved.
           <br /> made by
-          <Link href="https://minimals.cc/"> minimals.cc </Link>
+          <Link href="https://yeetunion.com/"> yeetunion.com </Link>
         </Box>
       </Container>
     </FooterRoot>
