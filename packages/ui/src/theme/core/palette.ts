@@ -1,4 +1,3 @@
-import type { ColorSystemOptions } from "@mui/material/styles";
 import type {
   Channels,
   PaletteColor,
@@ -7,8 +6,6 @@ import type {
 import { createPaletteChannel, varAlpha } from "@ye/utils/colors";
 
 import { themeConfig } from "../theme-config";
-
-import type { ThemeColorScheme } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -130,11 +127,11 @@ export const background = {
 
 // Base action color
 export const baseAction = {
-  hover: varAlpha(grey["500Channel"], 0.08),
-  selected: varAlpha(grey["500Channel"], 0.16),
-  focus: varAlpha(grey["500Channel"], 0.24),
-  disabled: varAlpha(grey["500Channel"], 0.8),
-  disabledBackground: varAlpha(grey["500Channel"], 0.24),
+  hover: varAlpha(grey["500Channel"] as string, 0.08),
+  selected: varAlpha(grey["500Channel"] as string, 0.16),
+  focus: varAlpha(grey["500Channel"] as string, 0.24),
+  disabled: varAlpha(grey["500Channel"] as string, 0.8),
+  disabledBackground: varAlpha(grey["500Channel"] as string, 0.24),
   hoverOpacity: 0.08,
   disabledOpacity: 0.48,
 };
@@ -157,21 +154,20 @@ export const basePalette = {
   error,
   common,
   grey,
-  divider: varAlpha(grey["500Channel"], 0.2),
+  divider: varAlpha(grey["500Channel"] as string, 0.2),
 };
 
-export const palette: Record<ThemeColorScheme, ColorSystemOptions["palette"]> =
-  {
-    light: {
-      ...basePalette,
-      text: text.light,
-      background: background.light,
-      action: action.light,
-    },
-    dark: {
-      ...basePalette,
-      text: text.dark,
-      background: background.dark,
-      action: action.dark,
-    },
-  };
+export const palette = {
+  light: {
+    ...basePalette,
+    text: text.light,
+    background: background.light,
+    action: action.light,
+  },
+  dark: {
+    ...basePalette,
+    text: text.dark,
+    background: background.dark,
+    action: action.dark,
+  },
+};

@@ -29,11 +29,10 @@ const flattenNavItems = (
     flattenedItems.push({
       title: navItem.title,
       path: navItem.path,
-      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       group:
         groupArray.length > 2
-          ? `${groupArray[0]!}.${groupArray[1]!}`
-          : groupArray[0]!,
+          ? `${groupArray[0] as string}.${groupArray[1] as string}`
+          : (groupArray[0] as string),
     });
 
     if (navItem.children) {

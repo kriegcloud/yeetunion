@@ -3,13 +3,13 @@
  * @since 0.1.0
  */
 import { Schema as S } from "effect";
-import {NonEmptyTrimStr} from "./NonEmptyStr.js";
+import { NonEmptyTrimStr } from "./NonEmptyStr.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-const Email = NonEmptyTrimStr.pipe(
+export const Email = NonEmptyTrimStr.pipe(
   S.lowercased(),
   S.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
 );
@@ -72,15 +72,3 @@ export const EmailWithDefault = (value: string) =>
     S.propertySignature,
     S.withConstructorDefault(() => Email.make(value)),
   );
-/**
- * @category primitives
- * @since 0.1.0
- */
-export default {
-  Email,
-  EmailOrNull,
-  EmailOrUndefined,
-  EmailOrNullish,
-  EmailOptional,
-  EmailWithDefault
-}

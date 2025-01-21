@@ -4,7 +4,6 @@ import type { SettingsState } from "../settings";
 import { createPaletteChannel, hexToRgbChannel } from "@ye/utils/colors";
 import { setFont } from "@ye/utils/font";
 
-// import { createShadowColor } from '../core/shadows';
 import { createShadowColor } from "../core/custom-shadows";
 import { primaryColorPresets } from "./color-presets";
 
@@ -35,9 +34,8 @@ export function updateCoreWithSettings(
   const lightPalette = theme.colorSchemes?.light
     .palette as ColorSystem["palette"];
 
-  // biome-ignore lint/style/noNonNullAssertion: <explanation>
   const updatedPrimaryColor = createPaletteChannel(
-    primaryColorPresets[primaryColor]!,
+    primaryColorPresets[primaryColor as keyof typeof primaryColorPresets],
   );
   // const updatedSecondaryColor = createPaletteChannel(SECONDARY_COLORS[primaryColor!]);
 
@@ -64,7 +62,9 @@ export function updateCoreWithSettings(
     const updatedCustomShadows = {
       ...colorSchemes?.customShadows,
       ...(!isDefaultPrimaryColor && {
-        primary: createShadowColor(updatedPrimaryColor.mainChannel),
+        primary: createShadowColor(
+          updatedPrimaryColor["mainChannel"] as string,
+        ),
         // secondary: createShadowColor(updatedSecondaryColor.mainChannel),
       }),
     };
@@ -82,7 +82,7 @@ export function updateCoreWithSettings(
     colorSchemes: {
       light: updateColorScheme("light"),
       dark: updateColorScheme("dark"),
-    },
+    } as ThemeOptions["colorSchemes"],
     typography: {
       ...theme.typography,
       fontFamily: setFont(fontFamily),

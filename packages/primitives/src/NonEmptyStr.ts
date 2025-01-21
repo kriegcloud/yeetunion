@@ -100,8 +100,7 @@ export const NonEmptyTrimStrOrUndefined = S.UndefinedOr(NonEmptyTrimStr);
  * @category primitives
  * @since 0.1.0
  */
-export type NonEmptyTrimStrOrUndefined =
-  typeof NonEmptyTrimStrOrUndefined.Type;
+export type NonEmptyTrimStrOrUndefined = typeof NonEmptyTrimStrOrUndefined.Type;
 
 /**
  * @category primitives

@@ -90,8 +90,7 @@ const outlinedVariant: Record<string, ComponentsVariants<Theme>["MuiFab"]> = {
   colors: COLORS.map((color) => ({
     props: ({ ownerState }) =>
       !ownerState.disabled &&
-      // biome-ignore lint/style/noNonNullAssertion: <explanation>
-      OUTLINED_VARIANT.includes(ownerState["variant"]!) &&
+      OUTLINED_VARIANT.includes(ownerState["variant"] as string) &&
       ownerState.color === color,
     style: ({ theme }) => ({
       color: theme.vars.palette[color].main,
@@ -103,9 +102,8 @@ const outlinedVariant: Record<string, ComponentsVariants<Theme>["MuiFab"]> = {
   })),
   base: [
     {
-      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       props: ({ ownerState }) =>
-        OUTLINED_VARIANT.includes(ownerState["variant"]!),
+        OUTLINED_VARIANT.includes(ownerState["variant"] as string),
       style: ({ theme }) => ({
         boxShadow: "none",
         backgroundColor: "transparent",
@@ -189,9 +187,8 @@ const softVariant: Record<string, ComponentsVariants<Theme>["MuiFab"]> = {
 
 const sizes: ComponentsVariants<Theme>["MuiFab"] = [
   {
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     props: ({ ownerState }) =>
-      EXTENDED_VARIANT.includes(ownerState["variant"]!),
+      EXTENDED_VARIANT.includes(ownerState["variant"] as string),
     style: ({ theme }) => ({
       height: 48,
       width: "auto",

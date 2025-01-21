@@ -1,17 +1,16 @@
-import { ThemeConfig } from "./theme";
+import ye from "@ye/primitives";
 import { Schema as S } from "effect";
-import {yeNextPath} from "@ye/primitives";
-
+import { ThemeConfig } from "./theme";
 
 export const AppConfig = S.Struct({
   name: S.String,
   metadata: S.Record({ key: S.String, value: S.String }), // TODO figure out metadata
   theme: ThemeConfig,
   paths: S.Struct({
-    public: S.Array(yeNextPath),
-    private: S.Array(yeNextPath),
-    admin: S.Array(yeNextPath),
+    public: S.Array(ye.NextPath),
+    private: S.Array(ye.NextPath),
+    admin: S.Array(ye.NextPath),
   }),
   // images: S.Struct
-})
+});
 export type AppConfig = typeof AppConfig.Type;

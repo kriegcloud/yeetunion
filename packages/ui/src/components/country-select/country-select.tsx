@@ -14,7 +14,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import TextField from "@mui/material/TextField";
 
-import { countries } from "@ye/data/countries";
+import { COUNTRIES } from "@ye/i18n";
 
 import { FlagIcon, flagIconClasses } from "../flag-icon";
 
@@ -23,6 +23,7 @@ import { FlagIcon, flagIconClasses } from "../flag-icon";
 type Value = string;
 
 export type AutocompleteBaseProps = Omit<
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   AutocompleteProps<any, boolean, boolean, boolean>,
   "options" | "renderOption" | "renderInput" | "renderTags" | "getOptionLabel"
 >;
@@ -51,14 +52,14 @@ export function CountrySelect({
 }: CountrySelectProps) {
   const options = useMemo(
     () =>
-      countries.map((country) =>
+      COUNTRIES.map((country) =>
         getValue === "label" ? country.label : country.code,
       ),
     [getValue],
   );
 
   const getCountry = useCallback((inputValue: string) => {
-    const country = countries.find(
+    const country = COUNTRIES.find(
       (op) =>
         op.label === inputValue ||
         op.code === inputValue ||
@@ -188,7 +189,7 @@ export function CountrySelect({
   const getOptionLabel = useCallback(
     (option: Value) => {
       if (getValue === "code") {
-        const country = countries.find((op) => op.code === option);
+        const country = COUNTRIES.find((op) => op.code === option);
         return country?.label ?? "";
       }
       return option;

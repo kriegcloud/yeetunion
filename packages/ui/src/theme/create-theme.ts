@@ -32,7 +32,7 @@ export const baseTheme: ThemeOptions = {
       shadows: shadows.dark,
       customShadows: customShadows.dark,
     },
-  },
+  } as ThemeOptions["colorSchemes"],
   mixins,
   components,
   typography,

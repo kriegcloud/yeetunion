@@ -145,7 +145,6 @@ export function WorkspacesPopover({
             >
               {option.name}
             </Box>
-
           </MenuItem>
         ))}
       </MenuList>

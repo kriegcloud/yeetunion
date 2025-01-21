@@ -68,7 +68,6 @@
   },
   "dependencies": {
     "@ye/core": "workspace:^",
-    "@ye/data": "workspace:^",
     "@ye/i18n": "workspace:^",
     "@ye/utils": "workspace:^",
     "apexcharts": "^4.3.0",

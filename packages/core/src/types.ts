@@ -1,5 +1,5 @@
-import { Schema as S } from "effect";
 import ye from "@ye/primitives";
+import { Schema as S } from "effect";
 export enum AppModeEnum {
   SYSTEM = "system",
   LIGHT = "light",
@@ -20,10 +20,10 @@ export type ThemeCssVar = typeof ThemeCssVar.Type;
 
 export const AppConfig = S.Struct({
   name: ye.NonEmptyTrimStr,
-  cookies: S.Struct({
-    settingsKey: ye.NonEmptyTrimStr,
-    modeKey: ye.NonEmptyTrimStr,
-  }),
-  description: ye.NonEmptyTrimStr,
+  // cookies: S.Struct({
+  //   settingsKey: ye.NonEmptyTrimStr,
+  //   modeKey: ye.NonEmptyTrimStr,
+  // }),
+  // description: ye.NonEmptyTrimStr,
 });
 export type AppConfig = typeof AppConfig.Type;

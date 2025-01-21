@@ -1,7 +1,7 @@
 import { fileURLToPath } from "node:url";
 import baseConfig from "@ye/next-config";
 import createJiti from "jiti";
-import createNextIntlPlugin from 'next-intl/plugin';
+import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
 

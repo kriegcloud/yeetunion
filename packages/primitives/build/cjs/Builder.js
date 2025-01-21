@@ -73,7 +73,9 @@ const createBuilderLens = key => {
  * @since 0.3.0
  * @category constructors
  */
-const createBuilderLenses = schema => (0, _effect.pipe)(Object.entries(schema.fields), ReadonlyArray.reduce({}, (acc, [key]) => ({
+const createBuilderLenses = (
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+schema) => (0, _effect.pipe)(Object.entries(schema.fields), ReadonlyArray.reduce({}, (acc, [key]) => ({
   ...acc,
   [key]: createBuilderLens(key)
 })));

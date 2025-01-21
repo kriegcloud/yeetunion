@@ -10,6 +10,7 @@ type CreateNavItemReturn = {
   subItem: boolean;
   rootItem: boolean;
   subDeepItem: boolean;
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   baseProps: Record<string, any>;
   renderIcon: React.ReactNode;
   renderInfo: React.ReactNode;

@@ -1,13 +1,13 @@
+import * as AST from "@effect/schema/AST";
 /**
  * @category primitives
  * @since 0.1.0
  */
 import { Schema as S } from "effect";
-import {pipe} from "effect/Function";
-import type * as Types from "effect/Types";
-import type {ReadonlyRecord} from "effect/Record";
 import * as A from "effect/Array";
-import * as AST from "@effect/schema/AST";
+import { pipe } from "effect/Function";
+import type { ReadonlyRecord } from "effect/Record";
+import type * as Types from "effect/Types";
 
 /**
  * @category primitives
@@ -47,10 +47,14 @@ export const ReadonlySetFromArray = <A, I, R>(
  * @since 0.1.0
  * @category primitives
  */
-export const StructFromReadonlyArray = <T extends A.NonEmptyReadonlyArray<AST.LiteralValue>, TSchema extends S.Schema<string>>(
+export const StructFromReadonlyArray = <
+  T extends A.NonEmptyReadonlyArray<AST.LiteralValue>,
+  TSchema extends S.Schema<string>,
+>(
   arr: T,
-  valueSchema: TSchema
-) => S.Struct(Object.fromEntries(arr.map((key: T[number]) => [key, valueSchema])));
+  valueSchema: TSchema,
+) =>
+  S.Struct(Object.fromEntries(arr.map((key: T[number]) => [key, valueSchema])));
 /**
  * @since 0.1.0
  * @category primitives
@@ -65,7 +69,7 @@ export const UnionOfLiteralsFromRecordValues = <
  * @category primitives
  */
 export const EnumFromReadonlyArray = <
-  const T extends A.NonEmptyReadonlyArray<AST.LiteralValue>
+  const T extends A.NonEmptyReadonlyArray<AST.LiteralValue>,
 >(
   arr: T,
 ) => S.Enums(Object.fromEntries(arr.map((key: T[number]) => [key, key])));
@@ -74,12 +78,15 @@ export const EnumFromReadonlyArray = <
  * @since 0.1.0
  * @category primitives
  */
-export const ReadonlyArrayToUnionOfLiterals = <const T extends A.NonEmptyReadonlyArray<AST.LiteralValue>>(arr: T) =>
-  S.Union(...arr.map((value: T[number]) => S.Literal(value)))
+export const ReadonlyArrayToUnionOfLiterals = <
+  const T extends A.NonEmptyReadonlyArray<AST.LiteralValue>,
+>(
+  arr: T,
+) => S.Union(...arr.map((value: T[number]) => S.Literal(value)));
 
 /**
  * @since 0.1.0
  * @category primitives
  */
 export const UpperCasedLiteral = <const T extends string>(str: T) =>
-  S.Literal(str.toUpperCase() as Uppercase<T>)
+  S.Literal(str.toUpperCase() as Uppercase<T>);

@@ -2,6 +2,7 @@
 
 import { createPaletteChannel } from "@ye/utils/colors";
 
+import type { PaletteColorChannel, PaletteColorOptions } from "@mui/material";
 import type { ThemeOptions } from "./types";
 
 // ----------------------------------------------------------------------
@@ -17,7 +18,7 @@ export const themeOverrides: ThemeOptions = {
           dark: "#3828A7",
           darker: "#180F6F",
           contrastText: "#FFFFFF",
-        }),
+        }) as (PaletteColorOptions & Partial<PaletteColorChannel>) | undefined,
       },
     },
     dark: {
@@ -29,7 +30,7 @@ export const themeOverrides: ThemeOptions = {
           dark: "#3828A7",
           darker: "#180F6F",
           contrastText: "#FFFFFF",
-        }),
+        }) as (PaletteColorOptions & Partial<PaletteColorChannel>) | undefined,
       },
     },
   },

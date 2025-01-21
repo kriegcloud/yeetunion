@@ -1,12 +1,12 @@
+import * as AST from "@effect/schema/AST";
 /**
  * @category primitives
  * @since 0.1.0
  */
 import { Schema as S } from "effect";
-import type * as Types from "effect/Types";
-import type { ReadonlyRecord } from "effect/Record";
 import * as A from "effect/Array";
-import * as AST from "@effect/schema/AST";
+import type { ReadonlyRecord } from "effect/Record";
+import type * as Types from "effect/Types";
 /**
  * @category primitives
  * @since 0.1.0

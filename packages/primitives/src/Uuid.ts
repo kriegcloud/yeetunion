@@ -79,10 +79,10 @@ export const UUIDWithDefault = (value: string) =>
  * @category primitives
  */
 export default {
-    UUID,
-    UUIDOrNull,
-    UUIDOrUndefined,
-    UUIDOrNullish,
-    UUIDOptional,
-    UUIDWithDefault
-}
+  UUID,
+  UUIDOrNull,
+  UUIDOrUndefined,
+  UUIDOrNullish,
+  UUIDOptional,
+  UUIDWithDefault,
+};

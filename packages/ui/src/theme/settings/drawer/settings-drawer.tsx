@@ -25,7 +25,7 @@ import { NavColorOptions, NavLayoutOptions } from "./nav-layout-option";
 import { PresetsOptions } from "./presets-options";
 import { LargeBlock, SmallBlock } from "./styles";
 
-import type { SettingsDrawerProps, SettingsState } from "../types";
+import type { SettingsDrawerProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -147,13 +147,11 @@ export function SettingsDrawer({ sx, defaultSettings }: SettingsDrawerProps) {
       }
     >
       <PresetsOptions
-        options={
-          Object.keys(primaryColorPresets).map((key) => ({
-            name: key,
-            // biome-ignore lint/style/noNonNullAssertion: <explanation>
-            value: primaryColorPresets[key]!.main,
-          })) as { name: SettingsState["primaryColor"]; value: string }[]
-        }
+        options={Object.keys(primaryColorPresets).map((key) => ({
+          name: key,
+          value:
+            primaryColorPresets[key as keyof typeof primaryColorPresets].main,
+        }))}
         value={settings.state.primaryColor}
         onChangeOption={(newOption) =>
           settings.setState({ primaryColor: newOption })

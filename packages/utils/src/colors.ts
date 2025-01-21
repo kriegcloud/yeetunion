@@ -61,13 +61,7 @@ export function hexToRgbChannel(hexColor: string): string {
  */
 export type InputPalette = Record<string, string | undefined>;
 
-export type ChannelPalette<T extends InputPalette> = T & {
-  [K in keyof T as `${string & K}Channel`]: string;
-};
-
-export function createPaletteChannel<T extends InputPalette>(
-  hexPalette: T,
-): ChannelPalette<T> {
+export function createPaletteChannel<T extends InputPalette>(hexPalette: T) {
   const channelPalette: Record<string, string | undefined> = {};
 
   Object.entries(hexPalette).forEach(([key, value]) => {
@@ -76,7 +70,7 @@ export function createPaletteChannel<T extends InputPalette>(
     }
   });
 
-  return { ...hexPalette, ...channelPalette } as ChannelPalette<T>;
+  return { ...hexPalette, ...channelPalette };
 }
 
 // ----------------------------------------------------------------------

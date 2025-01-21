@@ -4,7 +4,7 @@ import type { PaletteColorNoChannels } from "../core";
 
 // ----------------------------------------------------------------------
 
-export const primaryColorPresets: Record<string, PaletteColorNoChannels> = {
+export const primaryColorPresets = {
   default: {
     lighter: primary.lighter,
     light: primary.light,
@@ -53,7 +53,8 @@ export const primaryColorPresets: Record<string, PaletteColorNoChannels> = {
     darker: "#7A0930",
     contrastText: "#FFFFFF",
   },
-};
+} as const;
+export type PrimaryColorPresets = typeof primaryColorPresets;
 
 export const secondaryColorPresets: Record<string, PaletteColorNoChannels> = {
   default: {
@@ -104,4 +105,4 @@ export const secondaryColorPresets: Record<string, PaletteColorNoChannels> = {
     darker: "#601B0C",
     contrastText: "#FFFFFF",
   },
-};
+} as const;

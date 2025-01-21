@@ -19,11 +19,6 @@ import * as Builder from "./Builder.js";
  * @category primitives
  * @since 0.1.0
  */
-import * as DateTime from "./DateTime.js";
-/**
- * @category primitives
- * @since 0.1.0
- */
 import * as Email from "./Email.js";
 /**
  * @category primitives
@@ -75,21 +70,26 @@ import * as Utils from "./Utils.js";
  * @since 0.1.0
  */
 import * as Uuid from "./Uuid.js";
-export const ye = {
-  Builder,
-  Bool,
-  Brand,
-  DateTime,
-  Email,
-  Hex,
-  IP,
-  Int,
-  NonEmptyStr,
-  Num,
-  Path,
-  Str,
-  Url,
-  Utils,
-  Uuid
+/**
+ * @category primitives
+ * @since 0.1.0
+ */
+import * as DateTime from "./DateTime.js";
+export default {
+  ...Builder,
+  ...Bool,
+  ...Brand,
+  ...DateTime,
+  ...Email,
+  ...Hex,
+  ...IP,
+  ...Int,
+  ...NonEmptyStr,
+  ...Num,
+  ...Path,
+  ...Str,
+  ...Url,
+  ...Utils,
+  ...Uuid
 };
 //# sourceMappingURL=index.js.map

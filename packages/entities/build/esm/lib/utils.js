@@ -8,7 +8,7 @@ import { Model } from "@effect/sql";
  * @category entities
  */
 export const baseFields = {
-    createdAt: Model.DateTimeInsertFromDate,
-    updatedAt: Model.DateTimeUpdateFromDate,
+  createdAt: Model.DateTimeInsertFromDate,
+  updatedAt: Model.DateTimeUpdateFromDate
 };
 //# sourceMappingURL=utils.js.map

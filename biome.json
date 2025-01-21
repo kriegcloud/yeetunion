@@ -6,7 +6,8 @@
       ".tsup/**",
       "dist/**",
       ".turbo",
-      "public/**"
+      "public/**",
+      "build/**"
     ]
   },
   "formatter": {

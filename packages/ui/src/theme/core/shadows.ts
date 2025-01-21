@@ -43,6 +43,6 @@ function createShadows(colorChannel: string): Shadows {
 }
 
 export const shadows: Record<ThemeColorScheme, Shadows> = {
-  light: createShadows(grey["500Channel"]),
-  dark: createShadows(common.blackChannel),
+  light: createShadows(grey["500Channel"] as string),
+  dark: createShadows(common["blackChannel"] as string),
 };

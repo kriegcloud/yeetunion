@@ -9,14 +9,13 @@
   "bugs": {
     "url": "https://github.com/kriegcloud/yeetunion/issues"
   },
-  "publishConfig": {
-    "access": "private",
-    "directory": "dist"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/kriegcloud/yeetunion.git"
   },
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "types": "./build/dts/index.d.ts",
   "type": "module",
   "scripts": {
     "codegen": "build-utils prepare-v2",
@@ -24,7 +23,7 @@
     "build:esm": "tsc -b tsconfig.build.json",
     "build:cjs": "babel build/esm --plugins @babel/transform-export-namespace-from --plugins @babel/transform-modules-commonjs --out-dir build/cjs --source-maps",
     "build:annotate": "babel build/esm --plugins annotate-pure-calls --out-dir build/esm --source-maps",
-    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules build .tsbuildinfo",
     "dev": "tsc -w -p tsconfig.build.json",
     "typecheck": "tsc",
     "lint": "biome check .",
@@ -55,14 +54,10 @@
   },
   "effect": {
     "generateExports": {
-      "include": [
-        "**/*.ts"
-      ]
+      "include": ["**/*.ts"]
     },
     "generateIndex": {
-      "include": [
-        "**/*.ts"
-      ]
+      "include": ["**/*.ts"]
     }
   }
 }

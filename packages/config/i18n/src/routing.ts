@@ -1,10 +1,9 @@
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
-import { SupportedLocalesEnum } from "./constants";
 
 export const routing = defineRouting({
-  locales: Object.values(SupportedLocalesEnum),
-  defaultLocale: SupportedLocalesEnum.EN,
+  locales: Object.values("en" as const),
+  defaultLocale: "en" as const,
 });
 
 // Lightweight wrappers around Next.js' navigation APIs

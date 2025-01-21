@@ -1,9 +1,9 @@
+import { Schema as S } from "effect";
 /**
  * @category primitives
  * @since 0.1.0
  */
 import { NonEmptyTrimStr } from "./NonEmptyStr.js";
-import { Schema as S } from "effect";
 /**
  * @category primitives
  * @since 0.1.0

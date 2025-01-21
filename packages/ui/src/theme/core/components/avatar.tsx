@@ -76,9 +76,8 @@ const MuiAvatar: Components<Theme>["MuiAvatar"] = {
    * STYLE
    *************************************** */
   styleOverrides: {
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     root: {
-      variants: [avatarColors["defaultColor"]!, avatarColors["colors"]!].flat(),
+      variants: [avatarColors["defaultColor"], avatarColors["colors"]].flat(),
     },
     rounded: ({ theme }) => ({ borderRadius: theme.shape.borderRadius * 1.5 }),
     colorDefault: ({ ownerState, theme }) => {
@@ -93,7 +92,7 @@ const MuiAvatar: Components<Theme>["MuiAvatar"] = {
               }
             : {
                 color: theme.vars.palette.text.secondary,
-                backgroundColor: varAlpha(grey["500Channel"], 0.24),
+                backgroundColor: varAlpha(grey["500Channel"] as string, 0.24),
               }),
         }),
       };

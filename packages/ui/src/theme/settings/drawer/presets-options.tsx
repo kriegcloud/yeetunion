@@ -12,8 +12,8 @@ import type { SettingsState } from "../types";
 
 export type PresetsOptionsProps = BoxProps & {
   value: SettingsState["primaryColor"];
-  options: { name: SettingsState["primaryColor"]; value: string }[];
-  onChangeOption: (newOption: SettingsState["primaryColor"]) => void;
+  options: { name: string; value: string }[];
+  onChangeOption: (newOption: string) => void;
 };
 
 export function PresetsOptions({

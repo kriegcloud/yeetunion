@@ -1,9 +1,9 @@
+import { Model } from "@effect/sql";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
-import { Model } from "@effect/sql";
 import { baseFields } from "./lib/utils.js";
 
 /**

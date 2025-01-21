@@ -1,4 +1,10 @@
-import { routing, Link, redirect, usePathname, useRouter, getPathname } from "@ye/i18n";
+import {
+  Link,
+  getPathname,
+  redirect,
+  routing,
+  usePathname,
+  useRouter,
+} from "@ye/i18n";
 
-
-export {routing, Link, redirect, usePathname, useRouter, getPathname}
+export { routing, Link, redirect, usePathname, useRouter, getPathname };

@@ -1,4 +1,4 @@
-import { SplashScreen } from '@ye/ui/components';
+import { SplashScreen } from "@ye/ui/components";
 
 // ----------------------------------------------------------------------
 

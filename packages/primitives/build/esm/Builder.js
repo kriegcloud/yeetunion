@@ -4,7 +4,7 @@
  *
  * @since 0.1.0
  */
-import { Data, Effect, Option, pipe, Schema, SchemaAST } from "effect";
+import { Data, Effect, Option, Schema, SchemaAST, pipe } from "effect";
 import * as ReadonlyArray from "effect/Array";
 /**
  * @since 0.3.0
@@ -62,7 +62,9 @@ const createBuilderLens = key => {
  * @since 0.3.0
  * @category constructors
  */
-export const createBuilderLenses = schema => pipe(Object.entries(schema.fields), ReadonlyArray.reduce({}, (acc, [key]) => ({
+export const createBuilderLenses = (
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+schema) => pipe(Object.entries(schema.fields), ReadonlyArray.reduce({}, (acc, [key]) => ({
   ...acc,
   [key]: createBuilderLens(key)
 })));

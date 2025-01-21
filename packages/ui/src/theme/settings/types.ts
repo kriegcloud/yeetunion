@@ -19,7 +19,8 @@ export type SettingsState = {
     | "preset2"
     | "preset3"
     | "preset4"
-    | "preset5";
+    | "preset5"
+    | string;
 };
 
 export type SettingsContextValue = {

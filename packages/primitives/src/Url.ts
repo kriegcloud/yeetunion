@@ -80,5 +80,5 @@ export default {
   URLOrUndefined,
   URLOrNullish,
   URLOptional,
-  URLWithDefault
+  URLWithDefault,
 };

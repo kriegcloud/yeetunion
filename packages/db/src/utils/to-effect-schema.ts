@@ -1,8 +1,8 @@
-import { Schema as S } from "effect";
 import * as Drizzle from "drizzle-orm";
 import * as DrizzleMysql from "drizzle-orm/mysql-core";
 import * as DrizzlePg from "drizzle-orm/pg-core";
 import * as DrizzleSqlite from "drizzle-orm/sqlite-core";
+import { Schema as S } from "effect";
 
 type Columns<TTable extends Drizzle.Table> =
   TTable["_"]["columns"] extends infer TColumns extends Record<

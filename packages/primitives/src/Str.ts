@@ -79,5 +79,5 @@ export default {
   StrOrUndefined,
   StrOrNullish,
   StrOptional,
-  StrWithDefault
+  StrWithDefault,
 };

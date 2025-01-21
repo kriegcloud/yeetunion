@@ -4,8 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = exports.Hex = void 0;
-var _NonEmptyStr = require("./NonEmptyStr.js");
 var _effect = require("effect");
+var _NonEmptyStr = require("./NonEmptyStr.js");
 /**
  * @category primitives
  * @since 0.1.0

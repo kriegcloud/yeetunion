@@ -73,10 +73,7 @@ export const IntWithDefault = (value: number) =>
  * @category primitives
  * @since 0.1.0
  */
-export const PosInt = S.Int.pipe(
-  S.positive(),
-  S.brand("@/primitives/PosInt"),
-);
+export const PosInt = S.Int.pipe(S.positive(), S.brand("@/primitives/PosInt"));
 /**
  * @category primitives
  * @since 0.1.0
@@ -141,10 +138,7 @@ export const PosIntWithDefault = (value: number) =>
  * @category primitives
  * @since 0.1.0
  */
-export const NegInt = S.Int.pipe(
-  S.negative(),
-  S.brand("@/primitives/NegInt"),
-);
+export const NegInt = S.Int.pipe(S.negative(), S.brand("@/primitives/NegInt"));
 /**
  * @category primitives
  * @since 0.1.0

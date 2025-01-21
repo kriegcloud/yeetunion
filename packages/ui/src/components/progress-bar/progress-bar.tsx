@@ -8,6 +8,7 @@ import { useSearchParams } from "next/navigation";
 // ----------------------------------------------------------------------
 
 type PushStateInput = [
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   data: any,
   unused: string,
   url?: string | URL | null | undefined,

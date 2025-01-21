@@ -10,7 +10,7 @@ import { NonEmptyTrimStr } from "./NonEmptyStr.js";
  */
 export const NextPath = NonEmptyTrimStr.pipe(
   S.startsWith("/"),
-  S.brand("@ye/primitives/yeNextPath"),
+  S.brand("@ye/primitives/NextPath"),
 );
 /**
  * @since 0.1.0
@@ -23,5 +23,5 @@ export type NextPath = typeof NextPath.Type;
  * @category primitives
  */
 export default {
-  NextPath
-}
+  NextPath,
+};

@@ -2,13 +2,13 @@
  * @category primitives
  * @since 0.1.0
  */
-import * as Bool from "./Bool.js"
+import * as Bool from "./Bool.js";
 
 /**
  * @since 0.1.0
  * @category primitives
  */
-import * as Brand from "./Brand.js"
+import * as Brand from "./Brand.js";
 
 /**
  * This module provides a type-safe, immutable builder pattern implementation
@@ -16,94 +16,94 @@ import * as Brand from "./Brand.js"
  *
  * @since 0.1.0
  */
-import * as Builder from "./Builder.js"
+import * as Builder from "./Builder.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as DateTime from "./DateTime.js"
+import * as Email from "./Email.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as Email from "./Email.js"
+import * as Hex from "./Hex.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as Hex from "./Hex.js"
+import * as IP from "./IP.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as IP from "./IP.js"
+import * as Int from "./Int.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as Int from "./Int.js"
+import * as NonEmptyStr from "./NonEmptyStr.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as NonEmptyStr from "./NonEmptyStr.js"
-
-/**
- * @category primitives
- * @since 0.1.0
- */
-import * as Num from "./Num.js"
+import * as Num from "./Num.js";
 
 /**
  * @since 0.1.0
  * @category primitives
  */
-import * as Path from "./Path.js"
+import * as Path from "./Path.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as Str from "./Str.js"
+import * as Str from "./Str.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as Url from "./Url.js"
+import * as Url from "./Url.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as Utils from "./Utils.js"
+import * as Utils from "./Utils.js";
 
 /**
  * @category primitives
  * @since 0.1.0
  */
-import * as Uuid from "./Uuid.js"
+import * as Uuid from "./Uuid.js";
 
-export const ye = {
-  Builder,
-  Bool,
-  Brand,
-  DateTime,
-  Email,
-  Hex,
-  IP,
-  Int,
-  NonEmptyStr,
-  Num,
-  Path,
-  Str,
-  Url,
-  Utils,
-  Uuid
-}
+/**
+ * @category primitives
+ * @since 0.1.0
+ */
+import * as DateTime from "./DateTime.js";
+
+export default {
+  ...Builder,
+  ...Bool,
+  ...Brand,
+  ...DateTime,
+  ...Email,
+  ...Hex,
+  ...IP,
+  ...Int,
+  ...NonEmptyStr,
+  ...Num,
+  ...Path,
+  ...Str,
+  ...Url,
+  ...Utils,
+  ...Uuid,
+};

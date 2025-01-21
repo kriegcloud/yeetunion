@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { m } from 'framer-motion';
+import { m } from "framer-motion";
 
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 
-import { Link } from '@ye/i18n';
+import { Link } from "@ye/i18n";
 
-import { SimpleLayout } from '../../layouts';
-import { ServerErrorIllustration } from '../../illustrations';
+import { ServerErrorIllustration } from "../../illustrations";
+import { SimpleLayout } from "../../layouts";
 
-import { varBounce, MotionContainer } from '../../components/animate';
+import { MotionContainer, varBounce } from "../../components/animate";
 
 // ----------------------------------------------------------------------
 
@@ -23,19 +23,19 @@ export function View500() {
       }}
     >
       <Container component={MotionContainer}>
-        <m.div variants={varBounce('in')}>
+        <m.div variants={varBounce("in")}>
           <Typography variant="h3" sx={{ mb: 2 }}>
             500 Internal server error
           </Typography>
         </m.div>
 
-        <m.div variants={varBounce('in')}>
-          <Typography sx={{ color: 'text.secondary' }}>
+        <m.div variants={varBounce("in")}>
+          <Typography sx={{ color: "text.secondary" }}>
             There was an error, please try again later.
           </Typography>
         </m.div>
 
-        <m.div variants={varBounce('in')}>
+        <m.div variants={varBounce("in")}>
           <ServerErrorIllustration sx={{ my: { xs: 5, sm: 10 } }} />
         </m.div>
 

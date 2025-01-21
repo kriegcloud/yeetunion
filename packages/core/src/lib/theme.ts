@@ -1,7 +1,7 @@
+import ye from "@ye/primitives";
 import { Schema as S } from "effect";
 import * as A from "effect/Array";
-import * as ye from "@ye/primitives";
-import {pipe} from "effect/Function";
+import { pipe } from "effect/Function";
 
 export enum AppModeEnum {
   SYSTEM = "system",
@@ -42,25 +42,12 @@ export enum PaletteEnum {
 export const Palette = S.Enums(PaletteEnum);
 export type Palette = typeof Palette.Type;
 
-
-export const Channel = pipe(A.make([
-    50,
-    100,
-    200,
-    300,
-    400,
-    500,
-    600,
-    800,
-    900
-  ] as const)
-    .flatMap(
-      (arr) =>
-        arr.map((num) =>
-          S.TemplateLiteral(`${num}Channel`)
-        )
-    ),
-  (literals) => S.Union(...literals))
+export const Channel = pipe(
+  A.make([50, 100, 200, 300, 400, 500, 600, 800, 900] as const).flatMap((arr) =>
+    arr.map((num) => S.TemplateLiteral(`${num}Channel`)),
+  ),
+  (literals) => S.Union(...literals),
+);
 export type Channel = typeof Channel.Type;
 
 export enum CommonColorEnum {
@@ -101,9 +88,9 @@ export const PaletteChannel = S.Record({
     value: S.Record({
       key: Channel,
       value: ye.Hex,
-    })
-  })
-})
+    }),
+  }),
+});
 
 export type PaletteChannel = typeof PaletteChannel.Type;
 
@@ -118,20 +105,14 @@ export type Direction = typeof Direction.Type;
 export const FontFamily = S.Record({
   key: S.Union(S.Literal("primary"), S.Literal("secondary")),
   value: ye.NonEmptyStr,
-})
+});
 
 export const ThemeConfig = S.Struct({
   direction: Direction,
-  settingsCookie: ye.NonEmptyTrimStr,
+  settingsCookie: ye.NonEmptyStr,
   defaultMode: AppMode,
   cssVariables: ThemeCssVar,
   fontFamily: FontFamily,
   palette: PaletteChannel,
 });
 export type ThemeConfig = typeof ThemeConfig.Type;
-
-
-
-
-
-
