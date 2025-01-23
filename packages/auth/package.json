@@ -6,21 +6,20 @@
   "exports": {
     ".": "./src/index.ts",
     "./client": "./src/client.ts",
-    "./shared": "./src/shared.ts",
+    "./types": "./src/types.ts",
     "./middleware": "./src/middleware.ts"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
     "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
-    "dev": "tsc -w -p tsconfig.build.json",
+    "dev": "tsc --noEmit",
     "lint": "biome check .",
     "lint:fix": "biome check . --write",
     "typecheck": "tsc",
-    "generate": "bunx @better-auth/cli@latest generate --output '../db/src/schema/auth-schema.ts' --y"
+    "generate": "bunx @better-auth/cli@latest generate --output '../db/src/schema/auth-schema.ts' --y && bun turbo run lint:fix --filter=@ye/db"
   },
   "dependencies": {
+    "@ye/email": "workspace:^",
     "@ye/entities": "workspace:^",
-    "@effect/schema": "latest",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@ye/db": "workspace:^",
     "better-auth": "latest",

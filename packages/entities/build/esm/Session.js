@@ -1,4 +1,4 @@
-import { Model } from "@effect/sql";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
@@ -15,8 +15,8 @@ export const SessionId = /*#__PURE__*/ye.NonEmptyTrimStr.pipe(/*#__PURE__*/ye.Br
  * @since 0.1.0
  * @category entities
  */
-export class Session extends /*#__PURE__*/Model.Class("Session")({
-  id: /*#__PURE__*/Model.GeneratedByApp(SessionId),
+export class Session extends /*#__PURE__*/S.Class("Session")({
+  id: SessionId,
   expiresAt: ye.DateTimeOrNull,
   token: ye.NonEmptyTrimStr,
   ipAddress: ye.IPOrNull,

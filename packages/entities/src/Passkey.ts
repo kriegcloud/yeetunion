@@ -1,4 +1,4 @@
-import { Model } from "@effect/sql";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
@@ -19,8 +19,8 @@ export const PasskeyId = ye.NonEmptyTrimStr.pipe(
  * @since 0.1.0
  * @category entities
  */
-export class Passkey extends Model.Class<Passkey>("Passkey")({
-  id: Model.GeneratedByApp(PasskeyId),
+export class Passkey extends S.Class<Passkey>("Passkey")({
+  id: PasskeyId,
   name: ye.NonEmptyTrimStrOrNull,
   publicKey: ye.NonEmptyTrimStr,
   userId: UserId,

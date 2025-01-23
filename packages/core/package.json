@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "@ye/primitives": "workspace:^",
-    "@effect/schema": "latest",
     "effect": "latest"
   }
 }

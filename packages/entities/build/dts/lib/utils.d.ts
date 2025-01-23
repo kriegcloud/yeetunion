@@ -2,13 +2,7 @@
  * @since 0.1.0
  * @category entities
  */
-import { Model } from "@effect/sql";
-/**
- * @since 0.1.0
- * @category entities
- */
 export declare const baseFields: {
-    createdAt: Model.DateTimeInsertFromDate;
-    updatedAt: Model.DateTimeUpdateFromDate;
+    readonly createdAt: typeof import("effect/Schema").Date;
 };
 //# sourceMappingURL=utils.d.ts.map

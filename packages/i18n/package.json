@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@ye/primitives": "workspace:^",
-    "next-intl": "^3.26.3"
+    "next-intl": "^3.26.3",
+    "effect": "latest"
   },
   "devDependencies": {
     "tsx": "latest",

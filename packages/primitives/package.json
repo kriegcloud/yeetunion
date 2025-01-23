@@ -57,8 +57,7 @@
     "@ye/typescript-config": "workspace:^"
   },
   "dependencies": {
-    "@effect/schema": "^0.75.5",
-    "effect": "^3.9.1"
+    "effect": "latest"
   },
   "effect": {
     "generateExports": {

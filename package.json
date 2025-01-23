@@ -11,6 +11,9 @@
     "packages/config/*"
   ],
   "scripts": {
+    "dev": "bun run dev:yeetunion && bun run dev:ui",
+    "dev:yeetunion": "turbo run dev --filter @ye/yeetunion ",
+    "dev:ui": "turbo run dev --filter @ye/ui",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",

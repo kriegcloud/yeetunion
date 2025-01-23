@@ -47,9 +47,8 @@
     "vitest": "^3.0.2"
   },
   "dependencies": {
-    "@effect/schema": "^0.75.5",
     "@effect/sql": "^0.27.0",
     "@ye/primitives": "workspace:^",
-    "effect": "^3.9.1"
+    "effect": "latest"
   }
 }

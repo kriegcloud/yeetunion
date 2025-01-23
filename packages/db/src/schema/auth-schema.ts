@@ -18,6 +18,7 @@ export const user = pgTable("user", {
   banned: boolean("banned"),
   banReason: text("ban_reason"),
   banExpires: timestamp("ban_expires"),
+  twoFactorEnabled: boolean("two_factor_enabled"),
 });
 
 export const session = pgTable("session", {
@@ -97,11 +98,13 @@ export const invitation = pgTable("invitation", {
     .references(() => user.id),
 });
 
-export const jwks = pgTable("jwks", {
+export const twoFactor = pgTable("two_factor", {
   id: text("id").primaryKey(),
-  publicKey: text("public_key").notNull(),
-  privateKey: text("private_key").notNull(),
-  createdAt: timestamp("created_at").notNull(),
+  secret: text("secret").notNull(),
+  backupCodes: text("backup_codes").notNull(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id),
 });
 
 export const passkey = pgTable("passkey", {
@@ -117,4 +120,49 @@ export const passkey = pgTable("passkey", {
   backedUp: boolean("backed_up").notNull(),
   transports: text("transports"),
   createdAt: timestamp("created_at"),
+});
+
+export const oauthApplication = pgTable("oauth_application", {
+  id: text("id").primaryKey(),
+  name: text("name"),
+  icon: text("icon"),
+  metadata: text("metadata"),
+  clientId: text("client_id").unique(),
+  clientSecret: text("client_secret"),
+  redirectURLs: text("redirect_u_r_ls"),
+  type: text("type"),
+  disabled: boolean("disabled"),
+  userId: text("user_id"),
+  createdAt: timestamp("created_at"),
+  updatedAt: timestamp("updated_at"),
+});
+
+export const oauthAccessToken = pgTable("oauth_access_token", {
+  id: text("id").primaryKey(),
+  accessToken: text("access_token").unique(),
+  refreshToken: text("refresh_token").unique(),
+  accessTokenExpiresAt: timestamp("access_token_expires_at"),
+  refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
+  clientId: text("client_id"),
+  userId: text("user_id"),
+  scopes: text("scopes"),
+  createdAt: timestamp("created_at"),
+  updatedAt: timestamp("updated_at"),
+});
+
+export const oauthConsent = pgTable("oauth_consent", {
+  id: text("id").primaryKey(),
+  clientId: text("client_id"),
+  userId: text("user_id"),
+  scopes: text("scopes"),
+  createdAt: timestamp("created_at"),
+  updatedAt: timestamp("updated_at"),
+  consentGiven: boolean("consent_given"),
+});
+
+export const jwks = pgTable("jwks", {
+  id: text("id").primaryKey(),
+  publicKey: text("public_key").notNull(),
+  privateKey: text("private_key").notNull(),
+  createdAt: timestamp("created_at").notNull(),
 });

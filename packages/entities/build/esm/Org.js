@@ -1,10 +1,9 @@
-import { Model } from "@effect/sql";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
-import { Schema as S } from "effect";
 import { baseFields } from "./lib/utils.js";
 /**
  * @since 0.1.0
@@ -15,12 +14,12 @@ export const OrgId = /*#__PURE__*/ye.NonEmptyTrimStr.pipe(/*#__PURE__*/ye.Brand(
  * @since 0.1.0
  * @category entities
  */
-export class Org extends /*#__PURE__*/Model.Class("Org")({
-  id: /*#__PURE__*/Model.GeneratedByApp(OrgId),
+export class Org extends /*#__PURE__*/S.Class("Org")({
+  id: OrgId,
   name: ye.NonEmptyTrimStr,
   slug: /*#__PURE__*/ye.NonEmptyTrimStr.pipe(/*#__PURE__*/S.lowercased()),
-  logo: ye.URL,
-  metadata: ye.Str,
+  logo: /*#__PURE__*/S.optional(ye.URLOrNullish),
+  metadata: /*#__PURE__*/S.optional(ye.Str),
   ...baseFields
 }) {}
 //# sourceMappingURL=Org.js.map

@@ -1,11 +1,12 @@
-import { Model } from "@effect/sql";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
-import { UserId } from "./User.js";
-import { baseFields } from "./lib/utils.js";
+import {UserId} from "./User.js";
+import {baseFields} from "./lib/utils.js";
+
 /**
  * @since 0.1.0
  * @category entities
@@ -18,8 +19,8 @@ export const SessionId = ye.NonEmptyTrimStr.pipe(
  * @since 0.1.0
  * @category entities
  */
-export class Session extends Model.Class<Session>("Session")({
-  id: Model.GeneratedByApp(SessionId),
+export class Session extends S.Class<Session>("Session")({
+  id: SessionId,
   expiresAt: ye.DateTimeOrNull,
   token: ye.NonEmptyTrimStr,
   ipAddress: ye.IPOrNull,
@@ -28,4 +29,5 @@ export class Session extends Model.Class<Session>("Session")({
   impersonatedBy: ye.NonEmptyTrimStrOrNull,
   activeOrganizationId: ye.NonEmptyTrimStrOrNull,
   ...baseFields,
-}) {}
+}) {
+}

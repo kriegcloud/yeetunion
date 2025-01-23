@@ -11,8 +11,6 @@ describe("Builder v0.3.0", () => {
     roles: Schema.Array(Schema.String),
   });
 
-  type User = typeof UserSchema.Type;
-
   // Create a builder with defaults
   const User = define(UserSchema, {
     id: 0,

@@ -1,10 +1,10 @@
 'use client';
 
-import { z as zod } from 'zod';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useBoolean } from '@ye/utils/hooks';
-import { zodResolver } from '@hookform/resolvers/zod';
+import {z as zod} from 'zod';
+import {useState} from 'react';
+import {useForm} from 'react-hook-form';
+import {useBoolean} from '@ye/utils/hooks';
+import {zodResolver} from '@hookform/resolvers/zod';
 
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
@@ -13,16 +13,14 @@ import IconButton from '@mui/material/IconButton';
 import LoadingButton from '@mui/lab/LoadingButton';
 import InputAdornment from '@mui/material/InputAdornment';
 
-import { Link as RouterLink, useRouter } from '@ye/i18n';
+import {Link as RouterLink, useRouter} from '@ye/i18n';
 
-import { Iconify } from '../../components/iconify';
-import { Form, Field } from '../../components/hook-form';
+import {Iconify} from '../../components/iconify';
+import {Form, Field} from '../../components/hook-form';
 
-import { FormHead } from '../../components/form-head';
-
-const signInWithPassword = () => {
-  console.log("beep");
-}
+import {FormHead} from '../../components/form-head';
+import {FormSocials, FormDivider} from './components';
+import { useAuthCtx } from "./Provider";
 
 // ----------------------------------------------------------------------
 
@@ -31,12 +29,12 @@ export type SignInSchemaType = zod.infer<typeof SignInSchema>;
 export const SignInSchema = zod.object({
   email: zod
     .string()
-    .min(1, { message: 'Email is required!' })
-    .email({ message: 'Email must be a valid email address!' }),
+    .min(1, {message: 'Email is required!'})
+    .email({message: 'Email must be a valid email address!'}),
   password: zod
     .string()
-    .min(1, { message: 'Password is required!' })
-    .min(6, { message: 'Password must be at least 6 characters!' }),
+    .min(1, {message: 'Password is required!'})
+    .min(6, {message: 'Password must be at least 6 characters!'}),
 });
 
 // ----------------------------------------------------------------------
@@ -46,7 +44,7 @@ export function Login() {
 
   const showPassword = useBoolean();
 
-  // const { checkUserSession } = useAuthContext();
+  const auth = useAuthCtx();
 
   const [errorMessage, _setErrorMessage] = useState<string | null>(null);
 
@@ -56,13 +54,15 @@ export function Login() {
 
   const {
     handleSubmit,
-    formState: { isSubmitting },
+    formState: {isSubmitting},
   } = methods;
 
-  const onSubmit = handleSubmit(async (_data) => {
+  const onSubmit = handleSubmit(async (data) => {
     try {
-      signInWithPassword();
-      // await checkUserSession?.();
+      await auth.signInWithEmail(
+        data.email,
+        data.password,
+      )
 
       router.refresh();
     } catch (error) {
@@ -73,16 +73,16 @@ export function Login() {
   });
 
   const renderForm = () => (
-    <Box sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}>
-      <Field.Text name="email" label="Email address" slotProps={{ inputLabel: { shrink: true } }} />
+    <Box sx={{gap: 3, display: 'flex', flexDirection: 'column'}}>
+      <Field.Text name="email" label="Email address" slotProps={{inputLabel: {shrink: true}}}/>
 
-      <Box sx={{ gap: 1.5, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{gap: 1.5, display: 'flex', flexDirection: 'column'}}>
         <Link
           component={RouterLink}
           href="#"
           variant="body2"
           color="inherit"
-          sx={{ alignSelf: 'flex-end' }}
+          sx={{alignSelf: 'flex-end'}}
         >
           Forgot password?
         </Link>
@@ -93,7 +93,7 @@ export function Login() {
           placeholder="6+ characters"
           type={showPassword.value ? 'text' : 'password'}
           slotProps={{
-            inputLabel: { shrink: true },
+            inputLabel: {shrink: true},
             input: {
               endAdornment: (
                 <InputAdornment position="end">
@@ -135,11 +135,11 @@ export function Login() {
             </Link>
           </>
         }
-        sx={{ textAlign: { xs: 'center', md: 'left' } }}
+        sx={{textAlign: {xs: 'center', md: 'left'}}}
       />
 
       {!!errorMessage && (
-        <Alert severity="error" sx={{ mb: 3 }}>
+        <Alert severity="error" sx={{mb: 3}}>
           {errorMessage}
         </Alert>
       )}
@@ -147,6 +147,13 @@ export function Login() {
       <Form methods={methods} onSubmit={onSubmit}>
         {renderForm()}
       </Form>
+      <FormDivider/>
+      <FormSocials
+        signInWithTwitter={auth.signInWithTwitter}
+        signInWithLinkedIn={auth.signInWithLinkedIn}
+        signInWithDiscord={auth.signInWithDiscord}
+        signInWithGoogle={auth.signInWithGoogle}
+      />
     </>
   );
 }

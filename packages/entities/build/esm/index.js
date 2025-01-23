@@ -38,4 +38,24 @@ export * from "./Session.js";
  * @category entities
  */
 export * from "./User.js";
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+export * from "./TwoFactor.js";
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+export * from "./OAuthApplication.js";
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+export * from "./OAuthAccessToken.js";
+/**
+ * @since 0.1.0
+ * @category entities
+ */
+export * from "./OAuthConsent.js";
 //# sourceMappingURL=index.js.map

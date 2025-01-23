@@ -1,4 +1,4 @@
-import { Model } from "@effect/sql";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
@@ -16,8 +16,8 @@ export const InvitationId = /*#__PURE__*/ye.NonEmptyTrimStr.pipe(/*#__PURE__*/ye
  * @since 0.1.0
  * @category entities
  */
-export class Invitation extends /*#__PURE__*/Model.Class("Invitation")({
-  id: /*#__PURE__*/Model.GeneratedByApp(InvitationId),
+export class Invitation extends /*#__PURE__*/S.Class("Invitation")({
+  id: InvitationId,
   organizationId: OrgId,
   email: ye.Email,
   role: ye.NonEmptyTrimStr,

@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.UpperCasedLiteral = exports.UnionOfLiteralsFromRecordValues = exports.StructFromReadonlyArray = exports.ReadonlySetFromArray = exports.ReadonlyArrayToUnionOfLiterals = exports.EnumWithDefault = exports.EnumFromReadonlyArray = void 0;
-var AST = _interopRequireWildcard(require("@effect/schema/AST"));
+var AST = _interopRequireWildcard(require("effect/SchemaAST"));
 var _effect = require("effect");
 var A = _interopRequireWildcard(require("effect/Array"));
 var _Function = require("effect/Function");

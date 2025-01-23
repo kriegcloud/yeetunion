@@ -1,85 +1,43 @@
-import { Model } from "@effect/sql";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
  */
-export declare const AccountId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/AccountId">;
-declare const Account_base: import("@effect/experimental/VariantSchema").Class<Account, {
-    readonly createdAt: Model.DateTimeInsertFromDate;
-    readonly updatedAt: Model.DateTimeUpdateFromDate;
-    readonly id: Model.GeneratedByApp<import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/AccountId">>;
-    readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-    readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-    readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-    readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-    readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-    readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly password: Model.Sensitive<import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>>;
-}, {
-    readonly createdAt: Model.DateTimeFromDate;
-    readonly updatedAt: Model.DateTimeFromDate;
-    readonly id: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/AccountId">;
-    readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-    readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-    readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-    readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-    readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-    readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly password: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-}, {
-    readonly id: any;
-} & {
-    readonly createdAt: import("effect/DateTime").Utc;
-} & {
-    readonly updatedAt: import("effect/DateTime").Utc;
-} & {
-    readonly password: string | null;
-} & {
-    readonly accountId: string;
-} & {
-    readonly providerId: string;
-} & {
-    readonly userId: any;
-} & {
-    readonly accessToken: string | null;
-} & {
-    readonly refreshToken: string | null;
-} & {
-    readonly idToken: string | null;
-} & {
-    readonly accessTokenExpiresAt: Date | null;
-} & {
-    readonly refreshTokenExpiresAt: Date | null;
-} & {
-    readonly scope: string | null;
-}, import("effect/Schema").Struct.Encoded<{
-    readonly createdAt: Model.DateTimeFromDate;
-    readonly updatedAt: Model.DateTimeFromDate;
-    readonly id: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/AccountId">;
-    readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-    readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-    readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-    readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-    readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-    readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    readonly password: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
+export declare const AccountId: S.brand<S.Schema.AnyNoContext, "@ye/entities/AccountId">;
+declare const Account_base: S.Class<Account, {
+    id: S.brand<S.Schema.AnyNoContext, "@ye/entities/AccountId">;
+    accountId: typeof S.NonEmptyTrimmedString;
+    providerId: typeof S.NonEmptyTrimmedString;
+    userId: S.brand<S.Schema.AnyNoContext, "@ye/entities/UserId">;
+    accessToken: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    refreshToken: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    idToken: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    accessTokenExpiresAt: S.NullOr<typeof S.Date>;
+    refreshTokenExpiresAt: S.NullOr<typeof S.Date>;
+    scope: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    password: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    createdAt: typeof S.Date;
+    updatedAt: typeof S.Date;
+}, S.Struct.Encoded<{
+    id: S.brand<S.Schema.AnyNoContext, "@ye/entities/AccountId">;
+    accountId: typeof S.NonEmptyTrimmedString;
+    providerId: typeof S.NonEmptyTrimmedString;
+    userId: S.brand<S.Schema.AnyNoContext, "@ye/entities/UserId">;
+    accessToken: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    refreshToken: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    idToken: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    accessTokenExpiresAt: S.NullOr<typeof S.Date>;
+    refreshTokenExpiresAt: S.NullOr<typeof S.Date>;
+    scope: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    password: S.NullOr<typeof S.NonEmptyTrimmedString>;
+    createdAt: typeof S.Date;
+    updatedAt: typeof S.Date;
 }>, never, {
     readonly id: any;
 } & {
-    readonly createdAt: import("effect/DateTime").Utc;
+    readonly createdAt: Date;
 } & {
-    readonly updatedAt: import("effect/DateTime").Utc;
-} & {
-    readonly password: string | null;
+    readonly updatedAt: Date;
 } & {
     readonly accountId: string;
 } & {
@@ -98,88 +56,9 @@ declare const Account_base: import("@effect/experimental/VariantSchema").Class<A
     readonly refreshTokenExpiresAt: Date | null;
 } & {
     readonly scope: string | null;
-}> & {
-    readonly select: import("effect/Schema").Struct<{
-        readonly createdAt: Model.DateTimeFromDate;
-        readonly updatedAt: Model.DateTimeFromDate;
-        readonly id: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/AccountId">;
-        readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-        readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly password: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    }>;
-    readonly insert: import("effect/Schema").Struct<{
-        readonly createdAt: import("@effect/experimental/VariantSchema").Overrideable<import("effect/DateTime").Utc, Date, never>;
-        readonly updatedAt: import("@effect/experimental/VariantSchema").Overrideable<import("effect/DateTime").Utc, Date, never>;
-        readonly id: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/AccountId">;
-        readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-        readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly password: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    }>;
-    readonly update: import("effect/Schema").Struct<{
-        readonly updatedAt: import("@effect/experimental/VariantSchema").Overrideable<import("effect/DateTime").Utc, Date, never>;
-        readonly id: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/AccountId">;
-        readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-        readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly password: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    }>;
-    readonly json: import("effect/Schema").Struct<{
-        readonly createdAt: typeof import("effect/Schema").DateTimeUtc;
-        readonly updatedAt: typeof import("effect/Schema").DateTimeUtc;
-        readonly id: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/AccountId">;
-        readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-        readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    }>;
-    readonly jsonCreate: import("effect/Schema").Struct<{
-        readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-        readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    }>;
-    readonly jsonUpdate: import("effect/Schema").Struct<{
-        readonly accountId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly providerId: typeof import("effect/Schema").NonEmptyTrimmedString;
-        readonly userId: import("effect/Schema").brand<import("effect/Schema").Schema.AnyNoContext, "@ye/entities/UserId">;
-        readonly accessToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly refreshToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly idToken: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-        readonly accessTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly refreshTokenExpiresAt: import("effect/Schema").NullOr<typeof import("effect/Schema").Date>;
-        readonly scope: import("effect/Schema").NullOr<typeof import("effect/Schema").NonEmptyTrimmedString>;
-    }>;
-};
+} & {
+    readonly password: string | null;
+}, {}, {}>;
 /**
  * @since 0.1.0
  * @category entities

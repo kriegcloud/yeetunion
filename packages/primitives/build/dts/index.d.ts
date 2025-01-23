@@ -22,10 +22,10 @@ declare const _default: {
     };
     EnumWithDefault: <TEnum extends import("effect/Schema").EnumsDefinition>(enums: TEnum) => (defaultValue: () => import("effect/Types").NoInfer<TEnum[keyof TEnum]>) => import("effect/Schema").PropertySignature<":", TEnum[keyof TEnum], never, ":", TEnum[keyof TEnum], true, never>;
     ReadonlySetFromArray: <A, I, R>(itemSchema: import("effect/Schema").Schema<A, I, R>) => import("effect/Schema").Schema<ReadonlySet<A>, ReadonlyArray<I>, R>;
-    StructFromReadonlyArray: <T extends import("effect/Array").NonEmptyReadonlyArray<import("@effect/schema/AST").LiteralValue>, TSchema extends import("effect/Schema").Schema<string>>(arr: T, valueSchema: TSchema) => import("effect/Schema").Struct<any>;
+    StructFromReadonlyArray: <T extends import("effect/Array").NonEmptyReadonlyArray<import("effect/SchemaAST").LiteralValue>, TSchema extends import("effect/Schema").Schema<string>>(arr: T, valueSchema: TSchema) => import("effect/Schema").Struct<any>;
     UnionOfLiteralsFromRecordValues: <TRecord extends import("effect/Record").ReadonlyRecord<string, string>>(record: TRecord) => import("effect/Schema").Schema<string, string, never>;
-    EnumFromReadonlyArray: <const T extends import("effect/Array").NonEmptyReadonlyArray<import("@effect/schema/AST").LiteralValue>>(arr: T) => import("effect/Schema").Enums<any>;
-    ReadonlyArrayToUnionOfLiterals: <const T extends import("effect/Array").NonEmptyReadonlyArray<import("@effect/schema/AST").LiteralValue>>(arr: T) => import("effect/Schema").Schema<T[number], T[number], never>;
+    EnumFromReadonlyArray: <const T extends import("effect/Array").NonEmptyReadonlyArray<import("effect/SchemaAST").LiteralValue>>(arr: T) => import("effect/Schema").Enums<any>;
+    ReadonlyArrayToUnionOfLiterals: <const T extends import("effect/Array").NonEmptyReadonlyArray<import("effect/SchemaAST").LiteralValue>>(arr: T) => import("effect/Schema").Schema<T[number], T[number], never>;
     UpperCasedLiteral: <const T extends string>(str: T) => import("effect/Schema").Literal<[Uppercase<T>]>;
     URL: import("effect/Schema").filter<import("effect/Schema").Schema<string, string, never>>;
     URLOrNull: import("effect/Schema").NullOr<import("effect/Schema").filter<import("effect/Schema").Schema<string, string, never>>>;

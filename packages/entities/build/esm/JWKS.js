@@ -1,4 +1,4 @@
-import { Model } from "@effect/sql";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
@@ -14,10 +14,10 @@ export const JWKSId = /*#__PURE__*/ye.NonEmptyTrimStr.pipe(/*#__PURE__*/ye.Brand
  * @since 0.1.0
  * @category entities
  */
-export class JWKS extends /*#__PURE__*/Model.Class("JWKS")({
-  id: /*#__PURE__*/Model.GeneratedByApp(JWKSId),
+export class JWKS extends /*#__PURE__*/S.Class("JWKS")({
+  id: JWKSId,
   publicKey: ye.NonEmptyTrimStr,
-  privateKey: /*#__PURE__*/Model.Sensitive(ye.NonEmptyTrimStr),
+  privateKey: ye.NonEmptyTrimStr,
   ...baseFields
 }) {}
 //# sourceMappingURL=JWKS.js.map

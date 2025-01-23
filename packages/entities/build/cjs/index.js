@@ -91,4 +91,48 @@ Object.keys(_User).forEach(function (key) {
     }
   });
 });
+var _TwoFactor = require("./TwoFactor.js");
+Object.keys(_TwoFactor).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _TwoFactor[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _TwoFactor[key];
+    }
+  });
+});
+var _OAuthApplication = require("./OAuthApplication.js");
+Object.keys(_OAuthApplication).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _OAuthApplication[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _OAuthApplication[key];
+    }
+  });
+});
+var _OAuthAccessToken = require("./OAuthAccessToken.js");
+Object.keys(_OAuthAccessToken).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _OAuthAccessToken[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _OAuthAccessToken[key];
+    }
+  });
+});
+var _OAuthConsent = require("./OAuthConsent.js");
+Object.keys(_OAuthConsent).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _OAuthConsent[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _OAuthConsent[key];
+    }
+  });
+});
 //# sourceMappingURL=index.js.map

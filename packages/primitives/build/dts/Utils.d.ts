@@ -1,4 +1,4 @@
-import * as AST from "@effect/schema/AST";
+import * as AST from "effect/SchemaAST";
 /**
  * @category primitives
  * @since 0.1.0

@@ -1,5 +1,5 @@
 import ye from "@ye/primitives"
-import { Schema as S } from "effect";
+import * as S from "effect/Schema";
 export const COUNTRY_CODES = [
   { name: "Afghanistan", code: "AF" },
   { name: "Åland Islands", code: "AX" },

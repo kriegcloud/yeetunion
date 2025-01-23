@@ -1,11 +1,10 @@
-import { Model } from "@effect/sql";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
 import { UserId } from "./User.js";
-import { baseFields } from "./lib/utils.js";
 
 /**
  * @since 0.1.0
@@ -19,8 +18,8 @@ export const AccountId = ye.NonEmptyTrimStr.pipe(
  * @since 0.1.0
  * @category entities
  */
-export class Account extends Model.Class<Account>("Account")({
-  id: Model.GeneratedByApp(AccountId),
+export class Account extends S.Class<Account>("Account")({
+  id: AccountId,
   accountId: ye.NonEmptyTrimStr,
   providerId: ye.NonEmptyTrimStr,
   userId: UserId,
@@ -30,6 +29,7 @@ export class Account extends Model.Class<Account>("Account")({
   accessTokenExpiresAt: ye.DateTimeOrNull,
   refreshTokenExpiresAt: ye.DateTimeOrNull,
   scope: ye.NonEmptyTrimStrOrNull,
-  password: Model.Sensitive(ye.NonEmptyTrimStrOrNull),
-  ...baseFields,
+  password: ye.NonEmptyTrimStrOrNull,
+  createdAt: ye.DateTime,
+  updatedAt: ye.DateTime,
 }) {}

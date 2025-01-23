@@ -1,26 +1,26 @@
 /** **************************************
 * Fonts: app
 *************************************** */
-@import '@fontsource-variable/public-sans';
+@import '../../../../node_modules/@fontsource-variable/public-sans';
 
-@import '@fontsource/barlow/400.css';
-@import '@fontsource/barlow/500.css';
-@import '@fontsource/barlow/600.css';
-@import '@fontsource/barlow/700.css';
-@import '@fontsource/barlow/800.css';
+@import '../../../../node_modules/@fontsource/barlow/400.css';
+@import '../../../../node_modules/@fontsource/barlow/500.css';
+@import '../../../../node_modules/@fontsource/barlow/600.css';
+@import '../../../../node_modules/@fontsource/barlow/700.css';
+@import '../../../../node_modules/@fontsource/barlow/800.css';
 
 /** **************************************
 * Fonts: options
 *************************************** */
-@import '@fontsource-variable/dm-sans';
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/nunito-sans';
+@import '../../../../node_modules/@fontsource-variable/dm-sans';
+@import '../../../../node_modules/@fontsource-variable/inter';
+@import '../../../../node_modules/@fontsource-variable/nunito-sans';
 
 /** **************************************
 * Plugins
 *************************************** */
 
-@import '../../../../../node_modules/simplebar-react/dist/simplebar.min.css';
+@import '../../../../node_modules/simplebar-react/dist/simplebar.min.css';
 
 
 /** **************************************

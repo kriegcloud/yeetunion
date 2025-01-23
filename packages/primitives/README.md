@@ -27,7 +27,7 @@ These specifications serve as the source of truth for both human developers and 
 
 ```typescript
 import { Effect, pipe } from "effect"
-import * as S from "@effect/schema/Schema"
+import * as S from "effect/Schema"
 import { compose, define } from "@ye/primitives"
 
 // Define your schema with defaults

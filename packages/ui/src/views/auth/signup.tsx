@@ -18,7 +18,8 @@ import { Link as RouterLink, useRouter } from '@ye/i18n';
 
 import { Iconify, Form, Field, FormHead } from '../../components';
 
-import { SignUpTerms } from './components';
+import {FormSocials, FormDivider, SignUpTerms} from './components';
+import {useAuthCtx} from "./Provider";
 
 // ----------------------------------------------------------------------
 
@@ -51,6 +52,8 @@ export function SignUp() {
   const methods = useForm<SignUpSchemaType>({
     resolver: zodResolver(SignUpSchema),
   });
+
+  const auth = useAuthCtx();
 
   const {
     handleSubmit,
@@ -153,6 +156,14 @@ export function SignUp() {
       </Form>
 
       <SignUpTerms />
+
+      <FormDivider />
+      <FormSocials
+        signInWithTwitter={auth.signInWithTwitter}
+        signInWithLinkedIn={auth.signInWithLinkedIn}
+        signInWithDiscord={auth.signInWithDiscord}
+        signInWithGoogle={auth.signInWithGoogle}
+      />
     </>
   );
 }

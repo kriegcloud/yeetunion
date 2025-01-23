@@ -1,10 +1,10 @@
-import { Model } from "@effect/sql";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
 import { baseFields } from "./lib/utils.js";
+import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
@@ -14,8 +14,8 @@ export const VerificationId = /*#__PURE__*/ye.NonEmptyTrimStr.pipe(/*#__PURE__*/
  * @since 0.1.0
  * @category entities
  */
-export class Verification extends /*#__PURE__*/Model.Class("Verification")({
-  id: /*#__PURE__*/Model.GeneratedByApp(VerificationId),
+export class Verification extends /*#__PURE__*/S.Class("Verification")({
+  id: VerificationId,
   identifier: ye.NonEmptyTrimStr,
   value: ye.NonEmptyTrimStr,
   expiresAt: ye.DateTime,

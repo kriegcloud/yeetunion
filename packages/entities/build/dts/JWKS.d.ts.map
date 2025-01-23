@@ -1,1 +1,1 @@
-{"version":3,"file":"JWKS.d.ts","sourceRoot":"","sources":["../../src/JWKS.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,MAAM,aAAa,CAAC;AAQpC;;;GAGG;AACH,eAAO,MAAM,MAAM,mGAA2D,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAE/E;;;GAGG;AACH,qBAAa,IAAK,SAAQ,SAKxB;CAAG"}
+{"version":3,"file":"JWKS.d.ts","sourceRoot":"","sources":["../../src/JWKS.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,CAAC,MAAM,eAAe,CAAC;AAQnC;;;GAGG;AACH,eAAO,MAAM,MAAM,uDAA2D,CAAC;;;;;;;;;;;;;;;;;;;;AAE/E;;;GAGG;AACH,qBAAa,IAAK,SAAQ,SAKxB;CAAG"}
