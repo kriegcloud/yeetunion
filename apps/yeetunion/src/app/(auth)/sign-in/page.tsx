@@ -1,7 +1,7 @@
 "use client";
 import {Login, AuthProvider} from "@ye/ui/views";
 import {authClient} from "@ye/auth/client";
-import { useRouter } from "@ye/i18n"
+import { useRouter } from "@ye/i18n";
 const Page = () => {
   const router = useRouter();
   const onSuccess = () => {
@@ -27,9 +27,6 @@ const Page = () => {
       onSuccess
     });
   }
-
-
-
   return (
     <AuthProvider
       signUpWithEmail={signUpWithEmail}
