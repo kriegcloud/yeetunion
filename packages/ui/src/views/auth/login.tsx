@@ -35,6 +35,7 @@ export const SignInSchema = zod.object({
     .string()
     .min(1, {message: 'Password is required!'})
     .min(6, {message: 'Password must be at least 6 characters!'}),
+  rememberMe: zod.boolean().optional(),
 });
 
 // ----------------------------------------------------------------------
@@ -107,6 +108,7 @@ export function Login() {
             },
           }}
         />
+        <Field.Checkbox label={"Remember me"} name="rememberMe" />
       </Box>
 
       <LoadingButton

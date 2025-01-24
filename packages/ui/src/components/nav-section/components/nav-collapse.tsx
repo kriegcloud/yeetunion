@@ -1,3 +1,4 @@
+"use client";
 import type { CSSObject } from "@mui/material/styles";
 
 import Collapse from "@mui/material/Collapse";

@@ -1,3 +1,4 @@
+"use client";
 import type { ButtonBaseProps } from "@mui/material/ButtonBase";
 
 import { varAlpha } from "@ye/utils/colors";

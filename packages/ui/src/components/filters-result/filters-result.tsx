@@ -1,3 +1,4 @@
+"use client";
 import type { ChipProps } from "@mui/material/Chip";
 import type { SxProps, Theme } from "@mui/material/styles";
 

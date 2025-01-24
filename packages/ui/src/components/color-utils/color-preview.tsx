@@ -1,3 +1,4 @@
+"use client";
 import { styled } from "@mui/material/styles";
 import { mergeClasses } from "@ye/utils/classes";
 import { varAlpha } from "@ye/utils/colors";

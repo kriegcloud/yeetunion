@@ -8,7 +8,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 
 import Box from '@mui/material/Box';
 import { inputBaseClasses } from '@mui/material/InputBase';
-
+import type { ReactNode } from "react";
 import { HelperText } from './help-text';
 
 // ----------------------------------------------------------------------
@@ -17,7 +17,7 @@ export interface RHFCodesProps extends Omit<MuiOtpInputProps, 'sx'> {
   name: string;
   maxSize?: number;
   placeholder?: string;
-  helperText?: React.ReactNode;
+  helperText?: ReactNode;
   slotProps?: {
     wrapper?: BoxProps;
     helperText?: FormHelperTextProps;

@@ -1,3 +1,4 @@
+"use client";
 import type { ListSubheaderProps } from "@mui/material/ListSubheader";
 
 import { mergeClasses } from "@ye/utils/classes";

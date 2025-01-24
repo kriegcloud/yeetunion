@@ -8,6 +8,10 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./form": {
+      "types": "./dist/form/index.d.ts",
+      "default": "./dist/form/index.js"
+    },
     "./views": {
       "types": "./dist/views/index.d.ts",
       "default": "./dist/views/index.js"
@@ -40,7 +44,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
-    "dev": "tsc -w -p tsconfig.build.json",
+    "dev": "bun run tsc -w -p tsconfig.build.json",
     "typecheck": "tsc",
     "lint": "biome check .",
     "lint:fix": "biome check . --write"
@@ -67,6 +71,7 @@
     "@mui/x-tree-view": "^7.24.0"
   },
   "dependencies": {
+    "@effect/schema": "^0.75.5",
     "@tiptap/core": "^2.11.2",
     "@tiptap/extension-code-block": "^2.11.2",
     "@tiptap/extension-code-block-lowlight": "^2.11.2",

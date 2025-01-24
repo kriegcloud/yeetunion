@@ -1,3 +1,4 @@
+"use client";
 import type { BoxProps } from "@mui/material/Box";
 import type { SxProps, Theme } from "@mui/material/styles";
 import type { MotionProps, MotionValue } from "framer-motion";

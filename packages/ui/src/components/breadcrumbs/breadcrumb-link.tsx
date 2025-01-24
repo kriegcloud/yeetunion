@@ -1,3 +1,4 @@
+"use client";
 import type { SxProps, Theme } from "@mui/material/styles";
 
 import MuiLink from "@mui/material/Link";

@@ -5,7 +5,6 @@
     "build": {
       "dependsOn": [
         "^build"
-        //  "^db:migrate"
       ],
       "outputs": [".next/**", "!.next/cache/**"],
       "passThroughEnv": ["ANALYZE", "NEXT_RUNTIME"]

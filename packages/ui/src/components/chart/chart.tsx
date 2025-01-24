@@ -1,3 +1,4 @@
+"use client";
 import { mergeClasses } from "@ye/utils/classes";
 import { useIsClient } from "@ye/utils/hooks";
 import { Suspense, forwardRef, lazy } from "react";

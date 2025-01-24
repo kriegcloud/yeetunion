@@ -1,3 +1,4 @@
+"use client";
 import type { BoxProps } from "@mui/material/Box";
 
 import { mergeClasses } from "@ye/utils/classes";

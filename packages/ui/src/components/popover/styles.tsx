@@ -1,3 +1,4 @@
+"use client";
 import type { CSSObject, Theme } from "@mui/material/styles";
 
 import { varAlpha } from "@ye/utils/colors";

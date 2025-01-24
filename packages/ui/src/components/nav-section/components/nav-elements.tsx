@@ -1,3 +1,4 @@
+"use client";
 import { mergeClasses } from "@ye/utils/classes";
 
 import { styled } from "@mui/material/styles";

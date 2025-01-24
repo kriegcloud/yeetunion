@@ -1,3 +1,4 @@
+"use client";
 import Link from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import type { ComponentProps } from "react";

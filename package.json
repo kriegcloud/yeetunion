@@ -7,13 +7,13 @@
   "type": "module",
   "workspaces": [
     "apps/*",
+    "packages/services/*",
+    "packages/domain/*",
     "packages/*",
     "packages/config/*"
   ],
   "scripts": {
-    "dev": "bun run dev:yeetunion && bun run dev:ui",
-    "dev:yeetunion": "turbo run dev --filter @ye/yeetunion ",
-    "dev:ui": "turbo run dev --filter @ye/ui",
+    "dev": "bun run turbo dev --concurrency=13",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",

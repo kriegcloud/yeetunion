@@ -12,7 +12,6 @@ jiti("@ye/env/yeetunion/client");
 
 const config = {
   ...baseConfig,
-  transpilePackages: ["@ye/ui"],
   redirects: async () => {
     return [
       {

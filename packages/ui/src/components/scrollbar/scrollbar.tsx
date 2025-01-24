@@ -1,3 +1,4 @@
+"use client";
 import { mergeClasses } from "@ye/utils/classes";
 import { forwardRef } from "react";
 import SimpleBar from "simplebar-react";
