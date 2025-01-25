@@ -13,7 +13,7 @@
     "packages/config/*"
   ],
   "scripts": {
-    "dev": "bun run turbo dev --concurrency=13",
+    "dev": "bun run turbo dev --concurrency=14",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",

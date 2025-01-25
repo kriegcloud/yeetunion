@@ -18,6 +18,7 @@
     "postinstall": "bun run build:icons"
   },
   "dependencies": {
+    "@ye/form": "workspace:^",
     "@ye/value-objects": "workspace:^",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",

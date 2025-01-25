@@ -63,7 +63,7 @@ export default async function RootLayout({
       id="__next"
       lang={"en"}
       dir={appConfig.dir}
-      suppressHydrationWarning
+      suppressHydrationWarning={true}
     >
       <body>
         <TRPCReactProvider>

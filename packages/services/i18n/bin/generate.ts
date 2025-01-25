@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { SupportedLocales } from "@/constants";
+import { SupportedLocales } from "../src";
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const localesPath = path.join(__dirname, "../src/langs");

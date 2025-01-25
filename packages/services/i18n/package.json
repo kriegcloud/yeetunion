@@ -6,6 +6,9 @@
   "license": "MIT",
   "author": "Bois",
   "type": "module",
+  "imports": {
+    "#*": "./dist/*"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

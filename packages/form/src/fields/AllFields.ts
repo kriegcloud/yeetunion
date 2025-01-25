@@ -1,10 +1,8 @@
-import type { Checkbox } from "./Checkbox";
-import type { Select } from "./Select";
-import type { Textarea } from "./Textarea";
+// import type {Autocomplete} from "./Autocomplete";
+import type {Checkbox} from "./Checkbox";
+import type {CheckboxButtonGroup} from "./CheckboxButtonGroup";
 import type { TextField } from "./TextField";
-
 export type AllFields =
+  | TextField
   | Checkbox
-  | Select
-  | Textarea
-  | TextField;
+  | CheckboxButtonGroup;

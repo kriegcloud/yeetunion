@@ -1,4 +1,4 @@
-import { UserId } from "@/User";
+import { UserId } from "./User.js";
 /**
  * @since 0.1.0
  * @category entities

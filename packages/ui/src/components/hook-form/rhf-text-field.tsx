@@ -12,8 +12,9 @@ import TextField from "@mui/material/TextField";
 
 // ----------------------------------------------------------------------
 
-export type RHFTextFieldProps = TextFieldProps & {
-  name: string;
+export type RHFTextFieldProps = Omit<TextFieldProps, "variant"> & {
+  name?: string;
+  variant?: TextFieldProps["variant"]
 };
 
 export function RHFTextField({
@@ -21,6 +22,7 @@ export function RHFTextField({
   helperText,
   slotProps,
   type = "text",
+  variant = "outlined",
   ...other
 }: RHFTextFieldProps) {
   const { control } = useFormContext();
@@ -29,12 +31,13 @@ export function RHFTextField({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <TextField
           {...field}
           fullWidth
+          variant={variant}
           value={isNumberType ? transformValue(field.value) : field.value}
           onChange={(event) => {
             const transformedValue = isNumberType

@@ -7,6 +7,9 @@
   "author": "Bois",
   "sideEffects": false,
   "type": "module",
+  "imports": {
+    "#*": "./dist/*"
+  },
   "exports": {
     "./format-number": {
       "types": "./dist/format-number.d.ts",

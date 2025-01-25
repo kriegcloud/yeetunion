@@ -8,22 +8,25 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
-    "${configDir}/next-env.d.ts",
-    "${configDir}/.next/types/**/*.ts",
-    "${configDir}/src/**/*.ts",
-    "${configDir}/src/**/*.tsx",
-    "${configDir}/src/**/*.cts",
-    "${configDir}/src/**/*.ctsx",
-    "${configDir}/src/**/*.mts",
-    "${configDir}/src/**/*.mtsx",
-    "${configDir}/src/**/*.js",
-    "${configDir}/src/**/*.jsx",
-    "${configDir}/src/**/*.cjs",
-    "${configDir}/src/**/*.cjsx",
-    "${configDir}/src/**/*.mjs",
-    "${configDir}/src/**/*.mjsx"
+    "./next-env.d.ts",
+    "./.next/types/**/*.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.cts",
+    "./src/**/*.ctsx",
+    "./src/**/*.mts",
+    "./src/**/*.mtsx",
+    "./src/**/*.js",
+    "./src/**/*.jsx",
+    "./src/**/*.cjs",
+    "./src/**/*.cjsx",
+    "./src/**/*.mjs",
+    "./src/**/*.mjsx"
   ]
 }

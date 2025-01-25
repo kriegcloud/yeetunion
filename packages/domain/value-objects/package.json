@@ -46,9 +46,10 @@
     "tsx": "^4.19.2",
     "vitest": "^3.0.2"
   },
-  "dependencies": {
-    "@effect/sql": "^0.27.0",
-    "@ye/primitives": "workspace:^",
+  "peerDependencies": {
     "effect": "latest"
+  },
+  "dependencies": {
+    "@ye/primitives": "workspace:^"
   }
 }

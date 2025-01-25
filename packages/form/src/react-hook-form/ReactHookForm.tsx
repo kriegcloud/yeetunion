@@ -1,14 +1,11 @@
 import { Effect, Layer, Pretty, Schema } from "effect";
 import React from "react";
 import { useMemo } from "react";
-import { v4 as uuidv4 } from "uuid";
-
-import { FormFramework, Path } from "../core";
-
 import * as RHF from "react-hook-form";
-import { effectTsResolver } from "./effectTsResolver.js";
-import { makeContext } from "./makeContext.js";
-
+import { FormFramework, Path } from "../core";
+import { effectTsResolver } from "./effectTsResolver";
+import { makeContext } from "./makeContext";
+import { v4 as uuidv4 } from "uuid";
 export const layer = (Button: FormFramework.Button) =>
   Layer.effect(
     FormFramework.FormFramework,
@@ -120,8 +117,8 @@ export const layer = (Button: FormFramework.Button) =>
         },
         makeRaw(lhs) {
           const Component: FormFramework.ReactFCWithChildren = ({
-            children,
-          }) => {
+                                                                  children,
+                                                                }) => {
             return children;
           };
           const controls = this.makeFieldControls(lhs);
@@ -150,7 +147,7 @@ export const layer = (Button: FormFramework.Button) =>
                   defaultValues: resetValues,
                   values: props.resetValues,
                 }),
-              [props.resetValues],
+              [props.resetValues]
             );
             const initialValues = useMemo(() => {
               if (props.initialValues) {
@@ -172,6 +169,7 @@ export const layer = (Button: FormFramework.Button) =>
             return (
               <RHF.FormProvider {...formMethods}>
                 <form
+                  suppressHydrationWarning={true}
                   id={formId}
                   onSubmit={formMethods.handleSubmit(
                     (values) =>
@@ -179,7 +177,7 @@ export const layer = (Button: FormFramework.Button) =>
                         decoded: values,
                         encoded: Schema.encodeUnknownSync(schema)(values),
                       }),
-                    onError,
+                    onError
                   )}
                 >
                   {children}
@@ -196,6 +194,7 @@ export const layer = (Button: FormFramework.Button) =>
             } = RHF.useFormContext();
             return (
               <Button
+                suppressHydrationWarning={true}
                 {...props}
                 type="submit"
                 form={formId}
@@ -225,5 +224,5 @@ export const layer = (Button: FormFramework.Button) =>
       };
 
       return formFramework;
-    }),
+    })
   );

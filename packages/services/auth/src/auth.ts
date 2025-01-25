@@ -29,7 +29,6 @@ const SUPPORTED_PROVIDERS = [
   "google",
   "linkedin",
 ] as const;
-type SupportedProvider = (typeof SUPPORTED_PROVIDERS)[number];
 
 export const ProviderSecrets = {
   discord: {

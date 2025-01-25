@@ -8,9 +8,9 @@ import Container from "@mui/material/Container";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 
-import { MotionViewport, varFade } from "../../components/animate";
-import { Iconify } from "../../components/iconify";
-import { Image } from "../../components/image";
+import { MotionViewport, varFade } from "#components/animate/index.js";
+import { Iconify } from "#components/iconify/index.js";
+import { Image } from "#components/image/image.js";
 
 // ----------------------------------------------------------------------
 

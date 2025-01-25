@@ -1,22 +1,44 @@
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 "use client";
 import { Array, Data, Option } from "effect";
 import React, { useContext } from "react";
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 interface StringToken {
   _tag: "StringToken";
   value: string;
 }
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 interface IndexToken {
   _tag: "IndexToken";
 }
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 type Token = StringToken | IndexToken;
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 const { IndexToken, StringToken } = Data.taggedEnum<Token>();
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 const ArrayIndexesContext = React.createContext<ReadonlyArray<number>>([]);
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 const ArrayIndexesProvider: React.FC<{
   children: React.ReactNode;
   index: number;
@@ -29,25 +51,37 @@ const ArrayIndexesProvider: React.FC<{
     </ArrayIndexesContext.Provider>
   );
 };
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 export const Provider = ArrayIndexesProvider;
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 export const usePath = (path: Path): string => {
   const indexes = useContext(ArrayIndexesContext);
   return path.toString(indexes);
 };
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 export const useIndex = (): number => {
   const indexes = useContext(ArrayIndexesContext);
   if (!Array.isNonEmptyReadonlyArray(indexes)) {
     throw new Error(
-      "Tried to call useIndex() without any array indexes being provided. Make sure your call to useIndex() is rendered under a <Fields></Fields> tag.",
+      "Tried to call useIndex() without any array indexes being provided. Make sure your call to useIndex() is rendered under a <Fields></Fields> tag."
     );
   }
 
   return Array.lastNonEmpty(indexes);
 };
-
+/**
+ * @since 0.1.0
+ * @category YeForm
+ */
 export class Path {
   private constructor(private readonly tokens: ReadonlyArray<Token>) {}
 

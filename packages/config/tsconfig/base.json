@@ -35,10 +35,7 @@
     "preserveWatchOutput": true,
 
     "tsBuildInfoFile": "${configDir}/tsconfig.tsbuildinfo",
-    "baseUrl": "${configDir}",
-    "paths": {
-      "@/*": ["${configDir}/src/*"]
-    }
+    "baseUrl": "${configDir}"
   },
   "include": [
     "${configDir}/.storybook/**/*",
@@ -54,12 +51,5 @@
     "${configDir}/**/*.cjsx",
     "${configDir}/**/*.mjs",
     "${configDir}/**/*.mjsx"
-  ],
-  "exclude": [
-    "${configDir}/node_modules",
-    "${configDir}/dist",
-    "${configDir}/storybook-static",
-    "${configDir}/playwright-report",
-    "${configDir}/test-results"
   ]
 }

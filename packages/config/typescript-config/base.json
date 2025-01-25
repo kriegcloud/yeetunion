@@ -6,7 +6,7 @@
     "skipLibCheck": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": false,
     "module": "preserve",
     "target": "ES2022",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
@@ -17,6 +17,7 @@
     "downlevelIteration": true,
     "sourceMap": true,
     "checkJs": false,
+    "jsx": "react",
     "declarationMap": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
@@ -41,10 +42,7 @@
     "plugins": [{ "name": "@effect/language-service" }],
     "outDir": "${configDir}/dist",
     "baseUrl": "${configDir}",
-    "rootDir": "${configDir}/src",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "rootDir": "${configDir}/src"
   },
   "include": ["${configDir}/src", "${configDir}/src/**/*.json"],
   "exclude": ["${configDir}/node_modules", "${configDir}/dist"]
