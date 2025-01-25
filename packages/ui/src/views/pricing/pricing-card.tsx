@@ -1,18 +1,18 @@
-import type { CardProps } from '@mui/material/Card';
+import type { CardProps } from "@mui/material/Card";
 
-import { varAlpha } from '@ye/utils/colors';
+import { varAlpha } from "@ye/utils/colors";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
-import { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../../icons';
+import { PlanFreeIcon, PlanPremiumIcon, PlanStarterIcon } from "../../icons";
 
-import { Label } from '../../components/label';
-import { Iconify } from '../../components/iconify';
+import { Iconify } from "../../components/iconify";
+import { Label } from "../../components/label";
 
 // ----------------------------------------------------------------------
 
@@ -30,12 +30,18 @@ type Props = CardProps & {
 export function PricingCard({ card, sx, ...other }: Props) {
   const { subscription, price, caption, lists, labelAction } = card;
 
-  const isBasic = subscription === 'basic';
-  const isStarter = subscription === 'starter';
-  const isPremium = subscription === 'premium';
+  const isBasic = subscription === "basic";
+  const isStarter = subscription === "starter";
+  const isPremium = subscription === "premium";
 
   const renderIcon = () => (
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
       {isBasic && <PlanFreeIcon sx={{ width: 64 }} />}
       {isStarter && <PlanStarterIcon sx={{ width: 64 }} />}
       {isPremium && <PlanPremiumIcon sx={{ width: 64 }} />}
@@ -46,7 +52,7 @@ export function PricingCard({ card, sx, ...other }: Props) {
 
   const renderSubscription = () => (
     <Stack spacing={1}>
-      <Typography variant="h4" sx={{ textTransform: 'capitalize' }}>
+      <Typography variant="h4" sx={{ textTransform: "capitalize" }}>
         {subscription}
       </Typography>
       <Typography variant="subtitle2">{caption}</Typography>
@@ -57,7 +63,7 @@ export function PricingCard({ card, sx, ...other }: Props) {
     isBasic ? (
       <Typography variant="h2">Free</Typography>
     ) : (
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: "flex" }}>
         <Typography variant="h4">$</Typography>
 
         <Typography variant="h2">{price}</Typography>
@@ -66,9 +72,9 @@ export function PricingCard({ card, sx, ...other }: Props) {
           component="span"
           sx={{
             ml: 1,
-            alignSelf: 'center',
-            typography: 'body2',
-            color: 'text.disabled',
+            alignSelf: "center",
+            typography: "body2",
+            color: "text.disabled",
           }}
         >
           / mo
@@ -78,8 +84,14 @@ export function PricingCard({ card, sx, ...other }: Props) {
 
   const renderList = () => (
     <Stack spacing={2}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Box component="span" sx={{ typography: 'overline' }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box component="span" sx={{ typography: "overline" }}>
           Features
         </Box>
 
@@ -89,7 +101,15 @@ export function PricingCard({ card, sx, ...other }: Props) {
       </Box>
 
       {lists.map((item) => (
-        <Box key={item} sx={{ gap: 1, display: 'flex', typography: 'body2', alignItems: 'center' }}>
+        <Box
+          key={item}
+          sx={{
+            gap: 1,
+            display: "flex",
+            typography: "body2",
+            alignItems: "center",
+          }}
+        >
           <Iconify icon="eva:checkmark-fill" width={16} />
           {item}
         </Box>
@@ -103,22 +123,22 @@ export function PricingCard({ card, sx, ...other }: Props) {
         (theme) => ({
           p: 5,
           gap: 5,
-          display: 'flex',
+          display: "flex",
           borderRadius: 2,
-          flexDirection: 'column',
-          bgcolor: 'background.default',
+          flexDirection: "column",
+          bgcolor: "background.default",
           boxShadow: theme.vars.customShadows.card,
-          [theme.breakpoints.up('md')]: {
-            boxShadow: 'none',
+          [theme.breakpoints.up("md")]: {
+            boxShadow: "none",
           },
           ...((isBasic || isStarter) && {
             borderTopRightRadius: { md: 0 },
             borderBottomRightRadius: { md: 0 },
           }),
           ...((isStarter || isPremium) && {
-            [theme.breakpoints.up('md')]: {
-              boxShadow: `-40px 40px 80px 0px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.16)}`,
-              ...theme.applyStyles('dark', {
+            [theme.breakpoints.up("md")]: {
+              boxShadow: `-40px 40px 80px 0px ${varAlpha(theme.vars.palette.grey["500Channel"], 0.16)}`,
+              ...theme.applyStyles("dark", {
                 boxShadow: `-40px 40px 80px 0px ${varAlpha(theme.vars.palette.common.blackChannel, 0.16)}`,
               }),
             },
@@ -132,7 +152,7 @@ export function PricingCard({ card, sx, ...other }: Props) {
       {renderSubscription()}
       {renderPrice()}
 
-      <Divider sx={{ borderStyle: 'dashed' }} />
+      <Divider sx={{ borderStyle: "dashed" }} />
 
       {renderList()}
 
@@ -141,7 +161,7 @@ export function PricingCard({ card, sx, ...other }: Props) {
         size="large"
         variant="contained"
         disabled={isBasic}
-        color={isStarter ? 'primary' : 'inherit'}
+        color={isStarter ? "primary" : "inherit"}
       >
         {labelAction}
       </Button>

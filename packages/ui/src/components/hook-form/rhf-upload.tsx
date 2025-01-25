@@ -1,14 +1,14 @@
 "use client";
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from "@mui/material/Box";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
-import { HelperText } from './help-text';
-import { Upload, UploadBox, UploadAvatar } from '../upload';
+import { Upload, UploadAvatar, UploadBox } from "../upload";
+import { HelperText } from "./help-text";
 
-import type { UploadProps } from '../upload';
+import type { UploadProps } from "../upload";
 
 // ----------------------------------------------------------------------
 
@@ -35,9 +35,17 @@ export function RHFUploadAvatar({ name, slotProps, ...other }: RHFUploadProps) {
 
         return (
           <Box {...slotProps?.wrapper}>
-            <UploadAvatar value={field.value} error={!!error} onDrop={onDrop} {...other} />
+            <UploadAvatar
+              value={field.value}
+              error={!!error}
+              onDrop={onDrop}
+              {...other}
+            />
 
-            <HelperText errorMessage={error?.message} sx={{ textAlign: 'center' }} />
+            <HelperText
+              errorMessage={error?.message}
+              sx={{ textAlign: "center" }}
+            />
           </Box>
         );
       }}
@@ -63,7 +71,12 @@ export function RHFUploadBox({ name, ...other }: RHFUploadProps) {
 
 // ----------------------------------------------------------------------
 
-export function RHFUpload({ name, multiple, helperText, ...other }: RHFUploadProps) {
+export function RHFUpload({
+  name,
+  multiple,
+  helperText,
+  ...other
+}: RHFUploadProps) {
   const { control, setValue } = useFormContext();
 
   return (
@@ -73,18 +86,27 @@ export function RHFUpload({ name, multiple, helperText, ...other }: RHFUploadPro
       render={({ field, fieldState: { error } }) => {
         const uploadProps = {
           multiple,
-          accept: { 'image/*': [] },
+          accept: { "image/*": [] },
           error: !!error,
           helperText: error?.message ?? helperText,
         };
 
         const onDrop = (acceptedFiles: File[]) => {
-          const value = multiple ? [...field.value, ...acceptedFiles] : acceptedFiles[0];
+          const value = multiple
+            ? [...field.value, ...acceptedFiles]
+            : acceptedFiles[0];
 
           setValue(name, value, { shouldValidate: true });
         };
 
-        return <Upload {...uploadProps} value={field.value} onDrop={onDrop} {...other} />;
+        return (
+          <Upload
+            {...uploadProps}
+            value={field.value}
+            onDrop={onDrop}
+            {...other}
+          />
+        );
       }}
     />
   );

@@ -41,7 +41,7 @@ export const useIndex = (): number => {
   const indexes = useContext(ArrayIndexesContext);
   if (!Array.isNonEmptyReadonlyArray(indexes)) {
     throw new Error(
-      "Tried to call useIndex() without any array indexes being provided. Make sure your call to useIndex() is rendered under a <Fields></Fields> tag."
+      "Tried to call useIndex() without any array indexes being provided. Make sure your call to useIndex() is rendered under a <Fields></Fields> tag.",
     );
   }
 

@@ -1,12 +1,12 @@
-import { mergeClasses } from '@ye/utils/classes';
+import { mergeClasses } from "@ye/utils/classes";
 
-import SvgIcon from '@mui/material/SvgIcon';
-import { styled } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import ButtonBase from "@mui/material/ButtonBase";
+import SvgIcon from "@mui/material/SvgIcon";
+import { styled } from "@mui/material/styles";
 
-import { carouselClasses } from '../classes';
+import { carouselClasses } from "../classes";
 
-import type { CarouselOptions, CarouselArrowButtonProps } from '../types';
+import type { CarouselArrowButtonProps, CarouselOptions } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ export function ArrowButton({
   svgSize = 20,
   ...other
 }: CarouselArrowButtonProps) {
-  const isPrev = variant === 'prev';
+  const isPrev = variant === "prev";
 
   const svgContent = svgIcon || (isPrev ? prevSvgPath : nextSvgPath);
 
@@ -45,12 +45,18 @@ export function ArrowButton({
     <ArrowButtonRoot
       axis={options?.axis}
       direction={options?.direction}
-      aria-label={isPrev ? 'Prev button' : 'Next button'}
-      className={mergeClasses([carouselClasses.arrows[isPrev ? 'prev' : 'next'], className])}
+      aria-label={isPrev ? "Prev button" : "Next button"}
+      className={mergeClasses([
+        carouselClasses.arrows[isPrev ? "prev" : "next"],
+        className,
+      ])}
       sx={sx}
       {...other}
     >
-      <SvgIcon className={carouselClasses.arrows.svg} sx={{ width: svgSize, height: svgSize }}>
+      <SvgIcon
+        className={carouselClasses.arrows.svg}
+        sx={{ width: svgSize, height: svgSize }}
+      >
         {svgContent}
       </SvgIcon>
     </ArrowButtonRoot>
@@ -60,24 +66,29 @@ export function ArrowButton({
 // ----------------------------------------------------------------------
 
 const ArrowButtonRoot = styled(ButtonBase, {
-  shouldForwardProp: (prop: string) => !['axis', 'direction', 'sx'].includes(prop),
-})<Pick<CarouselOptions, 'axis' | 'direction'>>(({ theme }) => ({
-  borderRadius: '50%',
-  boxSizing: 'content-box',
+  shouldForwardProp: (prop: string) =>
+    !["axis", "direction", "sx"].includes(prop),
+})<Pick<CarouselOptions, "axis" | "direction">>(({ theme }) => ({
+  borderRadius: "50%",
+  boxSizing: "content-box",
   padding: theme.spacing(1),
-  transition: theme.transitions.create(['all'], {
+  transition: theme.transitions.create(["all"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.short,
   }),
   variants: [
     { props: { disabled: true }, style: { opacity: 0.4 } },
     {
-      props: { axis: 'y' },
-      style: { [`& .${carouselClasses.arrows.svg}`]: { transform: 'rotate(90deg)' } },
+      props: { axis: "y" },
+      style: {
+        [`& .${carouselClasses.arrows.svg}`]: { transform: "rotate(90deg)" },
+      },
     },
     {
-      props: { direction: 'rtl' },
-      style: { [`& .${carouselClasses.arrows.svg}`]: { transform: 'scaleX(-1)' } },
+      props: { direction: "rtl" },
+      style: {
+        [`& .${carouselClasses.arrows.svg}`]: { transform: "scaleX(-1)" },
+      },
     },
   ],
 }));

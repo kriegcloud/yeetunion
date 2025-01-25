@@ -1,4 +1,3 @@
-import * as AST from "effect/SchemaAST";
 /**
  * @category primitives
  * @since 0.1.0
@@ -7,6 +6,7 @@ import { Schema as S } from "effect";
 import * as A from "effect/Array";
 import { pipe } from "effect/Function";
 import type { ReadonlyRecord } from "effect/Record";
+import * as AST from "effect/SchemaAST";
 import type * as Types from "effect/Types";
 
 /**

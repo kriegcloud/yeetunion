@@ -1,10 +1,9 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
+import { authEnv } from "../auth";
 import { dbEnv } from "../db";
 import { sharedEnv } from "../shared";
-import { authEnv } from "../auth";
-
 
 export const env = createEnv({
   extends: [sharedEnv, dbEnv, authEnv],

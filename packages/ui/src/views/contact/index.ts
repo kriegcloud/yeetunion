@@ -1,1 +1,1 @@
-export * from './contact-view';
+export * from "./contact-view";

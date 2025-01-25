@@ -1,8 +1,8 @@
-import type { MarkerProps } from 'react-map-gl';
+import type { MarkerProps } from "react-map-gl";
 
-import { Marker } from 'react-map-gl';
+import { Marker } from "react-map-gl";
 
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon from "@mui/material/SvgIcon";
 
 // ----------------------------------------------------------------------
 
@@ -21,8 +21,8 @@ export function MapMarker({ ...other }: MarkerProps) {
         sx={[
           (theme) => ({
             height: SIZE,
-            stroke: 'none',
-            cursor: 'pointer',
+            stroke: "none",
+            cursor: "pointer",
             fill: theme.vars.palette.error.main,
             transform: `translate(${-SIZE / 2}px, ${-SIZE}px)`,
           }),

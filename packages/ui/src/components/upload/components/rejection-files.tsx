@@ -1,14 +1,14 @@
-import type { FileRejection } from 'react-dropzone';
+import type { FileRejection } from "react-dropzone";
 
-import { varAlpha } from '@ye/utils/colors';
 import { mergeClasses } from "@ye/utils/classes";
+import { varAlpha } from "@ye/utils/colors";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 // import { fData } from 'src/utils/format-number';
 
-import { uploadClasses } from '../classes';
-import { fileData } from '../../file-thumbnail';
+import { fileData } from "../../file-thumbnail";
+import { uploadClasses } from "../classes";
 
 // ----------------------------------------------------------------------
 
@@ -16,7 +16,12 @@ type RejectionFilesProps = React.ComponentProps<typeof ListRoot> & {
   files?: readonly FileRejection[];
 };
 
-export function RejectionFiles({ files, sx, className, ...other }: RejectionFilesProps) {
+export function RejectionFiles({
+  files,
+  sx,
+  className,
+  ...other
+}: RejectionFilesProps) {
   return (
     <ListRoot
       className={mergeClasses([uploadClasses.uploadRejectionFiles, className])}
@@ -28,9 +33,7 @@ export function RejectionFiles({ files, sx, className, ...other }: RejectionFile
 
         return (
           <ListItem key={path}>
-            <ItemTitle>
-              {/*{path} - {size ? fData(size) : ''}*/}
-            </ItemTitle>
+            <ItemTitle>{/*{path} - {size ? fData(size) : ''}*/}</ItemTitle>
 
             {errors.map((error) => (
               <ItemCaption key={error.code}>- {error.message}</ItemCaption>
@@ -44,10 +47,10 @@ export function RejectionFiles({ files, sx, className, ...other }: RejectionFile
 
 // ----------------------------------------------------------------------
 
-const ListRoot = styled('ul')(({ theme }) => ({
-  display: 'flex',
+const ListRoot = styled("ul")(({ theme }) => ({
+  display: "flex",
   gap: theme.spacing(1),
-  flexDirection: 'column',
+  flexDirection: "column",
   padding: theme.spacing(2),
   marginTop: theme.spacing(3),
   borderRadius: theme.shape.borderRadius,
@@ -55,8 +58,15 @@ const ListRoot = styled('ul')(({ theme }) => ({
   backgroundColor: varAlpha(theme.vars.palette.error.mainChannel, 0.08),
 }));
 
-const ListItem = styled('li')(() => ({ display: 'flex', flexDirection: 'column' }));
+const ListItem = styled("li")(() => ({
+  display: "flex",
+  flexDirection: "column",
+}));
 
-const ItemTitle = styled('span')(({ theme }) => ({ ...theme.typography.subtitle2 }));
+const ItemTitle = styled("span")(({ theme }) => ({
+  ...theme.typography.subtitle2,
+}));
 
-const ItemCaption = styled('span')(({ theme }) => ({ ...theme.typography.caption }));
+const ItemCaption = styled("span")(({ theme }) => ({
+  ...theme.typography.caption,
+}));

@@ -1,55 +1,61 @@
-'use client';
+"use client";
 
-import Box from '@mui/material/Box';
-import Switch from '@mui/material/Switch';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Switch from "@mui/material/Switch";
+import Typography from "@mui/material/Typography";
 
-
-import { PricingCard } from './pricing-card';
+import { PricingCard } from "./pricing-card";
 
 export const _pricingPlans = [
   {
-    subscription: 'basic',
+    subscription: "basic",
     price: 0,
-    caption: 'Forever',
-    lists: ['3 prototypes', '3 boards', 'Up to 5 team members'],
-    labelAction: 'Current plan',
+    caption: "Forever",
+    lists: ["3 prototypes", "3 boards", "Up to 5 team members"],
+    labelAction: "Current plan",
   },
   {
-    subscription: 'starter',
+    subscription: "starter",
     price: 4.99,
-    caption: 'Saving $24 a year',
+    caption: "Saving $24 a year",
     lists: [
-      '3 prototypes',
-      '3 boards',
-      'Up to 5 team members',
-      'Advanced security',
-      'Issue escalation',
+      "3 prototypes",
+      "3 boards",
+      "Up to 5 team members",
+      "Advanced security",
+      "Issue escalation",
     ],
-    labelAction: 'Choose starter',
+    labelAction: "Choose starter",
   },
   {
-    subscription: 'premium',
+    subscription: "premium",
     price: 9.99,
-    caption: 'Saving $124 a year',
+    caption: "Saving $124 a year",
     lists: [
-      '3 prototypes',
-      '3 boards',
-      'Up to 5 team members',
-      'Advanced security',
-      'Issue escalation',
-      'Issue development license',
-      'Permissions & workflows',
+      "3 prototypes",
+      "3 boards",
+      "Up to 5 team members",
+      "Advanced security",
+      "Issue escalation",
+      "Issue development license",
+      "Permissions & workflows",
     ],
-    labelAction: 'Choose premium',
+    labelAction: "Choose premium",
   },
 ];
 
 // ----------------------------------------------------------------------
 
 const arrowIcon = (
-  <svg role={"img"} width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    role={"img"}
+    width="48"
+    height="48"
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       d="M10.2147 30.6123C6.71243 22.9891 10.1906 14.9695 17.1738 11.0284C24.2834 7.01748 33.9187 7.08209 41.1519 10.6817C42.6578 11.4331 41.4507 13.5427 39.9511 12.945C33.399 10.3368 25.7611 10.0919 19.3278 13.1729C16.5269 14.4946 14.2131 16.6643 12.7143 19.3746C10.7314 22.9202 11.202 26.5193 11.6878 30.3396C11.8055 31.2586 10.5388 31.3074 10.2147 30.6123Z"
       fill="#919EAB"
@@ -73,35 +79,45 @@ export function PricingView() {
         <br /> {`community's size and needs`}
       </Typography>
 
-      <Typography align="center" sx={{ color: 'text.secondary' }}>
+      <Typography align="center" sx={{ color: "text.secondary" }}>
         Choose your plan and make modern online conversation magic
       </Typography>
 
-      <Box sx={{ mt: 9, mb: 5, position: 'relative' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Box sx={{ mt: 9, mb: 5, position: "relative" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <Typography variant="overline">MONTHLY</Typography>
 
           <Switch
             sx={{ mx: 1 }}
             inputProps={{
-              id: 'yearly-pricing-switch',
-              'aria-label': 'Yearly pricing switch',
+              id: "yearly-pricing-switch",
+              "aria-label": "Yearly pricing switch",
             }}
           />
 
-          <Box sx={{ position: 'relative' }}>
+          <Box sx={{ position: "relative" }}>
             <Box
               sx={{
                 left: 12,
                 bottom: 12,
-                display: 'flex',
-                position: 'absolute',
+                display: "flex",
+                position: "absolute",
               }}
             >
               {arrowIcon}
               <Box
                 component="span"
-                sx={{ whiteSpace: 'nowrap', color: 'success.main', typography: 'overline' }}
+                sx={{
+                  whiteSpace: "nowrap",
+                  color: "success.main",
+                  typography: "overline",
+                }}
               >
                 save 10%
               </Box>
@@ -114,10 +130,10 @@ export function PricingView() {
 
       <Box
         sx={{
-          display: 'grid',
+          display: "grid",
           gap: { xs: 3, md: 0 },
-          alignItems: { md: 'center' },
-          gridTemplateColumns: { md: 'repeat(3, 1fr)' },
+          alignItems: { md: "center" },
+          gridTemplateColumns: { md: "repeat(3, 1fr)" },
         }}
       >
         {_pricingPlans.map((card, index) => (

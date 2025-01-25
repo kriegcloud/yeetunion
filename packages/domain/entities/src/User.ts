@@ -1,7 +1,6 @@
 import ye from "@ye/primitives";
 import * as S from "effect/Schema";
 
-
 // 5) Define your S.Struct
 export const UserId = ye.NonEmptyTrimStr.pipe(ye.Brand("@ye/entities/UserId"));
 export const UserDefinition = S.Struct({
@@ -18,7 +17,6 @@ export const UserDefinition = S.Struct({
   createdAt: ye.DateTime,
   updatedAt: ye.DateTime,
 });
-
 
 export const BetterAuthUser = S.mutable(UserDefinition);
 export type BetterAuthUser = typeof BetterAuthUser.Type;

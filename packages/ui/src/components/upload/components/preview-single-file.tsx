@@ -1,21 +1,27 @@
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { IconButtonProps } from "@mui/material/IconButton";
 
-import { varAlpha } from '@ye/utils/colors';
+import IconButton from "@mui/material/IconButton";
+import { styled } from "@mui/material/styles";
 import { mergeClasses } from "@ye/utils/classes";
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
+import { varAlpha } from "@ye/utils/colors";
 
-import { Iconify } from '../../iconify';
-import { uploadClasses } from '../classes';
+import { Iconify } from "../../iconify";
+import { uploadClasses } from "../classes";
 
-import type { SingleFilePreviewProps } from '../types';
+import type { SingleFilePreviewProps } from "../types";
 
 // ----------------------------------------------------------------------
 
-export function SingleFilePreview({ file, sx, className, ...other }: SingleFilePreviewProps) {
-  const fileName = typeof file === 'string' ? file : file.name;
+export function SingleFilePreview({
+  file,
+  sx,
+  className,
+  ...other
+}: SingleFilePreviewProps) {
+  const fileName = typeof file === "string" ? file : file.name;
 
-  const previewUrl = typeof file === 'string' ? file : URL.createObjectURL(file);
+  const previewUrl =
+    typeof file === "string" ? file : URL.createObjectURL(file);
 
   return (
     <PreviewRoot
@@ -30,17 +36,17 @@ export function SingleFilePreview({ file, sx, className, ...other }: SingleFileP
 
 // ----------------------------------------------------------------------
 
-const PreviewRoot = styled('div')(({ theme }) => ({
+const PreviewRoot = styled("div")(({ theme }) => ({
   top: 0,
   left: 0,
-  width: '100%',
-  height: '100%',
-  position: 'absolute',
+  width: "100%",
+  height: "100%",
+  position: "absolute",
   padding: theme.spacing(1),
-  '& > img': {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
+  "& > img": {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
     borderRadius: theme.shape.borderRadius,
   },
 }));
@@ -56,10 +62,12 @@ export function DeleteButton({ sx, ...other }: IconButtonProps) {
           top: 16,
           right: 16,
           zIndex: 9,
-          position: 'absolute',
+          position: "absolute",
           color: varAlpha(theme.vars.palette.common.whiteChannel, 0.8),
-          bgcolor: varAlpha(theme.vars.palette.grey['900Channel'], 0.72),
-          '&:hover': { bgcolor: varAlpha(theme.vars.palette.grey['900Channel'], 0.48) },
+          bgcolor: varAlpha(theme.vars.palette.grey["900Channel"], 0.72),
+          "&:hover": {
+            bgcolor: varAlpha(theme.vars.palette.grey["900Channel"], 0.48),
+          },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

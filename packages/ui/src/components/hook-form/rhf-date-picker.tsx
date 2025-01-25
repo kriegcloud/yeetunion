@@ -1,16 +1,16 @@
 "use client";
-import type { Dayjs } from 'dayjs';
-import type { TextFieldProps } from '@mui/material/TextField';
-import type { DatePickerProps } from '@mui/x-date-pickers/DatePicker';
-import type { MobileDateTimePickerProps } from '@mui/x-date-pickers/MobileDateTimePicker';
+import type { TextFieldProps } from "@mui/material/TextField";
+import type { DatePickerProps } from "@mui/x-date-pickers/DatePicker";
+import type { MobileDateTimePickerProps } from "@mui/x-date-pickers/MobileDateTimePicker";
+import type { Dayjs } from "dayjs";
 
-import dayjs from 'dayjs';
-import { Controller, useFormContext } from 'react-hook-form';
+import dayjs from "dayjs";
+import { Controller, useFormContext } from "react-hook-form";
 
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
 
-import { formatPatterns } from '@ye/utils/dayjs';
+import { formatPatterns } from "@ye/utils/dayjs";
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +18,11 @@ type RHFDatePickerProps = DatePickerProps<Dayjs> & {
   name: string;
 };
 
-export function RHFDatePicker({ name, slotProps, ...other }: RHFDatePickerProps) {
+export function RHFDatePicker({
+  name,
+  slotProps,
+  ...other
+}: RHFDatePickerProps) {
   const { control } = useFormContext();
 
   return (
@@ -36,7 +40,9 @@ export function RHFDatePicker({ name, slotProps, ...other }: RHFDatePickerProps)
             textField: {
               fullWidth: true,
               error: !!error,
-              helperText: error?.message ?? (slotProps?.textField as TextFieldProps)?.helperText,
+              helperText:
+                error?.message ??
+                (slotProps?.textField as TextFieldProps)?.helperText,
               ...slotProps?.textField,
             },
           }}
@@ -74,7 +80,9 @@ export function RHFMobileDateTimePicker({
             textField: {
               fullWidth: true,
               error: !!error,
-              helperText: error?.message ?? (slotProps?.textField as TextFieldProps)?.helperText,
+              helperText:
+                error?.message ??
+                (slotProps?.textField as TextFieldProps)?.helperText,
               ...slotProps?.textField,
             },
             ...slotProps,

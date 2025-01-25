@@ -1,10 +1,10 @@
-import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
-import {UserId} from "./User";
+import * as S from "effect/Schema";
+import { UserId } from "./User";
 
 /**
  * @since 0.1.0
@@ -18,7 +18,9 @@ export const OAuthApplicationId = ye.NonEmptyTrimStr.pipe(
  * @since 0.1.0
  * @category entities
  */
-export class OAuthApplication extends S.Class<OAuthApplication>("OAuthApplication")({
+export class OAuthApplication extends S.Class<OAuthApplication>(
+  "OAuthApplication",
+)({
   id: OAuthApplicationId,
   name: S.NullOr(ye.NonEmptyTrimStr),
   icon: S.NullOr(ye.NonEmptyTrimStr),
@@ -31,5 +33,4 @@ export class OAuthApplication extends S.Class<OAuthApplication>("OAuthApplicatio
   userId: S.NullOr(UserId),
   createdAt: S.NullOr(ye.DateTime),
   updatedAt: S.NullOr(ye.DateTime),
-}) {
-}
+}) {}

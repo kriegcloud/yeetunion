@@ -6,8 +6,8 @@ import { v4 as uuidv4 } from "uuid";
 import { FormFramework, Path } from "../core";
 
 import * as RHF from "react-hook-form";
-import { makeContext } from "./makeContext.js";
 import { effectTsResolver } from "./effectTsResolver.js";
+import { makeContext } from "./makeContext.js";
 
 export const layer = (Button: FormFramework.Button) =>
   Layer.effect(
@@ -150,7 +150,7 @@ export const layer = (Button: FormFramework.Button) =>
                   defaultValues: resetValues,
                   values: props.resetValues,
                 }),
-              [props.resetValues]
+              [props.resetValues],
             );
             const initialValues = useMemo(() => {
               if (props.initialValues) {
@@ -179,7 +179,7 @@ export const layer = (Button: FormFramework.Button) =>
                         decoded: values,
                         encoded: Schema.encodeUnknownSync(schema)(values),
                       }),
-                    onError
+                    onError,
                   )}
                 >
                   {children}
@@ -225,5 +225,5 @@ export const layer = (Button: FormFramework.Button) =>
       };
 
       return formFramework;
-    })
+    }),
   );

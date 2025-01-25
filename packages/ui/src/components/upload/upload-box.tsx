@@ -1,20 +1,28 @@
-import { useDropzone } from 'react-dropzone';
-import { varAlpha } from '@ye/utils/colors';
+import Box from "@mui/material/Box";
 import { mergeClasses } from "@ye/utils/classes";
-import Box from '@mui/material/Box';
+import { varAlpha } from "@ye/utils/colors";
+import { useDropzone } from "react-dropzone";
 
-import { Iconify } from '../iconify';
-import { uploadClasses } from './classes';
+import { Iconify } from "../iconify";
+import { uploadClasses } from "./classes";
 
-import type { UploadProps } from './types';
+import type { UploadProps } from "./types";
 
 // ----------------------------------------------------------------------
 
-export function UploadBox({ placeholder, error, disabled, className, sx, ...other }: UploadProps) {
-  const { getRootProps, getInputProps, isDragActive, isDragReject } = useDropzone({
-    disabled,
-    ...other,
-  });
+export function UploadBox({
+  placeholder,
+  error,
+  disabled,
+  className,
+  sx,
+  ...other
+}: UploadProps) {
+  const { getRootProps, getInputProps, isDragActive, isDragReject } =
+    useDropzone({
+      disabled,
+      ...other,
+    });
 
   const hasError = isDragReject || error;
 
@@ -27,22 +35,22 @@ export function UploadBox({ placeholder, error, disabled, className, sx, ...othe
           width: 64,
           height: 64,
           flexShrink: 0,
-          display: 'flex',
+          display: "flex",
           borderRadius: 1,
-          cursor: 'pointer',
-          alignItems: 'center',
-          color: 'text.disabled',
-          justifyContent: 'center',
-          bgcolor: varAlpha(theme.vars.palette.grey['500Channel'], 0.08),
-          border: `dashed 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.16)}`,
+          cursor: "pointer",
+          alignItems: "center",
+          color: "text.disabled",
+          justifyContent: "center",
+          bgcolor: varAlpha(theme.vars.palette.grey["500Channel"], 0.08),
+          border: `dashed 1px ${varAlpha(theme.vars.palette.grey["500Channel"], 0.16)}`,
           ...(isDragActive && { opacity: 0.72 }),
-          ...(disabled && { opacity: 0.48, pointerEvents: 'none' }),
+          ...(disabled && { opacity: 0.48, pointerEvents: "none" }),
           ...(hasError && {
-            color: 'error.main',
-            borderColor: 'error.main',
+            color: "error.main",
+            borderColor: "error.main",
             bgcolor: varAlpha(theme.vars.palette.error.mainChannel, 0.08),
           }),
-          '&:hover': { opacity: 0.72 },
+          "&:hover": { opacity: 0.72 },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

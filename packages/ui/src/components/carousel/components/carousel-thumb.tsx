@@ -1,12 +1,11 @@
-
 import { mergeClasses } from "@ye/utils/classes";
 
-import { styled } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import ButtonBase from "@mui/material/ButtonBase";
+import { styled } from "@mui/material/styles";
 
-import { carouselClasses } from '../classes';
+import { carouselClasses } from "../classes";
 
-import type { CarouselThumbProps } from '../types';
+import type { CarouselThumbProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -25,7 +24,11 @@ export function CarouselThumb({
       sx={sx}
       {...other}
     >
-      <img alt={`carousel-thumb-${index}`} src={src} className={carouselClasses.thumbs.image} />
+      <img
+        alt={`carousel-thumb-${index}`}
+        src={src}
+        className={carouselClasses.thumbs.image}
+      />
     </ThumbRoot>
   );
 }
@@ -33,28 +36,31 @@ export function CarouselThumb({
 // ----------------------------------------------------------------------
 
 const ThumbRoot = styled(ButtonBase, {
-  shouldForwardProp: (prop: string) => !['selected', 'sx'].includes(prop),
-})<Pick<CarouselThumbProps, 'selected'>>(({ theme }) => ({
+  shouldForwardProp: (prop: string) => !["selected", "sx"].includes(prop),
+})<Pick<CarouselThumbProps, "selected">>(({ theme }) => ({
   width: 64,
   height: 64,
   opacity: 0.48,
   flexShrink: 0,
-  cursor: 'pointer',
+  cursor: "pointer",
   borderRadius: theme.shape.borderRadius * 1.25,
-  transition: theme.transitions.create(['opacity', 'box-shadow'], {
+  transition: theme.transitions.create(["opacity", "box-shadow"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.short,
   }),
   [`& .${carouselClasses.thumbs.image}`]: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    borderRadius: 'inherit',
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    borderRadius: "inherit",
   },
   variants: [
     {
       props: { selected: true },
-      style: { opacity: 1, boxShadow: `0 0 0 2px ${theme.vars.palette.primary.main}` },
+      style: {
+        opacity: 1,
+        boxShadow: `0 0 0 2px ${theme.vars.palette.primary.main}`,
+      },
     },
   ],
 }));

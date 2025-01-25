@@ -1,4 +1,4 @@
-import ye from "@ye/primitives"
+import ye from "@ye/primitives";
 import * as S from "effect/Schema";
 export const COUNTRY_CODES = [
   { name: "Afghanistan", code: "AF" },
@@ -245,8 +245,6 @@ export const COUNTRY_CODES = [
   { name: "Zambia", code: "ZM" },
   { name: "Zimbabwe", code: "ZW" },
 ] as const;
-
-
 
 export const COUNTRIES = [
   { code: "AD", label: "Andorra", phone: "376" },
@@ -687,7 +685,9 @@ export enum SupportedLocalesEnum {
 export const SupportedLocalesEnumSchema = S.Enums(SupportedLocalesEnum);
 export type SupportedLocalesType = typeof SupportedLocalesEnumSchema.Type;
 
-export const SupportedLocales = S.Union(...Object.values(SupportedLocalesEnum).map((v) => S.Literal(v)));
+export const SupportedLocales = S.Union(
+  ...Object.values(SupportedLocalesEnum).map((v) => S.Literal(v)),
+);
 export type SupportedLocales = typeof SupportedLocales.Type;
 
 export const LocaleNumberFormatUnion = S.Union(
@@ -698,7 +698,9 @@ export const LocaleNumberFormatUnion = S.Union(
 
   // Additional Locales here
 );
-const CountryCodeUnion = S.Union(...COUNTRY_CODES.map((c) => S.Literal(c.code)))
+const CountryCodeUnion = S.Union(
+  ...COUNTRY_CODES.map((c) => S.Literal(c.code)),
+);
 export const LangOption = S.Struct({
   value: ye.NonEmptyStr,
   label: ye.NonEmptyStr,

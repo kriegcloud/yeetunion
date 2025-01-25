@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import {z as zod} from 'zod';
-import {useState} from 'react';
-import {useForm} from 'react-hook-form';
-import {useBoolean} from '@ye/utils/hooks';
-import {zodResolver} from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useBoolean } from "@ye/utils/hooks";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z as zod } from "zod";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import LoadingButton from '@mui/lab/LoadingButton';
-import InputAdornment from '@mui/material/InputAdornment';
+import LoadingButton from "@mui/lab/LoadingButton";
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import Link from "@mui/material/Link";
 
-import {Link as RouterLink, useRouter} from '@ye/i18n';
+import { Link as RouterLink, useRouter } from "@ye/i18n";
 
-import {Iconify} from '../../components/iconify';
-import {Form, Field} from '../../components/hook-form';
+import { Field, Form } from "../../components/hook-form";
+import { Iconify } from "../../components/iconify";
 
-import {FormHead} from '../../components/form-head';
-import {FormSocials, FormDivider} from './components';
+import { FormHead } from "../../components/form-head";
 import { useAuthCtx } from "./Provider";
+import { FormDivider, FormSocials } from "./components";
 
 // ----------------------------------------------------------------------
 
@@ -29,12 +29,12 @@ export type SignInSchemaType = zod.infer<typeof SignInSchema>;
 export const SignInSchema = zod.object({
   email: zod
     .string()
-    .min(1, {message: 'Email is required!'})
-    .email({message: 'Email must be a valid email address!'}),
+    .min(1, { message: "Email is required!" })
+    .email({ message: "Email must be a valid email address!" }),
   password: zod
     .string()
-    .min(1, {message: 'Password is required!'})
-    .min(6, {message: 'Password must be at least 6 characters!'}),
+    .min(1, { message: "Password is required!" })
+    .min(6, { message: "Password must be at least 6 characters!" }),
   rememberMe: zod.boolean().optional(),
 });
 
@@ -55,15 +55,12 @@ export function Login() {
 
   const {
     handleSubmit,
-    formState: {isSubmitting},
+    formState: { isSubmitting },
   } = methods;
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await auth.signInWithEmail(
-        data.email,
-        data.password,
-      )
+      await auth.signInWithEmail(data.email, data.password);
 
       router.refresh();
     } catch (error) {
@@ -74,16 +71,20 @@ export function Login() {
   });
 
   const renderForm = () => (
-    <Box sx={{gap: 3, display: 'flex', flexDirection: 'column'}}>
-      <Field.Text name="email" label="Email address" slotProps={{inputLabel: {shrink: true}}}/>
+    <Box sx={{ gap: 3, display: "flex", flexDirection: "column" }}>
+      <Field.Text
+        name="email"
+        label="Email address"
+        slotProps={{ inputLabel: { shrink: true } }}
+      />
 
-      <Box sx={{gap: 1.5, display: 'flex', flexDirection: 'column'}}>
+      <Box sx={{ gap: 1.5, display: "flex", flexDirection: "column" }}>
         <Link
           component={RouterLink}
           href="#"
           variant="body2"
           color="inherit"
-          sx={{alignSelf: 'flex-end'}}
+          sx={{ alignSelf: "flex-end" }}
         >
           Forgot password?
         </Link>
@@ -92,15 +93,19 @@ export function Login() {
           name="password"
           label="Password"
           placeholder="6+ characters"
-          type={showPassword.value ? 'text' : 'password'}
+          type={showPassword.value ? "text" : "password"}
           slotProps={{
-            inputLabel: {shrink: true},
+            inputLabel: { shrink: true },
             input: {
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton onClick={showPassword.onToggle} edge="end">
                     <Iconify
-                      icon={showPassword.value ? 'solar:eye-bold' : 'solar:eye-closed-bold'}
+                      icon={
+                        showPassword.value
+                          ? "solar:eye-bold"
+                          : "solar:eye-closed-bold"
+                      }
                     />
                   </IconButton>
                 </InputAdornment>
@@ -132,16 +137,20 @@ export function Login() {
         description={
           <>
             {`Don’t have an account? `}
-            <Link component={RouterLink} href={"/auth/signup"} variant="subtitle2">
+            <Link
+              component={RouterLink}
+              href={"/auth/signup"}
+              variant="subtitle2"
+            >
               Get started
             </Link>
           </>
         }
-        sx={{textAlign: {xs: 'center', md: 'left'}}}
+        sx={{ textAlign: { xs: "center", md: "left" } }}
       />
 
       {!!errorMessage && (
-        <Alert severity="error" sx={{mb: 3}}>
+        <Alert severity="error" sx={{ mb: 3 }}>
           {errorMessage}
         </Alert>
       )}
@@ -149,7 +158,7 @@ export function Login() {
       <Form methods={methods} onSubmit={onSubmit}>
         {renderForm()}
       </Form>
-      <FormDivider/>
+      <FormDivider />
       <FormSocials
         signInWithTwitter={auth.signInWithTwitter}
         signInWithLinkedIn={auth.signInWithLinkedIn}

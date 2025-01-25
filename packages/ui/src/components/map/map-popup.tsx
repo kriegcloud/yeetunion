@@ -1,6 +1,6 @@
-import { Popup } from 'react-map-gl';
+import { Popup } from "react-map-gl";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 // ----------------------------------------------------------------------
 

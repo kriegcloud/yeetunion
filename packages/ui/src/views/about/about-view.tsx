@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-// import { AboutHero } from './about-hero';
-import { AboutWhat } from './about-what';
 // import { AboutTeam } from './about-team';
-import { AboutVision } from './about-vision';
+import { AboutVision } from "./about-vision";
+// import { AboutHero } from './about-hero';
+import { AboutWhat } from "./about-what";
 // import { AboutTestimonials } from './about-testimonials';
 
 // ----------------------------------------------------------------------

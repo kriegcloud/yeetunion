@@ -1,12 +1,12 @@
-import type {Theme, SxProps} from '@mui/material/styles';
+import type { SxProps, Theme } from "@mui/material/styles";
 
-import {useState} from 'react';
+import { useState } from "react";
 
-import {useTheme} from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 
-import {Iconify} from '../../components/iconify';
-import {Map, MapPopup, MapMarker, MapControls} from '../../components/map';
+import { Iconify } from "../../components/iconify";
+import { Map, MapControls, MapMarker, MapPopup } from "../../components/map";
 
 // ----------------------------------------------------------------------
 
@@ -19,24 +19,26 @@ type ContactMapProps = {
   }[];
 };
 
-export function ContactMap({contacts, sx}: ContactMapProps) {
+export function ContactMap({ contacts, sx }: ContactMapProps) {
   const theme = useTheme();
 
-  const [popupInfo, setPopupInfo] = useState<ContactMapProps['contacts'][0] | null>(null);
+  const [popupInfo, setPopupInfo] = useState<
+    ContactMapProps["contacts"][0] | null
+  >(null);
 
   return (
     <Map
-      initialViewState={{latitude: 12, longitude: 42, zoom: 2}}
-      mapStyle={`mapbox://styles/mapbox/${theme.palette.mode === 'light' ? 'light' : 'dark'}-v10`}
+      initialViewState={{ latitude: 12, longitude: 42, zoom: 2 }}
+      mapStyle={`mapbox://styles/mapbox/${theme.palette.mode === "light" ? "light" : "dark"}-v10`}
       sx={[
         () => ({
           borderRadius: 1.5,
-          height: {xs: 320, md: 560},
+          height: { xs: 320, md: 560 },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
     >
-      <MapControls hideGeolocate/>
+      <MapControls hideGeolocate />
 
       {contacts.map((country, index) => (
         <MapMarker
@@ -60,7 +62,7 @@ export function ContactMap({contacts, sx}: ContactMapProps) {
           latitude={popupInfo.latlng[0]!}
           onClose={() => setPopupInfo(null)}
         >
-          <Typography variant="subtitle2" sx={{mb: 0.5}}>
+          <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
             Address
           </Typography>
 
@@ -71,9 +73,9 @@ export function ContactMap({contacts, sx}: ContactMapProps) {
           <Typography
             component="div"
             variant="caption"
-            sx={{mt: 1, display: 'flex', alignItems: 'center'}}
+            sx={{ mt: 1, display: "flex", alignItems: "center" }}
           >
-            <Iconify icon="solar:phone-bold" width={14} sx={{mr: 0.5}}/>
+            <Iconify icon="solar:phone-bold" width={14} sx={{ mr: 0.5 }} />
             {popupInfo.phoneNumber}
           </Typography>
         </MapPopup>

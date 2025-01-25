@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { z as zod } from 'zod';
-import { useForm } from 'react-hook-form';
-import { useBoolean } from '@ye/utils/hooks';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useBoolean } from "@ye/utils/hooks";
+import { useForm } from "react-hook-form";
+import { z as zod } from "zod";
 
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import LoadingButton from '@mui/lab/LoadingButton';
-import InputAdornment from '@mui/material/InputAdornment';
+import LoadingButton from "@mui/lab/LoadingButton";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
 
-import { SentIcon } from '../../icons';
+import { SentIcon } from "../../icons";
 
-import { Iconify } from '../../components/iconify';
-import { Form, Field } from '../../components/hook-form';
+import { Field, Form } from "../../components/hook-form";
+import { Iconify } from "../../components/iconify";
 
-import { FormHead } from '../../components/form-head';
-import { FormResendCode } from './components/form-resend-code';
-import { FormReturnLink } from './components/form-return-link';
+import { FormHead } from "../../components/form-head";
+import { FormResendCode } from "./components/form-resend-code";
+import { FormReturnLink } from "./components/form-return-link";
 
 // ----------------------------------------------------------------------
 
@@ -27,21 +27,23 @@ export const UpdatePasswordSchema = zod
   .object({
     code: zod
       .string()
-      .min(1, { message: 'Code is required!' })
-      .min(6, { message: 'Code must be at least 6 characters!' }),
+      .min(1, { message: "Code is required!" })
+      .min(6, { message: "Code must be at least 6 characters!" }),
     email: zod
       .string()
-      .min(1, { message: 'Email is required!' })
-      .email({ message: 'Email must be a valid email address!' }),
+      .min(1, { message: "Email is required!" })
+      .email({ message: "Email must be a valid email address!" }),
     password: zod
       .string()
-      .min(1, { message: 'Password is required!' })
-      .min(6, { message: 'Password must be at least 6 characters!' }),
-    confirmPassword: zod.string().min(1, { message: 'Confirm password is required!' }),
+      .min(1, { message: "Password is required!" })
+      .min(6, { message: "Password must be at least 6 characters!" }),
+    confirmPassword: zod
+      .string()
+      .min(1, { message: "Confirm password is required!" }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords do not match!',
-    path: ['confirmPassword'],
+    message: "Passwords do not match!",
+    path: ["confirmPassword"],
   });
 
 // ----------------------------------------------------------------------
@@ -50,10 +52,10 @@ export function UpdatePassword() {
   const showPassword = useBoolean();
 
   const defaultValues: UpdatePasswordSchemaType = {
-    code: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    code: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   };
 
   const methods = useForm<UpdatePasswordSchemaType>({
@@ -68,14 +70,14 @@ export function UpdatePassword() {
   const onSubmit = handleSubmit(async (data) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
-      console.info('DATA', data);
+      console.info("DATA", data);
     } catch (error) {
       console.error(error);
     }
   });
 
   const renderForm = () => (
-    <Box sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ gap: 3, display: "flex", flexDirection: "column" }}>
       <Field.Text
         name="email"
         label="Email address"
@@ -89,14 +91,20 @@ export function UpdatePassword() {
         name="password"
         label="Password"
         placeholder="6+ characters"
-        type={showPassword.value ? 'text' : 'password'}
+        type={showPassword.value ? "text" : "password"}
         slotProps={{
           inputLabel: { shrink: true },
           input: {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton onClick={showPassword.onToggle} edge="end">
-                  <Iconify icon={showPassword.value ? 'solar:eye-bold' : 'solar:eye-closed-bold'} />
+                  <Iconify
+                    icon={
+                      showPassword.value
+                        ? "solar:eye-bold"
+                        : "solar:eye-closed-bold"
+                    }
+                  />
                 </IconButton>
               </InputAdornment>
             ),
@@ -107,14 +115,20 @@ export function UpdatePassword() {
       <Field.Text
         name="confirmPassword"
         label="Confirm new password"
-        type={showPassword.value ? 'text' : 'password'}
+        type={showPassword.value ? "text" : "password"}
         slotProps={{
           inputLabel: { shrink: true },
           input: {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton onClick={showPassword.onToggle} edge="end">
-                  <Iconify icon={showPassword.value ? 'solar:eye-bold' : 'solar:eye-closed-bold'} />
+                  <Iconify
+                    icon={
+                      showPassword.value
+                        ? "solar:eye-bold"
+                        : "solar:eye-closed-bold"
+                    }
+                  />
                 </IconButton>
               </InputAdornment>
             ),

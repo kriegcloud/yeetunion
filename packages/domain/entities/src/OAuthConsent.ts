@@ -1,10 +1,10 @@
-import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
-import {UserId} from "./User";
+import * as S from "effect/Schema";
+import { UserId } from "./User";
 
 /**
  * @since 0.1.0
@@ -26,5 +26,4 @@ export class OAuthConsent extends S.Class<OAuthConsent>("OAuthConsent")({
   createdAt: S.NullOr(ye.DateTime),
   updatedAt: S.NullOr(ye.DateTime),
   consentGiven: S.NullOr(ye.Bool),
-}) {
-}
+}) {}

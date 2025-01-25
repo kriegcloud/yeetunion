@@ -1,14 +1,14 @@
 "use client";
-import type { BoxProps } from '@mui/material/Box';
-import type { RatingProps } from '@mui/material/Rating';
-import type { FormHelperTextProps } from '@mui/material/FormHelperText';
+import type { BoxProps } from "@mui/material/Box";
+import type { FormHelperTextProps } from "@mui/material/FormHelperText";
+import type { RatingProps } from "@mui/material/Rating";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import Box from '@mui/material/Box';
-import Rating from '@mui/material/Rating';
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
 
-import { HelperText } from './help-text';
+import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +21,12 @@ export type RHFRatingProps = RatingProps & {
   };
 };
 
-export function RHFRating({ name, helperText, slotProps, ...other }: RHFRatingProps) {
+export function RHFRating({
+  name,
+  helperText,
+  slotProps,
+  ...other
+}: RHFRatingProps) {
   const { control } = useFormContext();
 
   return (
@@ -32,7 +37,7 @@ export function RHFRating({ name, helperText, slotProps, ...other }: RHFRatingPr
         <Box
           {...slotProps?.wrapper}
           sx={[
-            { display: 'flex', flexDirection: 'column' },
+            { display: "flex", flexDirection: "column" },
             ...(Array.isArray(slotProps?.wrapper?.sx)
               ? (slotProps?.wrapper?.sx ?? [])
               : [slotProps?.wrapper?.sx]),

@@ -1,11 +1,11 @@
-import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
-import {UserId} from "./User";
-import {baseFields} from "./lib/utils";
+import * as S from "effect/Schema";
+import { UserId } from "./User";
+import { baseFields } from "./lib/utils";
 
 /**
  * @since 0.1.0
@@ -29,5 +29,4 @@ export class Session extends S.Class<Session>("Session")({
   impersonatedBy: ye.NonEmptyTrimStrOrNull,
   activeOrganizationId: ye.NonEmptyTrimStrOrNull,
   ...baseFields,
-}) {
-}
+}) {}

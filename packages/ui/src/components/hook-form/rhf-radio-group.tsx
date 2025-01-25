@@ -1,19 +1,19 @@
 "use client";
-import type { RadioProps } from '@mui/material/Radio';
-import type { FormLabelProps } from '@mui/material/FormLabel';
-import type { RadioGroupProps } from '@mui/material/RadioGroup';
-import type { FormControlProps } from '@mui/material/FormControl';
-import type { FormHelperTextProps } from '@mui/material/FormHelperText';
+import type { FormControlProps } from "@mui/material/FormControl";
+import type { FormHelperTextProps } from "@mui/material/FormHelperText";
+import type { FormLabelProps } from "@mui/material/FormLabel";
+import type { RadioProps } from "@mui/material/Radio";
+import type { RadioGroupProps } from "@mui/material/RadioGroup";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import Radio from '@mui/material/Radio';
-import FormLabel from '@mui/material/FormLabel';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 
-import { HelperText } from './help-text';
+import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ export function RHFRadioGroup({
               component="legend"
               {...slotProps?.formLabel}
               sx={[
-                { mb: 1, typography: 'body2' },
+                { mb: 1, typography: "body2" },
                 ...(Array.isArray(slotProps?.formLabel?.sx)
                   ? (slotProps?.formLabel?.sx ?? [])
                   : [slotProps?.formLabel?.sx]),
@@ -65,7 +65,12 @@ export function RHFRadioGroup({
             </FormLabel>
           )}
 
-          <RadioGroup {...field} aria-labelledby={labelledby} sx={sx} {...other}>
+          <RadioGroup
+            {...field}
+            aria-labelledby={labelledby}
+            sx={sx}
+            {...other}
+          >
             {options.map((option) => (
               <FormControlLabel
                 key={option.value}
@@ -75,7 +80,9 @@ export function RHFRadioGroup({
                     {...slotProps?.radio}
                     inputProps={{
                       id: `${option.label}-radio`,
-                      ...(!option.label && { 'aria-label': `${option.label} radio` }),
+                      ...(!option.label && {
+                        "aria-label": `${option.label} radio`,
+                      }),
                       ...slotProps?.radio?.inputProps,
                     }}
                   />

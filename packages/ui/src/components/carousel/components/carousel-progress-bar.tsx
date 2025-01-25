@@ -1,19 +1,24 @@
-import { varAlpha } from '@ye/utils/colors';
 import { mergeClasses } from "@ye/utils/classes";
+import { varAlpha } from "@ye/utils/colors";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-import { carouselClasses } from '../classes';
+import { carouselClasses } from "../classes";
 
-import type { CarouselProgressBarProps } from '../types';
+import type { CarouselProgressBarProps } from "../types";
 
 // ----------------------------------------------------------------------
 
-export function CarouselProgressBar({ sx, value, className, ...other }: CarouselProgressBarProps) {
+export function CarouselProgressBar({
+  sx,
+  value,
+  className,
+  ...other
+}: CarouselProgressBarProps) {
   return (
     <ProgressBarRoot
       className={mergeClasses([carouselClasses.progress.root, className])}
-      sx={[{ '--progress-value': value }, ...(Array.isArray(sx) ? sx : [sx])]}
+      sx={[{ "--progress-value": value }, ...(Array.isArray(sx) ? sx : [sx])]}
       {...other}
     >
       <ProgressBar className={carouselClasses.progress.bar} />
@@ -23,23 +28,23 @@ export function CarouselProgressBar({ sx, value, className, ...other }: Carousel
 
 // ----------------------------------------------------------------------
 
-const ProgressBarRoot = styled('div')(({ theme }) => ({
+const ProgressBarRoot = styled("div")(({ theme }) => ({
   height: 6,
   maxWidth: 120,
-  width: '100%',
+  width: "100%",
   borderRadius: 6,
-  overflow: 'hidden',
-  position: 'relative',
+  overflow: "hidden",
+  position: "relative",
   color: theme.vars.palette.text.primary,
-  backgroundColor: varAlpha(theme.vars.palette.grey['500Channel'], 0.2),
+  backgroundColor: varAlpha(theme.vars.palette.grey["500Channel"], 0.2),
 }));
 
-const ProgressBar = styled('span')(({ theme }) => ({
+const ProgressBar = styled("span")(({ theme }) => ({
   top: 0,
   bottom: 0,
-  width: '100%',
-  left: '-100%',
-  position: 'absolute',
-  backgroundColor: 'currentColor',
-  transform: `translate3d(calc(var(--progress-value) * ${theme.direction === 'rtl' ? -1 : 1}%), 0px, 0px)`,
+  width: "100%",
+  left: "-100%",
+  position: "absolute",
+  backgroundColor: "currentColor",
+  transform: `translate3d(calc(var(--progress-value) * ${theme.direction === "rtl" ? -1 : 1}%), 0px, 0px)`,
 }));

@@ -1,24 +1,74 @@
-import {db} from "@ye/db/client";
+import { db } from "@ye/db/client";
 import * as schema from "@ye/db/schema";
-import {env} from "@ye/env/yeetunion/server";
-import {betterAuth} from "better-auth";
-import {drizzleAdapter} from "better-auth/adapters/drizzle";
+import {
+  reactInvitationEmail,
+  reactResetPasswordEmail,
+} from "@ye/email/components";
+import { resend } from "@ye/email/resend";
+import { env } from "@ye/env/yeetunion/server";
+import { betterAuth } from "better-auth";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { nextCookies } from "better-auth/next-js";
 import {
   admin,
+  bearer,
   jwt,
   multiSession,
   oAuthProxy,
-  organization,
-  twoFactor,
-  bearer,
+  oidcProvider,
   oneTap,
   openAPI,
-  oidcProvider,
+  organization,
+  twoFactor,
 } from "better-auth/plugins";
-import {passkey} from "better-auth/plugins/passkey";
-import {nextCookies} from "better-auth/next-js";
-import {resend} from "@ye/email/resend";
-import {reactInvitationEmail, reactResetPasswordEmail} from "@ye/email/components";
+import { passkey } from "better-auth/plugins/passkey";
+
+const SUPPORTED_PROVIDERS = [
+  "discord",
+  "twitter",
+  "google",
+  "linkedin",
+] as const;
+type SupportedProvider = (typeof SUPPORTED_PROVIDERS)[number];
+
+export const ProviderSecrets = {
+  discord: {
+    clientId: "DISCORD_CLIENT_ID",
+    clientSecret: "DISCORD_CLIENT_SECRET",
+  },
+  twitter: {
+    clientId: "X_CLIENT_ID",
+    clientSecret: "X_CLIENT_SECRET",
+  },
+  google: {
+    clientId: "GOOGLE_CLIENT_ID",
+    clientSecret: "GOOGLE_CLIENT_SECRET",
+  },
+  linkedin: {
+    clientId: "LINKEDIN_CLIENT_ID",
+    clientSecret: "LINKEDIN_CLIENT_SECRET",
+  },
+} as const;
+
+const SupportedProviders = SUPPORTED_PROVIDERS.map((provider) => {
+  if (
+    env[ProviderSecrets[provider].clientId] &&
+    env[ProviderSecrets[provider].clientSecret]
+  ) {
+    return {
+      [provider]: {
+        clientId: env[ProviderSecrets[provider].clientId],
+        clientSecret: env[ProviderSecrets[provider].clientSecret],
+      },
+    };
+  }
+  return undefined;
+}).reduce((acc, curr) => {
+  if (curr) {
+    return { ...acc, ...curr };
+  }
+  return acc;
+});
 
 export const auth = betterAuth({
   appName: "Yeet Union",
@@ -26,7 +76,7 @@ export const auth = betterAuth({
     freshAge: 0,
   },
   emailVerification: {
-    sendVerificationEmail: async ({ user, url, }) => {
+    sendVerificationEmail: async ({ user, url }) => {
       const res = await resend.emails.send({
         from: env.BETTER_AUTH_EMAIL,
         to: env.NODE_ENV === "production" ? user.email : env.TEST_EMAIL,
@@ -39,7 +89,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,
-    sendResetPassword: async ({ user, url}) => {
+    sendResetPassword: async ({ user, url }) => {
       const res = await resend.emails.send({
         from: env.BETTER_AUTH_EMAIL,
         to: user.email,
@@ -57,22 +107,7 @@ export const auth = betterAuth({
     schema,
   }),
   socialProviders: {
-    discord: {
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
-    },
-    twitter: {
-      clientId: env.X_CLIENT_ID,
-      clientSecret: env.X_CLIENT_SECRET,
-    },
-    google: {
-      clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET,
-    },
-    linkedin: {
-      clientId: env.LINKEDIN_CLIENT_ID,
-      clientSecret: env.LINKEDIN_CLIENT_SECRET,
-    }
+    ...SupportedProviders,
   },
   secret: env.BETTER_AUTH_SECRET,
   logger: {
@@ -98,16 +133,15 @@ export const auth = betterAuth({
               process.env.NODE_ENV === "development"
                 ? `http://localhost:3000/accept-invitation/${data.id}`
                 : `${
-                  env.BETTER_AUTH_URL ||
-                  "https://demo.better-auth.com"
-                }/accept-invitation/${data.id}`,
+                    env.BETTER_AUTH_URL || "https://demo.better-auth.com"
+                  }/accept-invitation/${data.id}`,
           }),
         });
       },
     }),
     twoFactor({
       otpOptions: {
-        sendOTP: async ({ user, otp}) => {
+        sendOTP: async ({ user, otp }) => {
           await resend.emails.send({
             from: env.BETTER_AUTH_EMAIL,
             to: user.email,
@@ -140,5 +174,4 @@ export const auth = betterAuth({
       enabled: true,
     },
   },
-})
-
+});

@@ -1,10 +1,10 @@
-import * as S from "effect/Schema";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
-import {UserId} from "./User";
+import * as S from "effect/Schema";
+import { UserId } from "./User";
 
 /**
  * @since 0.1.0
@@ -23,5 +23,4 @@ export class TwoFactor extends S.Class<TwoFactor>("TwoFactor")({
   secret: ye.NonEmptyTrimStr,
   backupCodes: ye.NonEmptyTrimStr,
   userId: UserId,
-}) {
-}
+}) {}

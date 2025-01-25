@@ -1,22 +1,22 @@
-import type { Theme } from '@mui/material/styles';
+import type { Theme } from "@mui/material/styles";
 
-import { varAlpha } from '@ye/utils/colors';
 import { mergeClasses } from "@ye/utils/classes";
+import { varAlpha } from "@ye/utils/colors";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-import { ArrowButton } from './arrow-button';
-import { carouselClasses } from '../classes';
+import { carouselClasses } from "../classes";
+import { ArrowButton } from "./arrow-button";
 
-import type { CarouselArrowButtonsProps } from '../types';
+import type { CarouselArrowButtonsProps } from "../types";
 
 // ----------------------------------------------------------------------
 
-const BasicButtonsRoot = styled('div')(({ theme }) => ({
-  gap: '4px',
+const BasicButtonsRoot = styled("div")(({ theme }) => ({
+  gap: "4px",
   zIndex: 9,
-  alignItems: 'center',
-  display: 'inline-flex',
+  alignItems: "center",
+  display: "inline-flex",
   color: theme.vars.palette.action.active,
 }));
 
@@ -73,14 +73,14 @@ export function CarouselArrowFloatButtons({
 }: CarouselArrowButtonsProps) {
   const baseStyles = (theme: Theme) => ({
     zIndex: 9,
-    top: '50%',
+    top: "50%",
     borderRadius: 1.5,
-    position: 'absolute',
-    color: 'common.white',
-    bgcolor: 'text.primary',
-    '&:hover': { opacity: 0.8 },
-    ...theme.applyStyles('dark', {
-      color: 'grey.800',
+    position: "absolute",
+    color: "common.white",
+    bgcolor: "text.primary",
+    "&:hover": { opacity: 0.8 },
+    ...theme.applyStyles("dark", {
+      color: "grey.800",
     }),
   });
 
@@ -97,7 +97,7 @@ export function CarouselArrowFloatButtons({
           (theme) => ({
             ...baseStyles(theme),
             left: 0,
-            transform: 'translate(-50%, -50%)',
+            transform: "translate(-50%, -50%)",
           }),
           ...(Array.isArray(sx) ? sx : [sx]),
           ...(Array.isArray(slotProps?.prevBtn?.sx)
@@ -117,7 +117,7 @@ export function CarouselArrowFloatButtons({
           (theme) => ({
             ...baseStyles(theme),
             right: 0,
-            transform: 'translate(50%, -50%)',
+            transform: "translate(50%, -50%)",
           }),
           ...(Array.isArray(sx) ? sx : [sx]),
           ...(Array.isArray(slotProps?.nextBtn?.sx)
@@ -131,25 +131,25 @@ export function CarouselArrowFloatButtons({
 
 // ----------------------------------------------------------------------
 
-const NumberButtonsRoot = styled('div')(({ theme }) => ({
-  gap: '2px',
+const NumberButtonsRoot = styled("div")(({ theme }) => ({
+  gap: "2px",
   zIndex: 9,
-  alignItems: 'center',
-  display: 'inline-flex',
+  alignItems: "center",
+  display: "inline-flex",
   padding: theme.spacing(0.5),
   color: theme.vars.palette.common.white,
   borderRadius: theme.shape.borderRadius * 1.25,
-  backgroundColor: varAlpha(theme.vars.palette.grey['900Channel'], 0.48),
+  backgroundColor: varAlpha(theme.vars.palette.grey["900Channel"], 0.48),
   [`& .${carouselClasses.arrows.label}`]: {
     ...theme.typography.subtitle2,
     margin: theme.spacing(0, 0.5),
   },
   [`& .${carouselClasses.arrows.prev}`]: {
-    borderRadius: 'inherit',
+    borderRadius: "inherit",
     padding: theme.spacing(0.75),
   },
   [`& .${carouselClasses.arrows.next}`]: {
-    borderRadius: 'inherit',
+    borderRadius: "inherit",
     padding: theme.spacing(0.75),
   },
 }));

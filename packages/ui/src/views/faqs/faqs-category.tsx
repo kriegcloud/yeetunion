@@ -1,41 +1,39 @@
-import { useBoolean } from '@ye/utils/hooks';
+import { useBoolean } from "@ye/utils/hooks";
 
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Avatar from '@mui/material/Avatar';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import ListItemButton from '@mui/material/ListItemButton';
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Drawer from "@mui/material/Drawer";
+import ListItemButton from "@mui/material/ListItemButton";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 
-
-
-import { Iconify } from '../../components/iconify';
+import { Iconify } from "../../components/iconify";
 
 // ----------------------------------------------------------------------
 
 const CATEGORIES = [
   {
-    label: 'Managing your account',
+    label: "Managing your account",
     icon: `/assets/icons/faqs/ic-account.svg`,
-    href: '#',
+    href: "#",
   },
-  { label: 'Payment', icon: `/assets/icons/faqs/ic-payment.svg`, href: '#' },
-  { label: 'Delivery', icon: `/assets/icons/faqs/ic-delivery.svg`, href: '#' },
+  { label: "Payment", icon: `/assets/icons/faqs/ic-payment.svg`, href: "#" },
+  { label: "Delivery", icon: `/assets/icons/faqs/ic-delivery.svg`, href: "#" },
   {
-    label: 'Problem with the product',
+    label: "Problem with the product",
     icon: `/assets/icons/faqs/ic-package.svg`,
-    href: '#',
+    href: "#",
   },
   {
-    label: 'Return & refund',
+    label: "Return & refund",
     icon: `/assets/icons/faqs/ic-refund.svg`,
-    href: '#',
+    href: "#",
   },
   {
-    label: 'Guarantees and assurances',
+    label: "Guarantees and assurances",
     icon: `/assets/icons/faqs/ic-assurances.svg`,
-    href: '#',
+    href: "#",
   },
 ];
 
@@ -53,13 +51,16 @@ export function FaqsCategory() {
             top: 0,
             left: 0,
             width: 1,
-            position: 'absolute',
-            display: { xs: 'block', md: 'none' },
+            position: "absolute",
+            display: { xs: "block", md: "none" },
             borderBottom: `solid 1px ${theme.vars.palette.divider}`,
           }),
         ]}
       >
-        <Button startIcon={<Iconify icon="solar:list-bold" />} onClick={navOpen.onTrue}>
+        <Button
+          startIcon={<Iconify icon="solar:list-bold" />}
+          onClick={navOpen.onTrue}
+        >
           Categories
         </Button>
       </Box>
@@ -69,8 +70,8 @@ export function FaqsCategory() {
           sx={{
             p: 1,
             gap: 1,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
           }}
         >
           {CATEGORIES.map((category) => (
@@ -85,8 +86,8 @@ export function FaqsCategory() {
     <Box
       sx={{
         gap: 3,
-        display: { xs: 'none', md: 'grid' },
-        gridTemplateColumns: { md: 'repeat(3, 1fr)', lg: 'repeat(6, 1fr)' },
+        display: { xs: "none", md: "grid" },
+        gridTemplateColumns: { md: "repeat(3, 1fr)", lg: "repeat(6, 1fr)" },
       }}
     >
       {CATEGORIES.map((category) => (
@@ -117,10 +118,13 @@ function ItemDesktop({ category }: ItemProps) {
         (theme) => ({
           p: 3,
           borderRadius: 2,
-          bgcolor: 'unset',
-          cursor: 'pointer',
-          textAlign: 'center',
-          '&:hover': { bgcolor: 'background.paper', boxShadow: theme.vars.customShadows.z20 },
+          bgcolor: "unset",
+          cursor: "pointer",
+          textAlign: "center",
+          "&:hover": {
+            bgcolor: "background.paper",
+            boxShadow: theme.vars.customShadows.z20,
+          },
         }),
       ]}
     >
@@ -131,14 +135,17 @@ function ItemDesktop({ category }: ItemProps) {
           mb: 2,
           width: 80,
           height: 80,
-          mx: 'auto',
+          mx: "auto",
         }}
       />
 
       <Typography
         variant="subtitle2"
         sx={(theme) => ({
-          ...theme.mixins.maxLine({ line: 2, persistent: theme.typography.subtitle2 }),
+          ...theme.mixins.maxLine({
+            line: 2,
+            persistent: theme.typography.subtitle2,
+          }),
         })}
       >
         {category.label}
@@ -157,15 +164,19 @@ function ItemMobile({ category }: ItemProps) {
         py: 2,
         maxWidth: 140,
         borderRadius: 1,
-        textAlign: 'center',
-        alignItems: 'center',
-        typography: 'subtitle2',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        bgcolor: 'background.neutral',
+        textAlign: "center",
+        alignItems: "center",
+        typography: "subtitle2",
+        flexDirection: "column",
+        justifyContent: "center",
+        bgcolor: "background.neutral",
       }}
     >
-      <Avatar alt={category.icon} src={category.icon} sx={{ width: 48, height: 48, mb: 1 }} />
+      <Avatar
+        alt={category.icon}
+        src={category.icon}
+        sx={{ width: 48, height: 48, mb: 1 }}
+      />
 
       {category.label}
     </ListItemButton>

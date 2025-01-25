@@ -1,17 +1,21 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from "@mui/material/Box";
 
-import { m } from 'framer-motion';
-import { varAlpha } from '@ye/utils/colors';
+import { varAlpha } from "@ye/utils/colors";
+import { m } from "framer-motion";
 
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import { outlinedInputClasses } from '@mui/material/OutlinedInput';
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import InputAdornment from "@mui/material/InputAdornment";
+import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+import TextField from "@mui/material/TextField";
 
-
-import { Iconify } from '../../components/iconify';
-import { varFade, AnimateText, MotionContainer, animateTextClasses } from '../../components/animate';
+import {
+  AnimateText,
+  MotionContainer,
+  animateTextClasses,
+  varFade,
+} from "../../components/animate";
+import { Iconify } from "../../components/iconify";
 
 // ----------------------------------------------------------------------
 
@@ -23,14 +27,14 @@ export function FaqsHero({ sx, ...other }: BoxProps) {
         (theme) => ({
           ...theme.mixins.bgGradient({
             images: [
-              `linear-gradient(0deg, ${varAlpha(theme.vars.palette.grey['900Channel'], 0.8)}, ${varAlpha(theme.vars.palette.grey['900Channel'], 0.8)})`,
+              `linear-gradient(0deg, ${varAlpha(theme.vars.palette.grey["900Channel"], 0.8)}, ${varAlpha(theme.vars.palette.grey["900Channel"], 0.8)})`,
               `url(/assets/images/faqs/hero.webp)`,
             ],
           }),
           height: { md: 560 },
           py: { xs: 10, md: 0 },
-          overflow: 'hidden',
-          position: 'relative',
+          overflow: "hidden",
+          position: "relative",
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -40,24 +44,26 @@ export function FaqsHero({ sx, ...other }: BoxProps) {
         <Box
           sx={{
             bottom: { md: 80 },
-            position: { md: 'absolute' },
-            textAlign: { xs: 'center', md: 'unset' },
+            position: { md: "absolute" },
+            textAlign: { xs: "center", md: "unset" },
           }}
         >
           <AnimateText
             component="h1"
             variant="h1"
-            textContent={['Where', 'can we help you?']}
-            variants={varFade('inRight', { distance: 24 })}
+            textContent={["Where", "can we help you?"]}
+            variants={varFade("inRight", { distance: 24 })}
             sx={{
-              color: 'common.white',
+              color: "common.white",
               [`& .${animateTextClasses.line}[data-index="0"]`]: {
-                [`& .${animateTextClasses.word}[data-index="0"]`]: { color: 'primary.main' },
+                [`& .${animateTextClasses.word}[data-index="0"]`]: {
+                  color: "primary.main",
+                },
               },
             }}
           />
 
-          <m.div variants={varFade('inUp', { distance: 24 })}>
+          <m.div variants={varFade("inUp", { distance: 24 })}>
             <TextField
               fullWidth
               placeholder="Search support..."
@@ -65,7 +71,10 @@ export function FaqsHero({ sx, ...other }: BoxProps) {
                 input: {
                   startAdornment: (
                     <InputAdornment position="start">
-                      <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled' }} />
+                      <Iconify
+                        icon="eva:search-fill"
+                        sx={{ color: "text.disabled" }}
+                      />
                     </InputAdornment>
                   ),
                 },
@@ -73,8 +82,12 @@ export function FaqsHero({ sx, ...other }: BoxProps) {
               sx={{
                 mt: 5,
                 maxWidth: 360,
-                [`& .${outlinedInputClasses.root}`]: { bgcolor: 'common.white' },
-                [`& .${outlinedInputClasses.input}`]: { typography: 'subtitle1' },
+                [`& .${outlinedInputClasses.root}`]: {
+                  bgcolor: "common.white",
+                },
+                [`& .${outlinedInputClasses.input}`]: {
+                  typography: "subtitle1",
+                },
               }}
             />
           </m.div>

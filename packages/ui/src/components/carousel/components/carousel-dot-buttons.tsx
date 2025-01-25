@@ -1,15 +1,15 @@
-import type { CSSObject } from '@mui/material/styles';
+import type { CSSObject } from "@mui/material/styles";
 
-import { varAlpha } from '@ye/utils/colors';
 import { mergeClasses } from "@ye/utils/classes";
+import { varAlpha } from "@ye/utils/colors";
 
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import Box from "@mui/material/Box";
+import ButtonBase from "@mui/material/ButtonBase";
+import { styled } from "@mui/material/styles";
 
-import { carouselClasses } from '../classes';
+import { carouselClasses } from "../classes";
 
-import type { CarouselDotButtonsProps } from '../types';
+import type { CarouselDotButtonsProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ export function CarouselDotButtons({
   onClickDot,
   scrollSnaps,
   selectedIndex,
-  variant = 'circular',
+  variant = "circular",
   ...other
 }: CarouselDotButtonsProps) {
   const GAPS = { rounded: gap ?? 2, circular: gap ?? 2, number: gap ?? 6 };
@@ -41,9 +41,9 @@ export function CarouselDotButtons({
           gap: `${GAPS[variant]}px`,
           height: SIZES[variant],
           zIndex: 9,
-          display: 'flex',
-          '& > li': {
-            display: 'inline-flex',
+          display: "flex",
+          "& > li": {
+            display: "inline-flex",
           },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
@@ -74,7 +74,7 @@ export function CarouselDotButtons({
                   : [slotProps?.dot?.sx]),
               ]}
             >
-              {variant === 'number' && index + 1}
+              {variant === "number" && index + 1}
             </DotItem>
           </li>
         );
@@ -85,21 +85,22 @@ export function CarouselDotButtons({
 
 // ----------------------------------------------------------------------
 
-type DotItemProps = Pick<CarouselDotButtonsProps, 'variant'> & {
+type DotItemProps = Pick<CarouselDotButtonsProps, "variant"> & {
   selected?: boolean;
 };
 
 const DotItem = styled(ButtonBase, {
-  shouldForwardProp: (prop: string) => !['variant', 'selected', 'sx'].includes(prop),
+  shouldForwardProp: (prop: string) =>
+    !["variant", "selected", "sx"].includes(prop),
 })<DotItemProps>(({ selected, theme }) => {
   const dotStyles: CSSObject = {
     width: 8,
     height: 8,
     content: '""',
     opacity: 0.24,
-    borderRadius: '50%',
-    backgroundColor: 'currentColor',
-    transition: theme.transitions.create(['width', 'opacity'], {
+    borderRadius: "50%",
+    backgroundColor: "currentColor",
+    transition: theme.transitions.create(["width", "opacity"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.short,
     }),
@@ -108,34 +109,36 @@ const DotItem = styled(ButtonBase, {
   return {
     variants: [
       {
-        props: { variant: 'circular' },
-        style: { '&::before': { ...dotStyles, ...(selected && { opacity: 1 }) } },
+        props: { variant: "circular" },
+        style: {
+          "&::before": { ...dotStyles, ...(selected && { opacity: 1 }) },
+        },
       },
       {
-        props: { variant: 'rounded' },
+        props: { variant: "rounded" },
         style: {
-          '&::before': {
+          "&::before": {
             ...dotStyles,
             ...(selected && {
               opacity: 1,
-              width: 'calc(100% - 4px)',
+              width: "calc(100% - 4px)",
               borderRadius: theme.shape.borderRadius,
             }),
           },
         },
       },
       {
-        props: { variant: 'number' },
+        props: { variant: "number" },
         style: {
           ...theme.typography.caption,
-          borderRadius: '50%',
+          borderRadius: "50%",
           color: theme.vars.palette.text.disabled,
-          border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.16)}`,
+          border: `solid 1px ${varAlpha(theme.vars.palette.grey["500Channel"], 0.16)}`,
           ...(selected && {
             color: theme.vars.palette.common.white,
             backgroundColor: theme.vars.palette.text.primary,
             fontWeight: theme.typography.fontWeightSemiBold,
-            ...theme.applyStyles('dark', {
+            ...theme.applyStyles("dark", {
               color: theme.vars.palette.grey[800],
             }),
           }),

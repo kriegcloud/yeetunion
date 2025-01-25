@@ -1,9 +1,9 @@
-import {betterFetch} from "@better-fetch/fetch";
-import {NextRequest, NextResponse} from "next/server";
-import type {Session} from "@ye/entities";
+import { betterFetch } from "@better-fetch/fetch";
+import type { Session } from "@ye/entities";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function middleware(request: NextRequest) {
-  const {data: session} = await betterFetch<Session>(
+  const { data: session } = await betterFetch<Session>(
     "/api/auth/get-session",
     {
       baseURL: request.nextUrl.origin,

@@ -1,9 +1,9 @@
 "use client";
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import { NumberInput } from '../number-input';
+import { NumberInput } from "../number-input";
 
-import type { NumberInputProps } from '../number-input';
+import type { NumberInputProps } from "../number-input";
 
 // ----------------------------------------------------------------------
 
@@ -11,7 +11,11 @@ export type RHFNumberInputProps = NumberInputProps & {
   name: string;
 };
 
-export function RHFNumberInput({ name, helperText, ...other }: RHFNumberInputProps) {
+export function RHFNumberInput({
+  name,
+  helperText,
+  ...other
+}: RHFNumberInputProps) {
   const { control } = useFormContext();
 
   return (

@@ -1,10 +1,10 @@
+import ye from "@ye/primitives";
+import { JSONSchema } from "effect";
 /**
  * @since 0.1.0
  * @category value-objects
  */
 import * as S from "effect/Schema";
-import ye from "@ye/primitives";
-import {JSONSchema} from "effect";
 
 /*----------------------------------------------------------------------------------------------------------------------
  |  TITLE: Signin
@@ -31,7 +31,6 @@ export type SigninInput = typeof SigninInput.Type;
  * @category value-objects
  */
 export const SigninInputSchema = JSONSchema.make(SigninInput);
-
 
 /*----------------------------------------------------------------------------------------------------------------------
  |  TITLE: Signup
@@ -80,7 +79,6 @@ export type ForgotPasswordInput = typeof ForgotPasswordInput.Type;
  * @category value-objects
  */
 
-
 export const ForgotPasswordInputSchema = JSONSchema.make(ForgotPasswordInput);
 
 /*----------------------------------------------------------------------------------------------------------------------
@@ -90,7 +88,7 @@ export const ResetPasswordInput = S.Struct({
   token: ye.NonEmptyTrimStr,
   password: ye.Str,
   passwordConfirmation: ye.Str,
-})
+});
 
 /**
  * @since 0.1.0

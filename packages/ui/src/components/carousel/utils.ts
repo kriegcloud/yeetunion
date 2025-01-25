@@ -1,6 +1,6 @@
-import type { Breakpoint } from '@mui/material/styles';
+import type { Breakpoint } from "@mui/material/styles";
 
-import type { CarouselOptions } from './types';
+import type { CarouselOptions } from "./types";
 
 // ----------------------------------------------------------------------
 
@@ -8,10 +8,10 @@ type ObjectValue = {
   [key: string]: string | number;
 };
 
-type InputValue = CarouselOptions['slidesToShow'];
+type InputValue = CarouselOptions["slidesToShow"];
 
 export function getSlideSize(slidesToShow: InputValue): InputValue {
-  if (slidesToShow && typeof slidesToShow === 'object') {
+  if (slidesToShow && typeof slidesToShow === "object") {
     return Object.keys(slidesToShow).reduce<ObjectValue>((acc, key) => {
       const sizeByKey = slidesToShow[key as Breakpoint];
       acc[key] = getValue(sizeByKey);
@@ -23,8 +23,9 @@ export function getSlideSize(slidesToShow: InputValue): InputValue {
 }
 
 function getValue(value: string | number = 1): string {
-  if (typeof value === 'string') {
-    const isSupported = value === 'auto' || value.endsWith('%') || value.endsWith('px');
+  if (typeof value === "string") {
+    const isSupported =
+      value === "auto" || value.endsWith("%") || value.endsWith("px");
 
     if (!isSupported) {
       throw new Error(`Only accepts values: auto, px, %, or number.`);
@@ -33,10 +34,12 @@ function getValue(value: string | number = 1): string {
     return `0 0 ${value}`;
   }
 
-  if (typeof value === 'number') {
+  if (typeof value === "number") {
     return `0 0 ${100 / value}%`;
   }
 
   // Default case should not be reached due to the type signature, but we include it for safety
-  throw new Error(`Invalid value type. Only accepts values: auto, px, %, or number.`);
+  throw new Error(
+    `Invalid value type. Only accepts values: auto, px, %, or number.`,
+  );
 }

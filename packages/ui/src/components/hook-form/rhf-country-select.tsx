@@ -1,9 +1,9 @@
 "use client";
-import type { CountrySelectProps } from '../country-select';
+import type { CountrySelectProps } from "../country-select";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import { CountrySelect } from '../country-select';
+import { CountrySelect } from "../country-select";
 
 // ----------------------------------------------------------------------
 
@@ -11,7 +11,11 @@ export type RHFCountrySelectProps = CountrySelectProps & {
   name: string;
 };
 
-export function RHFCountrySelect({ name, helperText, ...other }: RHFCountrySelectProps) {
+export function RHFCountrySelect({
+  name,
+  helperText,
+  ...other
+}: RHFCountrySelectProps) {
   const { control, setValue } = useFormContext();
 
   return (
@@ -22,7 +26,9 @@ export function RHFCountrySelect({ name, helperText, ...other }: RHFCountrySelec
         <CountrySelect
           id={`${name}-rhf-country-select`}
           value={field.value}
-          onChange={(_, newValue) => setValue(name, newValue, { shouldValidate: true })}
+          onChange={(_, newValue) =>
+            setValue(name, newValue, { shouldValidate: true })
+          }
           error={!!error}
           helperText={error?.message ?? helperText}
           {...other}

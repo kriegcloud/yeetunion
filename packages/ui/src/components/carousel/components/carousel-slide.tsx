@@ -1,20 +1,26 @@
 import { mergeClasses } from "@ye/utils/classes";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-import { getSlideSize } from '../utils';
-import { carouselClasses } from '../classes';
+import { carouselClasses } from "../classes";
+import { getSlideSize } from "../utils";
 
-import type { CarouselOptions, CarouselSlideProps } from '../types';
+import type { CarouselOptions, CarouselSlideProps } from "../types";
 
 // ----------------------------------------------------------------------
 
-export function CarouselSlide({ sx, options, children, className, ...other }: CarouselSlideProps) {
+export function CarouselSlide({
+  sx,
+  options,
+  children,
+  className,
+  ...other
+}: CarouselSlideProps) {
   const slideSize = getSlideSize(options?.slidesToShow);
 
   return (
     <CarouselSlideRoot
-      axis={options?.axis ?? 'x'}
+      axis={options?.axis ?? "x"}
       slideSpacing={options?.slideSpacing}
       className={mergeClasses([carouselClasses.slide.root, className])}
       sx={[{ flex: slideSize }, ...(Array.isArray(sx) ? sx : [sx])]}
@@ -33,18 +39,19 @@ export function CarouselSlide({ sx, options, children, className, ...other }: Ca
 
 // ----------------------------------------------------------------------
 
-const CarouselSlideRoot = styled('li', {
-  shouldForwardProp: (prop: string) => !['axis', 'slideSpacing', 'sx'].includes(prop),
-})<Pick<CarouselOptions, 'axis' | 'slideSpacing'>>(({ slideSpacing }) => ({
-  display: 'block',
-  position: 'relative',
+const CarouselSlideRoot = styled("li", {
+  shouldForwardProp: (prop: string) =>
+    !["axis", "slideSpacing", "sx"].includes(prop),
+})<Pick<CarouselOptions, "axis" | "slideSpacing">>(({ slideSpacing }) => ({
+  display: "block",
+  position: "relative",
   [`& .${carouselClasses.slide.content}`]: {
-    overflow: 'hidden',
-    position: 'relative',
-    borderRadius: 'inherit',
+    overflow: "hidden",
+    position: "relative",
+    borderRadius: "inherit",
   },
   variants: [
-    { props: { axis: 'x' }, style: { minWidth: 0, paddingLeft: slideSpacing } },
-    { props: { axis: 'y' }, style: { minHeight: 0, paddingTop: slideSpacing } },
+    { props: { axis: "x" }, style: { minWidth: 0, paddingLeft: slideSpacing } },
+    { props: { axis: "y" }, style: { minHeight: 0, paddingTop: slideSpacing } },
   ],
 }));

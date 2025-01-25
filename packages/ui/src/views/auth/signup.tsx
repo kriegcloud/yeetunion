@@ -1,41 +1,40 @@
-'use client';
+"use client";
 
-import { z as zod } from 'zod';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useBoolean } from '@ye/utils/hooks';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useBoolean } from "@ye/utils/hooks";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z as zod } from "zod";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import LoadingButton from '@mui/lab/LoadingButton';
-import InputAdornment from '@mui/material/InputAdornment';
+import LoadingButton from "@mui/lab/LoadingButton";
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import Link from "@mui/material/Link";
 
+import { Link as RouterLink, useRouter } from "@ye/i18n";
 
-import { Link as RouterLink, useRouter } from '@ye/i18n';
+import { Field, Form, FormHead, Iconify } from "../../components";
 
-import { Iconify, Form, Field, FormHead } from '../../components';
-
-import {FormSocials, FormDivider, SignUpTerms} from './components';
-import {useAuthCtx} from "./Provider";
+import { useAuthCtx } from "./Provider";
+import { FormDivider, FormSocials, SignUpTerms } from "./components";
 
 // ----------------------------------------------------------------------
 
 export type SignUpSchemaType = zod.infer<typeof SignUpSchema>;
 
 export const SignUpSchema = zod.object({
-  firstName: zod.string().min(1, { message: 'First name is required!' }),
-  lastName: zod.string().min(1, { message: 'Last name is required!' }),
+  firstName: zod.string().min(1, { message: "First name is required!" }),
+  lastName: zod.string().min(1, { message: "Last name is required!" }),
   email: zod
     .string()
-    .min(1, { message: 'Email is required!' })
-    .email({ message: 'Email must be a valid email address!' }),
+    .min(1, { message: "Email is required!" })
+    .email({ message: "Email must be a valid email address!" }),
   password: zod
     .string()
-    .min(1, { message: 'Password is required!' })
-    .min(6, { message: 'Password must be at least 6 characters!' }),
+    .min(1, { message: "Password is required!" })
+    .min(6, { message: "Password must be at least 6 characters!" }),
 });
 
 // ----------------------------------------------------------------------
@@ -44,8 +43,6 @@ export function SignUp() {
   const router = useRouter();
 
   const showPassword = useBoolean();
-
-
 
   const [errorMessage, _setErrorMessage] = useState<string | null>(null);
 
@@ -79,9 +76,13 @@ export function SignUp() {
   });
 
   const renderForm = () => (
-    <Box sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ gap: 3, display: "flex", flexDirection: "column" }}>
       <Box
-        sx={{ display: 'flex', gap: { xs: 3, sm: 2 }, flexDirection: { xs: 'column', sm: 'row' } }}
+        sx={{
+          display: "flex",
+          gap: { xs: 3, sm: 2 },
+          flexDirection: { xs: "column", sm: "row" },
+        }}
       >
         <Field.Text
           name="firstName"
@@ -95,20 +96,30 @@ export function SignUp() {
         />
       </Box>
 
-      <Field.Text name="email" label="Email address" slotProps={{ inputLabel: { shrink: true } }} />
+      <Field.Text
+        name="email"
+        label="Email address"
+        slotProps={{ inputLabel: { shrink: true } }}
+      />
 
       <Field.Text
         name="password"
         label="Password"
         placeholder="6+ characters"
-        type={showPassword.value ? 'text' : 'password'}
+        type={showPassword.value ? "text" : "password"}
         slotProps={{
           inputLabel: { shrink: true },
           input: {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton onClick={showPassword.onToggle} edge="end">
-                  <Iconify icon={showPassword.value ? 'solar:eye-bold' : 'solar:eye-closed-bold'} />
+                  <Iconify
+                    icon={
+                      showPassword.value
+                        ? "solar:eye-bold"
+                        : "solar:eye-closed-bold"
+                    }
+                  />
                 </IconButton>
               </InputAdornment>
             ),
@@ -137,12 +148,16 @@ export function SignUp() {
         description={
           <>
             {`Already have an account? `}
-            <Link component={RouterLink} href={"/auth/login"} variant="subtitle2">
+            <Link
+              component={RouterLink}
+              href={"/auth/login"}
+              variant="subtitle2"
+            >
               Get started
             </Link>
           </>
         }
-        sx={{ textAlign: { xs: 'center', md: 'left' } }}
+        sx={{ textAlign: { xs: "center", md: "left" } }}
       />
 
       {!!errorMessage && (

@@ -1,18 +1,17 @@
-import { varAlpha } from '@ye/utils/colors';
 import { mergeClasses } from "@ye/utils/classes";
+import { varAlpha } from "@ye/utils/colors";
 
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import ListItemText from '@mui/material/ListItemText';
+import IconButton from "@mui/material/IconButton";
+import ListItemText from "@mui/material/ListItemText";
+import { styled } from "@mui/material/styles";
 
 // import { fData } from 'src/utils/format-number';
 
+import { FileThumbnail, fileData } from "../../file-thumbnail";
+import { Iconify } from "../../iconify";
+import { uploadClasses } from "../classes";
 
-import { Iconify } from '../../iconify';
-import { uploadClasses } from '../classes';
-import { fileData, FileThumbnail } from '../../file-thumbnail';
-
-import type { MultiFilePreviewProps } from '../types';
+import type { MultiFilePreviewProps } from "../types";
 
 // ----------------------------------------------------------------------
 
@@ -51,7 +50,7 @@ export function MultiFilePreview({
                   (theme) => ({
                     width: 80,
                     height: 80,
-                    border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.16)}`,
+                    border: `solid 1px ${varAlpha(theme.vars.palette.grey["500Channel"], 0.16)}`,
                   }),
                 ]}
                 slotProps={{ icon: { sx: { width: 36, height: 36 } } }}
@@ -69,7 +68,7 @@ export function MultiFilePreview({
               primary={name}
               // secondary={fData(size)}
               slotProps={{
-                secondary: { sx: { typography: 'caption' } },
+                secondary: { sx: { typography: "caption" } },
               }}
             />
 
@@ -89,28 +88,28 @@ export function MultiFilePreview({
 
 // ----------------------------------------------------------------------
 
-const ListRoot = styled('ul', {
-  shouldForwardProp: (prop: string) => !['thumbnail', 'sx'].includes(prop),
-})<Pick<MultiFilePreviewProps, 'thumbnail'>>(({ thumbnail, theme }) => ({
-  display: 'flex',
+const ListRoot = styled("ul", {
+  shouldForwardProp: (prop: string) => !["thumbnail", "sx"].includes(prop),
+})<Pick<MultiFilePreviewProps, "thumbnail">>(({ thumbnail, theme }) => ({
+  display: "flex",
   gap: theme.spacing(1),
-  flexDirection: 'column',
-  ...(thumbnail && { flexWrap: 'wrap', flexDirection: 'row' }),
+  flexDirection: "column",
+  ...(thumbnail && { flexWrap: "wrap", flexDirection: "row" }),
 }));
 
-const ItemThumbnail = styled('li')(() => ({ display: 'inline-flex' }));
+const ItemThumbnail = styled("li")(() => ({ display: "inline-flex" }));
 
-const ItemRow = styled('li')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
+const ItemRow = styled("li")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
   gap: theme.spacing(1.5),
   padding: theme.spacing(1, 1, 1, 1.5),
   borderRadius: theme.shape.borderRadius,
-  border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.16)}`,
+  border: `solid 1px ${varAlpha(theme.vars.palette.grey["500Channel"], 0.16)}`,
 }));
 
-const ItemNode = styled('li', {
-  shouldForwardProp: (prop: string) => !['thumbnail', 'sx'].includes(prop),
-})<Pick<MultiFilePreviewProps, 'thumbnail'>>(({ thumbnail }) => ({
-  ...(thumbnail && { width: 'auto', display: 'inline-flex' }),
+const ItemNode = styled("li", {
+  shouldForwardProp: (prop: string) => !["thumbnail", "sx"].includes(prop),
+})<Pick<MultiFilePreviewProps, "thumbnail">>(({ thumbnail }) => ({
+  ...(thumbnail && { width: "auto", display: "inline-flex" }),
 }));

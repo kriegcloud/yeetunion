@@ -1,18 +1,18 @@
-import { RHFCode } from './rhf-code';
-import { RHFRating } from './rhf-rating';
-import { RHFEditor } from './rhf-editor';
-import { RHFSlider } from './rhf-slider';
-import { RHFTextField } from './rhf-text-field';
-import { RHFRadioGroup } from './rhf-radio-group';
-import { RHFPhoneInput } from './rhf-phone-input';
-import { RHFNumberInput } from './rhf-number-input';
-import { RHFAutocomplete } from './rhf-autocomplete';
-import { RHFCountrySelect } from './rhf-country-select';
-import { RHFSwitch, RHFMultiSwitch } from './rhf-switch';
-import { RHFSelect, RHFMultiSelect } from './rhf-select';
-import { RHFCheckbox, RHFMultiCheckbox } from './rhf-checkbox';
-import { RHFUpload, RHFUploadBox, RHFUploadAvatar } from './rhf-upload';
-import { RHFDatePicker, RHFMobileDateTimePicker } from './rhf-date-picker';
+import { RHFAutocomplete } from "./rhf-autocomplete";
+import { RHFCheckbox, RHFMultiCheckbox } from "./rhf-checkbox";
+import { RHFCode } from "./rhf-code";
+import { RHFCountrySelect } from "./rhf-country-select";
+import { RHFDatePicker, RHFMobileDateTimePicker } from "./rhf-date-picker";
+import { RHFEditor } from "./rhf-editor";
+import { RHFNumberInput } from "./rhf-number-input";
+import { RHFPhoneInput } from "./rhf-phone-input";
+import { RHFRadioGroup } from "./rhf-radio-group";
+import { RHFRating } from "./rhf-rating";
+import { RHFMultiSelect, RHFSelect } from "./rhf-select";
+import { RHFSlider } from "./rhf-slider";
+import { RHFMultiSwitch, RHFSwitch } from "./rhf-switch";
+import { RHFTextField } from "./rhf-text-field";
+import { RHFUpload, RHFUploadAvatar, RHFUploadBox } from "./rhf-upload";
 
 // ----------------------------------------------------------------------
 

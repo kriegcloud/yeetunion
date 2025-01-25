@@ -1,20 +1,18 @@
-'use client';
+"use client";
 
-import { z as zod } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z as zod } from "zod";
 
-import Box from '@mui/material/Box';
-import LoadingButton from '@mui/lab/LoadingButton';
+import LoadingButton from "@mui/lab/LoadingButton";
+import Box from "@mui/material/Box";
 
+import { PasswordIcon } from "../../icons";
 
+import { Field, Form } from "../../components/hook-form";
 
-import { PasswordIcon } from '../../icons';
-
-import { Form, Field } from '../../components/hook-form';
-
-import { FormHead } from '../../components/form-head';
-import { FormReturnLink } from './components';
+import { FormHead } from "../../components/form-head";
+import { FormReturnLink } from "./components";
 
 // ----------------------------------------------------------------------
 
@@ -23,15 +21,15 @@ export type ResetPasswordSchemaType = zod.infer<typeof ResetPasswordSchema>;
 export const ResetPasswordSchema = zod.object({
   email: zod
     .string()
-    .min(1, { message: 'Email is required!' })
-    .email({ message: 'Email must be a valid email address!' }),
+    .min(1, { message: "Email is required!" })
+    .email({ message: "Email must be a valid email address!" }),
 });
 
 // ----------------------------------------------------------------------
 
 export function ResetPassword() {
   const defaultValues: ResetPasswordSchemaType = {
-    email: '',
+    email: "",
   };
 
   const methods = useForm<ResetPasswordSchemaType>({
@@ -47,14 +45,14 @@ export function ResetPassword() {
   const onSubmit = handleSubmit(async (data) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
-      console.info('DATA', data);
+      console.info("DATA", data);
     } catch (error) {
       console.error(error);
     }
   });
 
   const renderForm = () => (
-    <Box sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ gap: 3, display: "flex", flexDirection: "column" }}>
       <Field.Text
         name="email"
         label="Email address"

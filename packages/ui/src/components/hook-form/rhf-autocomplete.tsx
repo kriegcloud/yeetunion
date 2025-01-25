@@ -1,17 +1,17 @@
 "use client";
-import type { TextFieldProps } from '@mui/material/TextField';
-import type { AutocompleteProps } from '@mui/material/Autocomplete';
+import type { AutocompleteProps } from "@mui/material/Autocomplete";
+import type { TextFieldProps } from "@mui/material/TextField";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 
 // ----------------------------------------------------------------------
 
 export type AutocompleteBaseProps = Omit<
   AutocompleteProps<any, boolean, boolean, boolean>,
-  'renderInput'
+  "renderInput"
 >;
 
 export type RHFAutocompleteProps = AutocompleteBaseProps & {
@@ -19,7 +19,7 @@ export type RHFAutocompleteProps = AutocompleteBaseProps & {
   label?: string;
   placeholder?: string;
   helperText?: React.ReactNode;
-  slotProps?: AutocompleteBaseProps['slotProps'] & {
+  slotProps?: AutocompleteBaseProps["slotProps"] & {
     textfield?: TextFieldProps;
   };
 };
@@ -44,7 +44,9 @@ export function RHFAutocomplete({
         <Autocomplete
           {...field}
           id={`rhf-autocomplete-${name}`}
-          onChange={(_, newValue) => setValue(name, newValue, { shouldValidate: true })}
+          onChange={(_, newValue) =>
+            setValue(name, newValue, { shouldValidate: true })
+          }
           renderInput={(params) => (
             <TextField
               {...params}
@@ -57,7 +59,7 @@ export function RHFAutocomplete({
                 ...textfield?.slotProps,
                 htmlInput: {
                   ...params.inputProps,
-                  autoComplete: 'new-password',
+                  autoComplete: "new-password",
                   ...textfield?.slotProps?.htmlInput,
                 },
               }}

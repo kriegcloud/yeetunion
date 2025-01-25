@@ -1,19 +1,19 @@
 "use client";
-import type { BoxProps } from '@mui/material/Box';
-import type { MuiOtpInputProps } from 'mui-one-time-password-input';
-import type { FormHelperTextProps } from '@mui/material/FormHelperText';
+import type { BoxProps } from "@mui/material/Box";
+import type { FormHelperTextProps } from "@mui/material/FormHelperText";
+import type { MuiOtpInputProps } from "mui-one-time-password-input";
 
-import { MuiOtpInput } from 'mui-one-time-password-input';
-import { Controller, useFormContext } from 'react-hook-form';
+import { MuiOtpInput } from "mui-one-time-password-input";
+import { Controller, useFormContext } from "react-hook-form";
 
-import Box from '@mui/material/Box';
-import { inputBaseClasses } from '@mui/material/InputBase';
+import Box from "@mui/material/Box";
+import { inputBaseClasses } from "@mui/material/InputBase";
 import type { ReactNode } from "react";
-import { HelperText } from './help-text';
+import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
-export interface RHFCodesProps extends Omit<MuiOtpInputProps, 'sx'> {
+export interface RHFCodesProps extends Omit<MuiOtpInputProps, "sx"> {
   name: string;
   maxSize?: number;
   placeholder?: string;
@@ -21,7 +21,7 @@ export interface RHFCodesProps extends Omit<MuiOtpInputProps, 'sx'> {
   slotProps?: {
     wrapper?: BoxProps;
     helperText?: FormHelperTextProps;
-    textfield?: MuiOtpInputProps['TextFieldsProps'];
+    textfield?: MuiOtpInputProps["TextFieldsProps"];
   };
 }
 
@@ -30,7 +30,7 @@ export function RHFCode({
   slotProps,
   helperText,
   maxSize = 56,
-  placeholder = '-',
+  placeholder = "-",
   ...other
 }: RHFCodesProps) {
   const { control } = useFormContext();
@@ -44,12 +44,12 @@ export function RHFCode({
           {...slotProps?.wrapper}
           sx={[
             {
-              display: 'flex',
-              justifyContent: 'center',
+              display: "flex",
+              justifyContent: "center",
               [`& .${inputBaseClasses.input}`]: {
                 p: 0,
-                height: 'auto',
-                aspectRatio: '1/1',
+                height: "auto",
+                aspectRatio: "1/1",
                 maxWidth: maxSize,
               },
             },

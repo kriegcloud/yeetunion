@@ -8,12 +8,19 @@ type AuthCtx = {
   signInWithDiscord: () => Promise<void>;
   signInWithTwitter: () => Promise<void>;
   signInWithLinkedIn: () => Promise<void>;
-  signUpWithEmail: (name: string, email: string, password: string) => Promise<void>;
-}
+  signUpWithEmail: (
+    name: string,
+    email: string,
+    password: string,
+  ) => Promise<void>;
+};
 
 const [useAuthCtx, Provider] = createCtx<AuthCtx>();
 
-export const AuthProvider = ({ children, ...rest }: AuthCtx & { children: ReactNode }) => {
-  return <Provider value={{ ...rest }} >{children}</Provider>;
-}
-export { useAuthCtx }
+export const AuthProvider = ({
+  children,
+  ...rest
+}: AuthCtx & { children: ReactNode }) => {
+  return <Provider value={{ ...rest }}>{children}</Provider>;
+};
+export { useAuthCtx };

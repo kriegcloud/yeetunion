@@ -1,14 +1,14 @@
 "use client";
-import type { BoxProps } from '@mui/material/Box';
-import type { SliderProps } from '@mui/material/Slider';
-import type { FormHelperTextProps } from '@mui/material/FormHelperText';
+import type { BoxProps } from "@mui/material/Box";
+import type { FormHelperTextProps } from "@mui/material/FormHelperText";
+import type { SliderProps } from "@mui/material/Slider";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
 
-import { HelperText } from './help-text';
+import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +21,12 @@ export type RHFSliderProps = SliderProps & {
   };
 };
 
-export function RHFSlider({ name, helperText, slotProps, ...other }: RHFSliderProps) {
+export function RHFSlider({
+  name,
+  helperText,
+  slotProps,
+  ...other
+}: RHFSliderProps) {
   const { control } = useFormContext();
 
   return (

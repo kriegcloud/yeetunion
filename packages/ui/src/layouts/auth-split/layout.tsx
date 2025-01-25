@@ -41,20 +41,20 @@ export type AuthSplitLayoutProps = LayoutBaseProps & {
 };
 
 export function AuthSplitLayout({
-                                  sx,
-                                  cssVars,
-                                  children,
-                                  slotProps,
-                                  layoutQuery = 'md',
-                                }: AuthSplitLayoutProps) {
+  sx,
+  cssVars,
+  children,
+  slotProps,
+  layoutQuery = "md",
+}: AuthSplitLayoutProps) {
   const renderHeader = () => {
-    const headerSlotProps: HeaderSectionProps['slotProps'] = {
+    const headerSlotProps: HeaderSectionProps["slotProps"] = {
       container: { maxWidth: false },
     };
 
-    const headerSlots: HeaderSectionProps['slots'] = {
+    const headerSlots: HeaderSectionProps["slots"] = {
       topArea: (
-        <Alert severity="info" sx={{ display: 'none', borderRadius: 0 }}>
+        <Alert severity="info" sx={{ display: "none", borderRadius: 0 }}>
           This is an info Alert.
         </Alert>
       ),
@@ -65,13 +65,19 @@ export function AuthSplitLayout({
         </>
       ),
       rightArea: (
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1, sm: 1.5 } }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: 1, sm: 1.5 },
+          }}
+        >
           {/** @slot Help link */}
           <Link
             href={paths.faqs}
             component={RouterLink}
             color="inherit"
-            sx={{ typography: 'subtitle2' }}
+            sx={{ typography: "subtitle2" }}
           >
             Need help?
           </Link>
@@ -90,7 +96,7 @@ export function AuthSplitLayout({
         slots={{ ...headerSlots, ...slotProps?.header?.slots }}
         slotProps={merge(headerSlotProps, slotProps?.header?.slotProps ?? {})}
         sx={[
-          { position: { [layoutQuery]: 'fixed' } },
+          { position: { [layoutQuery]: "fixed" } },
           ...(Array.isArray(slotProps?.header?.sx)
             ? (slotProps?.header?.sx ?? [])
             : [slotProps?.header?.sx]),
@@ -105,7 +111,9 @@ export function AuthSplitLayout({
     <MainSection
       {...slotProps?.main}
       sx={[
-        (theme) => ({ [theme.breakpoints.up(layoutQuery)]: { flexDirection: 'row' } }),
+        (theme) => ({
+          [theme.breakpoints.up(layoutQuery)]: { flexDirection: "row" },
+        }),
         ...(Array.isArray(slotProps?.main?.sx)
           ? (slotProps?.main?.sx ?? [])
           : [slotProps?.main?.sx]),
@@ -117,7 +125,7 @@ export function AuthSplitLayout({
         {...slotProps?.section}
         methods={[
           {
-            label: 'Jwt',
+            label: "Jwt",
             path: "/auth/login",
             icon: `/assets/icons/platforms/ic-jwt.svg`,
           },
@@ -142,7 +150,7 @@ export function AuthSplitLayout({
       /** **************************************
        * @Styles
        *************************************** */
-      cssVars={{ '--layout-auth-content-width': '420px', ...cssVars }}
+      cssVars={{ "--layout-auth-content-width": "420px", ...cssVars }}
       sx={sx}
     >
       {renderMain()}

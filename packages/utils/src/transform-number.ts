@@ -7,8 +7,12 @@ export type InputValue = string | number | null | undefined;
  * @param {string} [defaultValue=''] - The default value to return if the input value is null, undefined, or NaN.
  * @returns {string} - The transformed string value.
  */
-export function transformValue(value: InputValue, defaultValue = ''): string {
-  if (value === null || value === undefined || (typeof value === 'number' && Number.isNaN(value))) {
+export function transformValue(value: InputValue, defaultValue = ""): string {
+  if (
+    value === null ||
+    value === undefined ||
+    (typeof value === "number" && Number.isNaN(value))
+  ) {
     return defaultValue;
   }
 
@@ -26,11 +30,15 @@ export function transformValue(value: InputValue, defaultValue = ''): string {
 export function transformValueOnChange(value: string | number): string {
   const currentValue: string = transformValue(value);
 
-  const cleanedValue = currentValue.replace(/[^0-9.]/g, '');
-  const [integerPart, ...decimalParts] = cleanedValue.split('.');
+  const cleanedValue = currentValue.replace(/[^0-9.]/g, "");
+  const [integerPart, ...decimalParts] = cleanedValue.split(".");
 
-  return decimalParts.length > 0 ? `${integerPart}.${// biome-ignore lint/style/noNonNullAssertion: <explanation>
-decimalParts.join('')}` : integerPart!;
+  return decimalParts.length > 0
+    ? `${integerPart}.${
+        // biome-ignore lint/style/noNonNullAssertion: <explanation>
+        decimalParts.join("")
+      }`
+    : integerPart!;
 }
 
 // ----------------------------------------------------------------------
@@ -44,9 +52,13 @@ decimalParts.join('')}` : integerPart!;
  */
 export function transformValueOnBlur(
   value: InputValue,
-  defaultValue: string | number = ''
+  defaultValue: string | number = "",
 ): string | number {
-  if (value === null || value === undefined || (typeof value === 'number' && Number.isNaN(value))) {
+  if (
+    value === null ||
+    value === undefined ||
+    (typeof value === "number" && Number.isNaN(value))
+  ) {
     return defaultValue;
   }
 

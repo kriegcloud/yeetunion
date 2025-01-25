@@ -1,26 +1,30 @@
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { SxProps, Theme } from "@mui/material/styles";
 
 import { mergeClasses } from "@ye/utils/classes";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-import { createClasses } from '../../../theme/create-classes';
-import { UploadIllustration } from '../../../illustrations';
+import { UploadIllustration } from "../../../illustrations";
+import { createClasses } from "../../../theme/create-classes";
 
 // ----------------------------------------------------------------------
 
-export type UploadPlaceholderProps = React.ComponentProps<'div'> & {
+export type UploadPlaceholderProps = React.ComponentProps<"div"> & {
   sx?: SxProps<Theme>;
 };
 
 const uploadPlaceholderClasses = {
-  root: createClasses('upload__placeholder__root'),
-  content: createClasses('upload__placeholder__content'),
-  title: createClasses('upload__placeholder__title'),
-  description: createClasses('upload__placeholder__description'),
+  root: createClasses("upload__placeholder__root"),
+  content: createClasses("upload__placeholder__content"),
+  title: createClasses("upload__placeholder__title"),
+  description: createClasses("upload__placeholder__description"),
 };
 
-export function UploadPlaceholder({ sx, className, ...other }: UploadPlaceholderProps) {
+export function UploadPlaceholder({
+  sx,
+  className,
+  ...other
+}: UploadPlaceholderProps) {
   return (
     <PlaceholderRoot
       className={mergeClasses([uploadPlaceholderClasses.root, className])}
@@ -29,7 +33,9 @@ export function UploadPlaceholder({ sx, className, ...other }: UploadPlaceholder
     >
       <UploadIllustration hideBackground sx={{ width: 200 }} />
       <PlaceholderContent>
-        <div className={uploadPlaceholderClasses.title}>Drop or select file</div>
+        <div className={uploadPlaceholderClasses.title}>
+          Drop or select file
+        </div>
         <div className={uploadPlaceholderClasses.description}>
           Drop files here or click to
           <span>browse</span>
@@ -42,24 +48,24 @@ export function UploadPlaceholder({ sx, className, ...other }: UploadPlaceholder
 
 // ----------------------------------------------------------------------
 
-const PlaceholderRoot = styled('div')(() => ({
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column',
-  justifyContent: 'center',
+const PlaceholderRoot = styled("div")(() => ({
+  display: "flex",
+  alignItems: "center",
+  flexDirection: "column",
+  justifyContent: "center",
 }));
 
-const PlaceholderContent = styled('div')(({ theme }) => ({
-  display: 'flex',
-  textAlign: 'center',
+const PlaceholderContent = styled("div")(({ theme }) => ({
+  display: "flex",
+  textAlign: "center",
   gap: theme.spacing(1),
-  flexDirection: 'column',
+  flexDirection: "column",
   [`& .${uploadPlaceholderClasses.title}`]: { ...theme.typography.h6 },
   [`& .${uploadPlaceholderClasses.description}`]: {
     ...theme.typography.body2,
     color: theme.vars.palette.text.secondary,
-    '& span': {
-      textDecoration: 'underline',
+    "& span": {
+      textDecoration: "underline",
       margin: theme.spacing(0, 0.5),
       color: theme.vars.palette.primary.main,
     },

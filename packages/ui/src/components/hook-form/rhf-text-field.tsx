@@ -1,10 +1,14 @@
 "use client";
-import type { TextFieldProps } from '@mui/material/TextField';
+import type { TextFieldProps } from "@mui/material/TextField";
 
-import { Controller, useFormContext } from 'react-hook-form';
-import { transformValue, transformValueOnBlur, transformValueOnChange } from '@ye/utils/transform-number';
+import {
+  transformValue,
+  transformValueOnBlur,
+  transformValueOnChange,
+} from "@ye/utils/transform-number";
+import { Controller, useFormContext } from "react-hook-form";
 
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
 
 // ----------------------------------------------------------------------
 
@@ -16,12 +20,12 @@ export function RHFTextField({
   name,
   helperText,
   slotProps,
-  type = 'text',
+  type = "text",
   ...other
 }: RHFTextFieldProps) {
   const { control } = useFormContext();
 
-  const isNumberType = type === 'number';
+  const isNumberType = type === "number";
 
   return (
     <Controller
@@ -46,15 +50,18 @@ export function RHFTextField({
 
             field.onChange(transformedValue);
           }}
-          type={isNumberType ? 'text' : type}
+          type={isNumberType ? "text" : type}
           error={!!error}
           helperText={error?.message ?? helperText}
           slotProps={{
             ...slotProps,
             htmlInput: {
-              autoComplete: 'off',
+              autoComplete: "off",
               ...slotProps?.htmlInput,
-              ...(isNumberType && { inputMode: 'decimal', pattern: '[0-9]*\\.?[0-9]*' }),
+              ...(isNumberType && {
+                inputMode: "decimal",
+                pattern: "[0-9]*\\.?[0-9]*",
+              }),
             },
           }}
           {...other}

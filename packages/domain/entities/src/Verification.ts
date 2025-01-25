@@ -3,8 +3,8 @@
  * @category entities
  */
 import ye from "@ye/primitives";
-import { baseFields } from "./lib/utils";
 import * as S from "effect/Schema";
+import { baseFields } from "./lib/utils";
 /**
  * @since 0.1.0
  * @category entities

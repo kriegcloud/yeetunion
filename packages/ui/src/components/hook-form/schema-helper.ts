@@ -1,7 +1,7 @@
-import type {ZodTypeAny} from 'zod';
+import type { ZodTypeAny } from "zod";
 
-import dayjs from 'dayjs';
-import {z as zod} from 'zod';
+import dayjs from "dayjs";
+import { z as zod } from "zod";
 
 // ----------------------------------------------------------------------
 
@@ -15,15 +15,21 @@ export const schemaHelper = {
    * Phone number
    * Apply for phone number input.
    */
-  phoneNumber: (props?: { message?: MessageMapProps; isValid?: (text: string) => boolean }) =>
+  phoneNumber: (props?: {
+    message?: MessageMapProps;
+    isValid?: (text: string) => boolean;
+  }) =>
     zod
       .string({
-        required_error: props?.message?.required ?? 'Phone number is required!',
-        invalid_type_error: props?.message?.invalid_type ?? 'Invalid phone number!',
+        required_error: props?.message?.required ?? "Phone number is required!",
+        invalid_type_error:
+          props?.message?.invalid_type ?? "Invalid phone number!",
       })
-      .min(1, {message: props?.message?.required ?? 'Phone number is required!'})
+      .min(1, {
+        message: props?.message?.required ?? "Phone number is required!",
+      })
       .refine((data) => props?.isValid?.(data), {
-        message: props?.message?.invalid_type ?? 'Invalid phone number!',
+        message: props?.message?.invalid_type ?? "Invalid phone number!",
       }),
   /**
    * Date
@@ -41,7 +47,7 @@ export const schemaHelper = {
         if (!dateString) {
           ctx.addIssue({
             code: zod.ZodIssueCode.custom,
-            message: props?.message?.required ?? 'Date is required!',
+            message: props?.message?.required ?? "Date is required!",
           });
           return null;
         }
@@ -49,7 +55,7 @@ export const schemaHelper = {
         if (!stringToDate.safeParse(date).success) {
           ctx.addIssue({
             code: zod.ZodIssueCode.invalid_date,
-            message: props?.message?.invalid_type ?? 'Invalid Date!!',
+            message: props?.message?.invalid_type ?? "Invalid Date!!",
           });
         }
 
@@ -62,17 +68,20 @@ export const schemaHelper = {
    * Apply for editor
    */
   editor: (props?: { message: string }) =>
-    zod.string().min(8, {message: props?.message ?? 'Content is required!'}),
+    zod.string().min(8, { message: props?.message ?? "Content is required!" }),
   /**
    * Nullable Input
    * Apply for input, select... with null value.
    */
-  nullableInput: <T extends ZodTypeAny>(schema: T, options?: { message?: string }) =>
+  nullableInput: <T extends ZodTypeAny>(
+    schema: T,
+    options?: { message?: string },
+  ) =>
     schema.nullable().transform((val, ctx) => {
       if (val === null || val === undefined) {
         ctx.addIssue({
           code: zod.ZodIssueCode.custom,
-          message: options?.message ?? 'Field can not be null!',
+          message: options?.message ?? "Field can not be null!",
         });
         return val;
       }
@@ -83,8 +92,8 @@ export const schemaHelper = {
    * Apply for checkbox, switch...
    */
   boolean: (props?: { message: string }) =>
-    zod.boolean({coerce: true}).refine((val) => val === true, {
-      message: props?.message ?? 'Field is required!',
+    zod.boolean({ coerce: true }).refine((val) => val === true, {
+      message: props?.message ?? "Field is required!",
     }),
   /**
    * Slider
@@ -96,7 +105,9 @@ export const schemaHelper = {
       .array()
       // biome-ignore lint/style/noNonNullAssertion: <explanation>
       .refine((data) => data[0]! >= props?.min && data[1]! <= props?.max, {
-        message: props.message ?? `Range must be between ${props?.min} and ${props?.max}`,
+        message:
+          props.message ??
+          `Range must be between ${props?.min} and ${props?.max}`,
       }),
   /**
    * File
@@ -104,12 +115,13 @@ export const schemaHelper = {
    */
   file: (props?: { message: string }) =>
     zod.custom<File | string | null>().transform((data, ctx) => {
-      const hasFile = data instanceof File || (typeof data === 'string' && !!data.length);
+      const hasFile =
+        data instanceof File || (typeof data === "string" && !!data.length);
 
       if (!hasFile) {
         ctx.addIssue({
           code: zod.ZodIssueCode.custom,
-          message: props?.message ?? 'File is required!',
+          message: props?.message ?? "File is required!",
         });
         return null;
       }
@@ -127,7 +139,7 @@ export const schemaHelper = {
       if (!data.length) {
         ctx.addIssue({
           code: zod.ZodIssueCode.custom,
-          message: props?.message ?? 'Files is required!',
+          message: props?.message ?? "Files is required!",
         });
       } else if (data.length < minFiles) {
         ctx.addIssue({

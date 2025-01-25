@@ -1,14 +1,16 @@
 "use client";
-import type { LinkProps } from "@mui/material/Link";
 import Avatar from "@mui/material/Avatar";
+import type { LinkProps } from "@mui/material/Link";
 import { mergeClasses } from "@ye/utils/classes";
-import { forwardRef,
-//  useId
+import {
+  forwardRef,
+  //  useId
 } from "react";
 
 import { Link as MuiLink } from "@mui/material";
-import { styled,
-//  useTheme
+import {
+  styled,
+  //  useTheme
 } from "@mui/material/styles";
 
 import Link from "next/link";
@@ -53,7 +55,7 @@ export const Logo = forwardRef<HTMLAnchorElement, LogoProps>((props, ref) => {
       src={`/logo.png`}
       sx={{
         width: "100%",
-        height: "100%"
+        height: "100%",
       }}
     />
   );
@@ -64,7 +66,7 @@ export const Logo = forwardRef<HTMLAnchorElement, LogoProps>((props, ref) => {
       src={`/logo.png`}
       sx={{
         width: "100%",
-        height: "100%"
+        height: "100%",
       }}
     />
   );

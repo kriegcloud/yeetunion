@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "@ye/tsconfig/react.json"
-  ]
+  "extends": ["@ye/tsconfig/react.json"]
 }

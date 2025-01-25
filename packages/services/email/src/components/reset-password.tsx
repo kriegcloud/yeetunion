@@ -8,9 +8,9 @@ import {
   Html,
   Link,
   Preview,
-  Text,
-  Tailwind,
   Section,
+  Tailwind,
+  Text,
 } from "@react-email/components";
 
 interface BetterAuthResetPasswordEmailProps {
@@ -19,13 +19,13 @@ interface BetterAuthResetPasswordEmailProps {
 }
 
 export const ResetPasswordEmail = ({
-                                     username,
-                                     resetLink,
-                                   }: BetterAuthResetPasswordEmailProps) => {
+  username,
+  resetLink,
+}: BetterAuthResetPasswordEmailProps) => {
   const previewText = `Reset your BetterAuth password`;
   return (
     <Html>
-      <Head/>
+      <Head />
       <Preview>{previewText}</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans px-2">
@@ -55,7 +55,7 @@ export const ResetPasswordEmail = ({
                 {resetLink}
               </Link>
             </Text>
-            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full"/>
+            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
             <Text className="text-[#666666] text-[12px] leading-[24px]">
               If you didn't request a password reset, please ignore this email
               or contact support if you have concerns.

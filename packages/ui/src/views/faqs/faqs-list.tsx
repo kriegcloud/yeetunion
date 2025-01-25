@@ -1,14 +1,14 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from "@mui/material/Box";
 
-import Box from '@mui/material/Box';
-import Accordion from '@mui/material/Accordion';
-import Typography from '@mui/material/Typography';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 // import { _faqs } from 'src/_mock';
 
-import { Iconify } from '../../components/iconify';
+import { Iconify } from "../../components/iconify";
 export const _faqs = Array.from({ length: 8 }, (_, index) => ({
   id: crypto.randomUUID(),
   value: `panel${index + 1}`,
@@ -22,7 +22,9 @@ export function FaqsList({ sx, ...other }: BoxProps) {
     <Box sx={sx} {...other}>
       {_faqs.map((accordion) => (
         <Accordion key={accordion.id}>
-          <AccordionSummary expandIcon={<Iconify icon="eva:arrow-ios-downward-fill" />}>
+          <AccordionSummary
+            expandIcon={<Iconify icon="eva:arrow-ios-downward-fill" />}
+          >
             <Typography variant="subtitle1">{accordion.heading}</Typography>
           </AccordionSummary>
 

@@ -12,7 +12,7 @@ import { NonEmptyTrimStr } from "./NonEmptyStr";
 export const Email = NonEmptyTrimStr.pipe(
   S.lowercased(),
   S.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
-    message: () => ({ message: `Not a valid email address`, override: true })
+    message: () => ({ message: `Not a valid email address`, override: true }),
   }),
 );
 /**

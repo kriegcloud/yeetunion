@@ -11,7 +11,7 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    },
+    }
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -30,17 +30,12 @@
     "@ye/tsconfig": "workspace:^"
   },
   "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@emotion/cache": "^11.14.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@iconify/react": "^5.2.0",
-    "@mui/lab": "^6.0.0-beta.23",
-    "@mui/material": "^6.4.0",
-    "@mui/material-nextjs": "^6.3.1",
-    "@mui/x-date-pickers": "^7.24.0",
-    "@mui/x-tree-view": "^7.24.0"
+    "@mui/material": ">= 5.x <7",
+    "@mui/x-date-pickers": ">=7.17.0 <8",
+    "react": ">=17 <19",
+    "react-hook-form": "7.53.2",
+    "@hookform/resolvers": "^3.9.1",
+    "effect": "^3.11.6"
   },
   "dependencies": {
     "@effect/schema": "^0.75.5",
