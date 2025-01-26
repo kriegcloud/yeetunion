@@ -1,2 +1,2 @@
-export { default as CheckboxButtonGroupElement } from './Element.js';
-export * from "./CheckboxButtonGroup.js"
+export { default as CheckboxButtonGroupElement } from "./Element";
+export * from "./CheckboxButtonGroup";

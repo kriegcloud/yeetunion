@@ -1,9 +1,7 @@
-import {Verify} from "@ye/ui/views";
+import { Verify } from "@ye/ui/views";
 
 const Page = () => {
-  return (
-    <Verify />
-  )
-}
+  return <Verify />;
+};
 
 export default Page;

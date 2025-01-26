@@ -8,7 +8,7 @@ import type { PhoneInputProps } from "../phone-input";
 // ----------------------------------------------------------------------
 
 export type RHFPhoneInputProps = Omit<PhoneInputProps, "value" | "onChange"> & {
-  name: string;
+  name?: string;
 };
 
 export function RHFPhoneInput({
@@ -20,7 +20,7 @@ export function RHFPhoneInput({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <PhoneInput

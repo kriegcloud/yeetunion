@@ -1,10 +1,8 @@
-
-import React from "react";
-import type { FormControlProps } from "@mui/material";
-import { FormField } from "../../core";
 import ye from "@ye/primitives";
-
-export interface CheckboxFC extends React.FC<FormControlProps> {}
+import type { RHFCheckboxProps } from "@ye/ui/components";
+import React from "react";
+import { FormField } from "../../core";
+export interface CheckboxFC extends React.FC<RHFCheckboxProps> {}
 
 export class Checkbox extends FormField.FormField("@ye/form/fields/Checkbox")<
   Checkbox,

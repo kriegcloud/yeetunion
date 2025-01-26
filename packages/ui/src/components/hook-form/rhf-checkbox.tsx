@@ -16,12 +16,13 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import FormLabel from "@mui/material/FormLabel";
 
+import React from "react";
 import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
-type RHFCheckboxProps = Omit<FormControlLabelProps, "control"> & {
-  name: string;
+export type RHFCheckboxProps = Omit<FormControlLabelProps, "control"> & {
+  name?: string;
   helperText?: React.ReactNode;
   slotProps?: {
     wrapper?: BoxProps;
@@ -42,7 +43,7 @@ export function RHFCheckbox({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <Box {...slotProps?.wrapper}>

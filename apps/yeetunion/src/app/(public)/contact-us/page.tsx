@@ -2,7 +2,7 @@
 //
 // import { CONFIG } from '@ye/core/yeetunion';
 
-import { ContactView } from '@ye/ui/views';
+import { ContactView } from "@ye/ui/views";
 
 // ----------------------------------------------------------------------
 //

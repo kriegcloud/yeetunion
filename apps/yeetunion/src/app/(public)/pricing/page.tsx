@@ -2,7 +2,7 @@
 //
 // import { CONFIG } from '@ye/core/yeetunion';
 
-import { PricingView } from '@ye/ui/views';
+import { PricingView } from "@ye/ui/views";
 
 // ----------------------------------------------------------------------
 //

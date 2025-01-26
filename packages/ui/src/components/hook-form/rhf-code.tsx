@@ -14,7 +14,7 @@ import { HelperText } from "./help-text";
 // ----------------------------------------------------------------------
 
 export interface RHFCodesProps extends Omit<MuiOtpInputProps, "sx"> {
-  name: string;
+  name?: string;
   maxSize?: number;
   placeholder?: string;
   helperText?: ReactNode;
@@ -37,7 +37,7 @@ export function RHFCode({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <Box

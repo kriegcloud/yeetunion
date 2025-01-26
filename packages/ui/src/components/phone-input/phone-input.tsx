@@ -1,3 +1,4 @@
+"use client";
 import type { TextFieldProps } from "@mui/material/TextField";
 import type { Country, Value } from "react-phone-number-input/input";
 
@@ -48,7 +49,7 @@ export const PhoneInput = forwardRef<HTMLDivElement, PhoneInputProps>(
 
     const hasLabel = !!label;
 
-    const cleanValue = value.replace(/[\s-]+/g, "");
+    const cleanValue = value?.replace(/[\s-]+/g, "");
 
     const handleClear = useCallback(() => {
       onChange("" as Value);

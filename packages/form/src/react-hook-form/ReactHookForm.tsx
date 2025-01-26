@@ -2,10 +2,10 @@ import { Effect, Layer, Pretty, Schema } from "effect";
 import React from "react";
 import { useMemo } from "react";
 import * as RHF from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 import { FormFramework, Path } from "../core";
 import { effectTsResolver } from "./effectTsResolver";
 import { makeContext } from "./makeContext";
-import { v4 as uuidv4 } from "uuid";
 export const layer = (Button: FormFramework.Button) =>
   Layer.effect(
     FormFramework.FormFramework,
@@ -22,6 +22,7 @@ export const layer = (Button: FormFramework.Button) =>
               <Component
                 {...props}
                 {...register(name)}
+                name={name}
                 error={error?.message}
               />
             );
@@ -34,7 +35,14 @@ export const layer = (Button: FormFramework.Button) =>
               field,
               fieldState: { error },
             } = RHF.useController({ name });
-            return <Component {...props} {...field} error={error?.message} />;
+            return (
+              <Component
+                {...props}
+                {...field}
+                name={name}
+                error={error?.message}
+              />
+            );
           };
         },
         makeFieldControls(path) {
@@ -117,8 +125,8 @@ export const layer = (Button: FormFramework.Button) =>
         },
         makeRaw(lhs) {
           const Component: FormFramework.ReactFCWithChildren = ({
-                                                                  children,
-                                                                }) => {
+            children,
+          }) => {
             return children;
           };
           const controls = this.makeFieldControls(lhs);
@@ -147,7 +155,7 @@ export const layer = (Button: FormFramework.Button) =>
                   defaultValues: resetValues,
                   values: props.resetValues,
                 }),
-              [props.resetValues]
+              [props.resetValues],
             );
             const initialValues = useMemo(() => {
               if (props.initialValues) {
@@ -177,7 +185,7 @@ export const layer = (Button: FormFramework.Button) =>
                         decoded: values,
                         encoded: Schema.encodeUnknownSync(schema)(values),
                       }),
-                    onError
+                    onError,
                   )}
                 >
                   {children}
@@ -224,5 +232,5 @@ export const layer = (Button: FormFramework.Button) =>
       };
 
       return formFramework;
-    })
+    }),
   );

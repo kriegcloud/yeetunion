@@ -13,12 +13,13 @@ import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 
+import React from "react";
 import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
 export type RHFRadioGroupProps = RadioGroupProps & {
-  name: string;
+  name?: string;
   label?: string;
   options: { label: string; value: string }[];
   helperText?: React.ReactNode;
@@ -45,7 +46,7 @@ export function RHFRadioGroup({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <FormControl component="fieldset" {...slotProps?.wrapper}>
@@ -68,12 +69,13 @@ export function RHFRadioGroup({
           <RadioGroup
             {...field}
             aria-labelledby={labelledby}
+            key={name}
             sx={sx}
             {...other}
           >
-            {options.map((option) => (
+            {options.map((option, i) => (
               <FormControlLabel
-                key={option.value}
+                key={`${option.value}-${i}`}
                 value={option.value}
                 control={
                   <Radio
@@ -91,7 +93,6 @@ export function RHFRadioGroup({
               />
             ))}
           </RadioGroup>
-
           <HelperText
             {...slotProps?.helperText}
             disableGutters

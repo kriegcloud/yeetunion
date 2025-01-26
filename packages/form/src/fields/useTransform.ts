@@ -1,56 +1,60 @@
+import React from "react";
 import type {
   FieldPath,
   FieldValues,
   PathValue,
   UseControllerReturn,
-} from 'react-hook-form'
-import React from "react";
+} from "react-hook-form";
 
 export type UseTransformOptions<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown,
 > = {
-  value: UseControllerReturn<TFieldValues, TName>['field']['value']
-  onChange: UseControllerReturn<TFieldValues, TName>['field']['onChange']
-  transform?: {
-    input?: ((value: PathValue<TFieldValues, TName>) => TValue) | undefined
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    output?: ((...event: any[]) => PathValue<TFieldValues, TName>) | undefined
-  } | undefined
-}
+  value: UseControllerReturn<TFieldValues, TName>["field"]["value"];
+  onChange: UseControllerReturn<TFieldValues, TName>["field"]["onChange"];
+  transform?:
+    | {
+        input?: ((value: PathValue<TFieldValues, TName>) => TValue) | undefined;
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        output?:
+          | ((...event: any[]) => PathValue<TFieldValues, TName>)
+          | undefined;
+      }
+    | undefined;
+};
 
 export type UseTransformReturn<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown,
 > = {
-  value: TValue
-  onChange: UseControllerReturn<TFieldValues, TName>['field']['onChange']
-}
+  value: TValue;
+  onChange: UseControllerReturn<TFieldValues, TName>["field"]["onChange"];
+};
 
 export function useTransform<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown,
 >(
-  options: UseTransformOptions<TFieldValues, TName, TValue>
+  options: UseTransformOptions<TFieldValues, TName, TValue>,
 ): UseTransformReturn<TFieldValues, TName, TValue> {
   const value =
-    typeof options.transform?.input === 'function'
+    typeof options.transform?.input === "function"
       ? options.transform.input(options.value)
-      : options.value
+      : options.value;
 
   const onChange = (...event: React.ChangeEvent[]): void => {
-    if (typeof options.transform?.output === 'function') {
-      options.onChange(options.transform.output(...event))
+    if (typeof options.transform?.output === "function") {
+      options.onChange(options.transform.output(...event));
     } else {
-      options.onChange(...event)
+      options.onChange(...event);
     }
-  }
+  };
 
   return {
     value,
     onChange,
-  }
+  };
 }

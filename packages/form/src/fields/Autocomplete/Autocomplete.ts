@@ -1,14 +1,15 @@
+import type { RHFAutocompleteProps } from "@ye/ui/components";
 import type { Array } from "effect";
 import { Schema } from "effect";
 import React from "react";
-import type { AutocompleteElementProps } from "./Element";
 import { FormField } from "../../core";
 
 interface AutocompleteFC<Value extends string = string>
   extends React.FC<
-    Omit<AutocompleteElementProps, "options"> & {
-    options: Array<{ label: string; id: Value }>;
-  }
+    Omit<RHFAutocompleteProps, "options" | "name"> & {
+      options: Array<{ label: string; id: Value }>;
+      name?: string;
+    }
   > {}
 
 export class Autocomplete extends FormField.FormField(

@@ -3,9 +3,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"],
       "passThroughEnv": ["ANALYZE", "NEXT_RUNTIME"]
     },

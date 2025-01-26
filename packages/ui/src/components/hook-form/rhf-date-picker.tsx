@@ -15,7 +15,7 @@ import { formatPatterns } from "@ye/utils/dayjs";
 // ----------------------------------------------------------------------
 
 type RHFDatePickerProps = DatePickerProps<Dayjs> & {
-  name: string;
+  name?: string;
 };
 
 export function RHFDatePicker({
@@ -27,7 +27,7 @@ export function RHFDatePicker({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <DatePicker

@@ -34,11 +34,9 @@ export function transformValueOnChange(value: string | number): string {
   const [integerPart, ...decimalParts] = cleanedValue.split(".");
 
   return decimalParts.length > 0
-    ? `${integerPart}.${
-        // biome-ignore lint/style/noNonNullAssertion: <explanation>
-        decimalParts.join("")
-      }`
-    : integerPart!;
+    ? `${integerPart}.${decimalParts.join("")}`
+    : // biome-ignore lint/style/noNonNullAssertion: <explanation>
+      integerPart!;
 }
 
 // ----------------------------------------------------------------------

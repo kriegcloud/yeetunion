@@ -8,7 +8,7 @@ import type { NumberInputProps } from "../number-input";
 // ----------------------------------------------------------------------
 
 export type RHFNumberInputProps = NumberInputProps & {
-  name: string;
+  name?: string;
 };
 
 export function RHFNumberInput({
@@ -20,7 +20,7 @@ export function RHFNumberInput({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <NumberInput

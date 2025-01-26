@@ -1,22 +1,22 @@
+import { Context, Layer, Option } from "effect";
 /**
  * @since 0.1.0
  * @category YeForm
  */
-import type * as S from "effect/Schema"
-import {Context, Layer, Option} from "effect"
-import type React from "react"
-import {FormFramework} from "./FormFramework.js"
-import type {Path} from "./Path.js"
+import type * as S from "effect/Schema";
+import type React from "react";
+import { FormFramework } from "./FormFramework";
+import type { Path } from "./Path";
 /**
  * @since 0.1.0
  * @category YeForm
  */
-export const NoDefaultValue = Symbol.for("FormField/NoDefaultValue")
+export const NoDefaultValue = Symbol.for("FormField/NoDefaultValue");
 /**
  * @since 0.1.0
  * @category YeForm
  */
-type NoDefaultValue = typeof NoDefaultValue
+type NoDefaultValue = typeof NoDefaultValue;
 /**
  * @since 0.1.0
  * @category YeForm
@@ -25,59 +25,58 @@ class FormFieldClass<
   Self,
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   A extends React.FC<any>,
-  S extends S.Schema.AnyNoContext
+  S extends S.Schema.AnyNoContext,
 > {
   private constructor(
     readonly tag: Context.Tag<Self, ComponentBuilder<A>>,
     readonly schema: S,
-    readonly defaultValue: S["Encoded"] | NoDefaultValue
-  ) {
-  }
+    readonly defaultValue: S["Encoded"] | NoDefaultValue,
+  ) {}
 
   static withDefaultValue = <
     Self,
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     A extends React.FC<any>,
-    S extends S.Schema.AnyNoContext
+    S extends S.Schema.AnyNoContext,
   >(
     tag: Context.Tag<Self, ComponentBuilder<A>>,
     schema: S,
-    defaultValue: S["Encoded"] | NoDefaultValue
-  ) => new FormFieldClass<Self, A, S>(tag, schema, defaultValue)
+    defaultValue: S["Encoded"] | NoDefaultValue,
+  ) => new FormFieldClass<Self, A, S>(tag, schema, defaultValue);
 
   static withoutDefaultValue = <
     Self,
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     A extends React.FC<any>,
-    S extends S.Schema.AnyNoContext
+    S extends S.Schema.AnyNoContext,
   >(
     tag: Context.Tag<Self, ComponentBuilder<A>>,
-    schema: S
-  ) => new FormFieldClass<Self, A, S>(tag, schema, NoDefaultValue)
+    schema: S,
+  ) => new FormFieldClass<Self, A, S>(tag, schema, NoDefaultValue);
 
   decorate<A_ extends A>(): FormFieldClass<Self, A_, S> {
     // @ts-expect-error "casting this to another ReactFC type"
-    return this
+    return this;
   }
 
   getDefaultValue(): Option.Option<S["Encoded"]> {
     return Option.liftPredicate(
       this.defaultValue,
-      (value) => value !== NoDefaultValue
-    )
+      (value) => value !== NoDefaultValue,
+    );
   }
 
   matchDefaultValue({
-                      withDefaultValue,
-                      withoutDefaultValue
-                    }: {
-    withDefaultValue: (value: S["Encoded"]) => void
-    withoutDefaultValue?: () => void
+    withDefaultValue,
+    withoutDefaultValue,
+  }: {
+    withDefaultValue: (value: S["Encoded"]) => void;
+    withoutDefaultValue?: () => void;
   }): void {
     if (this.defaultValue === NoDefaultValue) {
-      withoutDefaultValue?.()
+      withoutDefaultValue?.();
     } else {
-      withDefaultValue(this.defaultValue)
+      withDefaultValue(this.defaultValue);
     }
   }
 }
@@ -86,7 +85,9 @@ class FormFieldClass<
  * @category YeForm
  */
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export type ComponentBuilder<A extends React.FC<any>> = (_: { path: Path }) => A
+export type ComponentBuilder<A extends React.FC<any>> = (_: {
+  path: Path;
+}) => A;
 /**
  * @since 0.1.0
  * @category YeForm
@@ -96,7 +97,7 @@ export type OfProps<T> = FormFieldClass<
   any,
   React.FC<T>,
   S.Schema.AnyNoContext
->
+>;
 /**
  * @since 0.1.0
  * @category YeForm
@@ -107,26 +108,28 @@ export type Any = FormFieldClass<
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   React.FC<any>,
   S.Schema.AnyNoContext
->
+>;
 /**
  * @since 0.1.0
  * @category YeForm
  */
-export const FormField = <const Id extends string>(id: Id) =>
+export const FormField =
+  <const Id extends string>(id: Id) =>
   <
     Self,
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     A extends React.FC<any> = React.FC<any>,
-    S_ extends S.Schema.AnyNoContext = S.Schema.AnyNoContext
+    S_ extends S.Schema.AnyNoContext = S.Schema.AnyNoContext,
   >() => {
-    const tag = Context.Tag<Id>(id)<Self, ComponentBuilder<A>>()
+    const tag = Context.Tag<Id>(id)<Self, ComponentBuilder<A>>();
     return Object.assign(tag, {
       make: <S extends S_>(props: {
-        schema: S
-        defaultValue: S["Encoded"]
-      }): FormFieldClass<Self, A, S> => FormFieldClass.withDefaultValue(tag, props.schema, props.defaultValue),
+        schema: S;
+        defaultValue: S["Encoded"];
+      }): FormFieldClass<Self, A, S> =>
+        FormFieldClass.withDefaultValue(tag, props.schema, props.defaultValue),
       makeRequired: <S extends S_>(props: {
-        schema: S
+        schema: S;
       }): FormFieldClass<Self, A, S> =>
         FormFieldClass.withoutDefaultValue<Self, A, S>(
           tag,
@@ -134,19 +137,27 @@ export const FormField = <const Id extends string>(id: Id) =>
           props.schema.annotations({
             message: () => ({
               message: "This field is required",
-              override: true
-            })
-          })
+              override: true,
+            }),
+          }),
         ),
       layerUncontrolled: (component: A) =>
         Layer.effect(
           tag,
-          FormFramework.use(({registerUncontrolled: register}) => ({path}) => register(component, path) as A)
+          FormFramework.use(
+            ({ registerUncontrolled: register }) =>
+              ({ path }) =>
+                register(component, path) as A,
+          ),
         ),
       layerControlled: (component: A) =>
         Layer.effect(
           tag,
-          FormFramework.use(({registerControlled}) => ({path}) => registerControlled(component, path) as A)
-        )
-    })
-  }
+          FormFramework.use(
+            ({ registerControlled }) =>
+              ({ path }) =>
+                registerControlled(component, path) as A,
+          ),
+        ),
+    });
+  };

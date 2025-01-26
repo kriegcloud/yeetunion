@@ -19,12 +19,13 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
+import React from "react";
 import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
 type RHFSelectProps = TextFieldProps & {
-  name: string;
+  name?: string;
   children: React.ReactNode;
 };
 
@@ -56,7 +57,7 @@ export function RHFSelect({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <TextField

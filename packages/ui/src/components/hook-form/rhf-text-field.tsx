@@ -14,7 +14,7 @@ import TextField from "@mui/material/TextField";
 
 export type RHFTextFieldProps = Omit<TextFieldProps, "variant"> & {
   name?: string;
-  variant?: TextFieldProps["variant"]
+  variant?: TextFieldProps["variant"];
 };
 
 export function RHFTextField({

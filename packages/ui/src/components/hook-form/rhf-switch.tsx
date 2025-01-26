@@ -16,12 +16,13 @@ import FormGroup from "@mui/material/FormGroup";
 import FormLabel from "@mui/material/FormLabel";
 import Switch from "@mui/material/Switch";
 
+import React from "react";
 import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
 export type RHFSwitchProps = Omit<FormControlLabelProps, "control"> & {
-  name: string;
+  name?: string;
   helperText?: React.ReactNode;
   slotProps?: {
     wrapper?: BoxProps;
@@ -42,7 +43,7 @@ export function RHFSwitch({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <Box {...slotProps?.wrapper}>

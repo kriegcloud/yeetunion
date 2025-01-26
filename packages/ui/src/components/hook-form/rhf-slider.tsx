@@ -8,12 +8,13 @@ import { Controller, useFormContext } from "react-hook-form";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 
+import React from "react";
 import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
 export type RHFSliderProps = SliderProps & {
-  name: string;
+  name?: string;
   helperText?: React.ReactNode;
   slotProps?: {
     wrapper?: BoxProps;
@@ -31,7 +32,7 @@ export function RHFSlider({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <Box {...slotProps?.wrapper}>

@@ -1,4 +1,4 @@
-import { LoadingScreen } from '@ye/ui/components';
+import { LoadingScreen } from "@ye/ui/components";
 
 // ----------------------------------------------------------------------
 

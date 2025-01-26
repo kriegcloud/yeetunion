@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "@ye/tsconfig/next.json"
-  ],
+  "extends": ["@ye/tsconfig/next.json"],
   "compilerOptions": {
     "plugins": [
       {
@@ -10,9 +8,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     }
   },
   "include": [
@@ -31,7 +27,5 @@
     "**/*.mjs",
     "**/*.mjsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

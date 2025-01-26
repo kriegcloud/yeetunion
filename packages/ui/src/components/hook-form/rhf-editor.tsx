@@ -8,7 +8,7 @@ import type { EditorProps } from "../editor";
 // ----------------------------------------------------------------------
 
 export type RHFEditorProps = EditorProps & {
-  name: string;
+  name?: string;
 };
 
 export function RHFEditor({ name, helperText, ...other }: RHFEditorProps) {
@@ -19,7 +19,7 @@ export function RHFEditor({ name, helperText, ...other }: RHFEditorProps) {
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <Editor

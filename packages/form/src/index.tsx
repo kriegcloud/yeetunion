@@ -2,8 +2,8 @@ export * from "./core";
 export * from "./fields";
 export * from "./mui";
 import Button from "@mui/material/Button";
-import {Effect, Layer, Logger, pipe} from "effect";
-import {MuiFields} from "./mui";
+import { Effect, Layer, Logger, pipe } from "effect";
+import { MuiFields } from "./mui";
 import { layer } from "./react-hook-form";
 export const MuiReactHookFormLive = pipe(
   MuiFields.layer,
@@ -12,7 +12,7 @@ export const MuiReactHookFormLive = pipe(
 
 export const simulateSubmit = (values: unknown) =>
   pipe(
-    Effect.log("submitting", {values}),
+    Effect.log("submitting", { values }),
     Effect.andThen(Effect.sleep(1000)),
     Effect.provide(Logger.pretty),
     Effect.runPromise,

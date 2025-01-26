@@ -1,1 +1,2 @@
-export * from "./TextField.js"
+export * from "./TextField";
+export { default as TextFieldElement } from "./Element";

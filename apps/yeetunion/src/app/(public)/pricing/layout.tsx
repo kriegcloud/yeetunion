@@ -1,4 +1,4 @@
-import { SimpleLayout } from '@ye/ui/layouts';
+import { SimpleLayout } from "@ye/ui/layouts";
 
 // ----------------------------------------------------------------------
 

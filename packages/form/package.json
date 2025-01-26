@@ -54,8 +54,10 @@
     "@mui/material": "^6.4.1"
   },
   "dependencies": {
-    "@ye/ui": "workspace:^",
+    "@mui/icons-material": "^6.4.1",
+    "@ye/i18n": "workspace:^",
     "@ye/primitives": "workspace:^",
+    "@ye/ui": "workspace:^",
     "react-hook-form-mui": "^7.5.0"
   }
 }

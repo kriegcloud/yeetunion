@@ -23,3 +23,4 @@ export * from "./iconify";
 export * from "./snackbar";
 export * from "./nav-section";
 export * from "./progress-bar";
+export * from "./phone-input";

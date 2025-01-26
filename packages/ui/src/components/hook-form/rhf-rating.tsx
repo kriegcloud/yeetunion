@@ -8,12 +8,13 @@ import { Controller, useFormContext } from "react-hook-form";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 
+import React from "react";
 import { HelperText } from "./help-text";
 
 // ----------------------------------------------------------------------
 
 export type RHFRatingProps = RatingProps & {
-  name: string;
+  name?: string;
   helperText?: React.ReactNode;
   slotProps?: {
     wrapper?: BoxProps;
@@ -31,7 +32,7 @@ export function RHFRating({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <Box

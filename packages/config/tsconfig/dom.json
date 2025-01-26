@@ -4,5 +4,6 @@
   "extends": "./base.json",
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"]
-  }
+  },
+  "exclude": ["dist", "node_modules"]
 }

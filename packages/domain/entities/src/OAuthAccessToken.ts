@@ -1,10 +1,10 @@
-import { UserId } from "./User.js";
 /**
  * @since 0.1.0
  * @category entities
  */
 import ye from "@ye/primitives";
 import * as S from "effect/Schema";
+import { UserId } from "./User.js";
 
 /**
  * @since 0.1.0

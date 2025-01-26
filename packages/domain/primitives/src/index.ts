@@ -90,6 +90,18 @@ import * as Uuid from "./Uuid";
  */
 import * as DateTime from "./DateTime";
 
+/**
+ * @category primitives
+ * @since 0.1.0
+ */
+import * as Phone from "./Phone";
+
+/**
+ * @category primitives
+ * @since 0.1.0
+ */
+import * as File from "./File";
+
 export default {
   ...Builder,
   ...Bool,
@@ -106,4 +118,6 @@ export default {
   ...Url,
   ...Utils,
   ...Uuid,
+  ...Phone,
+  ...File,
 };

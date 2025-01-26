@@ -504,10 +504,7 @@ export const COUNTRIES = [
   { code: "ZM", label: "Zambia", phone: "260" },
   { code: "ZW", label: "Zimbabwe", phone: "263" },
 ] as const;
-
-// export const CountryCodeEnum = ye.Utils.EnumFromReadonlyArray(
-//   COUNTRY_CODES.map((c) => ),
-// );
+export type Countries = typeof COUNTRIES;
 
 export const DATA_TABLE_MESSAGES = [
   "actions",
@@ -698,7 +695,7 @@ export const LocaleNumberFormatUnion = S.Union(
 
   // Additional Locales here
 );
-const CountryCodeUnion = S.Union(
+export const CountryCodeUnion = S.Union(
   ...COUNTRY_CODES.map((c) => S.Literal(c.code)),
 );
 export const LangOption = S.Struct({

@@ -13,7 +13,7 @@ import type { UploadProps } from "../upload";
 // ----------------------------------------------------------------------
 
 export type RHFUploadProps = UploadProps & {
-  name: string;
+  name?: string;
   slotProps?: {
     wrapper?: BoxProps;
   };
@@ -24,13 +24,13 @@ export function RHFUploadAvatar({ name, slotProps, ...other }: RHFUploadProps) {
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => {
         const onDrop = (acceptedFiles: File[]) => {
           const value = acceptedFiles[0];
 
-          setValue(name, value, { shouldValidate: true });
+          setValue(name as string, value, { shouldValidate: true });
         };
 
         return (
@@ -60,7 +60,7 @@ export function RHFUploadBox({ name, ...other }: RHFUploadProps) {
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <UploadBox value={field.value} error={!!error} {...other} />
@@ -81,7 +81,7 @@ export function RHFUpload({
 
   return (
     <Controller
-      name={name}
+      name={name as string}
       control={control}
       render={({ field, fieldState: { error } }) => {
         const uploadProps = {
@@ -96,7 +96,7 @@ export function RHFUpload({
             ? [...field.value, ...acceptedFiles]
             : acceptedFiles[0];
 
-          setValue(name, value, { shouldValidate: true });
+          setValue(name as string, value, { shouldValidate: true });
         };
 
         return (

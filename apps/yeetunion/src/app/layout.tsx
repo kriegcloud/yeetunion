@@ -52,9 +52,7 @@ async function getAppConfig() {
   };
 }
 
-export default async function RootLayout({
-  children,
-}: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
   const appConfig = await getAppConfig();
 
   const messages = await getMessages();

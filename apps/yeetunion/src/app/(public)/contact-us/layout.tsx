@@ -1,4 +1,4 @@
-import { MainLayout } from '@ye/ui/layouts';
+import { MainLayout } from "@ye/ui/layouts";
 
 // ----------------------------------------------------------------------
 

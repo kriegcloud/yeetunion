@@ -1,9 +1,7 @@
-import {UpdatePassword} from "@ye/ui/views";
+import { UpdatePassword } from "@ye/ui/views";
 
 const Page = () => {
-  return (
-    <UpdatePassword />
-  )
-}
+  return <UpdatePassword />;
+};
 
 export default Page;

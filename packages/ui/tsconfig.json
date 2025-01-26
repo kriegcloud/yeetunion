@@ -1,5 +1,4 @@
 {
   "extends": ["@ye/tsconfig/react.json"],
-  "compilerOptions": {
-  }
+  "exclude": ["dist", "node_modules"]
 }
