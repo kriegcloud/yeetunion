@@ -14,13 +14,15 @@ import { formatPatterns } from "@ye/utils/dayjs";
 
 // ----------------------------------------------------------------------
 
-type RHFDatePickerProps = DatePickerProps<Dayjs> & {
+export type RHFDatePickerProps = DatePickerProps<Dayjs> & {
   name?: string;
+  ref: any;
 };
 
 export function RHFDatePicker({
   name,
   slotProps,
+  ref,
   ...other
 }: RHFDatePickerProps) {
   const { control } = useFormContext();
@@ -28,6 +30,7 @@ export function RHFDatePicker({
   return (
     <Controller
       name={name as string}
+      shouldUnregister={true}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <DatePicker

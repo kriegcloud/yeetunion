@@ -1,102 +1,36 @@
 "use client";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import {
-  Checkbox,
-  CheckboxButtonGroup,
-  // Autocomplete,
-  Code,
-  // MobileDatePicker,
-  DateFnsProvider,
-  // CountrySelect,
-  // DatePicker,
-  // DateTimePicker,
-  Editor,
-  FormBody,
-  FormDisplay,
-  MuiReactHookFormLive,
-  MultiSelect,
-  // NumberField,
-  Password,
-  PasswordRepeat,
-  // PhoneField,
-  // RadioButtonGroup,
-  // Rating,
-  // Select,
-  Slider,
-  Switch,
-  TextField,
-  Textarea,
-  reportError,
-  simulateSubmit,
-  // ToggleButtonGroup,
-  // Upload,
-} from "@ye/form";
 import { SplashScreen } from "@ye/ui/components";
-import { Effect } from "effect";
-import { pipe } from "effect/Function";
 import React, { useState } from "react";
 
-const body = FormBody.struct({
-  // autocomplete: Autocomplete.RequiredWithLiterals("react", "svelte", "ng", "vue"),
-  checkbox: Checkbox.Default,
-  checkboxButtonGroup: CheckboxButtonGroup.Default(
-    "react",
-    "svelte",
-    "ng",
-    "vue",
-  ),
-  code: Code.Required,
-  multiSelect: MultiSelect.Default("react", "svelte", "ng", "vue"),
-  // numberField: NumberField.Required,
-  password: Password.Required,
-  passwordRepeat: PasswordRepeat.Required,
-  // phoneField: PhoneField.Required,
-  // radioButtonGroup: RadioButtonGroup.Default("react", "svelte", "ng", "vue"),
-  // rating: Rating.Required,
-  // select: Select.Default([
-  //   { value: "react", label: "React" },
-  //   { value: "svelte", label: "Svelte" },
-  //   { value: "ng", label: "Angular" },
-  //   { value: "vue", label: "Vue" },
-  // ]),
-  slider: Slider.Required,
-  switch: Switch.Default,
-  textarea: Textarea.Required,
-  // toggleButtonGroup: ToggleButtonGroup.Default("react", "svelte", "ng", "vue"),
-  // upload: Upload.Required,
-  textfield: TextField.Required,
-  // datePicker: DatePicker.Required,
-  // dateTimePicker: DateTimePicker.Required,
-  editor: Editor.Required,
-  // mobileDatePicker: MobileDatePicker.Required,
-});
-
-const Display = pipe(
-  FormDisplay.make(body),
-  Effect.provide(MuiReactHookFormLive),
-  Effect.runSync,
-);
+import { useRouter } from "@ye/i18n";
+import { authClient } from "@ye/auth/client";
+import {useEffectForm} from "@ye/utils/hooks";
+import {SigninInput} from "@ye/value-objects";
+import type {SubmitHandler} from "react-hook-form";
+import {Field, Form, FormHead, SubmitButton} from "@ye/ui/components";
+import { FormDivider, FormSocials } from "@ye/ui/views";
+import Link from "@mui/material/Link";
+import {Link as RouterLink} from "@ye/i18n";
+import Box from "@mui/material/Box";
+import {Button, Stack} from "@mui/material";
 
 const Page = () => {
-  // const router = useRouter();
-  const [isLoading, _setIsLoading] = useState(false);
-  // const onSuccess = () => {
-  //   router.push("/dashboard");
-  //   router.refresh();
-  //   setIsLoading(false)
-  // }
+  const [isLoading, setIsLoading] = useState(false);
+  const onSuccess = () => {
+    router.push("/dashboard");
+    setIsLoading(false)
+  }
 
-  // const signInWithEmail = async (email: string, password: string) => {
-  //   setIsLoading(true);
-  //   await authClient.signIn.email({
-  //     email,
-  //     password
-  //   }, {
-  //     onSuccess
-  //   });
-  // }
-  //
+  const signInWithEmail = async (email: string, password: string) => {
+    setIsLoading(true);
+    await authClient.signIn.email({
+      email,
+      password
+    }, {
+      onSuccess
+    });
+  }
+
   // const signUpWithEmail = async (name: string, email: string, password: string) => {
   //   setIsLoading(true);
   //   await authClient.signUp.email({
@@ -113,100 +47,120 @@ const Page = () => {
     return <SplashScreen />;
   }
 
+
+  const router = useRouter();
+
+  const methods = useEffectForm({
+    schema: SigninInput,
+  })
+
+  const onSubmit: SubmitHandler<SigninInput> = async (data) => {
+    try {
+      await signInWithEmail(data.email, data.password);
+      router.refresh();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <DateFnsProvider>
-      <Display.Form
-        onSubmit={({ encoded }) => simulateSubmit(encoded)}
-        onError={reportError}
-        validationMode="onSubmit"
-      >
-        <Grid container spacing={5}>
-          <Grid item xs={12}>
-            <Display.checkbox label={"checkbox"} />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.checkboxButtonGroup
-              label="checkbox group"
-              options={["react", "svelte", "ng", "vue"] as const}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.code />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.multiSelect
-              options={["react", "svelte", "ng", "vue"] as const}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.password name={"password"} />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.passwordRepeat
-              name={"passwordRepeat"}
-              passwordFieldName={"password"}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.slider />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.switch label="switch" />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.textarea name={"textarea"} />
-          </Grid>
-          <Grid item xs={12}>
-            <Display.editor />
-          </Grid>
-          <Display.textfield label="textfield" />
-          <Stack direction={"row"}>
-            <Display.Clear>clear</Display.Clear>
-            <Display.Submit>submit</Display.Submit>
-          </Stack>
-        </Grid>
-      </Display.Form>
-    </DateFnsProvider>
+    <Form formContext={methods} onSuccess={onSubmit}>
+      <FormHead
+        title="Sign in to your account"
+        description={
+          <>
+            {`Don’t have an account? `}
+            <Link
+              component={RouterLink}
+              href={"/auth/signup"}
+              variant="subtitle2"
+            >
+              Get started
+            </Link>
+          </>
+        }
+        sx={{textAlign: {xs: "center", md: "left"}}}
+      />
+      <Box sx={{gap: 3, display: "flex", flexDirection: "column"}}>
+        <Field.Text
+          name="email"
+          label="Email address"
+          slotProps={{inputLabel: {shrink: true}}}
+        />
+
+        <Box sx={{gap: 1.5, display: "flex", flexDirection: "column"}}>
+          <Link
+            component={RouterLink}
+            href="#"
+            variant="body2"
+            color="inherit"
+            sx={{alignSelf: "flex-end"}}
+          >
+            Forgot password?
+          </Link>
+          <Field.Password
+            name="password"
+            label="Password"
+            placeholder="6+ characters"
+          />
+          <Field.Checkbox label={"Remember me"} name="rememberMe"/>
+        </Box>
+        <SubmitButton
+          fullWidth
+          color="inherit"
+          size="large"
+          variant="contained"
+          loadingIndicator="Sign in..."
+        >
+          Sign in
+        </SubmitButton>
+      </Box>
+      <FormDivider />
+      <Stack spacing={2}>
+        <FormSocials
+          signInWithTwitter={async () => {
+            await authClient.signIn.social({
+              provider: "twitter",
+              callbackURL: "/dashboard",
+            });
+          }}
+          signInWithLinkedIn={async () => {
+            await authClient.signIn.social({
+              provider: "linkedin",
+              callbackURL: "/dashboard",
+            });
+          }}
+          signInWithDiscord={async () => {
+            await authClient.signIn.social({
+              provider: "discord",
+              callbackURL: "/dashboard",
+            });
+          }}
+          signInWithGoogle={async () => {
+            await authClient.signIn.social({
+              provider: "google",
+              callbackURL: "/dashboard",
+            });
+          }}
+        />
+        <Button fullWidth={true} variant={"contained"} onClick={async () => {
+          await authClient.signIn.passkey({
+            fetchOptions: {
+              onSuccess() {
+                router.push("/dashboard");
+              },
+              onError(context) {
+                console.error(context.error.message)
+              },
+            },
+          });
+        }}>
+          Sign-in with Passkey
+        </Button>
+      </Stack>
+    </Form>
   );
-  // return (
-  //   <AuthProvider
-  //     signUpWithEmail={signUpWithEmail}
-  //     signInWithEmail={signInWithEmail}
-  //     signInWithGoogle={async () => {
-  //       await authClient.signIn.social({
-  //         provider: "google",
-  //         callbackURL: "/dashboard",
-  //       }, {
-  //         onSuccess
-  //       });
-  //     }}
-  //     signInWithTwitter={async () => {
-  //       await authClient.signIn.social({
-  //         provider: "twitter",
-  //         callbackURL: "/dashboard",
-  //       }, {
-  //         onSuccess
-  //       });
-  //     }}
-  //     signInWithDiscord={async () => {
-  //       await authClient.signIn.social({
-  //         provider: "discord",
-  //         callbackURL: "/dashboard",
-  //       }, {
-  //         onSuccess
-  //       });
-  //     }}
-  //     signInWithLinkedIn={async () => {
-  //       await authClient.signIn.social({
-  //         provider: "linkedin",
-  //       }, {
-  //         onSuccess
-  //       });
-  //     }}
-  //   >
-  //     <Login/>
-  //   </AuthProvider>
-  // )
+
 };
 
 export default Page;

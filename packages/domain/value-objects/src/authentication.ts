@@ -1,5 +1,4 @@
 import ye from "@ye/primitives";
-import { JSONSchema } from "effect";
 /**
  * @since 0.1.0
  * @category value-objects
@@ -14,7 +13,7 @@ import * as S from "effect/Schema";
  * @since 0.1.0
  * @category value-objects
  */
-const SigninInput = S.Struct({
+export const SigninInput = S.Struct({
   email: ye.Email,
   password: ye.Str,
   rememberMe: ye.BoolOptional,
@@ -25,12 +24,6 @@ const SigninInput = S.Struct({
  * @category value-objects
  */
 export type SigninInput = typeof SigninInput.Type;
-
-/**
- * @since 0.1.0
- * @category value-objects
- */
-export const SigninInputSchema = JSONSchema.make(SigninInput);
 
 /*----------------------------------------------------------------------------------------------------------------------
  |  TITLE: Signup
@@ -52,12 +45,6 @@ export const SignupInput = S.Struct({
  */
 export type SignupInput = typeof SignupInput.Type;
 
-/**
- * @since 0.1.0
- * @category value-objects
- */
-export const SignupInputSchema = JSONSchema.make(SignupInput);
-
 /*----------------------------------------------------------------------------------------------------------------------
  |  TITLE: Forgot Password
  *--------------------------------------------------------------------------------------------------------------------*/
@@ -74,13 +61,6 @@ export const ForgotPasswordInput = S.Struct({
  */
 export type ForgotPasswordInput = typeof ForgotPasswordInput.Type;
 
-/**
- * @since 0.1.0
- * @category value-objects
- */
-
-export const ForgotPasswordInputSchema = JSONSchema.make(ForgotPasswordInput);
-
 /*----------------------------------------------------------------------------------------------------------------------
  |  TITLE: Reset Password
  *--------------------------------------------------------------------------------------------------------------------*/
@@ -95,12 +75,6 @@ export const ResetPasswordInput = S.Struct({
  * @category value-objects
  */
 export type ResetPasswordInput = typeof ResetPasswordInput.Type;
-
-/**
- * @since 0.1.0
- * @category value-objects
- */
-export const ResetPasswordInputSchema = JSONSchema.make(ResetPasswordInput);
 
 /*----------------------------------------------------------------------------------------------------------------------
  |  TITLE: Two Factor
@@ -119,9 +93,3 @@ export const TwoFactorInput = S.Struct({
  * @category value-objects
  */
 export type TwoFactorInput = typeof TwoFactorInput.Type;
-
-/**
- * @since 0.1.0
- * @category value-objects
- */
-export const TwoFactorInputSchema = JSONSchema.make(TwoFactorInput);

@@ -1,4 +1,9 @@
 {
   "extends": ["@ye/tsconfig/react.json"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+    "compilerOptions": {
+      "paths": {
+        "#*": ["./src/*"]
+      }
+    }
 }

@@ -1,17 +1,27 @@
-import { RHFAutocomplete } from "./rhf-autocomplete";
-import { RHFCheckbox, RHFMultiCheckbox } from "./rhf-checkbox";
+
+import {
+  AutocompleteElement,
+  CheckboxButtonGroup,
+  CheckboxElement,
+  TextFieldElement,
+  MultiSelectElement,
+  PasswordElement,
+  PasswordRepeatElement,
+  RadioButtonGroup,
+  SelectElement,
+  SliderElement,
+  SwitchElement,
+  TextareaAutosizeElement,
+  ToggleButtonGroupElement,
+} from "react-hook-form-mui"
 import { RHFCode } from "./rhf-code";
 import { RHFCountrySelect } from "./rhf-country-select";
 import { RHFDatePicker, RHFMobileDateTimePicker } from "./rhf-date-picker";
 import { RHFEditor } from "./rhf-editor";
 import { RHFNumberInput } from "./rhf-number-input";
 import { RHFPhoneInput } from "./rhf-phone-input";
-import { RHFRadioGroup } from "./rhf-radio-group";
 import { RHFRating } from "./rhf-rating";
-import { RHFMultiSelect, RHFSelect } from "./rhf-select";
-import { RHFSlider } from "./rhf-slider";
-import { RHFMultiSwitch, RHFSwitch } from "./rhf-switch";
-import { RHFTextField } from "./rhf-text-field";
+import { RHFMultiSwitch } from "./rhf-switch";
 import { RHFUpload, RHFUploadAvatar, RHFUploadBox } from "./rhf-upload";
 
 // ----------------------------------------------------------------------
@@ -19,23 +29,27 @@ import { RHFUpload, RHFUploadAvatar, RHFUploadBox } from "./rhf-upload";
 export const Field = {
   Code: RHFCode,
   Editor: RHFEditor,
-  Select: RHFSelect,
+  Select: SelectElement,
   Upload: RHFUpload,
-  Switch: RHFSwitch,
-  Slider: RHFSlider,
+  Switch: SwitchElement,
+  Slider: SliderElement,
+  Password: PasswordElement,
+  PasswordRepeat: PasswordRepeatElement,
   Rating: RHFRating,
-  Text: RHFTextField,
+  Text: TextFieldElement,
+  TextareaAutosizeElement: TextareaAutosizeElement,
   Phone: RHFPhoneInput,
-  Checkbox: RHFCheckbox,
+  Checkbox: CheckboxElement,
   UploadBox: RHFUploadBox,
-  RadioGroup: RHFRadioGroup,
+  RadioGroup: RadioButtonGroup,
   DatePicker: RHFDatePicker,
   NumberInput: RHFNumberInput,
-  MultiSelect: RHFMultiSelect,
+  MultiSelect: MultiSelectElement,
   MultiSwitch: RHFMultiSwitch,
   UploadAvatar: RHFUploadAvatar,
-  Autocomplete: RHFAutocomplete,
-  MultiCheckbox: RHFMultiCheckbox,
+  ToggleButtonGroup: ToggleButtonGroupElement,
+  Autocomplete: AutocompleteElement,
+  CheckboxButtonGroup: CheckboxButtonGroup,
   CountrySelect: RHFCountrySelect,
   MobileDateTimePicker: RHFMobileDateTimePicker,
 };

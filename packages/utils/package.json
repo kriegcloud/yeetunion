@@ -83,6 +83,9 @@
   "devDependencies": {
     "@ye/tsconfig": "workspace:^"
   },
+  "peerDependencies": {
+    "effect": "latest"
+  },
   "dependencies": {
     "dayjs": "^1.11.13",
     "react-use": "^17.6.0"
