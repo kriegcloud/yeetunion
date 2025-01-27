@@ -18,10 +18,11 @@
     "generate": "bunx @better-auth/cli@latest generate --output '../db/src/schema/auth-schema.ts' --y && bun turbo run lint:fix --filter=@ye/db"
   },
   "dependencies": {
-    "@ye/email": "workspace:^",
-    "@ye/entities": "workspace:^",
+    "@effect/platform": "^0.75.1",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@ye/db": "workspace:^",
+    "@ye/email": "workspace:^",
+    "@ye/entities": "workspace:^",
     "better-auth": "latest",
     "effect": "latest",
     "next": "^15.1.6",

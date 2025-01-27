@@ -2,49 +2,59 @@
 import React from "react";
 import Alert from "@mui/material/Alert";
 import {useRouter} from "next/navigation";
-import {signInRequest} from "@ye/auth/client";
+import {authClient, signInRequest} from "@ye/auth/client";
 import {useEffectForm} from "@ye/utils/hooks";
-import {SigninInput} from "@ye/value-objects";
+import {SignupInput} from "@ye/value-objects";
 import type {SubmitHandler} from "react-hook-form";
 import {Field, Form, FormHead, SubmitButton} from "@ye/ui/components";
 import {FormDivider, FormSocials} from "@ye/ui/views";
 import Link from "@mui/material/Link";
 import {Link as RouterLink} from "@ye/i18n";
 import Box from "@mui/material/Box";
-import {Button, Stack} from "@mui/material";
+import {Stack} from "@mui/material";
 import {useState} from "react";
-
 
 const Page = () => {
   const router = useRouter();
-  const formCtx = useEffectForm({
-    schema: SigninInput,
-    defaultValues: {
-      rememberMe: false,
-    }
-  })
   const [error, setError] = useState<string | null>(null);
+  const formCtx = useEffectForm({
+    schema: SignupInput,
+  });
 
-  const onSubmit: SubmitHandler<SigninInput> = async (data) =>
-    signInRequest({
-      provider: "credentials",
-      payload: data,
-      onError: (message) => setError(message),
-    });
+  const onSubmit: SubmitHandler<SignupInput> = async (data) => {
+    if (data.password !== data.passwordConfirmation) {
+      setError("Passwords do not match");
+      return;
+    }
+    await authClient.signUp.email({
+      email: data.email,
+      password: data.password,
+      name: data.name,
+      callbackURL: "/dashboard",
+      fetchOptions: {
+        onError: (ctx) => {
+          setError(ctx.error.message);
+        },
+        onSuccess: async () => {
+          router.push("/dashboard")
+        }
+      },
+    })
+  }
 
   return (
     <Form formContext={formCtx} onSuccess={onSubmit}>
       <FormHead
-        title="Sign in to your account"
+        title="Create a new Account"
         description={
           <>
-            {`Don’t have an account? `}
+            {`Already have an account? `}
             <Link
               component={RouterLink}
-              href={"/sign-up"}
+              href={"/sign-in"}
               variant="subtitle2"
             >
-              Get started
+              sign-in
             </Link>
           </>
         }
@@ -57,27 +67,15 @@ const Page = () => {
       )}
       <Box sx={{gap: 3, display: "flex", flexDirection: "column"}}>
         <Field.Text
-          name="email"
-          label="Email address"
-          slotProps={{inputLabel: {shrink: true}}}
-        />
-        <Box sx={{gap: 1.5, display: "flex", flexDirection: "column"}}>
-          <Link
-            component={RouterLink}
-            href="#"
-            variant="body2"
-            color="inherit"
-            sx={{alignSelf: "flex-end"}}
-          >
-            Forgot password?
-          </Link>
-          <Field.Password
-            name="password"
-            label="Password"
-            placeholder="6+ characters"
-          />
-          <Field.Checkbox label={"Remember me"} name="rememberMe"/>
-        </Box>
+          name={"name"}
+          label={"Full Name"} slotProps={{
+            inputLabel: {
+              shrink: true
+            }
+        }} />
+        <Field.Text type={"email"} name={"email"} label={"Email"} />
+        <Field.Password name={"password"} label={"Password"} placeholder={"6+ characters"} />
+        <Field.PasswordRepeat name={"passwordConfirmation"} passwordFieldName={"password"} label={"Confirm Password"} />
         <SubmitButton
           fullWidth
           color="inherit"
@@ -88,7 +86,7 @@ const Page = () => {
           Sign in
         </SubmitButton>
       </Box>
-      <FormDivider/>
+      <FormDivider />
       <Stack spacing={2}>
         <FormSocials
           signInWithTwitter={async () => {
@@ -116,21 +114,9 @@ const Page = () => {
             })
           }}
         />
-        <Button fullWidth={true} variant={"contained"} onClick={async () => {
-          await signInRequest({
-            provider: "passkey",
-            onError: (message) => setError(message),
-            onSuccess: () => {
-              router.push("/dashboard")
-            }
-          })
-        }}>
-          Sign-in with Passkey
-        </Button>
       </Stack>
     </Form>
-  );
-
-};
+  )
+}
 
 export default Page;

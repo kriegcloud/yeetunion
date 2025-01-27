@@ -48,6 +48,7 @@ export type DashboardLayoutProps = LayoutBaseProps & {
     };
     main?: MainSectionProps;
   };
+  handleSignOut: () => Promise<void>;
 };
 
 export function DashboardLayout({
@@ -55,6 +56,7 @@ export function DashboardLayout({
   cssVars,
   children,
   slotProps,
+  handleSignOut,
   layoutQuery = "lg",
 }: DashboardLayoutProps) {
   const theme = useTheme();
@@ -167,7 +169,7 @@ export function DashboardLayout({
           <SettingsButton />
 
           {/** @slot Account drawer */}
-          <AccountDrawer data={_account} />
+          <AccountDrawer data={_account} handleSignOut={handleSignOut}/>
         </Box>
       ),
     };

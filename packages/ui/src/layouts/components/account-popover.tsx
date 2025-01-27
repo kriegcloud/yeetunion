@@ -1,21 +1,22 @@
 import type { IconButtonProps } from "@mui/material/IconButton";
 
 import { usePopover } from "@ye/utils/hooks";
-
+import {useSession} from "@ye/auth/client";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
-import Typography from "@mui/material/Typography";
 
 import RouterLink from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Label, Popover } from "../../components";
+import { Label, Popover } from "#components";
 
 import { AccountButton } from "./account-button";
 import { SignOutButton } from "./sign-out-button";
+import React from "react";
+import Avatar from "@mui/material/Avatar";
 
 // ----------------------------------------------------------------------
 
@@ -26,18 +27,18 @@ export type AccountPopoverProps = IconButtonProps & {
     icon?: React.ReactNode;
     info?: React.ReactNode;
   }[];
+  handleSignOut: () => Promise<void>;
 };
 
 export function AccountPopover({
   data = [],
   sx,
+  handleSignOut,
   ...other
 }: AccountPopoverProps) {
   const pathname = usePathname();
-
+  const { data: currentUser } = useSession();
   const { open, anchorEl, onClose, onOpen } = usePopover();
-
-  // const { user } = useMockedUser();
 
   const renderMenuActions = () => (
     <Popover
@@ -47,13 +48,13 @@ export function AccountPopover({
       slotProps={{ paper: { sx: { p: 0, width: 200 } }, arrow: { offset: 20 } }}
     >
       <Box sx={{ p: 2, pb: 1.5 }}>
-        <Typography variant="subtitle2" noWrap>
-          TODO USERNAME
-        </Typography>
-
-        <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
-          TODO EMAIL
-        </Typography>
+        <Avatar sx={{
+          width: 48,
+          height: 48,
+          bgcolor: "primary.main",
+          color: "primary.contrastText",
+          fontSize: 24,
+        }} src={currentUser?.user.image || ""} alt={currentUser?.user.name}/>
       </Box>
 
       <Divider sx={{ borderStyle: "dashed" }} />
@@ -105,7 +106,7 @@ export function AccountPopover({
       <Divider sx={{ borderStyle: "dashed" }} />
 
       <Box sx={{ p: 1 }}>
-        <SignOutButton />
+        <SignOutButton onClick={handleSignOut} />
       </Box>
     </Popover>
   );

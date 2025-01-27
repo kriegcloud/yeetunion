@@ -18,14 +18,17 @@ import Typography from "@mui/material/Typography";
 import RouterLink from "next/link";
 import { usePathname } from "next/navigation";
 
-import { AnimateBorder, Iconify, Label, Scrollbar } from "../../components";
+import { AnimateBorder, Iconify, Label, Scrollbar } from "#components";
 
 import { AccountButton } from "./account-button";
 import { SignOutButton } from "./sign-out-button";
+import React from "react";
+import {useSession} from "@ye/auth/client";
 
 // ----------------------------------------------------------------------
 
 export type AccountDrawerProps = IconButtonProps & {
+  handleSignOut: () => Promise<void>;
   data?: {
     label: string;
     href: string;
@@ -34,10 +37,10 @@ export type AccountDrawerProps = IconButtonProps & {
   }[];
 };
 
-export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
+export function AccountDrawer({ data = [], handleSignOut, sx, ...other }: AccountDrawerProps) {
   const pathname = usePathname();
 
-  // const { user } = useMockedUser();
+  const { data: currentUser } = useSession();
 
   const { value: open, onFalse: onClose, onTrue: onOpen } = useBoolean();
 
@@ -48,9 +51,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
         primaryBorder: { size: 120, sx: { color: "primary.main" } },
       }}
     >
-      <Avatar src={"TODO"} alt={"TODO"} sx={{ width: 1, height: 1 }}>
-        {"TODO"?.charAt(0).toUpperCase()}
-      </Avatar>
+      <Avatar src={currentUser?.user.image || ""} alt={currentUser?.user.name} sx={{ width: 1, height: 1 }} />
     </AnimateBorder>
   );
 
@@ -114,8 +115,8 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
     <>
       <AccountButton
         onClick={onOpen}
-        photoURL={"TODO"}
-        displayName={"TODO"}
+        photoURL={currentUser?.user.image || ""}
+        displayName={currentUser?.user.name || ""}
         sx={sx}
         {...other}
       />
@@ -151,7 +152,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
             {renderAvatar()}
 
             <Typography variant="subtitle1" noWrap sx={{ mt: 2 }}>
-              TODO
+              {currentUser?.user.name}
             </Typography>
 
             <Typography
@@ -159,7 +160,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
               sx={{ color: "text.secondary", mt: 0.5 }}
               noWrap
             >
-              TODO EMAIL
+              {currentUser?.user.email}
             </Typography>
           </Box>
 
@@ -206,7 +207,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
         </Scrollbar>
 
         <Box sx={{ p: 2.5 }}>
-          <SignOutButton />
+          <SignOutButton onClick={handleSignOut} />
         </Box>
       </Drawer>
     </>

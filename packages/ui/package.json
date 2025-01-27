@@ -65,6 +65,7 @@
     "@mui/material": "^6.4.0"
   },
   "dependencies": {
+    "@ye/auth": "workspace:^",
     "@effect/schema": "^0.75.5",
     "@hookform/devtools": "^4.3.3",
     "@tiptap/core": "^2.11.2",

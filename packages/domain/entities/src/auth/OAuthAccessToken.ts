@@ -4,7 +4,7 @@
  */
 import ye from "@ye/primitives";
 import * as S from "effect/Schema";
-import { UserId } from "./User.js";
+import { UserId } from "./User";
 
 /**
  * @since 0.1.0

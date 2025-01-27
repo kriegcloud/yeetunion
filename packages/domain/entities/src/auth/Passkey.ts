@@ -5,7 +5,7 @@
 import ye from "@ye/primitives";
 import * as S from "effect/Schema";
 import { UserId } from "./User";
-import { baseFields } from "./lib/utils";
+import { baseFields } from "../lib/utils";
 
 /**
  * @since 0.1.0

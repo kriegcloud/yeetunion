@@ -23,14 +23,14 @@ import {
 } from "better-auth/plugins";
 import { passkey } from "better-auth/plugins/passkey";
 
-const SUPPORTED_PROVIDERS = [
+export const SUPPORTED_SOCIAL_PROVIDERS = [
   "discord",
   "twitter",
   "google",
   "linkedin",
 ] as const;
-
-export const ProviderSecrets = {
+export type SupportedSocialProviders = typeof SUPPORTED_SOCIAL_PROVIDERS[number];
+export const SocialProviderSecrets = {
   discord: {
     clientId: "DISCORD_CLIENT_ID",
     clientSecret: "DISCORD_CLIENT_SECRET",
@@ -49,15 +49,15 @@ export const ProviderSecrets = {
   },
 } as const;
 
-const SupportedProviders = SUPPORTED_PROVIDERS.map((provider) => {
+const SupportedSocialProviders = SUPPORTED_SOCIAL_PROVIDERS.map((provider) => {
   if (
-    env[ProviderSecrets[provider].clientId] &&
-    env[ProviderSecrets[provider].clientSecret]
+    env[SocialProviderSecrets[provider].clientId] &&
+    env[SocialProviderSecrets[provider].clientSecret]
   ) {
     return {
       [provider]: {
-        clientId: env[ProviderSecrets[provider].clientId],
-        clientSecret: env[ProviderSecrets[provider].clientSecret],
+        clientId: env[SocialProviderSecrets[provider].clientId],
+        clientSecret: env[SocialProviderSecrets[provider].clientSecret],
       },
     };
   }
@@ -68,6 +68,13 @@ const SupportedProviders = SUPPORTED_PROVIDERS.map((provider) => {
   }
   return acc;
 });
+
+export const SUPPORTED_PROVIDERS = [
+  ...SUPPORTED_SOCIAL_PROVIDERS,
+  "credentials",
+  "passkey",
+] as const;
+export type SupportedProviders = typeof SUPPORTED_PROVIDERS[number];
 
 export const auth = betterAuth({
   appName: "Yeet Union",
@@ -105,9 +112,7 @@ export const auth = betterAuth({
     provider: "pg",
     schema,
   }),
-  socialProviders: {
-    ...SupportedProviders,
-  },
+  socialProviders: SupportedSocialProviders,
   secret: env.BETTER_AUTH_SECRET,
   logger: {
     disabled: env.NODE_ENV === "production",

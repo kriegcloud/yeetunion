@@ -16,7 +16,7 @@ import * as S from "effect/Schema";
 export const SigninInput = S.Struct({
   email: ye.Email,
   password: ye.Str,
-  rememberMe: ye.BoolOptional,
+  rememberMe: ye.BoolWithDefault(false),
 });
 
 /**

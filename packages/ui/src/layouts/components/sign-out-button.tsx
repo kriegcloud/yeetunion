@@ -1,14 +1,15 @@
 import Button from "@mui/material/Button";
 
-// ----------------------------------------------------------------------
-
-export function SignOutButton() {
+type Props = {
+  onClick: () => Promise<void>;
+}
+export function SignOutButton({ onClick }: Props) {
   return (
     <Button
       fullWidth
       size="large"
       color="error"
-      onClick={() => console.log("TODO IMPLEMENT LOGOUT")}
+      onClick={onClick}
     >
       Logout
     </Button>
