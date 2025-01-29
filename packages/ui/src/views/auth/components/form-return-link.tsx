@@ -2,7 +2,7 @@ import type { LinkProps } from "@mui/material/Link";
 
 import Link from "@mui/material/Link";
 
-import { Link as RouterLink } from "@ye/i18n";
+import RouterLink from "next/link";
 
 import { Iconify } from "../../../components/iconify";
 

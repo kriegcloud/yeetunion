@@ -11,6 +11,10 @@
     "#*": "./dist/*"
   },
   "exports": {
+    "./errors": {
+      "types": "./dist/errors/index.d.ts",
+      "default": "./dist/errors/index.js"
+    },
     "./format-number": {
       "types": "./dist/format-number.d.ts",
       "default": "./dist/format-number.js"
@@ -70,6 +74,10 @@
     "./url": {
       "types": "./dist/url.d.ts",
       "default": "./dist/url.js"
+    },
+    "./service": {
+      "types": "./dist/service.d.ts",
+      "default": "./dist/service.js"
     }
   },
   "scripts": {
@@ -83,11 +91,10 @@
   "devDependencies": {
     "@ye/tsconfig": "workspace:^"
   },
-  "peerDependencies": {
-    "effect": "latest"
-  },
   "dependencies": {
+    "effect": "latest",
     "dayjs": "^1.11.13",
+    "http-status-codes": "^2.3.0",
     "react-use": "^17.6.0"
   }
 }

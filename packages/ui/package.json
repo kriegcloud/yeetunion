@@ -83,7 +83,6 @@
     "@ye/env": "workspace:^",
     "@ye/i18n": "workspace:^",
     "@ye/utils": "workspace:^",
-    "@ye/value-objects": "workspace:^",
     "apexcharts": "^4.3.0",
     "autosuggest-highlight": "^3.3.4",
     "embla-carousel-auto-scroll": "^8.5.1",

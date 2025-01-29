@@ -10,7 +10,6 @@ import { TRPCError, initTRPC } from "@trpc/server";
 import { auth } from "@ye/auth";
 import { db } from "@ye/db/client";
 import { Context, Effect } from "effect";
-import { headers } from "next/headers";
 import superjson from "superjson";
 // /**
 //  * Isomorphic Session getter for API requests
@@ -35,13 +34,13 @@ import superjson from "superjson";
  *
  * @see https://trpc.io/docs/server/context
  */
-export const createTRPCContext = async () => {
-  const authHeaders = await headers();
+export const createTRPCContext = async(opts: { headers: Headers })  => {
+
   const session = await auth.api.getSession({
-    headers: authHeaders,
+    headers: opts.headers,
   });
 
-  const source = authHeaders.get("x-trpc-source") ?? "unknown";
+  const source = opts.headers.get("x-trpc-source") ?? "unknown";
   console.log(">>> tRPC Request from", source, "by", session?.user);
 
   return {

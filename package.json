@@ -8,9 +8,8 @@
   "workspaces": [
     "apps/*",
     "packages/services/*",
-    "packages/domain/*",
     "packages/*",
-    "packages/config/*"
+    "packages/configs/*"
   ],
   "scripts": {
     "dev": "bun run turbo dev --concurrency 15",

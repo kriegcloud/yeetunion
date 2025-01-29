@@ -3,7 +3,7 @@
 import NProgress from "nprogress";
 import { Suspense, useEffect } from "react";
 
-import { usePathname, useRouter } from "@ye/i18n";
+import { usePathname, useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 // ----------------------------------------------------------------------
 

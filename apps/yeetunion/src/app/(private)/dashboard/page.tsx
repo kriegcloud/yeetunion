@@ -1,13 +1,13 @@
-"use client";
-import { Typography } from "@mui/material";
-
+import React from "react";
+import { HydrateClient } from "@/trpc/server";
+import {YeComp} from "@/app/_features/ye";
 const Page = () => {
   return (
-    <>
-      {/* TimedMessage will appear for 2 seconds on mount */}
-      {/* This content remains on the page */}
-      <Typography>BEEP</Typography>
-    </>
+    <HydrateClient>
+      <React.Suspense>
+        <YeComp />
+      </React.Suspense>
+    </HydrateClient>
   );
 };
 

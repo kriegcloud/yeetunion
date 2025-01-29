@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
-import { Link } from "@ye/i18n";
+import Link from "next/link";
 
 import { ForbiddenIllustration } from "../../illustrations";
 import { SimpleLayout } from "../../layouts/simple";

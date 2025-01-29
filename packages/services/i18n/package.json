@@ -24,7 +24,7 @@
     "lint:fix": "biome check  --write"
   },
   "dependencies": {
-    "@ye/primitives": "workspace:^",
+    "@ye/domain": "workspace:^",
     "next-intl": "^3.26.3",
     "effect": "latest"
   },

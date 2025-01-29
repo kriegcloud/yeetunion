@@ -1,0 +1,17 @@
+{
+  "default": {
+    "LangOption": {
+      "value": "en",
+      "label": "English",
+      "countryCode": "US",
+      "adapterLocale": "en",
+      "numberFormat": {
+        "code": "en-US",
+        "currency": "USD"
+      }
+    },
+    "Home": {
+      "title": "Home"
+    }
+  }
+}

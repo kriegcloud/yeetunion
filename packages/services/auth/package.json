@@ -22,7 +22,6 @@
     "@t3-oss/env-nextjs": "^0.11.1",
     "@ye/db": "workspace:^",
     "@ye/email": "workspace:^",
-    "@ye/entities": "workspace:^",
     "better-auth": "latest",
     "effect": "latest",
     "next": "^15.1.6",

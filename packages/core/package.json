@@ -29,7 +29,7 @@
     "@ye/tsconfig": "workspace:^"
   },
   "dependencies": {
-    "@ye/primitives": "workspace:^",
+    "@ye/domain": "workspace:^",
     "effect": "latest"
   }
 }

@@ -4,7 +4,7 @@ import Alert from "@mui/material/Alert";
 import {useRouter} from "next/navigation";
 import {authClient, signInRequest} from "@ye/auth/client";
 import {useEffectForm} from "@ye/utils/hooks";
-import {SignupInput} from "@ye/value-objects";
+import {SignupInput} from "@ye/domain/value-objects";
 import type {SubmitHandler} from "react-hook-form";
 import {Field, Form, FormHead, SubmitButton} from "@ye/ui/components";
 import {FormDivider, FormSocials} from "@ye/ui/views";

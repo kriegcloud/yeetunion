@@ -7,15 +7,11 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo",
-    "dev": "tsc -w -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
+    "dev": "tsc --noEmit",
     "lint": "biome check ",
     "lint:fix": "biome check  --write",
     "typecheck": "tsc"
