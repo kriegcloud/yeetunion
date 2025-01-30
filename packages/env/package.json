@@ -11,8 +11,7 @@
     "./shared": "./src/shared.ts",
     "./db": "./src/db.ts",
     "./yeetunion/server": "./src/yeetunion/server.ts",
-    "./yeetunion/client": "./src/yeetunion/client.ts",
-    "./auth": "./src/auth.ts"
+    "./yeetunion/client": "./src/yeetunion/client.ts"
   },
   "scripts": {
     "clean": "bun run rm -rf *.tsbuildinfo .turbo node_modules",

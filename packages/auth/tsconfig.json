@@ -1,6 +1,0 @@
-{
-  "extends": ["@ye/tsconfig/dom.json"],
-  "compilerOptions": {
-    "exactOptionalPropertyTypes": false
-  }
-}

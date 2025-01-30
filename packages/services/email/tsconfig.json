@@ -1,0 +1,4 @@
+{
+  "extends": ["@ye/tsconfig/react.json"],
+  "exclude": ["dist"]
+}

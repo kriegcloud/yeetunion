@@ -1,0 +1,32 @@
+{
+  "name": "@ye/tailwind",
+  "version": "0.4.3",
+  "private": true,
+  "description": "Tailwindcss preset for Yeet Union workspace",
+  "license": "MIT",
+  "author": "Yeet Union",
+  "type": "module",
+  "exports": {
+    ".": "./src/preset.ts"
+  },
+  "scripts": {
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
+    "typecheck": "tsc",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "tailwindcss-animate": "^1.0.7",
+    "windy-radix-palette": "2.0.0-beta.7",
+    "windy-radix-typography": "1.0.0-beta.0"
+  },
+  "devDependencies": {
+    "@ye/tsconfig": "workspace:^",
+    "tailwindcss": "^4.0.0"
+  }
+}

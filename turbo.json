@@ -22,7 +22,7 @@
         ".env.production",
         ".env"
       ],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "build/**"]
     },
     "test:e2e": {
       "dependsOn": ["^build", "build"],

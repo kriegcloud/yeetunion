@@ -6,7 +6,8 @@
       ".tsup/**",
       "dist/**",
       ".turbo",
-      "public/**"
+      "public/**",
+      "build/**"
     ]
   },
   "formatter": {
@@ -39,8 +40,8 @@
         "useExhaustiveDependencies": "off"
       },
       "performance": {
-        "noDelete": "off",
-        "noAccumulatingSpread": "off"
+        "noAccumulatingSpread": "off",
+        "noDelete": "off"
       },
       "suspicious": {
         "noShadowRestrictedNames": "off",

@@ -17,16 +17,6 @@ jobs:
 
     environment: Production
 
-    env:
-
-      # Unkey
-      UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
-      UNKEY_NAMESPACE: ${{ secrets.UNKEY_NAMESPACE }}
-
-      # Posthog
-      NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.PUBLIC_POSTHOG_HOST }}
-      NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,11 +27,4 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Checks
-        run: bun turbo lint typecheck build test:e2e --filter=@ye/web
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: web-playwright-report
-          path: apps/web/playwright-report/
-          retention-days: 30
+        run: bun turbo lint typecheck build --filter=@ye/yeetunion

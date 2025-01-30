@@ -1,0 +1,49 @@
+{
+  "name": "@ye/db",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A database package utilizing drizzle orm.",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "default": "./src/client.ts"
+    },
+    "./schema": {
+      "types": "./dist/schema/index.d.ts",
+      "default": "./src/schema/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
+    "db:check": "drizzle-kit check",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:migrate:drop": "drizzle-kit drop",
+    "db:pull": "drizzle-kit introspect",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "dev": "tsc -w -p tsconfig.build.json",
+    "lint": "biome check ",
+    "lint:fix": "biome check  --write",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@ye/utils": "workspace:^",
+    "@ye/env": "workspace:^",
+    "drizzle-orm": "^0.38.3",
+    "drizzle-zod": "^0.6.1",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "@ye/tsconfig": "workspace:*",
+    "drizzle-kit": "^0.30.1"
+  }
+}

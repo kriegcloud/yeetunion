@@ -1,0 +1,4 @@
+{
+  "extends": ["@ye/tsconfig/dom.json"],
+  "exclude": ["dist", "node_modules"]
+}

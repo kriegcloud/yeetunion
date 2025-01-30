@@ -7,10 +7,12 @@
   "type": "module",
   "workspaces": [
     "apps/*",
+    "packages/services/*",
     "packages/*",
-    "packages/config/*"
+    "packages/configs/*"
   ],
   "scripts": {
+    "dev": "bun run turbo dev --concurrency 15",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
@@ -33,8 +35,5 @@
     "typescript": "latest",
     "yargs": "latest"
   },
-  "packageManager": "bun@1.1.26",
-  "dependencies": {
-    "react-colorful": "^5.6.1"
-  }
+  "packageManager": "bun@1.1.26"
 }

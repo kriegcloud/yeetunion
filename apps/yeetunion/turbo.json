@@ -3,10 +3,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": [
-        "^build"
-        //  "^db:migrate"
-      ],
+      "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"],
       "passThroughEnv": ["ANALYZE", "NEXT_RUNTIME"]
     },

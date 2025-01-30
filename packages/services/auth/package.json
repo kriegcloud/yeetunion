@@ -1,0 +1,35 @@
+{
+  "name": "@ye/auth",
+  "version": "0.1.0",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts",
+    "./types": "./src/types.ts",
+    "./middleware": "./src/middleware.ts"
+  },
+  "scripts": {
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
+    "dev": "tsc --noEmit",
+    "lint": "biome check ",
+    "lint:fix": "biome check  --write",
+    "typecheck": "tsc",
+    "generate": "bunx @better-auth/cli@latest generate --output '../db/src/schema/auth-schema.ts' --y && bun turbo run lint:fix --filter=@ye/db"
+  },
+  "dependencies": {
+    "@effect/platform": "^0.75.1",
+    "@t3-oss/env-nextjs": "^0.11.1",
+    "@ye/db": "workspace:^",
+    "@ye/email": "workspace:^",
+    "better-auth": "latest",
+    "effect": "latest",
+    "next": "^15.1.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@ye/tsconfig": "workspace:^"
+  }
+}

@@ -7,10 +7,61 @@
   "author": "Bois",
   "sideEffects": false,
   "type": "module",
+  "imports": {
+    "#*": "./dist/*"
+  },
   "exports": {
+    "./errors": {
+      "types": "./dist/errors/index.d.ts",
+      "default": "./dist/errors/index.js"
+    },
+    "./format-number": {
+      "types": "./dist/format-number.d.ts",
+      "default": "./dist/format-number.js"
+    },
+    "./transform-number": {
+      "types": "./dist/transform-number.d.ts",
+      "default": "./dist/transform-number.js"
+    },
+    "./active-link": {
+      "types": "./dist/active-link.d.ts",
+      "default": "./dist/active-link.js"
+    },
+    "./dayjs": {
+      "types": "./dist/dayjs.d.ts",
+      "default": "./dist/dayjs.js"
+    },
+    "./refs": {
+      "types": "./dist/refs.d.ts",
+      "default": "./dist/refs.js"
+    },
+    "./object": {
+      "types": "./dist/object.d.ts",
+      "default": "./dist/object.js"
+    },
+    "./font": {
+      "types": "./dist/font.d.ts",
+      "default": "./dist/font.js"
+    },
+    "./classes": {
+      "types": "./dist/classes.d.ts",
+      "default": "./dist/classes.js"
+    },
+    "./colors": {
+      "types": "./dist/colors.d.ts",
+      "default": "./dist/colors.js"
+    },
+    "./local-storage": {
+      "types": "./dist/local-storage.d.ts",
+      "default": "./dist/local-storage.js"
+    },
     "./hooks": {
       "types": "./dist/hooks/index.d.ts",
       "default": "./dist/hooks/index.js"
+    },
+    "./cookies": {
+      "types": "./dist/cookies.d.ts",
+      "default": "./dist/cookies.js"
     },
     "./createCtx": {
       "types": "./dist/createCtx.d.ts",
@@ -23,6 +74,10 @@
     "./url": {
       "types": "./dist/url.d.ts",
       "default": "./dist/url.js"
+    },
+    "./service": {
+      "types": "./dist/service.d.ts",
+      "default": "./dist/service.js"
     }
   },
   "scripts": {
@@ -37,6 +92,9 @@
     "@ye/tsconfig": "workspace:^"
   },
   "dependencies": {
+    "effect": "latest",
+    "dayjs": "^1.11.13",
+    "http-status-codes": "^2.3.0",
     "react-use": "^17.6.0"
   }
 }

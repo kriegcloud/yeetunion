@@ -1,64 +1,40 @@
-import { AllLocales, AppConfig } from "@/configs/AppConfig";
 import { betterFetch } from "@better-fetch/fetch";
-import { Session } from "better-auth";
-import createMiddleware from "next-intl/middleware";
-import { type NextRequest, NextResponse } from "next/server";
+import type { Session } from "@ye/auth/types";
+import { NextRequest, NextResponse } from "next/server";
 
-// Regex for public paths (e.g., /auth, /discover, or localized versions like /en/auth)
-const publicPaths = new RegExp(`^/(?:${AllLocales.join("|")})?/auth(?:/.*)?$`);
-const publicMatcher = (pathname: string): boolean => {
-  return publicPaths.test(pathname);
-};
-
-const intlMiddleware = createMiddleware({
-  locales: AllLocales,
-  localePrefix: AppConfig.localePrefix,
-  defaultLocale: AppConfig.defaultLocale,
-});
-
-export default async function authMiddleware(request: NextRequest) {
-  const res = NextResponse.next();
-
-  // Apply intl middleware first
-  const intlResult = intlMiddleware(request);
-  if (intlResult?.headers) {
-    for (const [key, value] of intlResult.headers.entries()) {
-      res.headers.set(key, value);
-    }
-  }
-
-  const isPublicPath = publicMatcher(request.nextUrl.pathname);
-
-  if (isPublicPath) {
-    return res;
-  }
-
+export async function middleware(request: NextRequest) {
   const { data: session } = await betterFetch<Session>(
     "/api/auth/get-session",
     {
       baseURL: request.nextUrl.origin,
       headers: {
-        // Get the cookie from the request
+        //get the cookie from the request
         cookie: request.headers.get("cookie") || "",
       },
     },
   );
 
   if (!session) {
-    // Redirect to login page with locale prefix
-    const url = request.nextUrl.clone();
-    const redirect = request.nextUrl.pathname;
-    const locale =
-      intlResult?.headers.get("x-intl-locale") || AppConfig.defaultLocale;
-    url.pathname = `/${locale}/auth/login`;
-    url.searchParams.set("redirect", redirect);
-    return NextResponse.redirect(url);
+    return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 
-  return res;
+  if (
+    session && (
+    request.nextUrl.pathname === "/sign-in" ||
+    request.nextUrl.pathname === "/sign-up"
+  )) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
+
+  if (
+    session.user.role !== "admin" &&
+    request.nextUrl.pathname.startsWith("/admin")
+  ) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
+  return NextResponse.next();
 }
 
-// Adjust the matcher to consider locale prefixes
 export const config = {
-  matcher: ["/", "/(fr|en)/:path*"], // Match all paths, with or without locale
+  matcher: ["/dashboard", "/account"],
 };
