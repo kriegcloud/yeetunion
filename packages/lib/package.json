@@ -1,0 +1,37 @@
+{
+  "name": "@ye/lib",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Common utilities for TheBois",
+  "license": "MIT",
+  "author": "Bois",
+  "sideEffects": false,
+  "type": "module",
+  "imports": {
+    "#*": "./src/*"
+  },
+  "exports": {
+    "./error": {
+      "types": "./dist/error/index.d.ts",
+      "default": "./dist/error/index.js"
+    },
+    "./result": {
+      "types": "./dist/result/index.d.ts",
+      "default": "./dist/result/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo .turbo node_modules",
+    "dev": "tsc -w -p tsconfig.build.json",
+    "typecheck": "tsc",
+    "lint": "biome check ",
+    "lint:fix": "biome check  --write"
+  },
+  "devDependencies": {
+    "@ye/tsconfig": "workspace:^"
+  },
+  "dependencies": {
+    "effect": "latest"
+  }
+}

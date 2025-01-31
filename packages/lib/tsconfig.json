@@ -1,0 +1,11 @@
+{
+  "extends": ["@ye/tsconfig/base.json"],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "paths": {
+      "#/*": [
+        "./src/*"
+      ]
+    }
+  }
+}

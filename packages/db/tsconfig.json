@@ -1,0 +1,10 @@
+{
+  "extends": ["@ye/tsconfig/base.json"],
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": false,
+    "#/*": [
+      "./src/*"
+    ]
+  },
+  "exclude": ["dist", "node_modules"]
+}

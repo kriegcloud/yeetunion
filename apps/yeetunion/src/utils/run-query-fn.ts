@@ -1,5 +1,5 @@
 import { type Cause, Effect, identity, Layer, ManagedRuntime } from "effect";
-import { Result } from "./result";
+import { Result } from '@ye/lib/result';
 
 export const ClientRuntime = ManagedRuntime.make(Layer.empty);
 
@@ -22,11 +22,11 @@ export const createQueryFn =
       effect: Effect.Effect<Ok, Err | Cause.UnknownException>,
     ) => Effect.Effect<Ok, Err | Cause.UnknownException> = identity,
   ) =>
-  () =>
-    createEffectFromResult(queryFn).pipe(
-      effectPipeline,
-      ClientRuntime.runPromise,
-    );
+    () =>
+      createEffectFromResult(queryFn).pipe(
+        effectPipeline,
+        ClientRuntime.runPromise,
+      );
 
 export const createMutationFn = <Ok, Err>(
   mutateFn: () => Promise<Result<Ok, Err>>,

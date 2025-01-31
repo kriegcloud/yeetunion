@@ -11,10 +11,6 @@
     "#*": "./dist/*"
   },
   "exports": {
-    "./errors": {
-      "types": "./dist/errors/index.d.ts",
-      "default": "./dist/errors/index.js"
-    },
     "./format-number": {
       "types": "./dist/format-number.d.ts",
       "default": "./dist/format-number.js"
