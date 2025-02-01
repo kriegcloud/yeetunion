@@ -1,11 +1,10 @@
 // import type { PgTableWithColumns } from "drizzle-orm/pg-core";
 // import type { TableConfig } from "drizzle-orm/table";
-import { db } from "#/client"
+import { db } from "#/client";
 // import { head, isArray } from "effect/Array";
 import type { UnknownException } from "effect/Cause";
 // import { isNullable, isNumber, isRecord, isString } from "effect/Predicate";
 import {
-  Config,
   Context,
   Effect
 } from "effect";
